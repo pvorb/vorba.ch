@@ -1,0 +1,6 @@
+vorb.de
+=======
+
+Personal website of German web developer [Paul Vorbach](paul@vorb.de).
+This repository contains all static resource files of the website available at
+[vorb.de](http://vorb.de).
