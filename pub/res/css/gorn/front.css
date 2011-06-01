@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+* { text-align: center; }
+
+html {
+	background: #eaeaef;
+	font: 12pt/1.5 Georgia, serif; }
+body { max-width: 600px; text-align: left; margin: 0 auto; }
+
+#top { font: 5em/1.5 serif; color: #606; }
+#branches {
+	background: black;
+	border-radius: 2px;
+	list-style: none;
+	font: 1.1em Candara, sans-serif;
+	margin-top: 0; padding: 4px;
+	text-align: center;
+}
+#branches li { display: inline; }
+#branches li a {
+	background: #800; color: white;
+	border-radius: 2px;
+	padding: 6px;
+	text-decoration: none;
+}
+#branches li a:hover { background: #c00; }
+
+#path, #access { display: none; }
+
+#content, #extra, #about { background: white; overflow: hidden; padding: 1em; }
+
+#content .emph { font: 2em serif; margin: .5em; }
+
+#sf { text-align: center; }
+#sf fieldset { border: none; }
+#sf legend { display: none; }
+#sf input { text-align: left; }
+
+#about p { margin: 0; }
+
+/* font */
+#top, #content .emph { font-family: Copse; }
