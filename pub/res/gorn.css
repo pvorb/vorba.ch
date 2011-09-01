@@ -1,0 +1,315 @@
+@charset "utf-8";
+
+/* unique elements */
+html { font: 100%/1.5 Georgia, serif; }
+body { margin: 0 20px 3em; }
+
+#access { visibility: hidden; position: absolute; }
+
+/* dimensions */
+table { width: 100%; }
+#sf { max-width: 240px; }
+.teaser { max-width: 320px; }
+.avatar { width: 60px; height: 60px; }
+
+/* positioning */
+#top { position: absolute; }
+#branches { position: relative; }
+
+#top { top: 0; left: 0; right: 0; }
+
+/* floating */
+#branches li,
+header > time,
+#blog-nav li { float: left; }
+
+h1, h2, h3, h4,
+#top, #nav, #content footer, #comments, #about,
+#content figure.huge img,
+#content figure.full img,
+.comment { clear: both; }
+#content aside { clear: right; }
+
+#nav, #branches, #path, #seq, #blog-nav ul { overflow: hidden; }
+
+/* margins */
+p, figure, #branches, #blog-nav ul, #sf input { margin: 0; }
+h1, h2, h3, h4 { margin: .6em 0 .3em; }
+#sf fieldset { margin: 0 2px 2px; }
+#about { margin: 3em 0; }
+p { margin: 0 0 .5em; }
+.meta p { margin: .5em 0; }
+
+#path,
+h1:first-child,
+h2:first-child,
+h3:first-child { margin-top: 0; }
+#comments { margin-top: 1em; }
+
+dl.oview dt { margin-right: 10px; }
+#branches li, #blog-nav li { margin-right: 4px; }
+header > time { margin-right: 10px; }
+
+#path, #blog-nav,
+#content section, #content article, #content aside,
+#content header .meta,
+figcaption,
+.comment header,
+.comment .matter { margin-bottom: 1em; }
+
+/* paddings */
+#blog-nav ul { padding: 0; }
+#top, #branches, #path { padding: .2em 0; }
+#branches a,
+header > time,
+#blog-nav a,
+#sf legend { padding: 0 4px; }
+#content .meta { padding: .2em 10px; }
+th, td { padding: .1em 6px; }
+
+#top { padding-left: 20px; }
+.toc { padding-left: 0; }
+.toc ul { padding-left: 30px; }
+
+.comment { padding-top: .5em; }
+
+.comment .meta { padding-bottom: .5em; }
+
+/* borders */
+.feed img, iframe { border: none; }
+
+#cf textarea, #cf input[type=text] { border: 1px solid #666; }
+#cf textarea:focus, #cf input[type=text]:focus { border-color: #f60; }
+
+textarea:target, input:target { border-width: 2px; }
+#branches a, #blog-nav a, header > time { border: none; border-radius: 2px; }
+a:hover, thead th { border-bottom: 1px solid; }
+abbr { border-bottom: 1px dotted; }
+
+.meta, caption { border-bottom: 1px solid #bbb; }
+#content .meta, .teasers, .comment { border-top: 1px solid #bbb; }
+
+.comment.new { border-top: 3px double lime; }
+
+/* colors */
+a { color: #a00; }
+a:visited { color: #821; }
+a:active { color: red; }
+
+#top, #top a, #branches a,
+header > time, #blog-nav a { color: white; }
+
+#top { background: black; }
+#branches a, #blog-nav a { background: #800; }
+#branches a:hover, #branches a:focus,
+#blog-nav a:hover, #blog-nav a:focus { background: #b30; }
+#branches li.active a { background: #c00; }
+#branches li.active:hover a, #branches li.active a:focus { background: #c40; }
+
+.rows tr:nth-child(even) { background: rgba(0, 0, 0, .05); }
+.cols col:nth-child(even) { background: rgba(0, 0, 0, .05); }
+
+header > time { background: #800; }
+  
+#content .meta { background: #eee; }
+.error { background: #fdd; outline: 1px solid red; }
+
+/* list styles */
+ul { list-style: square; }
+#branches, #path, #seq, #blog-nav ul, .toc, .toc ul { list-style: none; }
+
+/* typo */
+#top, #branches, #blog-nav, header > time, #extra,
+h1, h2, h3, h4, caption, th { font-family: Candara, sans-serif; }
+pre, code, #cf input[type=text], #cf textarea { font-family: monospace; }
+
+#top, #branches, #extra, caption { font-size: 1.1em; }
+#about, sup { font-size: .8em; }
+.sub { font-size: .6em; }
+
+caption, .sub { font-style: italic; }
+
+h1, h2, h3 { font-weight: normal; }
+dl dt { font-weight: bold; }
+
+h1, h2, h3 { line-height: 1.2; }
+#cf input, textarea { line-height: 1.5; }
+
+a { text-decoration: none; }
+
+#branches li.active a { text-shadow: 1px 1px 0 #222; }
+
+.feed img { vertical-align: -.15em; }
+figure img { vertical-align: bottom; }
+
+/* misc */
+#top > *:after { content: ":"; }
+#path li:after { content: " / "; }
+#path li:last-child:after { content: ""; }
+
+#path li { display: inline; }
+#branches a, #blog-nav a,
+header, footer, article, section, aside, nav, figcaption { display: block; }
+
+abbr, *[title] { cursor: help; }
+a, a[title], *[title] a, a *[title] { cursor: pointer; }
+
+/* temporary form */
+textarea, input { margin: 0 0 .5em; }
+#cf textarea, #cf input[type=text] { padding: 5px; }
+#cf .opt { padding: 0 5px; color: white; background: #a33; }
+
+/*** Resolutions ***/
+
+/* Handheld screens */
+@media
+  screen and (max-width: 639px),
+  projection and (max-width: 639px),
+  tv and (max-width: 639px),
+  handheld
+{
+  /* dimensions */
+  figure img { width: 100%; }
+  aside figure img { max-width: 320px; }
+
+  /* floating */
+  .comment .avatar { float: left; }
+
+  /* positioning */
+  #branches { position: absolute; }
+  #branches { top: 0; right: 0; }
+  
+  /* margins */
+  #path { margin-top: 1.9em; }
+  
+  /* padding */
+  .comment .avatar { margin: .5em; }
+}
+
+/* Everything up to 979px width */
+@media (max-width: 979px) {
+  header > time { margin-bottom: .5em; }
+}
+
+/* Small (e.g. netbook) to large (e.g. desktop) screens */
+@media
+  screen and (min-width: 640px),
+  projection and (min-width: 640px),
+  tv and (min-width: 640px)
+{
+  /* dimensions */
+  body { width: 520px; }
+  #path { width: 270px; }
+  
+  #content header .meta { width: 500px; }
+  
+  .comment header { width: 130px; }
+  .comment .matter { width: 370px; }
+  #cf textarea { width: 508px; }
+  
+  /* floating */
+  .comment header { float: left; }
+  .comment .matter { float: right; }
+
+  /* positioning */
+  #extra { position: absolute; top: 2em; left: 392px; }
+  .comment .avatar { position: absolute; }
+  #back { position: fixed; bottom: 5px; left: 10px; }
+
+  /* margins */
+  body { margin-left: 100px; }
+  #content { margin-top: 3em; }
+
+  .comment header { margin-right: 20px; }
+
+  .huge img,
+  .huge iframe,
+  .full img,
+  .full iframe,
+  .comment .avatar { margin-left: -80px; }
+
+  /* colors */
+  #sf { background: white; }
+  
+  /* misc */
+  #back { border-bottom: 0px; font-weight: bold; visibility: visible; }
+}
+
+/* Large screens */
+@media
+  screen and (min-width: 980px),
+  projection and (min-width: 980px),
+  tv and (min-width: 980px)
+{
+  /* dimensions */
+  #sf { width: 207px; }
+  #content aside, #extra { width: 320px; }
+  #path { width: 520px; }
+  
+  #content .teasers.three article { width: 280px; }
+  
+  #nav, #content h1,
+  section#content article,
+  article#content section,
+  .digest article h1,
+  .digest article > p,
+  .comment { width: 520px; }
+  
+  body, #content,
+  #content .digest article,
+  #content .teasers { width: 860px; }
+
+  #content figure.huge img { width: 600px; }
+  #content figure.full img { width: 940px; }
+  
+  /* floating */
+  #content header .meta,
+  section#content article,
+  article#content section,
+  #sf input { float: left; }
+  #content aside,
+  #sf { float: right; }
+  
+  /* positioning */
+  #extra { top: 0; left: 640px; }
+  
+  /* margins */
+  #content { margin-top: 0; }
+  .teasers.three article { margin-right: 10px; }
+  .teasers.three article:last-child { margin-right: 0; }
+  
+  /* paddings */
+  .teasers article { padding-top: .5em; }
+  #sf fieldset { padding: 2px; }
+  
+  /* borders */
+  .teasers { border: none; }
+  #sf fieldset { border: 1px solid #666; }
+  #content .teasers article { border-top: 1px solid #bbb; }
+
+  /* colors */
+  #extra { color: white; }
+  #sf { background: black; }
+  
+  /* misc */
+  #sf { text-align: right; }
+}
+
+@media print {
+  body { margin: 2.5cm; }
+  #top { background: white; color: #black; padding: 0; position: static; }
+  #top { float: left; width: 100px; }
+  #branches, #extra { display: none; }
+  
+  #content figure.huge img,
+  #content figure.full img { margin-left: 0; }
+  
+  #content a[href^="http://"]:after,
+  #comments a[href^="http://"]:after { border-bottom: none; content: " ("attr(href)")"; }
+  #content a[href^="https://"]:after,
+  #comments a[href^="https://"]:after { border-bottom: none; content: " ("attr(href)")"; }
+  #content a[href^="ftp://"]:after,
+  #comments a[href^="ftp://"]:after { border-bottom: none; content: " ("attr(href)")"; }
+  #content a[href^="mailto:"]:after,
+  #comments a[href^="mailto:"]:after { border-bottom: none; content: " ("attr(href)")"; }
+}
