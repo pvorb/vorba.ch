@@ -3,6 +3,7 @@
 html {
 	background: #eaeaef;
 	font: 1em/1.5 Georgia, serif;
+	quotes: "" "";
 	text-align: center;
 }
 
@@ -24,20 +25,16 @@ h3 {
 	font-size: 1.1;
 }
 
-h3 {
-	font-family: Arial, sans-serif;
-}
-
-#top, h1, h2 {
-	font-family: "Open Sans", Arial sans-serif;
-}
-
-#top {
-	font-size: 3em;
+h1, h2, h3 {
+	font-weight: normal;
 }
 
 #top, h1, h2, h3 {
-	font-weight: normal;
+	font-family: "Open Sans", Arial, sans-serif;
+}
+
+#top {
+	font-size: 1.5em;
 }
 
 #top a {
@@ -90,12 +87,16 @@ h3 {
 	text-align: left;
 }
 
-.paul {
+#content > aside {
+	max-width: 256px;
+}
+
+.teaser, #content > aside {
 	float: right;
 	margin: 0 0 0 1em;
 }
 
-.paul img {
+.teaser img {
 	border-radius: 4px;
 }
 
