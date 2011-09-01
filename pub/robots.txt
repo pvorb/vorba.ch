@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /paul.png
+Disallow: /res/
 Disallow: /info/contact.html
+Disallow: /license/mit.html

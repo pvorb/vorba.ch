@@ -2,7 +2,7 @@
 
 html {
 	background: #eaeaef;
-	font: 12pt/1.5 Georgia, serif;
+	font: 1em/1.5 Georgia, serif;
 	text-align: center;
 }
 
@@ -12,13 +12,32 @@ body {
 	margin: 0 auto;
 }
 
-#top, h1, h2, h3 {
-	font-family: "Open Sans", sans-serif;
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
+h3 {
+	font-size: 1.1;
+}
+
+h3 {
+	font-family: Arial, sans-serif;
+}
+
+#top, h1, h2 {
+	font-family: "Open Sans", Arial sans-serif;
 }
 
 #top {
-	font-size: 48px;
-	text-shadow: white 1px 1px;
+	font-size: 3em;
+}
+
+#top, h1, h2, h3 {
+	font-weight: normal;
 }
 
 #top a {
@@ -34,7 +53,7 @@ body {
 	background: black;
 	border-radius: 2px;
 	list-style: none;
-	font: 14pt Candara, Arial, sans-serif;
+	font: 1.1em Candara, Arial, sans-serif;
 	margin-top: 0;
 	padding: 4px;
 }
@@ -76,7 +95,9 @@ body {
 	margin: 0 0 0 1em;
 }
 
-.paul img { border-radius: 4px; }
+.paul img {
+	border-radius: 4px;
+}
 
 #sf {
 	text-align: center;
@@ -104,4 +125,9 @@ h1, h2, h3, p {
 
 address {
 	font-style: normal;
+}
+
+.img-list {
+	list-style: none;
+	padding: 0;
 }
