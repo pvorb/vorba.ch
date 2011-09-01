@@ -1,10 +1,9 @@
-* {
-	text-align: center;
-}
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
 
 html {
 	background: #eaeaef;
 	font: 12pt/1.5 Georgia, serif;
+	text-align: center;
 }
 
 body {
@@ -13,13 +12,12 @@ body {
 	margin: 0 auto;
 }
 
-#top,#content .emph {
-	font-family: Copse, Georgia, serif;
+#top, h1, h2, h3 {
+	font-family: "Open Sans", sans-serif;
 }
 
 #top {
-	font-size: 5em;
-	color: #606;
+	font-size: 48px;
 }
 
 #branches {
@@ -29,7 +27,6 @@ body {
 	font: 1.1em Candara, Arial, sans-serif;
 	margin-top: 0;
 	padding: 4px;
-	text-align: center;
 }
 
 #branches li {
@@ -48,20 +45,28 @@ body {
 	background: #c00;
 }
 
-#path,#access {
+#branches li.active a {
+	background: #c00;
+	text-shadow: 1px 1px black;
+}
+
+#path, #access {
 	display: none;
 }
 
-#content,#extra,#about {
+#content, #extra, #about {
 	background: white;
 	overflow: hidden;
 	padding: 1em;
+	text-align: left;
 }
 
-#content .emph {
-	font-size: 2em;
-	margin: .5em;
+.paul {
+	float: right;
+	margin: 0 0 0 1em;
 }
+
+.paul img { border-radius: 4px; }
 
 #sf {
 	text-align: center;
@@ -81,4 +86,12 @@ body {
 
 #about p {
 	margin: 0;
+}
+
+h1, h2, h3, p {
+	margin-top: 0;
+}
+
+address {
+	font-style: normal;
 }
