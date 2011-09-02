@@ -26,6 +26,7 @@
 		</nav>
 		<article id="content">
 			<h1><%= title %></h1>
+			<p class="meta">von <%= author %></p>
 <%= __content %>
 		</article>
 		<footer id="about">
