@@ -19,8 +19,7 @@ var conf = {
 		"mkd": "html",
 		"md": "html",
 		"mdown": "html",
-		"markdown": "html",
-		"txt": "html"
+		"markdown": "html"
 	},
 
 	// Array of indexes that shall be created
