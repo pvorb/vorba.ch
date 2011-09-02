@@ -6,7 +6,9 @@
 	<id>http://vorb.de/log/feed.xml</id>
 	<author>
 		<name><%= author %></name>
+<% if (has('authorLink')) { %>
 		<uri><%= authorLink %></uri>
+<% } %>
 	</author>
 	<rights>© 2008-2011 Paul Vorbach</rights>
 	<link href="http://vorb.de/log/"/>
