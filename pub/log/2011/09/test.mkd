@@ -1,4 +1,5 @@
 title: Test
+author: Paul Vorbach
 date: 2011-09-02T16:43:00+02:00
 template: post.tpl
 
