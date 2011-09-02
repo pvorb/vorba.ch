@@ -7,7 +7,9 @@
 		<style>/*#content > h1 { font-size: 1.5em; }*/</style>
 		<link rel="icon" href="/favicon.ico">
 		<meta name="author" content="<%= author %>">
+<% if (tags) { %>
 		<meta name="keywords" content="<%= tags.join(", ") %>">
+<% } %>
 	</head>
 	<body>
 		<header id="top">
