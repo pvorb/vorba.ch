@@ -25,12 +25,12 @@
 		</nav>
 		<section id="content">
 			<h1>Blog</h1>
-<% for (var doc in __docs) { %>
+<% __docs.forEach(function(doc) { %>
 			<article>
 				<h1><%= doc.title %></h1>
 				<%= doc.__content %>
 			</article>
-<% } %> 
+<% }); %> 
 		</section>
 		<footer id="about">
 			<p>© 2008-<%= __docs[0].date.getFullYear() %> – <%= author %>

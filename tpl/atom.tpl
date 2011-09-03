@@ -17,7 +17,7 @@
 	<category term="web"/>
 	<category term="development"/>
 	<icon>http://vorb.de/favicon.ico</icon>
-<% for (var doc in __docs) { %>
+<% __docs.forEach(function(doc) { %>
 	<entry>
 		<title><%= doc.title %></title>
 		<link href="http://vorb.de/log/<%= doc.__path %>"/>
@@ -27,5 +27,5 @@
 			
 		</summary>
 	</entry>
-<% } %>
+<% }); %>
 </feed>

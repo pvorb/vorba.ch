@@ -32,7 +32,7 @@
 <%= __content %>
 		</article>
 		<footer id="about">
-			<p>© <%= date.getYear() %> – <%= author %>
+			<p>© <%= date.getFullYear() %> – <%= author %>
 				<a href="/info/contact.html">Kontakt</a>.</p>
 		</footer>
 	</body>
