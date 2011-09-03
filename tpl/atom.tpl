@@ -17,7 +17,7 @@
 	<category term="web"/>
 	<category term="development"/>
 	<icon>http://vorb.de/favicon.ico</icon>
-<% for (var doc in __docs) {
+<% for (var doc in __docs) { %>
 	<entry>
 		<title><%= doc.title %></title>
 		<link href="http://vorb.de/log/<%= doc.__path %>"/>
