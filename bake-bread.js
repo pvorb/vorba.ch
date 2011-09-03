@@ -50,6 +50,7 @@ var conf = {
 
 	properties: {
 		siteTitle: "Paul Vorbach",
+		siteSubtitle: "Web, Entwicklung und so",
 		author: "Paul Vorbach",
 		template: "post.tpl",
 		stylesheet: "compact.css"
