@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title><%= title %> | <%= siteTitle %></title>
 		<link rel="stylesheet" href="/res/compact.css">
-		<style>/*#content > h1 { font-size: 1.5em; }*/</style>
+		<style>#content > h1 { font-size: 1.5em; }</style>
 		<link rel="icon" href="/favicon.ico">
 		<meta name="author" content="<%= author %>">
 	</head>
