@@ -5,10 +5,10 @@
 		<title><%= title %> | <%= siteTitle %></title>
 		<link rel="stylesheet" href="/res/<%= stylesheet %>">
 		<link rel="icon" href="/favicon.ico">
-		<meta name="author" content="<%= author %>">
-<% if (locals.tags) { %>
-		<meta name="keywords" content="<%= tags.join(", ") %>">
-<% } %>
+		<meta name="author" content="<%= author %>"><%
+if (locals.tags) { %>
+		<meta name="keywords" content="<%= tags.join(", ") %>"><%
+} %>
 	</head>
 	<body>
 		<header id="top">
@@ -28,7 +28,7 @@
 		<article id="content">
 			<h1><%= title %></h1>
 			<p class="meta">von <%= author %></p>
-<%- __content %>
+                        <%- __content %>
 		</article>
 		<footer id="about">
 			<p>© <%= date.getFullYear() %> – <%= author %>
