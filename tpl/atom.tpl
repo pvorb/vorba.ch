@@ -21,9 +21,14 @@
     <link href="http://vorb.de<%= doc._id %>"/>
     <id>http://vorb.de<%= doc._id %></id>
     <updated><%= doc.date.toISOString() %></updated>
-                <content type="html">
-<%= esc(doc.__content, { uri: "http://vorb.de"+doc._id }) %>
-                </content>
+    <author>
+      <name><%= doc.author %></name>
+<% if (doc.authorEmail) { %>      <email><%= doc.authorEmail %></email><% } %>
+<% if (doc.authorUri) { %>      <uri><%= doc.authorUri %></uri><% } %>
+    </author>
+    <content type="html">
+      <%= esc(doc.__content, { uri: "http://vorb.de"+doc._id }) %>
+    </content>
   </entry>
 <% }); %>
 </feed>
