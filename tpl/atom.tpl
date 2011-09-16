@@ -3,7 +3,7 @@
 	<title><%= siteTitle %></title>
 	<subtitle><%= siteSubtitle %></subtitle>
 	<updated><%= (new Date()).toISOString() %></updated>
-	<id>http://vorb.de/log/feed.xml</id>
+	<id><% id %></id>
 	<author>
 		<name><%= author %></name>
 <% if (locals.authorLink) { %>    <uri><%= authorLink %></uri><% } %>
@@ -18,11 +18,11 @@
 <% __docs.forEach(function(doc) { %>
 	<entry>
 		<title><%= doc.title %></title>
-		<link href="http://vorb.de/log/<%= doc._id %>"/>
-		<id>http://vorb.de/log/<%= doc._id %></id>
+		<link href="http://vorb.de<%= doc._id %>"/>
+		<id>http://vorb.de<%= doc._id %></id>
 		<updated><%= doc.date.toISOString() %></updated>
                 <content type="html">
-<% esc(doc.__content) %>
+<% esc(doc.__content, { uri: "http://vorb.de"+doc._id }) %>
                 </content>
 	</entry>
 <% }); %>
