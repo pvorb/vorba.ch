@@ -6,7 +6,7 @@
 	<id>http://vorb.de/log/feed.xml</id>
 	<author>
 		<name><%= author %></name>
-<% if (has('authorLink')) { %>		<uri><%= authorLink %></uri><% } %>
+<% if (locals.authorLink) { %>    <uri><%= authorLink %></uri><% } %>
 	</author>
 	<rights>© 2008-2011 Paul Vorbach</rights>
 	<link href="http://vorb.de/log/"/>
@@ -21,7 +21,9 @@
 		<link href="http://vorb.de/log/<%= doc._id %>"/>
 		<id>http://vorb.de/log/<%= doc._id %></id>
 		<updated><%= doc.date.toISOString() %></updated>
-
+    <content type="html">
+<% esc(__docs.__content) %>
+    </content>
 	</entry>
 <% }); %>
 </feed>
