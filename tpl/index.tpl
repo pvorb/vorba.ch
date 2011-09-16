@@ -28,7 +28,7 @@
 <% __docs.forEach(function(doc) { %>
 			<article>
 				<h1><%= doc.title %></h1>
-				<%= doc.__content %>
+				<%- doc.__content %>
 			</article>
 <% }); %> 
 		</section>
