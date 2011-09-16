@@ -22,7 +22,7 @@
 		<id>http://vorb.de<%= doc._id %></id>
 		<updated><%= doc.date.toISOString() %></updated>
                 <content type="html">
-<% esc(doc.__content, { uri: "http://vorb.de"+doc._id }) %>
+<%= esc(doc.__content, { uri: "http://vorb.de"+doc._id }) %>
                 </content>
 	</entry>
 <% }); %>
