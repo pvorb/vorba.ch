@@ -21,9 +21,9 @@
 		<link href="http://vorb.de/log/<%= doc._id %>"/>
 		<id>http://vorb.de/log/<%= doc._id %></id>
 		<updated><%= doc.date.toISOString() %></updated>
-    <content type="html">
-<% esc(__docs.__content) %>
-    </content>
+                <content type="html">
+<% esc(doc.__content) %>
+                </content>
 	</entry>
 <% }); %>
 </feed>
