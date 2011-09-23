@@ -1,6 +1,10 @@
 title: Test
-author: Paul Vorbach
+author: Paul
 date: 2011-09-02T16:43:00+02:00
+tags:
+  - test
+  - kategorie
+teaser: testbild.png
 template: post.tpl
 
 

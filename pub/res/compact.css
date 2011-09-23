@@ -1,16 +1,16 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400);
 
 html {
-	background: #eaeaef;
+	/*background: #eaeaef;*/
 	font: 1em/1.5 Georgia, serif;
-	quotes: "" "";
+	quotes: none;
 	text-align: center;
 }
 
 body {
+  margin: 0 auto;
 	max-width: 600px;
 	text-align: left;
-	margin: 0 auto;
 }
 
 h1 {
@@ -22,7 +22,7 @@ h2 {
 }
 
 h3 {
-	font-size: 1.1;
+	font-size: 1.1em;
 }
 
 #top, h1, h2, h3 {
@@ -64,8 +64,20 @@ h3 {
 	text-decoration: none;
 }
 
-#branches li a:hover {
-	background: #c00;
+#branches a, #blog-nav a {
+  background: #800;
+}
+
+#branches a:hover, #branches a:focus, #blog-nav a:hover, #blog-nav a:focus {
+  background: #b30;
+}
+
+#branches li.active a {
+  background: #c00;
+}
+
+#branches li.active:hover a, #branches li.active a:focus {
+  background: #c40;
 }
 
 #branches li.active a {
@@ -75,6 +87,11 @@ h3 {
 
 #path, #access {
 	display: none;
+}
+
+#content {
+  border: 1px solid #e8e8e8;
+  border-radius: 3px;
 }
 
 #content, #extra, #about {
@@ -95,6 +112,11 @@ h3 {
 
 .teaser img {
 	border-radius: 4px;
+}
+
+.teaser {
+  position: relative;
+  top: 0;
 }
 
 #sf {
