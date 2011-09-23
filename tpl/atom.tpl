@@ -27,8 +27,16 @@
       <uri><%= doc.authorUri %></uri><% } %>
     </author>
     <content type="html">
+<% if (doc.screenshot) { %>
+      
+<% } else if (doc.teaser) { %>
+      &lt;p&gt;&lt;img src="http://vorb.de<%= doc._id.split('/').slice(0, -1).join('/') + '/' + doc.teaser %>"&gt;&lt;/p&gt;
+<% } %>
       <%= esc(doc.__content, { uri: "http://vorb.de"+doc._id }) %>
     </content>
+<% doc.tags.forEach(function(tag) { %>
+    <category term="<%= tag %>"/>
+<% }); %>
   </entry>
 <% }); %>
 </feed>

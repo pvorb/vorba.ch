@@ -2,17 +2,40 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>Paul Vorbach</title>
   <subtitle>Web, Entwicklung und so</subtitle>
-  <updated>2011-09-01T12:00:00+02:00</updated>
-  <id>http://vorb.de/log/feed.xml</id>
+  <updated>2011-09-20T16:55:09.010Z</updated>
+  <id></id>
   <author>
-    <name>Paul Vorbach</name>
-    <uri>http://vorb.de</uri>
+    <name>Paul</name>
+    <uri>http://vorb.de/</uri>
   </author>
   <rights>© 2008-2011 Paul Vorbach</rights>
-  <link href="http://vorb.de/log/" />
-  <link rel="self" href="http://vorb.de/log/feed.xml" />
-  <category term="computer" />
-  <category term="web" />
-  <category term="development" />
+  <link href="http://vorb.de/log/"/>
+  <link rel="self" href="http://vorb.de/log/feed.xml"/>
+  <category term="computer"/>
+  <category term="web"/>
+  <category term="development"/>
   <icon>http://vorb.de/favicon.ico</icon>
+
+  <entry>
+    <title>Test</title>
+    <link href="http://vorb.de/log/2011/09/test.html"/>
+    <id>http://vorb.de/log/2011/09/test.html</id>
+    <updated>2011-09-02T14:43:00.000Z</updated>
+    <author>
+      <name>Paul</name>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorb.de/log/2011/09/testbild.png"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Dies ist ein erster Test.&lt;/p&gt;  &lt;blockquote&gt;&lt;p&gt; Ein Zitat&lt;/p&gt;&lt;/blockquote&gt;  &lt;pre&gt;&lt;code&gt;Ein wenig Code
+&lt;/code&gt;&lt;/pre&gt;
+    </content>
+
+    <category term="test"/>
+
+    <category term="kategorie"/>
+
+  </entry>
+
 </feed>

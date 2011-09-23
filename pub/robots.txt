@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /public.asc
 Disallow: /paul.png
 Disallow: /res/
 Disallow: /info/contact.html
-Disallow: /license/mit.html
+Disallow: /license/
