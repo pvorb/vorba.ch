@@ -3,16 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title><%= title %> | <%= siteTitle %></title>
-    <link rel="stylesheet" href="/res/<%= stylesheet %>">
+    <link rel="stylesheet" href="/res/milten.css">
     <link rel="icon" href="/favicon.ico">
     <meta name="author" content="<%= author %>">
-<%
-if (locals.tags) {
-%>
-    <meta name="keywords" content="<%= tags.join(", ") %>">
-<%
-}
-%>
   </head>
   <body>
     <header id="site">
@@ -25,7 +18,7 @@ if (locals.tags) {
       </ul>
       <ol id="path">
 <%
-var path = _id.split('/'),
+var path = ('/log/tag/'+title+'.html').split('/'),
     pathref = '/';
 
 for (var i = 1; i < path.length; i++) {
@@ -53,36 +46,25 @@ for (var i = 1; i < path.length; i++) {
     </nav>
     <article id="content">
       <header>
-        <h1><%= title %></h1>
-<% if (locals.teaser) { %>
-        <aside>
-          <figure class="teaser">
-            <img src="<%= teaser %>">
-          </figure>
-        </aside>
-<% } %>
+        <h1>Kategorie: <em><%= title %></em></h1>
+        <p class="meta"><%= __docs.length %> Artikel</p>
       </header>
       <section>
-        <%- __content %>
+        <ul>
+<%
+__docs.forEach(function(doc) {
+  var date = doc.date;
+  var datestr = date.getDate()+'.'+date.getMonth()+'.'+date.getFullYear();
+%>
+          <li><a href="<%= doc._id %>"><%= doc.title %></a>, <%= datestr %>
+<%
+});
+%>
+        </ul>
       </section>
-<%
-var datestr = date.getDate()+'.'+date.getMonth()+'.'+date.getFullYear();
-%>
-      <footer class="meta">
-        <p>Geschrieben am <time><%= datestr %></time>; Kategorien:
-<%
-if (locals.tags)
-  for (var i = 0, len = tags.length; i < len; i++) { var tag = locals.tags[i];
-%>
-          <a href="/log/tag/<%= tag %>.html"><%= tag %></a><%= (i == len - 1) ? '' : ',' %>
-<%
-  }
-%>
-        </p>
-      </footer>
     </article>
     <footer id="about">
-      <p>© <%= date.getFullYear() %> – <%= author %>
+      <p>© 2008-<%= __docs[0].date.getFullYear() %> – <%= author %>
         <a href="/info/contact.html">Kontakt</a>.</p>
     </footer>
   </body>
