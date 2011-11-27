@@ -8,7 +8,7 @@
 		<meta name="author" content="<%= author %>">
 	</head>
 	<body>
-		<header id="top">
+		<header id="site">
 			<a href="/"><%= siteTitle %></a>
 		</header>
 		<nav id="nav">
