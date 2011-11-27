@@ -1,0 +1,71 @@
+body {
+  background-color: #000;
+}
+
+#site a {
+  color: #fff;
+  font-family: sans-serif;
+}
+
+td.head {
+  margin: 0px;
+  padding: 0px;
+  font-family: Tahoma;
+  font-weight: bold;
+  text-align: center;
+  color: #FFFFFF;
+  background-image: url(div.gif);
+  background-repeat: repeat-y;
+  background-position: right;
+}
+
+td.bild {
+  margin: 0px;
+  padding: 0px;
+}
+
+td.text {
+  margin: 0px;
+  padding: 0px;
+  font-family: Tahoma;
+  font-weight: bold;
+  text-align: center;
+  color: #0099FF;
+  background-image: url(div.gif);
+  background-repeat: repeat-y;
+  background-position: right;
+}
+
+td.ad {
+  margin: 0px;
+  padding: 0px;
+  font-family: Tahoma;
+  font-weight: normal;
+  font-size: 12px;
+  color: #CCCCCC;
+}
+
+td.copyright {
+  margin: 0px;
+  padding: 0px;
+  font-family: Tahoma;
+  font-weight: normal;
+  font-size: 10px;
+  color: #888888;
+}
+
+td.ad b {
+  color: #CC0000;
+}
+
+td.ad a,td.ad a:link,td.ad a:visited,td.ad a:active {
+  color: #CC0000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+td.ad a:hover {
+  color: #FFFFFF;
+  font-weight: bold;
+  text-decoration: none;
+}
