@@ -11,7 +11,7 @@ module.exports = {
     input: "pub", // Look for files in this dir.
     output: "pub", // Write files to this dir.
     templates: "tpl", // Look for templates in this dir.
-    tags: "pub/log/tag" // Write tag files to this dir. 
+    tags: "pub/log/tag" // Write tag files to this dir.
   },
 
   fileExtensions: { // Replace markdown by html
