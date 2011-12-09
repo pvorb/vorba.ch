@@ -3,7 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Markdown Übersicht</title>
-    <style>h1 { margin-top: 0; }</style>
+    <style>
+h1 { margin-top: 0; }
+pre { background: #eee; padding: .5em; }
+    </style>
   </head>
   <body>
     <h1>Markdown</h1>
@@ -14,54 +17,44 @@
       des Autors</a>.</p>
     
     <h2>Formatierung</h2>
-    <pre><code>
-    **fett**, _kursiv_, -durchgestrichen-
-    </code></pre>
+    <pre><code>**fett**, _kursiv_, -durchgestrichen-</code></pre>
     
     <h2>Links</h2>
-    <pre><code>
-[Wikipedia](http://de.wikipedia.org)
+    <pre><code>[Wikipedia](http://de.wikipedia.org)
 
-&lt;https://vorb.de&gt;
-    </code></pre>
+&lt;https://vorb.de&gt;</code></pre>
     <p>wird zu</p>
     <p><a href="http://de.wikipedia.org">Wikipedia</a></p>
     <p><a href="https://vorb.de">https://vorb.de</a></p>
     
     <h2>Bilder</h2>
-    <pre><code>
-![Alternativtext](https://vorb.de/res/flower.jpg)
-    </code></pre>
+    <pre><code>![Alternativtext](https://vorb.de/res/flower.jpg)</code></pre>
     <p>wird zu</p>
     <p><img src="https://vorb.de/res/flower.jpg" alt="Alternativtext"></p>
     
     <h2>Zitate</h2>
     <p>Text, der mit <code>></code> eingerückt wird, wird als Zitat
       dargestellt.</p> 
-    <pre><code>
-> Von den meisten Büchern bleiben nur Zitate übrig.
+    <pre><code>> Von den meisten Büchern bleiben nur Zitate übrig.
 > Warum nicht gleich nur Zitate schreiben?
-‒ Stanisław Jerzy Lec
-    </code></pre>
+~ Stanisław Jerzy Lec</code></pre>
     <p>wird zu</p>
     <blockquote>
       Von den meisten Büchern bleiben nur Zitate übrig. Warum nicht gleich nur
       Zitate schreiben?
     </blockquote>
-    <p>‒ Stanisław Jerzy Lec</p>
+    <p>~ Stanisław Jerzy Lec</p>
     
     <h2>Listen</h2>
     <p>Listen können sowohl mit Hilfe von <code>*</code>, <code>+</code> und
       <code>-</code> als auch durch Zahlen erstellt werden.</p>
-    <pre><code>
-*   Hund
+    <pre><code>*   Hund
 *   Katze
 *   Maus
 
 1.  Montag
 2.  Dienstag
-3.  Mittwoch
-    </code></pre>
+3.  Mittwoch</code></pre>
     <p>wird zu</p>
     <ul>
       <li>Hund</li>
@@ -77,18 +70,14 @@
     <h2>Quelltext</h2>
     <p>Alles, was durch vier Leerzeichen eingerückt ist, wird als Quelltext
       dargestellt.</p>
-    <pre><code>
-    // add a to b
+    <pre><code>    // add a to b
     function add(a, b) {
       return a + b;
-    }
-    </code></pre>
+    }</code></pre>
     <p>wird zu</p>
-    <pre><code>
-// add a to b
+    <pre><code>// add a to b
 function add(a, b) {
   return a + b;
-}
-    </code></pre>
+}</code></pre>
   </body>
 </html>
