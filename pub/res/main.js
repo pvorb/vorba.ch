@@ -18,7 +18,7 @@ $.domReady(function init() {
       'use strict';
       if (status === 200) {
         $('#comments').append(result);
-        
+
         var message = $('#cf-message'),
             author = $('#cf-author'),
             email = $('#cf-email'),
@@ -38,17 +38,17 @@ $.domReady(function init() {
             } catch(e) {}
           }
         });
-        
+
         doc.on('click', function () {
           window.open('/res/markdown.'+l10n.lang+'.html', 'Markdown', 'width=450,height=600');
         });
         doc.attr('href', 'javascript:void()');
-        
+
         // markdown preview
         message.on('keyup', function(e) {
           stage.html(marked(message.val(), { ignoreHtml: true }));
         });
-        
+
         // bin validation
         message.on('click', validateFields);
         message.on('keyup', validateFields);
@@ -60,16 +60,16 @@ $.domReady(function init() {
         website.on('keyup', validateFields);
         nospam.on('click', validateFields);
         nospam.on('keyup', validateFields);
-        
+
         // save button
         $('#cf-save').on('click', function(e) {
           var comment = getComment(document.forms['cf']);
-          
+
           console.log(comment);
           console.log(encodeComment(comment));
-          
+
           showStatus('load');
-          
+
           // post form
           request('POST', '/comments?res='+path, encodeComment(comment),
               function onComplete(status, result) {
@@ -92,7 +92,7 @@ $.domReady(function init() {
 //get html for a comment
 function getCommentHTML(comment, isNew) {
   'use strict';
-  
+
   if (!comment.edited)
     comment.edited = new Date();
 
@@ -126,11 +126,11 @@ function addComments(clist, comments) {
 function getComment(form) {
   var el = form.elements,
       comment = {};
-  
+
   for (var i = 0; i < el.length; i++) {
     comment[el[i].name] = el[i].value;
   }
-  
+
   return comment;
 }
 
@@ -138,18 +138,18 @@ function getComment(form) {
 function encodeComment(comment) {
   var enc = encodeURIComponent,
       data = '';
-  
+
   var i = 0;
   for (var key in comment)
     data += (i++ > 0 ? '&' : '') + enc(key) + '=' + enc(comment[key]);
-  
+
   return data;
 }
 
 // show status
 function showStatus(cmd, time) {
   var status = $('#cf-status');
-  
+
   if (cmd == 'ok')
     status.attr('src', '/res/tick.png');
   else if (cmd == 'not ok')
@@ -160,7 +160,7 @@ function showStatus(cmd, time) {
     status.attr('src', '/res/exclamation.png');
 
   status.show();
-  
+
   if (time)
     window.setTimeout(function hide() {
       status.hide();
