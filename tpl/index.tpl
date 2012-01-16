@@ -77,15 +77,6 @@ if (doc.teaser) {
         <p><a href="tag/">Kategorien</a>. <a href="feed.xml">Feed</a>.</p>
       </footer>
 		</section>
-		<aside id="extra">
-		  <form id="sf" form="http://google.de/search" method="get">
-		    <fieldset>
-		      <legend>Suche</legend>
-		      <input type="search" name="q" value="site:vorb.de ">
-		      <input type="submit" value="OK">
-		    </fieldset>
-		  </form>
-		</aside>
 		<footer id="about">
 			<p>© 2008-<%= __docs[0].date.getFullYear() %> – <%= siteAuthor %>.
 				<a href="/info/contact.html">Kontakt</a>.</p>
