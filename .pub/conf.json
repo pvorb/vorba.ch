@@ -1,0 +1,47 @@
+{
+  "root": "../public",
+
+  "db": {
+    "host": "localhost",
+    "port": 27017,
+    "name": "myblog",
+    "collection": "index"
+  },
+
+  "indexes": [
+    {
+      "pattern": "log\\/\\d{4}\\/\\d{2}\\/[^\\/]+",
+      "path": {
+        "first": "log/index.html",
+        "pattern": "log/index-{{page}}.html"
+      },
+      "template": "index.ejs",
+      "limit": 8,
+      "sort": [ [ "date", "desc" ] ],
+      "properties": {
+        "title": "My Blog"
+      }
+    },
+    {
+      "pattern": "log\\/\\d{4}\\/\\d{2}\\/[^\\/]+",
+      "path": "log/feed.xml",
+      "template": "atom.ejs",
+      "limit": 8,
+      "sort": [ [ "date", "desc" ] ],
+      "properties": {
+        "title": "My Blog",
+        "id": "http://example.org/log/feed.xml"
+      }
+    }
+  ],
+
+  "tags": {
+    "directory": "log/tag",
+    "template": "tag.ejs",
+    "sort": [["date", "desc"]],
+    "index": {
+      "path": "index.html",
+      "template": "tag-index.ejs"
+    }
+  }
+}
