@@ -4,8 +4,8 @@
   "db": {
     "host": "localhost",
     "port": 27017,
-    "name": "myblog",
-    "collection": "index"
+    "name": "vorb_de",
+    "collection": "blog"
   },
 
   "indexes": [
