@@ -18,7 +18,7 @@
       </ul>
       <ol id="path">
 <%
-var path = ('/log').split('/'),
+var path = ('/log/tag/'+title+'.html').split('/'),
     pathref = '/';
 
 for (var i = 1; i < path.length; i++) {
@@ -44,42 +44,27 @@ for (var i = 1; i < path.length; i++) {
         <li><a href="#content">Inhalt</a>
       </ol>
     </nav>
-    <section id="content" class="digest">
-<% __docs.forEach(function(doc) { %>
-      <article>
-        <header>
-          <h1><a href="<%= doc._id %>"><%= doc.title %></a></h1>
+    <article id="content">
+      <header>
+        <h1>Kategorie: <em><%= title %></em></h1>
+        <p class="meta"><%= __docs.length %> Artikel</p>
+      </header>
+      <section>
+        <ul>
 <%
-var datestr = doc.created.getDate()
-  + '.'+doc.created.getMonth()+'.'+doc.created.getFullYear();
+__docs.forEach(function(doc) {
+  var date = doc.date;
+  var datestr = date.getDate()+'.'+date.getMonth()+'.'+date.getFullYear();
 %>
-          <time><%= datestr %></time>
+          <li><a href="<%= doc._id %>"><%= doc.title %></a>, <%= datestr %>
 <%
-if (doc.teaser) {
-  var teaser = doc._id.split('/').slice(0, -1);
-  teaser.push(doc.teaser);
-  teaser = teaser.join('/');
+});
 %>
-          <aside>
-            <figure class="teaser">
-              <img src="<%= teaser %>">
-            </figure>
-          </aside>
-<%
-}
-%>
-        </header>
-        <section>
-          <%- doc.__content %>
-        </section>
-      </article>
-<% }); %>
-      <footer class="meta">
-        <p><a href="tag/">Kategorien</a>. <a href="feed.xml">Feed</a>.</p>
-      </footer>
-    </section>
+        </ul>
+      </section>
+    </article>
     <footer id="about">
-      <p>© 2008-<%= __docs[0].created.getFullYear() %> – <%= siteAuthor %>.
+      <p>© 2008-<%= __docs[0].date.getFullYear() %> – <%= author %>
         <a href="/info/contact.html">Kontakt</a>.</p>
     </footer>
   </body>
