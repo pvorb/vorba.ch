@@ -1,0 +1,59 @@
+{
+  "db": {
+    "host": "localhost",
+    "port": 27017,
+    "name": "vorb_de",
+    "collection": "docs"
+  },
+
+  "directories": {
+    "input": "public",
+    "output": "public",
+    "templates": ".conf/templates"
+  },
+
+  "fileExtensions": {
+    "text": "html"
+  },
+
+  "indexes": [
+    {
+      "title": "Blog",
+      "pattern": "log/\\d{4}/\\d{2}/.+",
+      "path": {
+        "first": "index.html",
+        "pattern": "index-{{page}}.html"
+      },
+      "template": "index.tpl",
+      "limit": 12,
+      "sort": [["created", "desc"]]
+    },
+    {
+      "title": "Blog",
+      "pattern": "log/\\d{4}/\\d{2}/[^/]+",
+      "path": "feed.xml",
+      "template": "atom.tpl",
+      "limit": 10,
+      "sort": [["created", "desc"]]
+    }
+  ],
+
+  "tags": {
+    "directory": "tag",
+    "template": "tag.tpl",
+    "sort": [["created", "desc"]],
+    "index": {
+      "path": "index.html",
+      "template": "tag-index.tpl"
+    }
+  },
+
+  "autoindex": [
+    {
+      "path": "index.html",
+      "pattern": "log/\\d{4}/(\\d{2}/)?",
+      "template": "dir.tpl",
+      "filter": "index\\.html|.*\\.txt"
+    }
+  ]
+}
