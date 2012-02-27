@@ -1,3 +1,3 @@
 #!/bin/sh
 
-sass --watch src/res/milten.scss:pub/res/milten.css --style compressed
+lessc -x src/res/milten.less > public/res/milten.css
