@@ -1,0 +1,7 @@
+title: Information
+
+template: page.en.tpl
+branch: info
+
+
+This is my personal website.
