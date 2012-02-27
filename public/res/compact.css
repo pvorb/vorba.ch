@@ -1,67 +1,67 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
 
 html {
-	/*background: #eaeaef;*/
-	font: 1em/1.5 Georgia, serif;
-	quotes: none;
-	text-align: center;
+  /*background: #eaeaef;*/
+  font: 1em/1.5 Georgia, serif;
+  quotes: none;
+  text-align: center;
 }
 
 body {
   margin: 0 auto;
-	max-width: 600px;
-	text-align: left;
+  max-width: 600px;
+  text-align: left;
 }
 
 h1 {
-	font-size: 2em;
+  font-size: 2em;
 }
 
 h2 {
-	font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 h3 {
-	font-size: 1.1em;
+  font-size: 1.1em;
 }
 
-#site, h1, h2 {
-	font-family: "Open Sans", Arial, sans-serif;
-	font-weight: 300;
+#top, h1, h2 {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: 300;
 }
 
-#site {
-	font-size: 1.5em;
+#top {
+  font-size: 1.5em;
 }
 
-#site a {
-	color: black;
-	text-decoration: none;
+#top a {
+  color: black;
+  text-decoration: none;
 }
 
-#site a:hover {
-	color: #800;
+#top a:hover {
+  color: #800;
 }
 
 #branches {
-	background: black;
-	border-radius: 2px;
-	list-style: none;
-	font: 1.1em Candara, Arial, sans-serif;
-	margin-top: 0;
-	padding: 4px;
+  background: black;
+  border-radius: 2px;
+  list-style: none;
+  font: 1.1em Candara, Arial, sans-serif;
+  margin-top: 0;
+  padding: 4px;
 }
 
 #branches li {
-	display: inline;
+  display: inline;
 }
 
 #branches li a {
-	background: #800;
-	color: white;
-	border-radius: 2px;
-	padding: 6px;
-	text-decoration: none;
+  background: #800;
+  color: white;
+  border-radius: 2px;
+  padding: 6px;
+  text-decoration: none;
 }
 
 #branches a, #blog-nav a {
@@ -81,12 +81,12 @@ h3 {
 }
 
 #branches li.active a {
-	background: #c00;
-	text-shadow: 1px 1px black;
+  background: #c00;
+  text-shadow: 1px 1px black;
 }
 
 #path, #access {
-	display: none;
+  display: none;
 }
 
 #content {
@@ -95,23 +95,23 @@ h3 {
 }
 
 #content, #extra, #about {
-	background: white;
-	overflow: hidden;
-	padding: 1em;
-	text-align: left;
+  background: white;
+  overflow: hidden;
+  padding: 1em;
+  text-align: left;
 }
 
 #content > aside {
-	max-width: 256px;
+  max-width: 256px;
 }
 
 .teaser, #content > aside {
-	float: right;
-	margin: 0 0 0 1em;
+  float: right;
+  margin: 0 0 0 1em;
 }
 
 .teaser img {
-	border-radius: 4px;
+  border-radius: 4px;
 }
 
 .teaser {
@@ -120,34 +120,35 @@ h3 {
 }
 
 #sf {
-	text-align: center;
+  text-align: center;
 }
 
 #sf fieldset {
-	border: none;
+  border: none;
 }
 
 #sf legend {
-	display: none;
+  display: none;
 }
 
 #sf input {
-	text-align: left;
+  text-align: left;
 }
 
 #about p {
-	margin: 0;
+  margin: 0;
 }
 
-h1, h2, h3, p {
-	margin-top: 0;
+h1, h2, h3, p, ul {
+  margin-top: 0;
+  margin-bottom: .3em;
 }
 
 address {
-	font-style: normal;
+  font-style: normal;
 }
 
 .img-list {
-	list-style: none;
-	padding: 0;
+  list-style: none;
+  padding: 0;
 }
