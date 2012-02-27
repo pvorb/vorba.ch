@@ -1,0 +1,12 @@
+title: Contact
+
+branch: info
+template: page.en.tpl
+
+
+Paul Vorbach
+
+<address>
+  E-Mail: <paul@vorb.de> – [(PGP Public key)](/public.asc)<br>
+  IM: `vorbach@jabber.org`
+</address>
