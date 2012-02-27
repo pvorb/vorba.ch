@@ -50,7 +50,7 @@ module.exports = function comments(app, log, conf, globalConf, started) {
     started();
   });
 
-  app.get('^/comments', function getComments(req, resp) {
+  app.get('^/log/comments', function getComments(req, resp) {
     var res = req.urlParsed.query.res;
 
     // comments
@@ -62,7 +62,7 @@ module.exports = function comments(app, log, conf, globalConf, started) {
     });
   });
 
-  app.post('^/comments', function postComment(req, resp) {
+  app.post('^/log/comments', function postComment(req, resp) {
     var res = req.urlParsed.query.res;
 
     comments.parseCommentPOST(res, req, function parsed(err, comment) {

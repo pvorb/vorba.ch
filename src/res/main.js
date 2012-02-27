@@ -40,7 +40,8 @@ $.domReady(function init() {
         var stage = $('#cp-stage');
 
         // get comments json
-        request('GET', '/comments?res='+path, function onComplete(status, result) {
+        request('GET', '/log/comments?res='+path,
+            function onComplete(status, result) {
           'use strict';
           if (status === 200) {
             var comments;
@@ -78,7 +79,7 @@ $.domReady(function init() {
           showStatus('load');
 
           // post form
-          request('POST', '/comments?res='+path, encodeComment(comment),
+          request('POST', '/log/comments?res='+path, encodeComment(comment),
               function onComplete(status, result) {
             if (status === 200) {
               showStatus('ok', 5);

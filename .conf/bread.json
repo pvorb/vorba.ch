@@ -41,7 +41,7 @@
       "title": "Blog",
       "pattern": "^log/\\d{4}/\\d{2}/.+$",
       "path": "log/feed.xml",
-      "template": "atom.tpl",
+      "template": "article-feed.tpl",
       "limit": 10,
       "sort": [["created", "desc"]],
       "properties": {
