@@ -1,5 +1,19 @@
-<!DOCTYPE html>
-<html lang="de">
+<% var monthNames = {
+  '01/': 'January',
+  '02/': 'February',
+  '03/': 'March',
+  '04/': 'April',
+  '05/': 'May',
+  '06/': 'June',
+  '07/': 'July',
+  '08/': 'August',
+  '09/': 'September',
+  '10/': 'October',
+  '11/': 'November',
+  '12/': 'December'
+};
+%><!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title><%= title %> | <%= siteTitle %></title>
@@ -28,30 +42,16 @@
 <%  } else {%>
         <li><%- path[i] %>
 <%  }
-    pathref += path[i];
+    pathref += path[i+1]+'/';
   }
 %>
       </ol>
       <ol id="access">
-        <li><a href="#top" title="Zum Anfang" id="back">↑</a>
+        <li><a href="#top" title="To the top" id="back">↑</a>
         <li><a href="#nav">Navigation</a>
-        <li><a href="#content">Inhalt</a>
+        <li><a href="#content">Content</a>
       </ol>
     </nav>
-<% var monthNames = {
-  '01': 'January',
-  '02': 'February',
-  '03': 'March',
-  '04': 'April',
-  '05': 'May',
-  '06': 'June',
-  '07': 'July',
-  '08': 'August',
-  '09': 'September',
-  '10': 'October',
-  '11': 'November',
-  '12': 'December'
-}; %>
     <section id="content" class="digest">
       <header>
         <h1><%- title %></h1>
@@ -66,7 +66,7 @@
     </section>
     <footer id="about">
       <p>© 2008-<%- (new Date()).getFullYear() %> – <%- siteAuthor %>.
-        <a href="/info/contact.html">Kontakt</a>.</p>
+        <a href="/info/contact.html">Contact</a>.</p>
     </footer>
   </body>
 </html>

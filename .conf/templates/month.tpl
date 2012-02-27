@@ -42,7 +42,7 @@
 <%  } else {%>
         <li><%- path[i] %>
 <%  }
-    pathref += path[i];
+    pathref += path[i+1]+'/';
   }
 %>
       </ol>
