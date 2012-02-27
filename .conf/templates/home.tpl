@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title><%- siteTitle %></title>
-    <link rel="stylesheet" href="/res/compact.css">
+    <link rel="stylesheet" href="/res/milten.css">
     <link rel="icon" href="/favicon.ico">
     <meta name="author" content="<%= author %>">
     <style>#top { font-size: 3em }</style>
