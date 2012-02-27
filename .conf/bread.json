@@ -18,11 +18,19 @@
 
   "indexes": [
     {
+      "title": "Home",
+      "pattern": "^log/\\d{4}/\\d{2}/.+$",
+      "path": "index.html",
+      "template": "home.tpl",
+      "limit": 1,
+      "sort": [["created", "desc"]]
+    },
+    {
       "title": "Blog",
-      "pattern": "^log/\\d{4}/\\d{2}/.+",
+      "pattern": "^log/\\d{4}/\\d{2}/.+$",
       "path": {
-        "first": "index.html",
-        "pattern": "index-{{page}}.html"
+        "first": "log/index.html",
+        "pattern": "log/index-{{page}}.html"
       },
       "template": "index.tpl",
       "limit": 12,
@@ -30,8 +38,8 @@
     },
     {
       "title": "Blog",
-      "pattern": "^log/\\d{4}/\\d{2}/[^/]+",
-      "path": "feed.xml",
+      "pattern": "^log/\\d{4}/\\d{2}/.+$",
+      "path": "log/feed.xml",
       "template": "atom.tpl",
       "limit": 10,
       "sort": [["created", "desc"]],
@@ -42,7 +50,7 @@
   ],
 
   "tags": {
-    "directory": "tag",
+    "directory": "log/tag",
     "template": "tag.tpl",
     "sort": [["created", "desc"]],
     "index": {
@@ -57,6 +65,19 @@
       "pattern": "^log/\\d{4}/\\d{2}/",
       "template": "dir.tpl",
       "filter": "index\\.html|.*\\.txt"
+    },
+    {
+      "path": "index.html",
+      "pattern": "^log/\\d{4}/",
+      "template": "dir.tpl",
+      "directory": {
+        "filter": "^$",
+        "match": ""
+      },
+      "file": {
+        "filter": "index\\.html",
+        "match": ".*\\.html"
+      }
     }
   ]
 }
