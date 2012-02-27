@@ -84,14 +84,28 @@ blockquote {
   padding-left: .7em;
 }
 
-pre, code {
-  background: @bg-color;
+address {
+  font-style: normal;
+}
+
+code {
+  background: #f9f9f9;
+  border: 1px solid @border-color;
+  padding: 0 5px;
+  .round-corners(2px);
 }
 
 pre {
+  background: @bg-color;
   border: 1px solid @border-color;
   padding: .5em 10px;
-  .round-corners;
+  .round-corners(4px);
+}
+
+pre code {
+  background: inherit;
+  padding: 0;
+  border: 0;
 }
 
 pre, figure {
@@ -101,6 +115,8 @@ pre, figure {
 h1, h2, h3, h4, h5, h6 {
   font-family: sans-serif;
   font-weight: normal;
+
+  margin-bottom: .3em;
 }
 
 h1 {
@@ -133,70 +149,6 @@ figure {
 #top, #site, #branches {
   display: none;
 }
-/*#top, #site {
-  background: @bar-bg;
-  color: @bar-color;
-  font: @bar-font;
-
-  .bar-pos;
-  left: 0;
-  right: 0;
-
-  margin: 0;
-  padding: .2em 0 .2em 20px;
-
-  a {
-    .bar-link;
-    &:hover { text-decoration: underline; }
-    &:after { content: ':'; }
-  }
-}
-
-#branches {
-  color: @bar-color;
-  list-style: none;
-
-  margin: 0;
-  padding: .2em 0;
-  .bar-pos;
-  right: 0.2em;
-
-  max-width: @content-width-medium;
-
-  li {
-    display: inline;
-
-    a {
-      background: @bg-link;
-      color: @bar-color;
-
-      .inline-block;
-
-      font: @bar-font;
-      padding: 0 4px;
-      text-decoration: none;
-
-      .round-corners(2px);
-
-      &:hover {
-        background-color: @bg-link-hover;
-      }
-      &:active {
-        background-color: @bg-link-active;
-      }
-    }
-
-    &.active {
-      a {
-        background: @bg-link-active;
-
-        &:hover {
-          background-color: @bg-link-hover;
-        }
-      }
-    }
-  }
-}*/
 
 #path {
   margin: 1em 0;
@@ -217,6 +169,7 @@ figure {
 
 #content header .meta {
   color: @border-color - #222;
+  margin-top: .3em;
 }
 
 .teaser {
@@ -229,6 +182,26 @@ section aside, footer.meta {
   border-width: 1px 0;
   margin: 1em 0;
   padding: 0 10px;
+}
+
+ul.pagination {
+  padding-left: 0;
+  text-align: center;
+
+  li {
+    display: inline;
+    margin: 0 10px;
+    a, span {
+      color: #fff;
+      padding: .2em 5px;
+    }
+    a {
+      background: #d00;
+    }
+    span {
+      background: #666;
+    }
+  }
 }
 
 /* comments */
@@ -342,19 +315,6 @@ input[type=checkbox].invalid + label {
     width: @aside-width-medium;
   }
 
-  #content header .meta {
-    text-align: right;
-
-    position: absolute;
-    left: 20px;
-    width: 100px;
-
-    .year {
-      display: block;
-      line-height: 1;
-    }
-  }
-
   figure.full, figure.wide {
     position: relative;
     left: -120px;
@@ -398,6 +358,10 @@ input[type=checkbox].invalid + label {
     top: .95em;
     left: 675px;
     z-index: 5;
+  }
+
+  .digest .teaser {
+    top: inherit;
   }
 
   figure.full, figure.wide {
