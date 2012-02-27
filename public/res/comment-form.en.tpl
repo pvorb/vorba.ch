@@ -17,7 +17,7 @@
   <input name="nospam" type="checkbox" id="cf-nospam">
   <label for="cf-nospam">I’m neither dog nor spambot.</label><br>
 
-  <input name="save" type="button" value="Kommentar veröffentlichen" id="cf-save">
+  <input name="save" type="button" value="Submit comment" id="cf-save">
   <img id="cf-status" src="/res/load.gif" style="display:none">
 </form>
 <article id="cp">
