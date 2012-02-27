@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title><%= title %> | <%= siteTitle %></title>
-    <link rel="stylesheet" href="/res/<%= stylesheet %>">
+    <link rel="stylesheet" href="/res/milten.css">
     <link rel="icon" href="/favicon.ico">
     <meta name="author" content="<%= author %>">
 <%
@@ -23,53 +23,47 @@ if (locals.tags) {
         <li class="active"><a href="/log/">Blog</a>
         <li><a href="/info/">Info</a>
       </ul>
-      <ol id="path">
-<%
-var path = _id.split('/'),
-    pathref = '/';
+      <ol id="path"><%
+  var path = _id.split('/');
+  var pathref = '';
 
-for (var i = 1; i < path.length; i++) {
-  if (i < path.length - 1)
+  for (var i = 0; i < path.length; i++) {
     pathref += path[i] + '/';
-  else
-    pathref += path[i];
-%>
-        <li><%
-  if (i < path.length - 1) {
-    %><a href="<%- pathref %>"><%
+    if (i == 0) {%>
+        <li><a href="<%= pathref %>">vorb.de</a>
+<%  } else if (i < path.length - 1) {%>
+        <li><a href="<%= pathref %>"><%- path[i] %></a>
+<%  } else {%>
+        <li><%- path[i] %>
+<%  }
   }
-  %><%- path[i] %><%
-  if (i < path.length - 1) {
-    %></a><%
-  }
-}
+
+  function pad(n){return n<10 ? '0'+n : n}
 %>
       </ol>
       <ol id="access">
-        <li><a href="#top" title="Zum Anfang" id="back">↑</a>
+        <li><a href="#top" title="To the beginning" id="back">↑</a>
         <li><a href="#nav">Navigation</a>
-        <li><a href="#content">Inhalt</a>
+        <li><a href="#content">Content</a>
       </ol>
     </nav>
     <article id="content">
       <header>
         <h1><%= title %></h1>
 <% if (locals.teaser) { %>
-        <aside>
-          <figure class="teaser">
-            <img src="<%= teaser %>">
-          </figure>
-        </aside>
+        <figure class="teaser">
+          <img src="<%= teaser %>">
+        </figure>
 <% } %>
       </header>
       <section>
         <%- __content %>
       </section>
-<%
-var datestr = created.getDate()+'.'+created.getMonth()+'.'+created.getFullYear();
-%>
       <footer class="meta">
-        <p>Geschrieben am <time><%= datestr %></time>; Kategorien:
+        <p>Date: <span class="day"><%- pad(created.getDate())
+          %></span>.<span class="month"><%- pad(created.getMonth()+1)
+          %></span>.<span class="year"><%- created.getFullYear()
+          %></span>; Tags:
 <%
 if (locals.tags)
   for (var i = 0, len = tags.length; i < len; i++) { var tag = locals.tags[i];
@@ -81,9 +75,11 @@ if (locals.tags)
         </p>
       </footer>
     </article>
+    <section id="comments"></section>
     <footer id="about">
-      <p>© <%= created.getFullYear() %> – <%= author %>
-        <a href="/info/contact.html">Kontakt</a>.</p>
+      <p>© <%= created.getFullYear() %> – <%= author %>.
+        <a href="/info/contact.html">Contact</a>.</p>
     </footer>
+    <script src="/res/app.en.min.js"></script>
   </body>
 </html>
