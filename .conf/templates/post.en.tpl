@@ -1,5 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<%
+function pad(n) { return n<10?'0'+n:n; }
+function getDate(d) {
+  return pad(d.getDate())+'.'+pad(d.getMonth()+1)+'.'+d.getFullYear();
+}
+%><!DOCTYPE html>
+<html lang="de">
   <head>
     <meta charset="utf-8">
     <title><%= title %> | <%= siteTitle %></title>
@@ -37,8 +42,6 @@ if (locals.tags) {
         <li><%- path[i] %>
 <%  }
   }
-
-  function pad(n){return n<10 ? '0'+n : n}
 %>
       </ol>
       <ol id="access">
@@ -49,26 +52,24 @@ if (locals.tags) {
     </nav>
     <article id="content">
       <header>
-        <h1><%= title %></h1>
 <% if (locals.teaser) { %>
         <figure class="teaser">
           <img src="<%= teaser %>">
         </figure>
 <% } %>
+        <h1><%= title %></h1>
       </header>
       <section>
         <%- __content %>
       </section>
       <footer class="meta">
-        <p>Date: <span class="day"><%- pad(created.getDate())
-          %></span>.<span class="month"><%- pad(created.getMonth()+1)
-          %></span>.<span class="year"><%- created.getFullYear()
-          %></span>; Tags:
+        <p>Date: <%- getDate(created) %>; Tags:
 <%
 if (locals.tags)
   for (var i = 0, len = tags.length; i < len; i++) { var tag = locals.tags[i];
 %>
-          <a href="/log/tag/<%= tag %>.html"><%= tag %></a><%= (i == len - 1) ? '' : ',' %>
+          <a href="/log/tag/<%= tag %>.html"><%= tag %></a> <%= (i == len - 1) ?
+            '' : '·' %>
 <%
   }
 %>
