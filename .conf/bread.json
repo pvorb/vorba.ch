@@ -62,17 +62,24 @@
   "autoindex": [
     {
       "path": "index.html",
-      "pattern": "^log/\\d{4}/\\d{2}/",
-      "template": "dir.tpl",
-      "filter": "index\\.html|.*\\.txt"
+      "pattern": "^log/\\d{4}$",
+      "template": "year.tpl",
+      "directory": {
+        "filter": "^$",
+        "match": "\\d{2}"
+      },
+      "file": {
+        "filter": "^$",
+        "match": "^$"
+      }
     },
     {
       "path": "index.html",
-      "pattern": "^log/\\d{4}/",
-      "template": "dir.tpl",
+      "pattern": "^log/\\d{4}/\\d{2}$",
+      "template": "month.tpl",
       "directory": {
         "filter": "^$",
-        "match": ""
+        "match": "^$"
       },
       "file": {
         "filter": "index\\.html",
