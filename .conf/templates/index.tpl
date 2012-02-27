@@ -47,8 +47,6 @@ function getDate(d) {
 <% __docs.forEach(function(doc) { %>
       <article>
         <header>
-          <h1><a href="/<%= doc._id %>"><%= doc.title %></a></h1>
-          <p class="meta"><%- getDate(doc.created) %></p>
 <%
 if (doc.teaser) {
   var teaser = doc._id.split('/').slice(0, -1);
@@ -61,12 +59,35 @@ if (doc.teaser) {
 <%
 }
 %>
+          <h1><a href="/<%= doc._id %>"><%= doc.title %></a></h1>
+          <p class="meta"><%- getDate(doc.created) %></p>
         </header>
         <section>
           <%- doc.__content %>
         </section>
       </article>
 <% }); %>
+      <ul class="pagination">
+<% if (__pagination.first) { %>
+        <li><a href="<%= __pagination.first.file %>"><%-
+          __pagination.first.page %></a>
+        <li>…
+<% }
+if (__pagination.prev) { %>
+        <li><a href="<%= __pagination.prev.file %>"><%-
+          __pagination.prev.page %></a>
+<% } %>
+        <li><span><%- __pagination.this %></span>
+<% if (__pagination.next) { %>
+        <li><a href="<%= __pagination.next.file %>"><%-
+          __pagination.next.page %></a>
+<% }
+if (__pagination.last) { %>
+        <li>…
+        <li><a href="<% __pagination.last.file %>"><%-
+          __pagination.last.page %></a>
+<% } %>
+      </ul>
       <footer class="meta">
         <p><a href="tag/">Tags</a> · <a href="feed.xml">Feed</a> ·
           <a href="comment-feed.xml">Comment feed</a> ·
