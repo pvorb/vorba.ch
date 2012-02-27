@@ -1,0 +1,18 @@
+{
+  "protocol": "http",
+  "connection": {
+    "hostname": "localhost",
+    "port": 8081
+  },
+  "directories": {
+    "modules": ".conf/modules"
+  },
+  "modules": [
+    "comments"
+  ],
+  "errorPages": {
+    "404": ".conf/error/404.html",
+    "500": ".conf/error/500.html"
+  },
+  "logFile": ".conf/api.log"
+}

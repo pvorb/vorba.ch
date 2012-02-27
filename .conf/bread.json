@@ -13,13 +13,13 @@
   },
 
   "fileExtensions": {
-    "text": "html"
+    "txt": "html"
   },
 
   "indexes": [
     {
       "title": "Blog",
-      "pattern": "log/\\d{4}/\\d{2}/.+",
+      "pattern": "^log/\\d{4}/\\d{2}/.+",
       "path": {
         "first": "index.html",
         "pattern": "index-{{page}}.html"
@@ -30,11 +30,14 @@
     },
     {
       "title": "Blog",
-      "pattern": "log/\\d{4}/\\d{2}/[^/]+",
+      "pattern": "^log/\\d{4}/\\d{2}/[^/]+",
       "path": "feed.xml",
       "template": "atom.tpl",
       "limit": 10,
-      "sort": [["created", "desc"]]
+      "sort": [["created", "desc"]],
+      "properties": {
+        "id": "http://vorb.de/log/feed.xml"
+      }
     }
   ],
 
@@ -51,7 +54,7 @@
   "autoindex": [
     {
       "path": "index.html",
-      "pattern": "log/\\d{4}/(\\d{2}/)?",
+      "pattern": "^log/\\d{4}/\\d{2}/",
       "template": "dir.tpl",
       "filter": "index\\.html|.*\\.txt"
     }
