@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+<%
+function pad(n) { return (n<10)?'0'+n:n; }
+function getDate(d) {
+  return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+}
+function indentHeadings(text) {
+  return text.replace(/h5>/g, 'h6>').replace(/h4>/g, 'h5>')
+      .replace(/h3>/g, 'h4>').replace(/h2>/g, 'h3>').replace(/h1>/g, 'h2>');
+}
+%><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -24,11 +33,8 @@
         <li><a href="#content">Content</a>
       </ol>
     </nav>
-    <section id="content">
+    <section id="content" class="digest">
       <article class="intro">
-        <figure class="teaser">
-          <img src="logo.png">
-        </figure>
         <h1>Hi,</h1>
         <p>my name is Paul. I live near Würzburg, Germany,
         where I’m currently working on my bachelor’s degree in
@@ -56,14 +62,7 @@
 __docs.forEach(function(doc) { %>
         <article lang="<%= doc.language %>">
           <header>
-            <h2><a href="<%= doc._id %>"><%= doc.title %></a></h2>
-<%
-var datestr = doc.created.getDate()
-  + '.'+doc.created.getMonth()+'.'+doc.created.getFullYear();
-%>
-            <p class="meta"><%= datestr %></p>
-<%
-if (doc.teaser) {
+<% if (doc.teaser) {
   var teaser = doc._id.split('/').slice(0, -1);
   teaser.push(doc.teaser);
   teaser = teaser.join('/');
@@ -71,14 +70,9 @@ if (doc.teaser) {
             <figure class="teaser">
               <img src="<%= teaser %>">
             </figure>
-<%
-}
-
-function indentHeadings(text) {
-  return text.replace(/h5>/g, 'h6>').replace(/h4>/g, 'h5>')
-      .replace(/h3>/g, 'h4>').replace(/h2>/g, 'h3>').replace(/h1>/g, 'h2>');
-}
-%>
+<% } %>
+            <h2><a href="<%= doc._id %>"><%= doc.title %></a></h2>
+            <p class="meta"><%- getDate(doc.created) %></p>
           </header>
           <section>
             <%- indentHeadings(doc.__content) %>
