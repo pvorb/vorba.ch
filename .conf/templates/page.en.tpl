@@ -31,11 +31,11 @@ if (locals.tags) {
           %>><a href="/info/">Info</a>
       </ul>
       <ol id="path"><%
-  var path = _id.split('/');
-  var pathref = '';
+  var path = _id.replace(/\/index\.html$/, '');
+  path = path.split('/');
+  var pathref = '/';
 
   for (var i = 0; i < path.length; i++) {
-    pathref += path[i] + '/';
     if (i == 0) {%>
         <li><a href="<%= pathref %>">vorb.de</a>
 <%  } else if (i < path.length - 1) {%>
@@ -43,6 +43,7 @@ if (locals.tags) {
 <%  } else {%>
         <li><%- path[i] %>
 <%  }
+    pathref += path[i+1]+'/';
   }
 %>
       </ol>
