@@ -1,16 +1,22 @@
 #!/bin/sh
 
-cd ./pub/res
+cd ./src/res/
 
-# ender build jeesh
+ender build isodate jeesh marked MD5 numpad
 
-cat marked.js > app.js
-cat xhr.js >> app.js
+cat xhr.js > app.js
 cat main.js >> app.js
+
+cp ender.min.js app.en.min.js
+cat l10n.en.js >> app.en.min.js
+uglifyjs app.js >> app.en.min.js
 
 cp ender.min.js app.de.min.js
 cat l10n.de.js >> app.de.min.js
 uglifyjs app.js >> app.de.min.js
+
+cp app.en.min.js ../../public/res/
+cp app.de.min.js ../../public/res/
 
 cd ../..
 
