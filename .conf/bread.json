@@ -9,7 +9,8 @@
   "directories": {
     "input": "public",
     "output": "public",
-    "templates": ".conf/templates"
+    "templates": ".conf/templates",
+    "tags": ".conf/tags"
   },
 
   "fileExtensions": {

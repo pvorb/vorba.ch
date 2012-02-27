@@ -1,5 +1,10 @@
-<!DOCTYPE html>
-<html lang="de">
+<%
+function pad(n) { return n<10?'0'+n:n; }
+function getDate(d) {
+  return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+}
+%><!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title><%= title %> | <%= siteTitle %></title>
@@ -16,55 +21,43 @@
         <li class="active"><a href="/log/">Blog</a>
         <li><a href="/info/">Info</a>
       </ul>
-      <ol id="path">
-<%
-var path = ('/log').split('/'),
-    pathref = '/';
+      <ol id="path"><%
+  var path = ('/log').split('/');
+  var pathref = '/';
 
-for (var i = 1; i < path.length; i++) {
-  if (i < path.length - 1)
-    pathref += path[i] + '/';
-  else
-    pathref += path[i];
-%>
-        <li><%
-  if (i < path.length - 1) {
-    %><a href="<%- pathref %>"><%
+  for (var i = 0; i < path.length; i++) {
+    if (i == 0) {%>
+        <li><a href="<%= pathref %>">vorb.de</a>
+<%  } else if (i < path.length - 1) {%>
+        <li><a href="<%= pathref %>"><%- path[i] %></a>
+<%  } else {%>
+        <li><%- path[i] %>
+<%  }
+    pathref += path[i+1]+'/';
   }
-  %><%= path[i] == 'log' ? 'blog' : path[i] %><%
-  if (i < path.length - 1) {
-    %></a><%
-  }
-}
 %>
       </ol>
       <ol id="access">
-        <li><a href="#top" title="Zum Anfang" id="back">↑</a>
+        <li><a href="#top" title="To the top" id="back">↑</a>
         <li><a href="#nav">Navigation</a>
-        <li><a href="#content">Inhalt</a>
+        <li><a href="#content">Content</a>
       </ol>
     </nav>
     <section id="content" class="digest">
 <% __docs.forEach(function(doc) { %>
       <article>
         <header>
-          <h1><a href="<%= doc._id %>"><%= doc.title %></a></h1>
-<%
-var datestr = doc.created.getDate()
-  + '.'+doc.created.getMonth()+'.'+doc.created.getFullYear();
-%>
-          <time><%= datestr %></time>
+          <h1><a href="/<%= doc._id %>"><%= doc.title %></a></h1>
+          <p class="meta"><%- getDate(doc.created) %></p>
 <%
 if (doc.teaser) {
   var teaser = doc._id.split('/').slice(0, -1);
   teaser.push(doc.teaser);
   teaser = teaser.join('/');
 %>
-          <aside>
-            <figure class="teaser">
-              <img src="<%= teaser %>">
-            </figure>
-          </aside>
+          <figure class="teaser">
+            <img src="/<%= teaser %>">
+          </figure>
 <%
 }
 %>
@@ -75,12 +68,14 @@ if (doc.teaser) {
       </article>
 <% }); %>
       <footer class="meta">
-        <p><a href="tag/">Kategorien</a>. <a href="feed.xml">Feed</a>.</p>
+        <p><a href="tag/">Tags</a> · <a href="feed.xml">Feed</a> ·
+          <a href="comment-feed.xml">Comment feed</a> ·
+          <a href="blogroll.html"%>Blogroll</a></p>
       </footer>
     </section>
     <footer id="about">
       <p>© 2008-<%= __docs[0].created.getFullYear() %> – <%= siteAuthor %>.
-        <a href="/info/contact.html">Kontakt</a>.</p>
+        <a href="/info/contact.html">Contact</a>.</p>
     </footer>
   </body>
 </html>
