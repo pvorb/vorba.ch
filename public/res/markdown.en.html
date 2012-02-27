@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Markdown Guide</title>
+    <style>
+h1 { margin-top: 0; }
+pre { background: #eee; padding: .5em; }
+    </style>
+  </head>
+  <body>
+    <h1>Markdown</h1>
+
+    <p>This document provides an overview over the most common elements of
+      Markdown. You can find more information on the
+      <a href="http://daringfireball.net/projects/markdown/syntax">website
+      of the author</a>.</p>
+
+    <h2>Decoration</h2>
+    <pre><code>**bold**, _italic_, -removed-</code></pre>
+    <p>becomes</p>
+    <p><strong>bold</strong>, <em>italic</em>, <del>removed</del></p>
+
+    <h2>Links</h2>
+    <pre><code>[Wikipedia](http://en.wikipedia.org)
+
+&lt;https://vorb.de&gt;</code></pre>
+    <p>becomes</p>
+    <p><a href="http://en.wikipedia.org">Wikipedia</a></p>
+    <p><a href="https://vorb.de">https://vorb.de</a></p>
+
+    <h2>Images</h2>
+    <pre><code>![alternate text](https://vorb.de/res/flower.jpg)</code></pre>
+    <p>becomes</p>
+    <p><img src="https://vorb.de/res/flower.jpg" alt="alternate text"></p>
+
+    <h2>Quotes</h2>
+    <p>Text that is indented with <code>></code>, is shown as a quote.</p>
+    <pre><code>> The most books leave only quotes.
+> Why not solely write books?
+~ Stanisław Jerzy Lec</code></pre>
+    <p>becomes</p>
+    <blockquote>
+      The most books leave only quotes.
+      Why not solely write books?
+    </blockquote>
+    <p>~ Stanisław Jerzy Lec</p>
+
+    <h2>Lists</h2>
+    <p>Lists may be defined by <code>*</code>, <code>+</code>, and
+      <code>-</code> as well as numbers.</p>
+    <pre><code>*   Dog
+*   Cat
+*   Mouse
+
+1.  Monday
+2.  Tuesday
+3.  Wednesday</code></pre>
+    <p>becomes</p>
+    <ul>
+      <li>Doc</li>
+      <li>Cat</li>
+      <li>Mouse</li>
+    </ul>
+    <ol>
+      <li>Monday</li>
+      <li>Tuesday</li>
+      <li>Wednesday</li>
+    </ol>
+
+    <h2>Source code</h2>
+    <p>Everything that is indented by four spaces is shown as source code.</p>
+    <pre><code>    // add a to b
+    function add(a, b) {
+      return a + b;
+    }</code></pre>
+    <p>becomes</p>
+    <pre><code>// add a to b
+function add(a, b) {
+  return a + b;
+}</code></pre>
+  </body>
+</html>
