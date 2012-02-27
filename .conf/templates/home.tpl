@@ -16,7 +16,7 @@
         <li><a href="/info/">Info</a>
       </ul>
       <ol id="path">
-        <li>Home
+        <li>vorb.de
       </ol>
       <ol id="access">
         <li><a href="#top" title="To the top" id="back">↑</a>
@@ -33,8 +33,8 @@
         <p>my name is Paul. I live near Würzburg, Germany,
         where I’m currently working on my bachelor’s degree in
         <a href="http://www.informatik.uni-wuerzburg.de/">Computer Science</a>.
-        <p>I’m interested in web development and design. Recently, I spend much
-        of my time on server-side development with
+        <p>I’m interested in web development and design. Recently, much of
+        my time is spent on server-side development with
         <a href="http://nodejs.org/" title="Node.js">JavaScript</a>,
         <a href="http://scala-lang.org/">Scala</a> and
         <a href="http://www.oracle.com/technetwork/java/index.html">Java</a>.
@@ -49,21 +49,19 @@
             post things that I find newsworthy.</p>
         </ul>
       </article>
-      <section class="blog">
-        <h1>Blog</h1>
+      <section class="log">
+        <h1>Weblog</h1>
         <p>Most of the articles in the <a href="/log/">blog</a> are in German,
-        though there may be one or the other English article. Latest
-        article:</p><%
+        although there may be one or the other English article.</p><%
 __docs.forEach(function(doc) { %>
         <article lang="<%= doc.language %>">
           <header>
             <h2><a href="<%= doc._id %>"><%= doc.title %></a></h2>
 <%
-function pad(n) { return n<10 ? '0'+n : n; }
-var datestr = doc.created.getFullYear()
-  + '-'+pad(doc.created.getMonth()+1)+'-'+pad(doc.created.getDate());
+var datestr = doc.created.getDate()
+  + '.'+doc.created.getMonth()+'.'+doc.created.getFullYear();
 %>
-            <p class="meta"><%= datestr %></meta>
+            <p class="meta"><%= datestr %></p>
 <%
 if (doc.teaser) {
   var teaser = doc._id.split('/').slice(0, -1);
