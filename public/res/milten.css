@@ -21,14 +21,16 @@ h1{font-size:2em;margin-top:0;}
 table{width:100%;}
 figure{margin:0;}
 #access{position:absolute;visibility:hidden;}
-#top,#site,#branches{display:none;}
-#path{margin:1em 0;padding:0;list-style:none;}#path li{display:inline;}#path li:first-child{background:url('/favicon.ico') center left no-repeat;padding-left:22px;}
+#top,#site{display:none;}
+#branches,#path{padding:0;list-style:none;}#branches li,#path li{display:inline;}
+#branches{float:right;margin:0;}
+#path{margin:1em 0;}#path li:first-child{background:url('/favicon.ico') center left no-repeat;padding-left:22px;}
 #path li:after{content:' / ';}
 #path li:last-child:after{content:'';}
 #content header .meta{color:#999999;margin-top:.3em;}
 .teaser img{border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;}
 section aside,footer.meta{background:#eeeeee;border:1px solid #bbbbbb;border-width:1px 0;margin:1em 0;padding:0 10px;}
-ul.pagination{padding-left:0;text-align:center;}ul.pagination li{display:inline;margin:0 10px;}ul.pagination li a,ul.pagination li span{color:#fff;padding:.2em 5px;}
+ul.pagination{padding-left:0;text-align:center;}ul.pagination li{display:inline;margin:0 10px;}ul.pagination li a,ul.pagination li span{color:#fff;padding:.2em 5px;border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;}
 ul.pagination li a{background:#d00;}
 ul.pagination li span{background:#666;}
 #cf textarea{padding:.3em 5px;max-width:506px;width:98%;}
@@ -45,4 +47,4 @@ input[type=text].invalid,textarea.invalid{background:url(/res/error.png) 99% cen
 input[type=checkbox].valid+label{background:url(/res/accept.png) 99% center no-repeat;padding-right:22px;}
 input[type=checkbox].invalid+label{background:url(/res/error.png) 99% center no-repeat;padding-right:22px;}
 #about{color:#333;margin:4em 0 8em;}
-@media screen and (max-width:659px),projection and (max-width:659px),tv and (max-width:659px),print{.comment{margin-left:80px;}.comment .avatar{position:absolute;left:20px;}}@media screen and (min-width:660px),projection and (min-width:660px),tv and (min-width:660px){body{padding-left:120px;width:520px;} #branches{left:140px;} #content aside,#cp,#extra{width:320px;} figure.full,figure.wide{position:relative;left:-120px;overflow:auto;width:640px;} .comment{overflow:auto;}.comment .avatar{position:absolute;left:60px;} .comment .meta{border-top:1px solid #bbbbbb;}}@media screen and (min-width:1005px),projection and (min-width:1005px),tv and (min-width:1005px){#content aside,#extra{width:320px;} section#content article{width:520px;} .teaser{background:#fff;line-height:1em;padding:.3em 5px;vertical-align:text-bottom;position:absolute;top:.95em;left:675px;z-index:5;} .digest .teaser{top:inherit;} figure.full,figure.wide{position:relative;left:-120px;}figure.full.full,figure.wide.full{width:980px;} figure.full.wide,figure.wide.wide{width:640px;} #comments{clear:both;overflow:hidden;width:860px;} #clist{width:520px;} #cf{float:left;width:520px;} #cp{float:right;overflow:auto;width:320px;} #cf>h3{margin-top:0;} #cp>h3{margin-top:0;}}@media print{#cf,#cp{display:none;}}
+@media screen and (max-width:659px),projection and (max-width:659px),tv and (max-width:659px),print{.comment{margin-left:80px;}.comment .avatar{position:absolute;left:20px;}}@media screen and (min-width:660px),projection and (min-width:660px),tv and (min-width:660px){body{padding-left:120px;width:520px;} #content aside,#cp,#extra{width:320px;} figure.full,figure.wide{position:relative;left:-120px;overflow:auto;width:640px;} .comment{overflow:auto;}.comment .avatar{position:absolute;left:60px;} .comment .meta{border-top:1px solid #bbbbbb;}}@media screen and (min-width:1005px),projection and (min-width:1005px),tv and (min-width:1005px){#content aside,#extra{width:320px;} section#content article{width:520px;} .teaser{background:#fff;line-height:1em;padding:.3em 5px;vertical-align:text-bottom;position:absolute;left:675px;z-index:5;} figure.full,figure.wide{position:relative;left:-120px;}figure.full.full,figure.wide.full{width:980px;} figure.full.wide,figure.wide.wide{width:640px;} #comments{clear:both;overflow:hidden;width:860px;} #clist{width:520px;} #cf{float:left;width:520px;} #cp{float:right;overflow:auto;width:320px;} #cf>h3{margin-top:0;} #cp>h3{margin-top:0;}}@media print{#cf,#cp{display:none;}}

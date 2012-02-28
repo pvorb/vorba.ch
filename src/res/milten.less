@@ -146,18 +146,28 @@ figure {
 }
 
 /* top bar */
-#top, #site, #branches {
+#top, #site {
   display: none;
 }
 
-#path {
-  margin: 1em 0;
+#branches, #path {
   padding: 0;
 
   list-style: none;
 
   li {
     display: inline;
+  }
+}
+
+#branches {
+  float: right;
+  margin: 0;
+}
+
+#path {
+  margin: 1em 0;
+  li {
     &:first-child {
       background: url('/favicon.ico') center left no-repeat;
       padding-left: 22px;
@@ -191,9 +201,12 @@ ul.pagination {
   li {
     display: inline;
     margin: 0 10px;
+
     a, span {
       color: #fff;
       padding: .2em 5px;
+
+      .round-corners;
     }
     a {
       background: #d00;
@@ -309,8 +322,6 @@ input[type=checkbox].invalid + label {
     width: @content-width-medium;
   }
 
-  #branches { left: 140px; }
-
   #content aside, #cp, #extra {
     width: @aside-width-medium;
   }
@@ -355,13 +366,8 @@ input[type=checkbox].invalid + label {
     vertical-align: text-bottom;
 
     position: absolute;
-    top: .95em;
     left: 675px;
     z-index: 5;
-  }
-
-  .digest .teaser {
-    top: inherit;
   }
 
   figure.full, figure.wide {
