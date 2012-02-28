@@ -93,8 +93,10 @@ if (__pagination.last) { %>
 <% } %>
       </ul>
       <footer class="meta">
-        <p><a href="tag/">Tags</a> · <a href="feed.xml">Feed</a> ·
-          <a href="comment-feed.xml">Comment feed</a> ·
+        <p><a href="tag/">Tags</a> · <a href="feed.xml"><img
+            src="/res/feed.png"> Article feed</a> ·
+          <a href="comment-feed.xml"><img
+            src="/res/feed.png"> Comment feed</a> ·
           <a href="blogroll.html"%>Blogroll</a></p>
       </footer>
     </section>
