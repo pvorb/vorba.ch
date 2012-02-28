@@ -1,7 +1,7 @@
 <%
 function pad(n) { return n<10?'0'+n:n; }
 function getDate(d) {
-  return pad(d.getDate())+'.'+pad(d.getMonth()+1)+'.'+d.getFullYear();
+  return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
 }
 %><!DOCTYPE html>
 <html lang="de">
