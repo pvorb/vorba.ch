@@ -83,9 +83,6 @@ __docs.forEach(function(doc) { %>
           </section>
         </article>
 <% }); %>
-        <ul class="pagination">
-          <li><a href="/log/">more articles »</a>
-        </ul>
       </section>
     </section>
     <footer id="about">
