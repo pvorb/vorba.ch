@@ -62,12 +62,13 @@ if (locals.tags) {
         </figure>
 <% } %>
         <h1><%= title %></h1>
+        <p class="meta"><%- getDate(created) %></p>
       </header>
       <section>
         <%- __content %>
       </section>
       <footer class="meta">
-        <p>Datum: <%- getDate(created) %>; Kategorien:
+        <p>Kategorien:
 <%
 if (locals.tags)
   for (var i = 0, len = tags.length; i < len; i++) { var tag = locals.tags[i];
