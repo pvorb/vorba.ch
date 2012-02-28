@@ -15,8 +15,8 @@ cp ender.min.js app.de.min.js
 cat l10n.de.js >> app.de.min.js
 uglifyjs app.js >> app.de.min.js
 
-cp app.en.min.js ../../public/res/
-cp app.de.min.js ../../public/res/
+cp app.en.min.js ../../public/res/comments.en.min.js
+cp app.de.min.js ../../public/res/comments.de.min.js
 
 cd ../..
 
