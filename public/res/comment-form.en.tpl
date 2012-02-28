@@ -8,7 +8,7 @@
 
   <input name="email" type="text" size="30" id="cf-email">
   <label for="cf-email">E-mail address</label>
-  <span class="opt" title="optional; nur für Gravatar">?</span><br>
+  <span class="opt" title="optional; Gravatar only">?</span><br>
 
   <input name="website" type="text" size="30" id="cf-website">
   <label for="cf-website">Website</label>
