@@ -6,6 +6,12 @@ var ejs = require('ejs');
 var fs = require('fs');
 var path = require('path');
 
+marked.setOptions({
+  pedantic: false,
+  gfm: true,
+  sanitize: true
+});
+
 module.exports = function comments(app, log, conf, globalConf, started) {
   var comments = new Comments(conf);
 
@@ -123,7 +129,7 @@ function validateComment(c) {
     c.website = 'http://' + c.website;
 
   c.plain = c.message;
-  c.message = marked(c.message, { ignoreHtml: true });
+  c.message = marked(c.message);
   c.author = esc(c.author);
   delete c.save;
   delete c.nospam;
