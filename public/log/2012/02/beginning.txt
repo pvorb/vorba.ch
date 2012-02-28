@@ -1,0 +1,9 @@
+title: At the beginning
+created: 2012-02-28
+tags: [misc]
+teaser: sunrise.jpg
+
+template: post.en.tpl
+
+
+.
