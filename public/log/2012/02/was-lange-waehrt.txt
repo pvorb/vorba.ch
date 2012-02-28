@@ -1,0 +1,23 @@
+title: Was lange währt
+created: 2012-02-28T17:08:00+0100
+tags: [deutsch, bread, dev, nodejs, markdown]
+teaser: kosmonaut.jpg
+template: post.de.tpl
+
+
+Ein halbes Jahr hat es gedauert. Nun ist es endlich vollbracht: Mein Blog geht
+ans Netz.
+
+Irgendwann im August 2011 habe ich damit begonnen, ein eigenes CMS zu schreiben.
+Naja, CMS kann man es kaum nennen. Im Wesentlichen ist es eine „Engine“, die aus
+Textdateien (genauer: Markdown-formatiertem Text mit ein paar
+Zusatzinformationen am Anfang) HTML-Dokumente generiert (siehe dazu die
+[Quelldatei dieses Artikels](was-lange-waehrt.txt)).
+Außerdem kümmert sich das System um die Erstellung von Index-, Tag- und
+Feed-Dateien. Dazu werden alle Textdateien beim Umwandeln in einer Datenbank
+zwischengespeichert. Aus dieser werden dann alle Informationen gezogen, die für
+die anderen Seiten benötigt werden.
+
+Soweit war das ganze auch schnell umgesetzt. Irgendwann im September hätte ich
+theoretisch loslegen können. Zuerst wollte ich aber noch eine Möglichkeit für
+Kommentare einbauen.
