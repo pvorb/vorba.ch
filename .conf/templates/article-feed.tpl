@@ -3,7 +3,7 @@
   <title><%= siteTitle %></title>
   <subtitle><%= siteSubtitle %></subtitle>
   <updated><%= (new Date()).toISOString() %></updated>
-  <id><% id %></id>
+  <id><%- id %></id>
   <author>
     <name><%= author %></name>
 <% if (locals.authorLink) { %>    <uri><%= authorLink %></uri><% } %>
