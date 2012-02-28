@@ -10,6 +10,10 @@ function getDate(d) {
     <title><%= title %> | <%= siteTitle %></title>
     <link rel="stylesheet" href="/res/milten.css">
     <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/log/feed.xml"
+      title="Artikel-Feed">
+    <link rel="alternate" type="application/atom+xml"
+      href="/log/comment-feed.xml" title="Kommentar-Feed">
     <meta name="author" content="<%= author %>">
 <%
 if (locals.tags) {

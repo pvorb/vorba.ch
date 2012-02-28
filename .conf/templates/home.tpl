@@ -14,6 +14,10 @@ function indentHeadings(text) {
     <title><%- siteTitle %></title>
     <link rel="stylesheet" href="/res/milten.css">
     <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/log/feed.xml"
+      title="Article feed">
+    <link rel="alternate" type="application/atom+xml"
+      href="/log/comment-feed.xml" title="Comment feed">
     <meta name="author" content="<%= author %>">
     <style>#top { font-size: 3em }</style>
   </head>
