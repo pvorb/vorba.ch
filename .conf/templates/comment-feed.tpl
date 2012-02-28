@@ -1,42 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
-  <title><%= siteTitle %></title>
-  <subtitle><%= siteSubtitle %></subtitle>
-  <updated><%= (new Date()).toISOString() %></updated>
-  <id><% id %></id>
+  <title>vorb.de: Kommentare</title>
+  <subtitle>Entwicklung</subtitle>
+  <updated><%- (new Date()).toISOString() %></updated>
+  <id>http://vorb.de/log/comment-feed.xml</id>
   <author>
-    <name><%= author %></name>
-<% if (locals.authorLink) { %>    <uri><%= authorLink %></uri><% } %>
+    <name>Paul Vorbach</name>
   </author>
-  <rights>© 2008-2011 Paul Vorbach</rights>
+  <rights>© 2008-<%= (new Date()).getFullYear() %> Paul Vorbach</rights>
   <link href="http://vorb.de/log/"/>
-  <link rel="self" href="http://vorb.de/log/feed.xml"/>
+  <link rel="self" href="http://vorb.de/log/comment-feed.xml"/>
   <category term="computer"/>
   <category term="web"/>
   <category term="development"/>
   <icon>http://vorb.de/favicon.ico</icon>
-<% __docs.forEach(function(doc) { %>
+<% __comments.forEach(function(comment) { %>
   <entry>
-    <title><%= doc.title %></title>
-    <link href="http://vorb.de<%= doc._id %>"/>
-    <id>http://vorb.de<%= doc._id %></id>
-    <updated><%= doc.modified.toISOString() %></updated>
+    <title>Comment on <%- comment.res %> by <%- comment.author %></title>
+    <link href="http://vorb.de<%= comment.res %>#<%= comment._id %>"/>
+    <id>http://vorb.de/log/comments?id=<%- comment._id %></id>
+    <updated><%= comment.modified.toISOString() %></updated>
     <author>
-      <name><%= doc.author %></name><% if (doc.authorEmail) { %>
-      <email><%= doc.authorEmail %></email><% } if (doc.authorUri) { %>
-      <uri><%= doc.authorUri %></uri><% } %>
+      <name><%= comment.author %></name><% if (comment.website) { %>
+      <uri><%= comment.website %></uri><% } %>
     </author>
     <content type="html">
-<% if (doc.screenshot) { %>
-
-<% } else if (doc.teaser) { %>
-      &lt;p&gt;&lt;img src="http://vorb.de<%= doc._id.split('/').slice(0, -1).join('/') + '/' + doc.teaser %>"&gt;&lt;/p&gt;
-<% } %>
-      <%- esc(doc.__content, { uri: "http://vorb.de"+doc._id }) %>
+      <%- esc(comment.message, { uri: "http://vorb.de"+comment.res }) %>
     </content>
-<% doc.tags.forEach(function(tag) { %>
-    <category term="<%= tag %>"/>
-<% }); %>
   </entry>
 <% }); %>
 </feed>
