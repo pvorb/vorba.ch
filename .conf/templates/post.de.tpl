@@ -86,6 +86,6 @@ if (locals.tags)
       <p>© <%= created.getFullYear() %> – <%= author %>.
         <a href="/info/contact.html">Kontakt</a>.</p>
     </footer>
-    <script src="/res/app.de.min.js"></script>
+    <script src="/res/comments.de.min.js"></script>
   </body>
 </html>
