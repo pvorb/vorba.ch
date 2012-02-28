@@ -1,63 +1,95 @@
 <!DOCTYPE html>
-<html lang="de">
-	<head>
-		<meta charset="utf-8">
-		<title>Blog | Paul Vorbach</title>
-		<link rel="stylesheet" href="/res/milten.css">
-		<link rel="icon" href="/favicon.ico">
-		<meta name="author" content="Paul">
-	</head>
-	<body>
-		<header id="site">
-			<a href="/">Paul Vorbach</a>
-		</header>
-		<nav id="nav">
-			<ul id="branches">
-				<li class="active"><a href="/log/">Blog</a>
-				<li><a href="/info/">Info</a>
-			</ul>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Blog | Paul Vorbach</title>
+    <link rel="stylesheet" href="/res/milten.css">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/log/feed.xml"
+      title="Article feed">
+    <link rel="alternate" type="application/atom+xml"
+      href="/log/comment-feed.xml" title="Comment feed">
+    <meta name="author" content="Paul Vorbach">
+  </head>
+  <body>
+    <header id="site">
+      <a href="/">Paul Vorbach</a>
+    </header>
+    <nav id="nav">
+      <ul id="branches">
+        <li class="active"><a href="/log/">Blog</a>
+        <li><a href="/info/">Info</a>
+      </ul>
       <ol id="path">
         <li><a href="/">vorb.de</a>
-        <li>blog
-      </ol>
-			<ol id="access">
-				<li><a href="#top" title="Zum Anfang" id="back">↑</a>
-				<li><a href="#nav">Navigation</a>
-				<li><a href="#content">Inhalt</a>
-			</ol>
-		</nav>
-		<section id="content" class="digest">
 
-			<article>
+        <li>log
+
+      </ol>
+      <ol id="access">
+        <li><a href="#top" title="To the top" id="back">↑</a>
+        <li><a href="#nav">Navigation</a>
+        <li><a href="#content">Content</a>
+      </ol>
+    </nav>
+    <section id="content" class="digest">
+
+      <article>
         <header>
-				  <h1><a href="/log/2011/09/test.html">Test</a></h1>
-          <p class="meta">02.08.2011</p>
+
           <figure class="teaser">
             <img src="/log/2011/09/testbild.png">
           </figure>
-				</header>
-				<section>
-				  <p>Dies ist ein erster Test.</p>  <blockquote><p> Ein Zitat</p></blockquote>  <pre><code>Ein wenig Code
-</code></pre>
-				</section>
-			</article>
 
+          <h1><a href="/log/2011/09/test.html">Test</a></h1>
+          <p class="meta">2011-09-02</p>
+        </header>
+        <section>
+          <p>Dies ist ein erster Test.</p>
+<blockquote>
+<p>Ein Zitat</p>
+</blockquote>
+<pre class="js"><code>var bread = require(&#39;bread&#39;);</code></pre>
+
+        </section>
+      </article>
+
+      <article>
+        <header>
+
+          <figure class="teaser">
+            <img src="/log/2011/09/testbild.png">
+          </figure>
+
+          <h1><a href="/log/2011/09/test2.html">Test</a></h1>
+          <p class="meta">2011-09-02</p>
+        </header>
+        <section>
+          <p>This is a first test.</p>
+<blockquote>
+<p>A quote</p>
+</blockquote>
+<pre class="js"><code>var bread = require(&#39;bread&#39;);</code></pre>
+
+        </section>
+      </article>
+
+      <ul class="pagination">
+
+        <li><span>1</span>
+
+      </ul>
       <footer class="meta">
-        <p><a href="tag/">Kategorien</a>. <a href="feed.xml">Feed</a>.</p>
+        <p><a href="tag/">Tags</a> · <a href="feed.xml"><img
+            src="/res/feed.png"> Article feed</a> ·
+          <a href="comment-feed.xml"><img
+            src="/res/feed.png"> Comment feed</a> ·
+          <a href="blogroll.html"%>Blogroll</a></p>
       </footer>
-		</section>
-		<aside id="extra">
-		  <form id="sf" form="http://google.de/search" method="get">
-		    <fieldset>
-		      <legend>Suche</legend>
-		      <input type="search" name="q" value="site:vorb.de ">
-		      <input type="submit" value="OK">
-		    </fieldset>
-		  </form>
-		</aside>
-		<footer id="about">
-			<p>© 2008-2011 – Paul Vorbach.
-				<a href="/info/contact.html">Kontakt</a>.</p>
-		</footer>
-	</body>
+    </section>
+    <footer id="about">
+      <p>© 2008-2011 – Paul Vorbach.
+        <a href="/info/contact.html">Contact</a>.</p>
+    </footer>
+  </body>
 </html>

@@ -1,56 +1,87 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Paul Vorbach</title>
-    <link rel="stylesheet" href="/res/compact.css">
-    <style>#site { font-size: 3em; }</style>
+    <link rel="stylesheet" href="/res/milten.css">
     <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/log/feed.xml"
+      title="Article feed">
+    <link rel="alternate" type="application/atom+xml"
+      href="/log/comment-feed.xml" title="Comment feed">
     <meta name="author" content="Paul Vorbach">
-    <meta name="keywords" content="Paul Vorbach, Homepage, Informatik,
-      Webentwicklung, Webdesign">
-    <meta name="description" content="studiert Informatik an der Universität
-      Würzburg.">
+    <style>#top { font-size: 3em }</style>
   </head>
-  <body id="top">
-    <header id="site">
-      <span>Paul Vorbach</span>
-    </header>
+  <body>
+    <header id="top">Paul Vorbach</header>
     <nav id="nav">
       <ul id="branches">
         <li><a href="/log/">Blog</a>
         <li><a href="/info/">Info</a>
       </ul>
+      <ol id="path">
+        <li>vorb.de
+      </ol>
       <ol id="access">
-        <li><a href="#top" title="Anfang" id="back">↑</a>
+        <li><a href="#top" title="To the top" id="back">↑</a>
         <li><a href="#nav">Navigation</a>
-        <li><a href="#content">Inhalt</a>
-        <li><a href="#sf">Suche</a>
+        <li><a href="#content">Content</a>
       </ol>
     </nav>
-    <article id="content">
-      <figure class="teaser">
-        <img src="paul.png">
-      </figure>
-      <h1>Hallo,</h1>
-      <p>
-        ich bin Paul. Ich lebe in der Nähe von Würzburg, wo ich
-        <a href="http://www.informatik.uni-wuerzburg.de">Informatik
-        studiere</a>. In meiner Freizeit beschäftige ich mich mit Webentwicklung
-        und &#8209;design.</p>
-      <h2>Links</h2>
-      <ul class="img-list">
-        <li><img src="/res/github-icon.png">
-          <a href="http://github.com/pvorb">GitHub</a>
-        <li><img src="/res/npm-icon.png">
-          <a href="http://search.npmjs.org/#/_author/Paul%20Vorbach">npm</a>
-        <li><img src="/res/twitter-icon.png">
-          <a href="http://twitter.com/pvorb">Twitter</a>
-      </ul>
-    </article>
+    <section id="content" class="digest">
+      <article class="intro">
+        <h1>Hi,</h1>
+        <p>my name is Paul. I live near Würzburg, Germany,
+        where I’m currently working on my bachelor’s degree in
+        <a href="http://www.informatik.uni-wuerzburg.de/">Computer Science</a>.
+        <p>I’m interested in web development and design. Recently, much of
+        my time is spent on server-side development with
+        <a href="http://nodejs.org/" title="Node.js">JavaScript</a>,
+        <a href="http://scala-lang.org/">Scala</a> and
+        <a href="http://www.oracle.com/technetwork/java/index.html">Java</a>.
+        <p>You can also</p>
+        <ul>
+          <li><p>follow me on <img src="/res/github-icon.png">
+            <a href="https://github.com/pvorb">Github</a>. Almost all of my
+            personal projects are hosted on this website. The majority of them
+            is licensed under a <a href="/license/mit.html">MIT license</a>.</p>
+          <li><p>follow me on <img src="/res/twitter-icon.png">
+            <a href="https://twitter.com/pvorb">Twitter</a>, where I irregularly
+            post things that I find newsworthy.</p>
+        </ul>
+      </article>
+      <section class="log">
+        <h1>Weblog</h1>
+        <p>Most of the articles in the <a href="/log/">blog</a> are in German,
+        although there may be one or the other English article.</p>
+        <article lang="en">
+          <header>
+
+            <figure class="teaser">
+              <img src="log/2011/09/testbild.png">
+            </figure>
+
+            <h2><a href="log/2011/09/test.html">Test</a></h2>
+            <p class="meta">2011-09-02</p>
+          </header>
+          <section>
+            <p>Dies ist ein erster Test.</p>
+<blockquote>
+<p>Ein Zitat</p>
+</blockquote>
+<pre class="js"><code>var bread = require(&#39;bread&#39;);</code></pre>
+
+          </section>
+        </article>
+
+        <ul class="pagination">
+          <li><a href="/log/">more articles »</a>
+        </ul>
+      </section>
+    </section>
     <footer id="about">
-      <p>© 2008-2011 – Paul Vorbach.
-        <a href="/info/contact.html">Kontakt</a>.</p>
+      <p>© 2008-2012 – Paul Vorbach.
+        <a href="/info/contact.html">Contact</a>.</p>
     </footer>
   </body>
 </html>
