@@ -44,9 +44,10 @@ $.domReady(function init() {
             function onComplete(status, result) {
           'use strict';
           if (status === 200) {
-            var comments;
-              comments = JSON.parse(result);
-              addComments(clist, comments);
+            var comments = JSON.parse(result);
+            addComments(clist, comments);
+          } else if (status >= 400) {
+            commentsNotAvailable(clist);
           }
         });
 
@@ -102,6 +103,11 @@ $.domReady(function init() {
     });
   }
 });
+
+function commentsNotAvailable(clist) {
+  clist.append(l10n.commentsNotAvailable);
+  $('#cf, #cp').hide();
+}
 
 //get html for a comment
 function getCommentHTML(comment, isNew) {
