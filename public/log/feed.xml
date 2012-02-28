@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>Paul Vorbach</title>
   <subtitle>Development</subtitle>
-  <updated>2012-02-28T00:39:23.191Z</updated>
+  <updated>2012-02-28T09:42:19.169Z</updated>
   <id></id>
   <author>
     <name>Paul Vorbach</name>
@@ -17,54 +17,22 @@
   <icon>http://vorb.de/favicon.ico</icon>
 
   <entry>
-    <title>Test</title>
-    <link href="http://vorb.delog/2011/09/test.html"/>
-    <id>http://vorb.delog/2011/09/test.html</id>
-    <updated>2012-02-18T02:28:00.000Z</updated>
+    <title>At the beginning</title>
+    <link href="http://vorb.delog/2012/02/beginning.html"/>
+    <id>http://vorb.delog/2012/02/beginning.html</id>
+    <updated>2012-02-27T23:00:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
     </author>
     <content type="html">
 
-      &lt;p&gt;&lt;img src="http://vorb.delog/2011/09/testbild.png"&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src="http://vorb.delog/2012/02/sunrise.jpg"&gt;&lt;/p&gt;
 
-      &lt;p&gt;Dies ist ein erster Test.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Ein Zitat&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre class=&quot;js&quot;&gt;&lt;code&gt;var bread = require(&amp;#39;bread&amp;#39;);&lt;/code&gt;&lt;/pre&gt;
+      &lt;p&gt;.&lt;/p&gt;
 
     </content>
 
-    <category term="test"/>
-
-    <category term="sample"/>
-
-  </entry>
-
-  <entry>
-    <title>Test</title>
-    <link href="http://vorb.delog/2011/09/test2.html"/>
-    <id>http://vorb.delog/2011/09/test2.html</id>
-    <updated>2012-02-18T02:28:00.000Z</updated>
-    <author>
-      <name>Paul Vorbach</name>
-    </author>
-    <content type="html">
-
-      &lt;p&gt;&lt;img src="http://vorb.delog/2011/09/testbild.png"&gt;&lt;/p&gt;
-
-      &lt;p&gt;This is a first test.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;A quote&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;pre class=&quot;js&quot;&gt;&lt;code&gt;var bread = require(&amp;#39;bread&amp;#39;);&lt;/code&gt;&lt;/pre&gt;
-
-    </content>
-
-    <category term="test"/>
-
-    <category term="sample"/>
+    <category term="misc"/>
 
   </entry>
 
