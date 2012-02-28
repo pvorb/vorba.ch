@@ -58,7 +58,7 @@ if (doc.teaser) {
   teaser = teaser.join('/');
 %>
           <figure class="teaser">
-            <img src="/<%= teaser %>">
+            <a href="/<%= doc._id %>"><img src="/<%= teaser %>"></a>
           </figure>
 <%
 }

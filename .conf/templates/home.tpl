@@ -72,10 +72,10 @@ __docs.forEach(function(doc) { %>
   teaser = teaser.join('/');
 %>
             <figure class="teaser">
-              <img src="<%= teaser %>">
+              <a href="/<%= doc._id %>"><img src="<%= teaser %>"></a>
             </figure>
 <% } %>
-            <h2><a href="<%= doc._id %>"><%= doc.title %></a></h2>
+            <h2><a href="/<%= doc._id %>"><%= doc.title %></a></h2>
             <p class="meta"><%- getDate(doc.created) %></p>
           </header>
           <section>
