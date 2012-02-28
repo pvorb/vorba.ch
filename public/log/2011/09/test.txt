@@ -1,0 +1,15 @@
+title: Test
+created: 2011-09-02
+modified: 2012-02-18T03:28:00+0100
+tags: [ test, sample ]
+teaser: testbild.png
+template: post.de.tpl
+
+
+Dies ist ein erster Test.
+
+> Ein Zitat
+
+```js
+var bread = require('bread');
+```
