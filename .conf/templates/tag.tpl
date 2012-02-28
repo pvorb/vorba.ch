@@ -71,7 +71,7 @@ if (locals.tags) {
 <% } %>
       <ul>
 <% __docs.forEach(function (doc) { %>
-        <li><a href="<%= doc._id %>"><%- doc.title %></a>, <%-
+        <li><a href="/<%= doc._id %>"><%- doc.title %></a>, <%-
           getDate(doc.created) %>
 <% }); %>
       </ul>
