@@ -19,8 +19,8 @@ function indentHeadings(text) {
     <link rel="alternate" type="application/atom+xml"
       href="/log/comment-feed.xml" title="Comment feed">
     <meta name="author" content="<%= author %>">
-    <meta name="keywords" content="Entwicklung, Web, Node.js,
-      Scala, Github, Paul Vorbach, Paul Rafael Vorbach, pvorb, pvorbach">
+    <meta name="keywords" content="development, web, node.js,
+      ccala, github, Paul Vorbach, Paul Rafael Vorbach, pvorb, pvorbach">
     <style>#top { font-size: 3em }</style>
   </head>
   <body>
@@ -64,8 +64,9 @@ function indentHeadings(text) {
       <section class="log">
         <h1>Weblog</h1>
         <p>Most of the articles in the <a href="/log/">blog</a> are in German,
-        although there may be one or the other English article.</p><%
-__docs.forEach(function(doc) { %>
+        although there may be one or the other English article.</p>
+        <p>Here is the newest article:</p>
+<% __docs.forEach(function(doc) { %>
         <article lang="<%= doc.language %>">
           <header>
 <% if (doc.teaser) {
@@ -85,6 +86,7 @@ __docs.forEach(function(doc) { %>
           </section>
         </article>
 <% }); %>
+        <p><a href="/log/">More articles »</a></p>
       </section>
     </section>
     <footer id="about">
