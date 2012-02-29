@@ -19,6 +19,8 @@ function indentHeadings(text) {
     <link rel="alternate" type="application/atom+xml"
       href="/log/comment-feed.xml" title="Comment feed">
     <meta name="author" content="<%= author %>">
+    <meta name="keywords" content="Entwicklung, Web, Node.js,
+      Scala, Github, Paul Vorbach, Paul Rafael Vorbach, pvorb, pvorbach">
     <style>#top { font-size: 3em }</style>
   </head>
   <body>
