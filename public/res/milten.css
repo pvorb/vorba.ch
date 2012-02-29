@@ -25,7 +25,7 @@ figure{margin:0;}
 #branches,#path{padding:0;list-style:none;}#branches li,#path li{display:inline;}
 #branches{float:right;margin:0;}#branches li a{background:#800;color:white;border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;padding:.4em 8px;text-decoration:none;}#branches li a:hover,#branches li a:focus{background:#b30;}
 #branches li.active a{background:#c00;text-shadow:1px 1px black;}#branches li.active a:hover,#branches li.active a:focus{background:#c40;}
-#path{margin:1em 0;}#path li:first-child{background:url('/favicon.ico') center left no-repeat;padding-left:22px;}
+#path{margin:1em 0;margin-left:22px;text-indent:-22px;}#path li:first-child{background:url('/favicon.ico') center left no-repeat;padding-left:22px;}
 #path li:after{content:' / ';}
 #path li:last-child:after{content:'';}
 #content header .meta{color:#999999;margin-top:.3em;}
