@@ -1,5 +1,6 @@
 title: Recent Node.js and npm versions on Debian 6
 created: 2012-02-29
+modified: 2012-02-29T15:39:00+0100
 tags: [english, nodejs, linux]
 teaser: nodejs-npm.png
 
@@ -13,7 +14,7 @@ pinning, since it may break your system.)
 
 Now you can install the latest stable version (v0.6.x) of Node.js with
 
-    sudo apt-get -t unstable install nodejs
+    apt-get -t unstable install nodejs
 
 and npm with
 
