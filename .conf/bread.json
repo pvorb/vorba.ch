@@ -19,6 +19,7 @@
 
   "indexes": [
     {
+      "type": "homepage",
       "title": "Home",
       "pattern": "^log/\\d{4}/\\d{2}/.+$",
       "path": "index.html",
@@ -27,6 +28,7 @@
       "sort": [["created", "desc"]]
     },
     {
+      "type": "blog index",
       "title": "Blog",
       "pattern": "^log/\\d{4}/\\d{2}/.+$",
       "path": {
@@ -38,13 +40,16 @@
       "sort": [["created", "desc"]]
     },
     {
-      "title": "Blog",
+      "type": "blog feed",
+      "title": "vorb.de",
       "pattern": "^log/\\d{4}/\\d{2}/.+$",
       "path": "log/feed.xml",
       "template": "article-feed.tpl",
       "limit": 10,
       "sort": [["created", "desc"]],
       "properties": {
+        "title": "vorb.de",
+        "subtitle": "web, development and other things",
         "id": "http://vorb.de/log/feed.xml"
       }
     }

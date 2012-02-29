@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
-  <title><%= siteTitle %></title>
-  <subtitle><%= siteSubtitle %></subtitle>
+  <title><%= title %></title>
+  <subtitle><%= subtitle %></subtitle>
   <updated><%= (new Date()).toISOString() %></updated>
   <id><%- id %></id>
   <author>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
-  <title>Paul Vorbach</title>
-  <subtitle>Development</subtitle>
-  <updated>2012-02-29T00:42:21.919Z</updated>
+  <title>vorb.de</title>
+  <subtitle>web, development and other things</subtitle>
+  <updated>2012-02-29T14:23:31.052Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -23,6 +23,7 @@
     <updated>2012-02-28T23:00:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
+      <uri>http://vorb.de/</uri>
     </author>
     <content type="html">
 
@@ -52,6 +53,7 @@
     <updated>2012-02-28T10:31:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
+      <uri>http://vorb.de/</uri>
     </author>
     <content type="html">
 
