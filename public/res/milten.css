@@ -15,15 +15,16 @@ pre{background:#eeeeee;border:1px solid #bbbbbb;padding:.5em 10px;border-radius:
 pre code{background:inherit;padding:0;border:0;}
 pre,figure{overflow:auto;}
 h1,h2,h3,h4,h5,h6{font-family:sans-serif;font-weight:normal;margin-bottom:.3em;}
-h1{font-family:'Open Sans',sans-serif;font-weight:300;}
+h1{font-family:'Open Sans',sans-serif;font-size:2em;font-weight:300;margin-top:0;}
 h2,h3,h4,h5,h6{font-family:Georgia,serif;font-weight:normal;}
-h1{font-size:2em;margin-top:0;}
+h1,h2,h3{line-height:1.2;}
 table{width:100%;}
 figure{margin:0;}
 #access{position:absolute;visibility:hidden;}
 #top,#site{display:none;}
 #branches,#path{padding:0;list-style:none;}#branches li,#path li{display:inline;}
-#branches{float:right;margin:0;}
+#branches{float:right;margin:0;}#branches li a{background:#800;color:white;border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;padding:.4em 8px;text-decoration:none;}#branches li a:hover,#branches li a:focus{background:#b30;}
+#branches li.active a{background:#c00;text-shadow:1px 1px black;}#branches li.active a:hover,#branches li.active a:focus{background:#c40;}
 #path{margin:1em 0;}#path li:first-child{background:url('/favicon.ico') center left no-repeat;padding-left:22px;}
 #path li:after{content:' / ';}
 #path li:last-child:after{content:'';}

@@ -121,16 +121,19 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-family: @heading-font;
+  font-size: 2em;
   font-weight: 300;
+
+  margin-top: 0;
 }
+
 h2, h3, h4, h5, h6 {
   font-family: @running-font;
   font-weight: normal;
 }
-h1 {
-  font-size: 2em;
 
-  margin-top: 0;
+h1, h2, h3 {
+  line-height: 1.2;
 }
 
 table {
@@ -163,6 +166,31 @@ figure {
 #branches {
   float: right;
   margin: 0;
+
+  li {
+    a {
+      background: #800;
+      color: white;
+      .round-corners(2px);
+      padding: .4em 8px;
+      text-decoration: none;
+
+      &:hover, &:focus {
+        background: #b30;
+      }
+    }
+
+    &.active {
+      a {
+        background: #c00;
+        text-shadow: 1px 1px black;
+
+        &:hover, &:focus {
+          background: #c40;
+        }
+      }
+    }
+  }
 }
 
 #path {
