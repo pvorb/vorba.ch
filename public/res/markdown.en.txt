@@ -1,0 +1,98 @@
+title: Markdown guide
+template: page.en.tpl
+branch: info
+
+
+
+This document provides an overview over the most common elements of
+Markdown. You can find more information on the [website of the
+author](http://daringfireball.net/projects/markdown/syntax).
+
+Decoration
+----------
+
+    **bold**, _italic_, -removed-
+
+becomes
+
+**bold**, *italic*, ~~removed~~
+
+Links
+-----
+
+    [Wikipedia](http://en.wikipedia.org)
+
+    <https://vorb.de>
+
+becomes
+
+[Wikipedia](http://en.wikipedia.org)
+
+[https://vorb.de](https://vorb.de)
+
+Images
+------
+
+    ![alternate text](https://vorb.de/res/flower.jpg)
+
+becomes
+
+![alternate text](https://vorb.de/res/flower.jpg)
+
+Quotes
+------
+
+Text that is indented with `>`, is shown as a quote.
+
+    > The most books leave only quotes.
+    > Why not solely write books?
+    ~ Stanisław Jerzy Lec
+
+becomes
+
+> The most books leave only quotes. Why not solely write books?
+
+\~ Stanisław Jerzy Lec
+
+Lists
+-----
+
+Lists may be defined by `*`, `+`, and `-` as well as numbers.
+
+    *   Dog
+    *   Cat
+    *   Mouse
+
+
+    1.  Monday
+    2.  Tuesday
+    3.  Wednesday
+
+becomes
+
+*   Doc
+*   Cat
+*   Mouse
+
+1.  Monday
+2.  Tuesday
+3.  Wednesday
+
+Source code
+-----------
+
+Everything that is indented by four spaces is shown as source code.
+
+        // add a to b
+        function add(a, b) {
+          return a + b;
+        }
+
+becomes
+
+    // add a to b
+    function add(a, b) {
+      return a + b;
+    }
+
+This guide has been [written in Markdown](markdown.en.txt).
