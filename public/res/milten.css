@@ -3,7 +3,7 @@
 .bar-pos{position:fixed;bottom:0;z-index:10;}
 .hidden{position:absolute;visibility:hidden;}
 .inline-block{display:-moz-inline-stack;display:inline-block;}
-.disclaimer{font-variant:uppercase;}
+.disclaimer{text-transform:uppercase;}
 html{color:#000000;font:100%/1.5 Georgia,serif;quotes:none;}
 body{margin:0 20px 3em;}
 a{color:#aa0000;cursor:pointer;}a:visited{color:#883333;}
