@@ -22,6 +22,6 @@
 </form>
 <article id="cp">
   <h3>Vorschau</h3>
-  (<a id="cp-doc" href="/res/markdown.de.html">Markdown-Anleitung</a>)
+  (<a id="cp-doc" href="/info/markdown.de.html">Markdown-Anleitung</a>)
   <section id="cp-stage"></section>
 </article>

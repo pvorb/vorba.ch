@@ -52,7 +52,7 @@ $.domReady(function init() {
         });
 
         doc.on('click', function () {
-          window.open('/res/markdown.'+l10n.lang+'.html', 'Markdown', 'width=450,height=600');
+          window.open('/info/markdown.'+l10n.lang+'.html', 'Markdown', 'width=450,height=600');
         });
         doc.attr('href', 'javascript:void()');
 
