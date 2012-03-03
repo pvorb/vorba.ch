@@ -2,11 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de</title>
   <subtitle>web, development and other things</subtitle>
-  <updated>2012-02-29T14:40:15.893Z</updated>
+  <updated>2012-03-03T10:14:04.339Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
-
   </author>
   <rights>© 2008-2011 Paul Vorbach</rights>
   <link href="http://vorb.de/log/"/>
@@ -20,7 +19,7 @@
     <title>Recent Node.js and npm versions on Debian 6</title>
     <link href="http://vorb.de/log/2012/02/node-and-npm-on-debian.html"/>
     <id>http://vorb.de/log/2012/02/node-and-npm-on-debian.html</id>
-    <updated>2012-02-29T14:39:00.000Z</updated>
+    <updated>2012-03-03T10:08:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
       <uri>http://vorb.de/</uri>
@@ -29,7 +28,7 @@
 
       &lt;p&gt;&lt;img src="http://vorb.de/log/2012/02/nodejs-npm.png"&gt;&lt;/p&gt;
 
-      &lt;p&gt;Several months ago, it was somehow a little tricky to install Node.js and npm on Debian systems. Now it has become as easy as it could be with the help of &lt;a undefined&gt;APT pinning&lt;/a&gt;. (Be careful with APT pinning, since it may break your system.)&lt;/p&gt;
+      &lt;p&gt;Several months ago, it was somehow a little tricky to install Node.js and npm on Debian systems. Now it has become as easy as it could be with the help of &lt;a href=&quot;http://wiki.debian.org/AptPreferences&quot;&gt;APT pinning&lt;/a&gt;. (Be careful with APT pinning, since it may break your system.)&lt;/p&gt;
 &lt;p&gt;Now you can install the latest stable version (v0.6.x) of Node.js with&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;apt-get -t unstable install nodejs&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;and npm with&lt;/p&gt;

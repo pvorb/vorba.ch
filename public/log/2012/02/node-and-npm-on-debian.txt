@@ -1,6 +1,6 @@
 title: Recent Node.js and npm versions on Debian 6
 created: 2012-02-29
-modified: 2012-02-29T15:39:00+0100
+modified: 2012-03-03T11:08:00+0100
 tags: [english, nodejs, linux]
 teaser: nodejs-npm.png
 

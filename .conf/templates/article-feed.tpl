@@ -5,8 +5,9 @@
   <updated><%= (new Date()).toISOString() %></updated>
   <id><%- id %></id>
   <author>
-    <name><%= author %></name>
-<% if (locals.authorLink) { %>    <uri><%= authorLink %></uri><% } %>
+    <name><%= author %></name><%
+if (locals.authorLink) { %>
+    <uri><%= authorLink %></uri><% } %>
   </author>
   <rights>© 2008-2011 Paul Vorbach</rights>
   <link href="http://vorb.de/log/"/>
