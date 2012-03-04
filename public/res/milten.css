@@ -13,7 +13,7 @@ a.feed{background:url('/res/feed.png') 5px 50% no-repeat #ffffff;border-radius:3
 blockquote{border-left:0.3em solid #bbbbbb;margin:1em 2em 1em 1em;padding-left:.7em;}
 address{font-style:normal;}
 code{background:#f9f9f9;border:1px solid #bbbbbb;padding:0 5px;border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;}
-pre{background:#eeeeee;border:1px solid #bbbbbb;padding:.5em 10px;border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;}
+pre{background:#eeeeee;border:1px solid #bbbbbb;border-width:1px 0;padding:.5em 10px;}
 pre code{background:inherit;padding:0;border:0;}
 pre,figure{overflow:auto;}
 h1,h2,h3,h4,h5,h6{font-family:sans-serif;font-weight:normal;margin-bottom:.3em;}
