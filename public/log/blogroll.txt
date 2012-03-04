@@ -2,7 +2,7 @@ title: Blogroll
 modified: 2012-02-27
 
 template: page.en.tpl
-branch: blog
+branch: log
 
 
 These are my favorite blogs in alphabetical order:
