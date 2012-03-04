@@ -57,6 +57,17 @@
   text-transform: uppercase;
 }
 
+.icon-button {
+  background: #fff none no-repeat 5px center;
+  border: 1px solid @border-color;
+  display: inline-block;
+  height: 16px;
+  line-height: 16px;
+  padding: 6px 10px 4px 25px;
+  text-decoration: none;
+  .round-corners(3px);
+}
+
 html {
   color: @color-txt;
   font: 100%/1.5 @running-font;
@@ -83,13 +94,8 @@ a {
 }
 
 a.feed {
-  background: url('/res/feed.png') 5px 50% no-repeat #fff;
-  .round-corners(3px);
-  display: inline-block;
-  height: 16px;
-  line-height: 16px;
-  padding: 6px 10px 4px 25px;
-  border: 1px solid @border-color;
+  .icon-button;
+  background-image: url('/res/feed.png');
 }
 
 blockquote {
