@@ -28,7 +28,7 @@ genauer beschreiben. Bis dahin werde ich noch ein paar Dinge verfeinern.
 
 [bread]: https://github.com/pvorb/node-bread
 [txt]: /log/2012/03/was-lange-waehrt.txt
-[heimweh]: http://anmutunddemut.de/thema/serie/on-my-way-to-heimweh
+[heimweh]: http://anmutunddemut.de/2010/05/23/heimweh-20-die-ziele.html
 [blogracer]: http://konnexus.net/lexicon/blogracer
 [txtracer]: http://konnexus.net/lexicon/txtracer
 [nihil]: http://blog.fymmie.de/thema/nihil

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de</title>
   <subtitle>web, development and other things</subtitle>
-  <updated>2012-03-04T14:36:25.256Z</updated>
+  <updated>2012-03-04T14:38:26.613Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -31,7 +31,7 @@
       &lt;p&gt;Ein halbes Jahr hat es gedauert. Nun ist es endlich vollbracht: Mein Blog geht ans Netz.&lt;/p&gt;
 &lt;p&gt;Irgendwann im August 2011 habe ich damit begonnen, ein &lt;a href=&quot;https://github.com/pvorb/node-bread&quot;&gt;eigenes Blogsystem für Node.js&lt;/a&gt; zu schreiben. Vorher waren schon ein paar Versuche in PHP vorausgegangen.&lt;/p&gt;
 &lt;p&gt;Im Wesentlichen ist es ein System, das aus Textdateien (genauer: &lt;a href=&quot;http://vorb.de/log/2012/03/was-lange-waehrt.txt&quot;&gt;Markdown-formatiertem Text mit ein paar Zusatzinformationen am Anfang&lt;/a&gt;) HTML-Dokumente generiert. Außerdem kümmert sich das System um die Erstellung von Index-, Tag- und Feed-Dateien.&lt;/p&gt;
-&lt;p&gt;Es verfolgt ein paar Prinzipien, die &lt;a href=&quot;http://anmutunddemut.de/thema/serie/on-my-way-to-heimweh&quot;&gt;ben_ mit heimweh&lt;/a&gt;, &lt;a href=&quot;http://konnexus.net/lexicon/blogracer&quot;&gt;Konstantin mit blog-&lt;/a&gt; und &lt;a href=&quot;http://konnexus.net/lexicon/txtracer&quot;&gt;txtracer&lt;/a&gt; und &lt;a href=&quot;http://blog.fymmie.de/thema/nihil&quot;&gt;Maurice mit nihil&lt;/a&gt; vor fast zwei bis anderthalb Jahren aufgestellt haben.&lt;/p&gt;
+&lt;p&gt;Es verfolgt ein paar Prinzipien, die &lt;a href=&quot;http://anmutunddemut.de/2010/05/23/heimweh-20-die-ziele.html&quot;&gt;ben_ mit heimweh&lt;/a&gt;, &lt;a href=&quot;http://konnexus.net/lexicon/blogracer&quot;&gt;Konstantin mit blog-&lt;/a&gt; und &lt;a href=&quot;http://konnexus.net/lexicon/txtracer&quot;&gt;txtracer&lt;/a&gt; und &lt;a href=&quot;http://blog.fymmie.de/thema/nihil&quot;&gt;Maurice mit nihil&lt;/a&gt; vor fast zwei bis anderthalb Jahren aufgestellt haben.&lt;/p&gt;
 &lt;p&gt;In den kommenden Tagen werden noch ein paar Artikel folgen, die den Aufbau genauer beschreiben. Bis dahin werde ich noch ein paar Dinge verfeinern.&lt;/p&gt;
 
     </content>
