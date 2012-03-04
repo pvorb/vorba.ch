@@ -55,8 +55,12 @@ module.exports = function comments(app, logger, conf, globalConf, started) {
       logger.info('Got comments for "'+res+'".');
     });
 
-    comments.sendPingbacks(res, function () {
-      logger.info('Sent pingbacks for "'+res+'".');
+    logger.info('Sending pingbacks for resource "'+res+'".');
+    comments.sendPingbacks(res, function (err, pb) {
+      if (err)
+        return logger.warn('Error while sending pingbacks: '+err.message);
+
+      logger.info('Successully sent pingbacks for resource "'+pb.href+'".');
     });
   });
 
