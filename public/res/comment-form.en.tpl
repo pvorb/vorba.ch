@@ -15,7 +15,8 @@
   <span class="opt" title="optional">?</span><br>
 
   <input name="nospam" type="checkbox" id="cf-nospam">
-  <label for="cf-nospam">I’m neither dog nor spambot.</label><br>
+  <label for="cf-nospam">I’m neither dog nor spambot.</label>
+  <span class="opt" title="Check this box to leave a comment.">?</span><br>
 
   <input name="save" type="button" value="Submit comment" id="cf-save">
   <img id="cf-status" src="/res/load.gif" style="display:none">
