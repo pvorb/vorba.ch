@@ -153,7 +153,8 @@ function getCommentHTML(comment, isNew) {
   else
     mod = isodate(comment.modified);
 
-  return '<article class="comment'+(isNew ? ' new' : '')+'">'
+  return '<article class="comment'+(comment.pingback ? ' ping' : '')
+        +(isNew ? ' new' : '')+'">'
       + '<a id="'+comment._id+'" class="bm"></a><header>'
       + (comment.email.hash ? '<figure class="avatar">'
         + '<img src="http://www.gravatar.com/avatar/'
@@ -274,6 +275,7 @@ function clearFields() {
   $('#cf-email').val('');
   $('#cf-website').val('');
   $('#cf-nospam').val('');
+  $('#cp-stage').children().remove();
 }
 
 function showNewComment(comment) {
