@@ -240,6 +240,7 @@ function clearFields() {
   $('#cf-email').val('');
   $('#cf-website').val('');
   $('#cf-nospam').val('');
+  $('#cp-stage').children().remove();
 }
 
 function showNewComment(comment) {
