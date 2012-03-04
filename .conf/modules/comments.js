@@ -5,7 +5,6 @@ var esc = require('esc');
 var ejs = require('ejs');
 var fs = require('fs');
 var path = require('path');
-var pingback = require('pingback');
 
 marked.setOptions({
   pedantic: false,
