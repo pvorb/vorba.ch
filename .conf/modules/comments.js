@@ -5,6 +5,7 @@ var esc = require('esc');
 var ejs = require('ejs');
 var fs = require('fs');
 var path = require('path');
+var pingback = require('pingback');
 
 marked.setOptions({
   pedantic: false,
@@ -12,11 +13,12 @@ marked.setOptions({
   sanitize: true
 });
 
-module.exports = function comments(app, log, conf, globalConf, started) {
+module.exports = function comments(app, logger, conf, globalConf, started) {
+  conf.publicDirectory = path.resolve(conf.publicDirectory);
+
   var comments = new Comments(conf);
 
   var db = null;
-  // pingback
   var dbConnector = new mongo.Db(conf.name,
     new mongo.Server(conf.host, conf.port));
   dbConnector.open(function opened(err, dbConnection) {
@@ -28,11 +30,20 @@ module.exports = function comments(app, log, conf, globalConf, started) {
   });
 
   function cancel(statusCode, err, resp) {
-    console.log(err);
-    log.write(err.message+'\n');
+    logger.warn(err.message);
     resp.writeHead(statusCode, { 'Content-Type': "plain/text" });
     resp.end();
   }
+
+  function next(err) {
+    if (err)
+      logger.warn(err);
+  }
+
+  app.on('/log/pingback', function handlePingbacks(req, resp) {
+    logger.info('Incoming pingback request.');
+    comments.handlePingback(req, resp, next);
+  });
 
   app.get('^/log/comments\\?res=', function getComments(req, resp) {
     var res = req.urlParsed.query.res;
@@ -42,7 +53,11 @@ module.exports = function comments(app, log, conf, globalConf, started) {
       if (err)
         return cancel(404, err, resp);
 
-    log.write('Got comments for '+res+'.\n');
+      logger.info('Got comments for "'+res+'".');
+    });
+
+    comments.sendPingbacks(res, function () {
+      logger.info('Sent pingbacks for "'+res+'".');
     });
   });
 
@@ -60,7 +75,7 @@ module.exports = function comments(app, log, conf, globalConf, started) {
         if (err)
           return cancel(500, err, resp);
 
-        log.write('Saved comment for '+res+'.\n');
+        logger.info('Saved comment for "'+res+'"');
       });
     });
   });
@@ -68,11 +83,13 @@ module.exports = function comments(app, log, conf, globalConf, started) {
   app.get('^/log/comment-feed\\.xml$', function getCommentFeed(req, resp) {
     // get all comments
     comments.getComments(null, {
-          author: true,
-          website: true,
-          message: true,
-          res: true,
-        }, { sort: [["created", "desc"]], limit: 10 },
+      author: true,
+      'email.hash': true,
+      website: true,
+      message: true,
+      res: true,
+      regular: true
+    }, { sort: [["created", "desc"]], limit: 10 },
         function (err, cursor) {
       if (err)
         return cancel(404, err, resp);
@@ -116,7 +133,7 @@ function validateComment(c) {
   if (!/./.test(c.message))
     return false;
 
-  if (!/./.test(c.author))
+  if (!/./.test(c.author) && /./.test(c.pinback))
     return false;
 
   if (!(c.email == '' || /.+@.+/.test(c.email)))
