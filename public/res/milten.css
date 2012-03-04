@@ -9,6 +9,7 @@ body{margin:0 20px 3em;}
 a{color:#aa0000;cursor:pointer;}a:visited{color:#883333;}
 a:hover{color:#dd0000;}
 a:active{color:#ff0000;}
+a.feed{background:url('/res/feed.png') 5px 50% no-repeat #ffffff;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;display:inline-block;height:16px;line-height:16px;padding:6px 10px 4px 25px;border:1px solid #bbbbbb;}
 blockquote{border-left:0.3em solid #bbbbbb;margin:1em 2em 1em 1em;padding-left:.7em;}
 address{font-style:normal;}
 code{background:#f9f9f9;border:1px solid #bbbbbb;padding:0 5px;border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;}
