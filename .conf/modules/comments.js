@@ -129,10 +129,10 @@ function validateComment(c) {
   if (c.nospam !== 'on')
     return false;
 
-  if (!/./.test(c.message))
+  if (!/./.test(c.message) && !c.pingback)
     return false;
 
-  if (!/./.test(c.author) && /./.test(c.pinback))
+  if (!/./.test(c.author))
     return false;
 
   if (!(c.email == '' || /.+@.+/.test(c.email)))
