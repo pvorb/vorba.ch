@@ -14,6 +14,7 @@ function getDate(d) {
       title="Article feed">
     <link rel="alternate" type="application/atom+xml"
       href="/log/comment-feed.xml" title="Comment feed">
+    <link rel="pingback" href="http://vorb.de/log/pingback">
     <meta name="author" content="<%= author %>">
 <%
 if (locals.tags) {
