@@ -57,8 +57,7 @@ module.exports = function comments(app, logger, conf, globalConf, started) {
 
     logger.info('Sending pingbacks for resource "'+res+'".');
     // cut off the first slash
-    comments.sendPingbacks(((res[0] === '/') ? res.substr(1) : res),
-        function (err, pb) {
+    comments.sendPingbacks(res, function (err, pb) {
       if (err)
         return logger.warn('Error while sending pingbacks: '+err.message);
 
