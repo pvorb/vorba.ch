@@ -93,7 +93,7 @@ module.exports = function comments(app, logger, conf, globalConf, started) {
       message: true,
       res: true,
       regular: true
-    }, { sort: [["created", "asc"]], limit: 10 },
+    }, { sort: [["created", "asc"]], limit: 20 },
         function (err, cursor) {
       if (err)
         return cancel(404, err, resp);
