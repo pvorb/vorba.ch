@@ -137,7 +137,7 @@ function validateComment(c) {
   if (!/./.test(c.message) && !c.pingback)
     return false;
 
-  if (!/./.test(c.author))
+  if (!/./.test(c.author) && !c.pingback)
     return false;
 
   if (!(c.email == '' || /.+@.+/.test(c.email)))
