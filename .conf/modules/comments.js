@@ -87,13 +87,11 @@ module.exports = function comments(app, logger, conf, globalConf, started) {
   app.get('^/log/comment-feed\\.xml$', function getCommentFeed(req, resp) {
     // get all comments
     comments.getComments(null, {
-      author: true,
-      'email.hash': true,
-      website: true,
-      message: true,
       res: true,
-      regular: true
-    }, { sort: [["created", "asc"]], limit: 20 },
+      author: true,
+      website: true,
+      message: true
+    }, { sort: '_id', limit: 1 },
         function (err, cursor) {
       if (err)
         return cancel(404, err, resp);

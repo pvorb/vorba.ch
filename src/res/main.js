@@ -43,6 +43,7 @@ $.domReady(function init() {
         request('GET', '/log/comments?res='+path,
             function onComplete(status, result) {
           'use strict';
+
           if (status === 200) {
             var comments = JSON.parse(result);
             addComments(clist, comments);
@@ -122,13 +123,13 @@ function getCommentHTML(comment, isNew) {
   return '<article class="comment'+(comment.pingback ? ' ping' : '')
         +(isNew ? ' new' : '')+'">'
       + '<a id="'+comment._id+'" class="bm"></a><header>'
-      + (comment.email.hash ? '<figure class="avatar">'
+      + (comment.email && comment.email.hash ? '<figure class="avatar">'
         + '<img src="http://www.gravatar.com/avatar/'
         + comment.email.hash + '.jpg?s=60&d=mm" alt="Avatar"'
         + 'width="60" height="60"></figure>' : '')
       + '<p class="meta">'
       + (comment.website ? '<a href="'+comment.website+'">' : '')
-      + comment.author
+      + (comment.author ? comment.author : '')
       + (comment.website ? '</a>' : '')
       + ', '
       + (comment._id ? '<a href="#'+comment._id+'" title="permalink">' : '')
@@ -261,7 +262,6 @@ else
   };
 
 var getDateTime = function (date) {
-  console.log(typeof date);
   return getDate(date)+' '+numpad(date.getHours())+':'
       + numpad(date.getMinutes());
 }
