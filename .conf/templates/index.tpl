@@ -73,22 +73,22 @@ if (doc.teaser) {
 <% }); %>
       <ul class="pagination">
 <% if (__pagination.first) { %>
-        <li><a href="<%= __pagination.first.file %>"><%-
+        <li><a href="/<%= __pagination.first.file %>"><%-
           __pagination.first.page %></a>
         <li>…
 <% }
 if (__pagination.prev) { %>
-        <li><a href="<%= __pagination.prev.file %>"><%-
+        <li><a href="/<%= __pagination.prev.file %>"><%-
           __pagination.prev.page %></a>
 <% } %>
         <li><span><%- __pagination.this %></span>
 <% if (__pagination.next) { %>
-        <li><a href="<%= __pagination.next.file %>"><%-
+        <li><a href="/<%= __pagination.next.file %>"><%-
           __pagination.next.page %></a>
 <% }
 if (__pagination.last) { %>
         <li>…
-        <li><a href="<% __pagination.last.file %>"><%-
+        <li><a href="/<% __pagination.last.file %>"><%-
           __pagination.last.page %></a>
 <% } %>
       </ul>
