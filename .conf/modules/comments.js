@@ -91,7 +91,7 @@ module.exports = function comments(app, logger, conf, globalConf, started) {
       author: true,
       website: true,
       message: true
-    }, { sort: '_id', limit: 1 },
+    }, { sort: '_id', limit: 20 },
         function (err, cursor) {
       if (err)
         return cancel(404, err, resp);
