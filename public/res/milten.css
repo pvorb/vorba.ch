@@ -1,4 +1,4 @@
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,400');
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400');
 .bar-link{color:#fff;text-decoration:none;}
 .bar-pos{position:fixed;bottom:0;z-index:10;}
 .hidden{position:absolute;visibility:hidden;}
@@ -17,9 +17,9 @@ code{background:#f9f9f9;border:1px solid #bbbbbb;padding:0 5px;border-radius:2px
 pre{background:#eeeeee;border:1px solid #bbbbbb;border-width:1px 0;padding:.5em 10px;}
 pre code{background:inherit;padding:0;border:0;}
 pre,figure{overflow:auto;}
-h1,h2,h3,h4,h5,h6{font-family:sans-serif;font-weight:normal;margin-bottom:.3em;}
-h1{font-family:'Open Sans',sans-serif;font-size:2em;font-weight:300;margin-top:0;}
-h2,h3,h4,h5,h6{font-family:Georgia,serif;font-weight:normal;}
+h1,h2,h3,h4,h5,h6{font-weight:normal;margin-bottom:.3em;}
+h1{font-family:'Open Sans',Arial,sans-serif;font-size:2em;margin-top:0;}h1 em{font-style:normal;text-decoration:underline;}
+h2,h3,h4,h5,h6{font-family:Georgia,serif;}
 h1,h2,h3{line-height:1.2;}
 table{width:100%;}
 figure{margin:0;}

@@ -1,4 +1,4 @@
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,400');
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400');
 
 /* colors */
 @color-txt: #000;
@@ -17,11 +17,11 @@
 @aside-width-wide: 320px;
 
 @running-font: Georgia, serif;
-@heading-font: 'Open Sans', sans-serif;
+@heading-font: 'Open Sans', Arial, sans-serif;
 
-@bar-color: #fff;
+/*@bar-color: #fff;
 @bar-bg: #000;
-@bar-font: 1.1em/1.5 Candara, sans-serif;
+@bar-font: 1.1em/1.5 Candara, sans-serif;*/
 
 @border-color: #bbb;
 @bg-color: #eee;
@@ -133,23 +133,24 @@ pre, figure {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: sans-serif;
   font-weight: normal;
-
   margin-bottom: .3em;
 }
 
 h1 {
   font-family: @heading-font;
   font-size: 2em;
-  font-weight: 300;
 
   margin-top: 0;
+
+  em {
+    font-style: normal;
+    text-decoration: underline;
+  }
 }
 
 h2, h3, h4, h5, h6 {
   font-family: @running-font;
-  font-weight: normal;
 }
 
 h1, h2, h3 {
