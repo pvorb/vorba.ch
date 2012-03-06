@@ -1,4 +1,0 @@
-title: test
-
-
-Dies ist eine _Testkategorie_.

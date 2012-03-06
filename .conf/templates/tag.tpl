@@ -33,7 +33,7 @@ if (locals.tags) {
         <li><a href="/info/">Info</a>
       </ul>
       <ol id="path"><%
-  var path = ('/log/tag/'+title).split('/');
+  var path = ('/log/tag/'+file).split('/');
   var pathref = '';
 
   for (var i = 0; i < path.length; i++) {
