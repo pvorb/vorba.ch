@@ -966,6 +966,941 @@
 
   var module = { exports: {} }, exports = module.exports;
 
+  var charenc = {
+    // UTF-8 encoding
+    utf8: {
+      // Convert a string to a byte array
+      stringToBytes: function(str) {
+        return charenc.bin.stringToBytes(unescape(encodeURIComponent(str)));
+      },
+  
+      // Convert a byte array to a string
+      bytesToString: function(bytes) {
+        return decodeURIComponent(escape(charenc.bin.bytesToString(bytes)));
+      }
+    },
+  
+    // Binary encoding
+    bin: {
+      // Convert a string to a byte array
+      stringToBytes: function(str) {
+        for (var bytes = [], i = 0; i < str.length; i++)
+          bytes.push(str.charCodeAt(i) & 0xFF);
+        return bytes;
+      },
+  
+      // Convert a byte array to a string
+      bytesToString: function(bytes) {
+        for (var str = [], i = 0; i < bytes.length; i++)
+          str.push(String.fromCharCode(bytes[i]));
+        return str.join('');
+      }
+    }
+  };
+  
+  module.exports = charenc;
+  
+
+  provide("charenc", module.exports);
+
+  $.ender(module.exports);
+
+}();
+
+!function () {
+
+  var module = { exports: {} }, exports = module.exports;
+
+  (function() {
+    var base64map
+        = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/',
+  
+    crypt = {
+      // Bit-wise rotation left
+      rotl: function(n, b) {
+        return (n << b) | (n >>> (32 - b));
+      },
+  
+      // Bit-wise rotation right
+      rotr: function(n, b) {
+        return (n << (32 - b)) | (n >>> b);
+      },
+  
+      // Swap big-endian to little-endian and vice versa
+      endian: function(n) {
+        // If number given, swap endian
+        if (n.constructor == Number) {
+          return crypt.rotl(n, 8) & 0x00FF00FF | crypt.rotl(n, 24) & 0xFF00FF00;
+        }
+  
+        // Else, assume array and swap all items
+        for (var i = 0; i < n.length; i++)
+          n[i] = crypt.endian(n[i]);
+        return n;
+      },
+  
+      // Generate an array of any length of random bytes
+      randomBytes: function(n) {
+        for (var bytes = []; n > 0; n--)
+          bytes.push(Math.floor(Math.random() * 256));
+        return bytes;
+      },
+  
+      // Convert a byte array to big-endian 32-bit words
+      bytesToWords: function(bytes) {
+        for (var words = [], i = 0, b = 0; i < bytes.length; i++, b += 8)
+          words[b >>> 5] |= bytes[i] << (24 - b % 32);
+        return words;
+      },
+  
+      // Convert big-endian 32-bit words to a byte array
+      wordsToBytes: function(words) {
+        for (var bytes = [], b = 0; b < words.length * 32; b += 8)
+          bytes.push((words[b >>> 5] >>> (24 - b % 32)) & 0xFF);
+        return bytes;
+      },
+  
+      // Convert a byte array to a hex string
+      bytesToHex: function(bytes) {
+        for (var hex = [], i = 0; i < bytes.length; i++) {
+          hex.push((bytes[i] >>> 4).toString(16));
+          hex.push((bytes[i] & 0xF).toString(16));
+        }
+        return hex.join('');
+      },
+  
+      // Convert a hex string to a byte array
+      hexToBytes: function(hex) {
+        for (var bytes = [], c = 0; c < hex.length; c += 2)
+          bytes.push(parseInt(hex.substr(c, 2), 16));
+        return bytes;
+      },
+  
+      // Convert a byte array to a base-64 string
+      bytesToBase64: function(bytes) {
+        for (var base64 = [], i = 0; i < bytes.length; i += 3) {
+          var triplet = (bytes[i] << 16) | (bytes[i + 1] << 8) | bytes[i + 2];
+          for (var j = 0; j < 4; j++)
+            if (i * 8 + j * 6 <= bytes.length * 8)
+              base64.push(base64map.charAt((triplet >>> 6 * (3 - j)) & 0x3F));
+            else
+              base64.push('=');
+        }
+        return base64.join('');
+      },
+  
+      // Convert a base-64 string to a byte array
+      base64ToBytes: function(base64) {
+        // Remove non-base-64 characters
+        base64 = base64.replace(/[^A-Z0-9+\/]/ig, '');
+  
+        for (var bytes = [], i = 0, imod4 = 0; i < base64.length;
+            imod4 = ++i % 4) {
+          if (imod4 == 0) continue;
+          bytes.push(((base64map.indexOf(base64.charAt(i - 1))
+              & (Math.pow(2, -2 * imod4 + 8) - 1)) << (imod4 * 2))
+              | (base64map.indexOf(base64.charAt(i)) >>> (6 - imod4 * 2)));
+        }
+        return bytes;
+      }
+    };
+  
+    module.exports = crypt;
+  })();
+  
+
+  provide("crypt", module.exports);
+
+  $.ender(module.exports);
+
+}();
+
+!function () {
+
+  var module = { exports: {} }, exports = module.exports;
+
+  (function(){
+    var crypt = require('crypt'),
+        utf8 = require('charenc').utf8,
+        bin = require('charenc').bin,
+  
+    // The core
+    md5 = function (message) {
+      // Convert to byte array
+      if (message.constructor == String)
+        message = utf8.stringToBytes(message);
+      // else, assume byte array already
+  
+      var m = crypt.bytesToWords(message),
+          l = message.length * 8,
+          a =  1732584193,
+          b = -271733879,
+          c = -1732584194,
+          d =  271733878;
+  
+      // Swap endian
+      for (var i = 0; i < m.length; i++) {
+        m[i] = ((m[i] <<  8) | (m[i] >>> 24)) & 0x00FF00FF |
+               ((m[i] << 24) | (m[i] >>>  8)) & 0xFF00FF00;
+      }
+  
+      // Padding
+      m[l >>> 5] |= 0x80 << (l % 32);
+      m[(((l + 64) >>> 9) << 4) + 14] = l;
+  
+      // Method shortcuts
+      var FF = md5._ff,
+          GG = md5._gg,
+          HH = md5._hh,
+          II = md5._ii;
+  
+      for (var i = 0; i < m.length; i += 16) {
+  
+        var aa = a,
+            bb = b,
+            cc = c,
+            dd = d;
+  
+        a = FF(a, b, c, d, m[i+ 0],  7, -680876936);
+        d = FF(d, a, b, c, m[i+ 1], 12, -389564586);
+        c = FF(c, d, a, b, m[i+ 2], 17,  606105819);
+        b = FF(b, c, d, a, m[i+ 3], 22, -1044525330);
+        a = FF(a, b, c, d, m[i+ 4],  7, -176418897);
+        d = FF(d, a, b, c, m[i+ 5], 12,  1200080426);
+        c = FF(c, d, a, b, m[i+ 6], 17, -1473231341);
+        b = FF(b, c, d, a, m[i+ 7], 22, -45705983);
+        a = FF(a, b, c, d, m[i+ 8],  7,  1770035416);
+        d = FF(d, a, b, c, m[i+ 9], 12, -1958414417);
+        c = FF(c, d, a, b, m[i+10], 17, -42063);
+        b = FF(b, c, d, a, m[i+11], 22, -1990404162);
+        a = FF(a, b, c, d, m[i+12],  7,  1804603682);
+        d = FF(d, a, b, c, m[i+13], 12, -40341101);
+        c = FF(c, d, a, b, m[i+14], 17, -1502002290);
+        b = FF(b, c, d, a, m[i+15], 22,  1236535329);
+  
+        a = GG(a, b, c, d, m[i+ 1],  5, -165796510);
+        d = GG(d, a, b, c, m[i+ 6],  9, -1069501632);
+        c = GG(c, d, a, b, m[i+11], 14,  643717713);
+        b = GG(b, c, d, a, m[i+ 0], 20, -373897302);
+        a = GG(a, b, c, d, m[i+ 5],  5, -701558691);
+        d = GG(d, a, b, c, m[i+10],  9,  38016083);
+        c = GG(c, d, a, b, m[i+15], 14, -660478335);
+        b = GG(b, c, d, a, m[i+ 4], 20, -405537848);
+        a = GG(a, b, c, d, m[i+ 9],  5,  568446438);
+        d = GG(d, a, b, c, m[i+14],  9, -1019803690);
+        c = GG(c, d, a, b, m[i+ 3], 14, -187363961);
+        b = GG(b, c, d, a, m[i+ 8], 20,  1163531501);
+        a = GG(a, b, c, d, m[i+13],  5, -1444681467);
+        d = GG(d, a, b, c, m[i+ 2],  9, -51403784);
+        c = GG(c, d, a, b, m[i+ 7], 14,  1735328473);
+        b = GG(b, c, d, a, m[i+12], 20, -1926607734);
+  
+        a = HH(a, b, c, d, m[i+ 5],  4, -378558);
+        d = HH(d, a, b, c, m[i+ 8], 11, -2022574463);
+        c = HH(c, d, a, b, m[i+11], 16,  1839030562);
+        b = HH(b, c, d, a, m[i+14], 23, -35309556);
+        a = HH(a, b, c, d, m[i+ 1],  4, -1530992060);
+        d = HH(d, a, b, c, m[i+ 4], 11,  1272893353);
+        c = HH(c, d, a, b, m[i+ 7], 16, -155497632);
+        b = HH(b, c, d, a, m[i+10], 23, -1094730640);
+        a = HH(a, b, c, d, m[i+13],  4,  681279174);
+        d = HH(d, a, b, c, m[i+ 0], 11, -358537222);
+        c = HH(c, d, a, b, m[i+ 3], 16, -722521979);
+        b = HH(b, c, d, a, m[i+ 6], 23,  76029189);
+        a = HH(a, b, c, d, m[i+ 9],  4, -640364487);
+        d = HH(d, a, b, c, m[i+12], 11, -421815835);
+        c = HH(c, d, a, b, m[i+15], 16,  530742520);
+        b = HH(b, c, d, a, m[i+ 2], 23, -995338651);
+  
+        a = II(a, b, c, d, m[i+ 0],  6, -198630844);
+        d = II(d, a, b, c, m[i+ 7], 10,  1126891415);
+        c = II(c, d, a, b, m[i+14], 15, -1416354905);
+        b = II(b, c, d, a, m[i+ 5], 21, -57434055);
+        a = II(a, b, c, d, m[i+12],  6,  1700485571);
+        d = II(d, a, b, c, m[i+ 3], 10, -1894986606);
+        c = II(c, d, a, b, m[i+10], 15, -1051523);
+        b = II(b, c, d, a, m[i+ 1], 21, -2054922799);
+        a = II(a, b, c, d, m[i+ 8],  6,  1873313359);
+        d = II(d, a, b, c, m[i+15], 10, -30611744);
+        c = II(c, d, a, b, m[i+ 6], 15, -1560198380);
+        b = II(b, c, d, a, m[i+13], 21,  1309151649);
+        a = II(a, b, c, d, m[i+ 4],  6, -145523070);
+        d = II(d, a, b, c, m[i+11], 10, -1120210379);
+        c = II(c, d, a, b, m[i+ 2], 15,  718787259);
+        b = II(b, c, d, a, m[i+ 9], 21, -343485551);
+  
+        a = (a + aa) >>> 0;
+        b = (b + bb) >>> 0;
+        c = (c + cc) >>> 0;
+        d = (d + dd) >>> 0;
+      }
+  
+      return crypt.endian([a, b, c, d]);
+    };
+  
+    // Auxiliary functions
+    md5._ff  = function (a, b, c, d, x, s, t) {
+      var n = a + (b & c | ~b & d) + (x >>> 0) + t;
+      return ((n << s) | (n >>> (32 - s))) + b;
+    };
+    md5._gg  = function (a, b, c, d, x, s, t) {
+      var n = a + (b & d | c & ~d) + (x >>> 0) + t;
+      return ((n << s) | (n >>> (32 - s))) + b;
+    };
+    md5._hh  = function (a, b, c, d, x, s, t) {
+      var n = a + (b ^ c ^ d) + (x >>> 0) + t;
+      return ((n << s) | (n >>> (32 - s))) + b;
+    };
+    md5._ii  = function (a, b, c, d, x, s, t) {
+      var n = a + (c ^ (b | ~d)) + (x >>> 0) + t;
+      return ((n << s) | (n >>> (32 - s))) + b;
+    };
+  
+    // Package private blocksize
+    md5._blocksize = 16;
+    md5._digestsize = 16;
+  
+    module.exports = function (message, options) {
+      var digestbytes = crypt.wordsToBytes(md5(message));
+      return options && options.asBytes ? digestbytes :
+          options && options.asString ? bin.bytesToString(digestbytes) :
+          crypt.bytesToHex(digestbytes);
+    };
+  
+  })();
+  
+
+  provide("MD5", module.exports);
+
+  $.ender(module.exports);
+
+}();
+
+!function () {
+
+  var module = { exports: {} }, exports = module.exports;
+
+  /*!
+    * bean.js - copyright Jacob Thornton 2011
+    * https://github.com/fat/bean
+    * MIT License
+    * special thanks to:
+    * dean edwards: http://dean.edwards.name/
+    * dperini: https://github.com/dperini/nwevents
+    * the entire mootools team: github.com/mootools/mootools-core
+    */
+  !function (name, context, definition) {
+    if (typeof module !== 'undefined') module.exports = definition(name, context);
+    else if (typeof define === 'function' && typeof define.amd  === 'object') define(definition);
+    else context[name] = definition(name, context);
+  }('bean', this, function (name, context) {
+    var win = window
+      , old = context[name]
+      , overOut = /over|out/
+      , namespaceRegex = /[^\.]*(?=\..*)\.|.*/
+      , nameRegex = /\..*/
+      , addEvent = 'addEventListener'
+      , attachEvent = 'attachEvent'
+      , removeEvent = 'removeEventListener'
+      , detachEvent = 'detachEvent'
+      , doc = document || {}
+      , root = doc.documentElement || {}
+      , W3C_MODEL = root[addEvent]
+      , eventSupport = W3C_MODEL ? addEvent : attachEvent
+      , slice = Array.prototype.slice
+      , mouseTypeRegex = /click|mouse(?!(.*wheel|scroll))|menu|drag|drop/i
+      , mouseWheelTypeRegex = /mouse.*(wheel|scroll)/i
+      , textTypeRegex = /^text/i
+      , touchTypeRegex = /^touch|^gesture/i
+      , ONE = { one: 1 } // singleton for quick matching making add() do one()
+  
+      , nativeEvents = (function (hash, events, i) {
+          for (i = 0; i < events.length; i++)
+            hash[events[i]] = 1
+          return hash
+        })({}, (
+            'click dblclick mouseup mousedown contextmenu ' +                  // mouse buttons
+            'mousewheel mousemultiwheel DOMMouseScroll ' +                     // mouse wheel
+            'mouseover mouseout mousemove selectstart selectend ' +            // mouse movement
+            'keydown keypress keyup ' +                                        // keyboard
+            'orientationchange ' +                                             // mobile
+            'focus blur change reset select submit ' +                         // form elements
+            'load unload beforeunload resize move DOMContentLoaded readystatechange ' + // window
+            'error abort scroll ' +                                            // misc
+            (W3C_MODEL ? // element.fireEvent('onXYZ'... is not forgiving if we try to fire an event
+                         // that doesn't actually exist, so make sure we only do these on newer browsers
+              'show ' +                                                          // mouse buttons
+              'input invalid ' +                                                 // form elements
+              'touchstart touchmove touchend touchcancel ' +                     // touch
+              'gesturestart gesturechange gestureend ' +                         // gesture
+              'message readystatechange pageshow pagehide popstate ' +           // window
+              'hashchange offline online ' +                                     // window
+              'afterprint beforeprint ' +                                        // printing
+              'dragstart dragenter dragover dragleave drag drop dragend ' +      // dnd
+              'loadstart progress suspend emptied stalled loadmetadata ' +       // media
+              'loadeddata canplay canplaythrough playing waiting seeking ' +     // media
+              'seeked ended durationchange timeupdate play pause ratechange ' +  // media
+              'volumechange cuechange ' +                                        // media
+              'checking noupdate downloading cached updateready obsolete ' +     // appcache
+              '' : '')
+          ).split(' ')
+        )
+  
+      , customEvents = (function () {
+          var cdp = 'compareDocumentPosition'
+          var isAncestor = cdp in root
+            ? function (element, container) {
+                return container[cdp] && (container[cdp](element) & 16) === 16
+              }
+            : 'contains' in root
+              ? function (element, container) {
+                  container = container.nodeType === 9 || container === window ? root : container
+                  return container !== element && container.contains(element)
+                }
+              : function (element, container) {
+                  while (element = element.parentNode) if (element === container) return 1
+                  return 0
+                }
+  
+          function check(event) {
+            var related = event.relatedTarget
+            if (!related) return related === null
+            return (related !== this && related.prefix !== 'xul' && !/document/.test(this.toString()) && !isAncestor(related, this))
+          }
+  
+          return {
+              mouseenter: { base: 'mouseover', condition: check }
+            , mouseleave: { base: 'mouseout', condition: check }
+            , mousewheel: { base: /Firefox/.test(navigator.userAgent) ? 'DOMMouseScroll' : 'mousewheel' }
+          }
+        })()
+  
+      , fixEvent = (function () {
+          var commonProps = 'altKey attrChange attrName bubbles cancelable ctrlKey currentTarget detail eventPhase getModifierState isTrusted metaKey relatedNode relatedTarget shiftKey srcElement target timeStamp type view which'.split(' ')
+            , mouseProps = commonProps.concat('button buttons clientX clientY dataTransfer fromElement offsetX offsetY pageX pageY screenX screenY toElement'.split(' '))
+            , mouseWheelProps = mouseProps.concat('wheelDelta wheelDeltaX wheelDeltaY wheelDeltaZ axis'.split(' ')) // 'axis' is FF specific
+            , keyProps = commonProps.concat('char charCode key keyCode keyIdentifier keyLocation'.split(' '))
+            , textProps = commonProps.concat(['data'])
+            , touchProps = commonProps.concat('touches targetTouches changedTouches scale rotation'.split(' '))
+            , preventDefault = 'preventDefault'
+            , createPreventDefault = function (event) {
+                return function () {
+                  if (event[preventDefault])
+                    event[preventDefault]()
+                  else
+                    event.returnValue = false
+                }
+              }
+            , stopPropagation = 'stopPropagation'
+            , createStopPropagation = function (event) {
+                return function () {
+                  if (event[stopPropagation])
+                    event[stopPropagation]()
+                  else
+                    event.cancelBubble = true
+                }
+              }
+            , createStop = function (synEvent) {
+                return function () {
+                  synEvent[preventDefault]()
+                  synEvent[stopPropagation]()
+                  synEvent.stopped = true
+                }
+              }
+            , copyProps = function (event, result, props) {
+                var i, p
+                for (i = props.length; i--;) {
+                  p = props[i]
+                  if (!(p in result) && p in event) result[p] = event[p]
+                }
+              }
+  
+          return function (event, isNative) {
+            var result = { originalEvent: event, isNative: isNative }
+            if (!event)
+              return result
+  
+            var props
+              , type = event.type
+              , target = event.target || event.srcElement
+  
+            result[preventDefault] = createPreventDefault(event)
+            result[stopPropagation] = createStopPropagation(event)
+            result.stop = createStop(result)
+            result.target = target && target.nodeType === 3 ? target.parentNode : target
+  
+            if (isNative) { // we only need basic augmentation on custom events, the rest is too expensive
+              if (type.indexOf('key') !== -1) {
+                props = keyProps
+                result.keyCode = event.which || event.keyCode
+              } else if (mouseTypeRegex.test(type)) {
+                props = mouseProps
+                result.rightClick = event.which === 3 || event.button === 2
+                result.pos = { x: 0, y: 0 }
+                if (event.pageX || event.pageY) {
+                  result.clientX = event.pageX
+                  result.clientY = event.pageY
+                } else if (event.clientX || event.clientY) {
+                  result.clientX = event.clientX + doc.body.scrollLeft + root.scrollLeft
+                  result.clientY = event.clientY + doc.body.scrollTop + root.scrollTop
+                }
+                if (overOut.test(type))
+                  result.relatedTarget = event.relatedTarget || event[(type === 'mouseover' ? 'from' : 'to') + 'Element']
+              } else if (touchTypeRegex.test(type)) {
+                props = touchProps
+              } else if (mouseWheelTypeRegex.test(type)) {
+                props = mouseWheelProps
+              } else if (textTypeRegex.test(type)) {
+                props = textProps
+              }
+              copyProps(event, result, props || commonProps)
+            }
+            return result
+          }
+        })()
+  
+        // if we're in old IE we can't do onpropertychange on doc or win so we use doc.documentElement for both
+      , targetElement = function (element, isNative) {
+          return !W3C_MODEL && !isNative && (element === doc || element === win) ? root : element
+        }
+  
+        // we use one of these per listener, of any type
+      , RegEntry = (function () {
+          function entry(element, type, handler, original, namespaces) {
+            this.element = element
+            this.type = type
+            this.handler = handler
+            this.original = original
+            this.namespaces = namespaces
+            this.custom = customEvents[type]
+            this.isNative = nativeEvents[type] && element[eventSupport]
+            this.eventType = W3C_MODEL || this.isNative ? type : 'propertychange'
+            this.customType = !W3C_MODEL && !this.isNative && type
+            this.target = targetElement(element, this.isNative)
+            this.eventSupport = this.target[eventSupport]
+          }
+  
+          entry.prototype = {
+              // given a list of namespaces, is our entry in any of them?
+              inNamespaces: function (checkNamespaces) {
+                var i, j
+                if (!checkNamespaces)
+                  return true
+                if (!this.namespaces)
+                  return false
+                for (i = checkNamespaces.length; i--;) {
+                  for (j = this.namespaces.length; j--;) {
+                    if (checkNamespaces[i] === this.namespaces[j])
+                      return true
+                  }
+                }
+                return false
+              }
+  
+              // match by element, original fn (opt), handler fn (opt)
+            , matches: function (checkElement, checkOriginal, checkHandler) {
+                return this.element === checkElement &&
+                  (!checkOriginal || this.original === checkOriginal) &&
+                  (!checkHandler || this.handler === checkHandler)
+              }
+          }
+  
+          return entry
+        })()
+  
+      , registry = (function () {
+          // our map stores arrays by event type, just because it's better than storing
+          // everything in a single array. uses '$' as a prefix for the keys for safety
+          var map = {}
+  
+            // generic functional search of our registry for matching listeners,
+            // `fn` returns false to break out of the loop
+            , forAll = function (element, type, original, handler, fn) {
+                if (!type || type === '*') {
+                  // search the whole registry
+                  for (var t in map) {
+                    if (t.charAt(0) === '$')
+                      forAll(element, t.substr(1), original, handler, fn)
+                  }
+                } else {
+                  var i = 0, l, list = map['$' + type], all = element === '*'
+                  if (!list)
+                    return
+                  for (l = list.length; i < l; i++) {
+                    if (all || list[i].matches(element, original, handler))
+                      if (!fn(list[i], list, i, type))
+                        return
+                  }
+                }
+              }
+  
+            , has = function (element, type, original) {
+                // we're not using forAll here simply because it's a bit slower and this
+                // needs to be fast
+                var i, list = map['$' + type]
+                if (list) {
+                  for (i = list.length; i--;) {
+                    if (list[i].matches(element, original, null))
+                      return true
+                  }
+                }
+                return false
+              }
+  
+            , get = function (element, type, original) {
+                var entries = []
+                forAll(element, type, original, null, function (entry) { return entries.push(entry) })
+                return entries
+              }
+  
+            , put = function (entry) {
+                (map['$' + entry.type] || (map['$' + entry.type] = [])).push(entry)
+                return entry
+              }
+  
+            , del = function (entry) {
+                forAll(entry.element, entry.type, null, entry.handler, function (entry, list, i) {
+                  list.splice(i, 1)
+                  if (list.length === 0)
+                    delete map['$' + entry.type]
+                  return false
+                })
+              }
+  
+              // dump all entries, used for onunload
+            , entries = function () {
+                var t, entries = []
+                for (t in map) {
+                  if (t.charAt(0) === '$')
+                    entries = entries.concat(map[t])
+                }
+                return entries
+              }
+  
+          return { has: has, get: get, put: put, del: del, entries: entries }
+        })()
+  
+        // add and remove listeners to DOM elements
+      , listener = W3C_MODEL ? function (element, type, fn, add) {
+          element[add ? addEvent : removeEvent](type, fn, false)
+        } : function (element, type, fn, add, custom) {
+          if (custom && add && element['_on' + custom] === null)
+            element['_on' + custom] = 0
+          element[add ? attachEvent : detachEvent]('on' + type, fn)
+        }
+  
+      , nativeHandler = function (element, fn, args) {
+          var beanDel = fn.__beanDel
+            , handler = function (event) {
+            event = fixEvent(event || ((this.ownerDocument || this.document || this).parentWindow || win).event, true)
+            if (beanDel) // delegated event, fix the fix
+              event.currentTarget = beanDel.ft(event.target, element)
+            return fn.apply(element, [event].concat(args))
+          }
+          handler.__beanDel = beanDel
+          return handler
+        }
+  
+      , customHandler = function (element, fn, type, condition, args, isNative) {
+          var beanDel = fn.__beanDel
+            , handler = function (event) {
+            var target = beanDel ? beanDel.ft(event.target, element) : this // deleated event
+            if (condition ? condition.apply(target, arguments) : W3C_MODEL ? true : event && event.propertyName === '_on' + type || !event) {
+              if (event) {
+                event = fixEvent(event || ((this.ownerDocument || this.document || this).parentWindow || win).event, isNative)
+                event.currentTarget = target
+              }
+              fn.apply(element, event && (!args || args.length === 0) ? arguments : slice.call(arguments, event ? 0 : 1).concat(args))
+            }
+          }
+          handler.__beanDel = beanDel
+          return handler
+        }
+  
+      , once = function (rm, element, type, fn, originalFn) {
+          // wrap the handler in a handler that does a remove as well
+          return function () {
+            rm(element, type, originalFn)
+            fn.apply(this, arguments)
+          }
+        }
+  
+      , removeListener = function (element, orgType, handler, namespaces) {
+          var i, l, entry
+            , type = (orgType && orgType.replace(nameRegex, ''))
+            , handlers = registry.get(element, type, handler)
+  
+          for (i = 0, l = handlers.length; i < l; i++) {
+            if (handlers[i].inNamespaces(namespaces)) {
+              if ((entry = handlers[i]).eventSupport)
+                listener(entry.target, entry.eventType, entry.handler, false, entry.type)
+              // TODO: this is problematic, we have a registry.get() and registry.del() that
+              // both do registry searches so we waste cycles doing this. Needs to be rolled into
+              // a single registry.forAll(fn) that removes while finding, but the catch is that
+              // we'll be splicing the arrays that we're iterating over. Needs extra tests to
+              // make sure we don't screw it up. @rvagg
+              registry.del(entry)
+            }
+          }
+        }
+  
+      , addListener = function (element, orgType, fn, originalFn, args) {
+          var entry
+            , type = orgType.replace(nameRegex, '')
+            , namespaces = orgType.replace(namespaceRegex, '').split('.')
+  
+          if (registry.has(element, type, fn))
+            return element // no dupe
+          if (type === 'unload')
+            fn = once(removeListener, element, type, fn, originalFn) // self clean-up
+          if (customEvents[type]) {
+            if (customEvents[type].condition)
+              fn = customHandler(element, fn, type, customEvents[type].condition, args, true)
+            type = customEvents[type].base || type
+          }
+          entry = registry.put(new RegEntry(element, type, fn, originalFn, namespaces[0] && namespaces))
+          entry.handler = entry.isNative ?
+            nativeHandler(element, entry.handler, args) :
+            customHandler(element, entry.handler, type, false, args, false)
+          if (entry.eventSupport)
+            listener(entry.target, entry.eventType, entry.handler, true, entry.customType)
+        }
+  
+      , del = function (selector, fn, $) {
+          var findTarget = function (target, root) {
+                var i, array = typeof selector === 'string' ? $(selector, root) : selector
+                for (; target && target !== root; target = target.parentNode) {
+                  for (i = array.length; i--;) {
+                    if (array[i] === target)
+                      return target
+                  }
+                }
+              }
+            , handler = function (e) {
+                var match = findTarget(e.target, this)
+                if (match)
+                  fn.apply(match, arguments)
+              }
+  
+          handler.__beanDel = {
+              ft: findTarget // attach it here for customEvents to use too
+            , selector: selector
+            , $: $
+          }
+          return handler
+        }
+  
+      , remove = function (element, typeSpec, fn) {
+          var k, m, type, namespaces, i
+            , rm = removeListener
+            , isString = typeSpec && typeof typeSpec === 'string'
+  
+          if (isString && typeSpec.indexOf(' ') > 0) {
+            // remove(el, 't1 t2 t3', fn) or remove(el, 't1 t2 t3')
+            typeSpec = typeSpec.split(' ')
+            for (i = typeSpec.length; i--;)
+              remove(element, typeSpec[i], fn)
+            return element
+          }
+          type = isString && typeSpec.replace(nameRegex, '')
+          if (type && customEvents[type])
+            type = customEvents[type].type
+          if (!typeSpec || isString) {
+            // remove(el) or remove(el, t1.ns) or remove(el, .ns) or remove(el, .ns1.ns2.ns3)
+            if (namespaces = isString && typeSpec.replace(namespaceRegex, ''))
+              namespaces = namespaces.split('.')
+            rm(element, type, fn, namespaces)
+          } else if (typeof typeSpec === 'function') {
+            // remove(el, fn)
+            rm(element, null, typeSpec)
+          } else {
+            // remove(el, { t1: fn1, t2, fn2 })
+            for (k in typeSpec) {
+              if (typeSpec.hasOwnProperty(k))
+                remove(element, k, typeSpec[k])
+            }
+          }
+          return element
+        }
+  
+      , add = function (element, events, fn, delfn, $) {
+          var type, types, i, args
+            , originalFn = fn
+            , isDel = fn && typeof fn === 'string'
+  
+          if (events && !fn && typeof events === 'object') {
+            for (type in events) {
+              if (events.hasOwnProperty(type))
+                add.apply(this, [ element, type, events[type] ])
+            }
+          } else {
+            args = arguments.length > 3 ? slice.call(arguments, 3) : []
+            types = (isDel ? fn : events).split(' ')
+            isDel && (fn = del(events, (originalFn = delfn), $)) && (args = slice.call(args, 1))
+            // special case for one()
+            this === ONE && (fn = once(remove, element, events, fn, originalFn))
+            for (i = types.length; i--;) addListener(element, types[i], fn, originalFn, args)
+          }
+          return element
+        }
+  
+      , one = function () {
+          return add.apply(ONE, arguments)
+        }
+  
+      , fireListener = W3C_MODEL ? function (isNative, type, element) {
+          var evt = doc.createEvent(isNative ? 'HTMLEvents' : 'UIEvents')
+          evt[isNative ? 'initEvent' : 'initUIEvent'](type, true, true, win, 1)
+          element.dispatchEvent(evt)
+        } : function (isNative, type, element) {
+          element = targetElement(element, isNative)
+          // if not-native then we're using onpropertychange so we just increment a custom property
+          isNative ? element.fireEvent('on' + type, doc.createEventObject()) : element['_on' + type]++
+        }
+  
+      , fire = function (element, type, args) {
+          var i, j, l, names, handlers
+            , types = type.split(' ')
+  
+          for (i = types.length; i--;) {
+            type = types[i].replace(nameRegex, '')
+            if (names = types[i].replace(namespaceRegex, ''))
+              names = names.split('.')
+            if (!names && !args && element[eventSupport]) {
+              fireListener(nativeEvents[type], type, element)
+            } else {
+              // non-native event, either because of a namespace, arguments or a non DOM element
+              // iterate over all listeners and manually 'fire'
+              handlers = registry.get(element, type)
+              args = [false].concat(args)
+              for (j = 0, l = handlers.length; j < l; j++) {
+                if (handlers[j].inNamespaces(names))
+                  handlers[j].handler.apply(element, args)
+              }
+            }
+          }
+          return element
+        }
+  
+      , clone = function (element, from, type) {
+          var i = 0
+            , handlers = registry.get(from, type)
+            , l = handlers.length
+            , args, beanDel
+  
+          for (;i < l; i++) {
+            if (handlers[i].original) {
+              beanDel = handlers[i].handler.__beanDel
+              if (beanDel) {
+                args = [ element, beanDel.selector, handlers[i].type, handlers[i].original, beanDel.$]
+              } else
+                args = [ element, handlers[i].type, handlers[i].original ]
+              add.apply(null, args)
+            }
+          }
+          return element
+        }
+  
+      , bean = {
+            add: add
+          , one: one
+          , remove: remove
+          , clone: clone
+          , fire: fire
+          , noConflict: function () {
+              context[name] = old
+              return this
+            }
+        }
+  
+    if (win[attachEvent]) {
+      // for IE, clean up on unload to avoid leaks
+      var cleanup = function () {
+        var i, entries = registry.entries()
+        for (i in entries) {
+          if (entries[i].type && entries[i].type !== 'unload')
+            remove(entries[i].element, entries[i].type)
+        }
+        win[detachEvent]('onunload', cleanup)
+        win.CollectGarbage && win.CollectGarbage()
+      }
+      win[attachEvent]('onunload', cleanup)
+    }
+  
+    return bean
+  })
+  
+
+  provide("bean", module.exports);
+
+  !function ($) {
+    var b = require('bean')
+      , integrate = function (method, type, method2) {
+          var _args = type ? [type] : []
+          return function () {
+            for (var args, i = 0, l = this.length; i < l; i++) {
+              args = [this[i]].concat(_args, Array.prototype.slice.call(arguments, 0))
+              args.length == 4 && args.push($)
+              !arguments.length && method == 'add' && type && (method = 'fire')
+              b[method].apply(this, args)
+            }
+            return this
+          }
+        }
+      , add = integrate('add')
+      , remove = integrate('remove')
+      , fire = integrate('fire')
+  
+      , methods = {
+            on: add // NOTE: .on() is likely to change in the near future, don't rely on this as-is see https://github.com/fat/bean/issues/55
+          , addListener: add
+          , bind: add
+          , listen: add
+          , delegate: add
+  
+          , one: integrate('one')
+  
+          , off: remove
+          , unbind: remove
+          , unlisten: remove
+          , removeListener: remove
+          , undelegate: remove
+  
+          , emit: fire
+          , trigger: fire
+  
+          , cloneEvents: integrate('clone')
+  
+          , hover: function (enter, leave, i) { // i for internal
+              for (i = this.length; i--;) {
+                b.add.call(this, this[i], 'mouseenter', enter)
+                b.add.call(this, this[i], 'mouseleave', leave)
+              }
+              return this
+            }
+        }
+  
+      , shortcuts = [
+            'blur', 'change', 'click', 'dblclick', 'error', 'focus', 'focusin'
+          , 'focusout', 'keydown', 'keypress', 'keyup', 'load', 'mousedown'
+          , 'mouseenter', 'mouseleave', 'mouseout', 'mouseover', 'mouseup', 'mousemove'
+          , 'resize', 'scroll', 'select', 'submit', 'unload'
+        ]
+  
+    for (var i = shortcuts.length; i--;) {
+      methods[shortcuts[i]] = integrate('add', shortcuts[i])
+    }
+  
+    $.ender(methods, true)
+  }(ender)
+  
+
+}();
+
+!function () {
+
+  var module = { exports: {} }, exports = module.exports;
+
   /*!
     * Bonzo: DOM Utility (c) Dustin Diaz 2012
     * https://github.com/ded/bonzo
@@ -2003,627 +2938,6 @@
   var module = { exports: {} }, exports = module.exports;
 
   /*!
-    * bean.js - copyright Jacob Thornton 2011
-    * https://github.com/fat/bean
-    * MIT License
-    * special thanks to:
-    * dean edwards: http://dean.edwards.name/
-    * dperini: https://github.com/dperini/nwevents
-    * the entire mootools team: github.com/mootools/mootools-core
-    */
-  !function (name, context, definition) {
-    if (typeof module !== 'undefined') module.exports = definition(name, context);
-    else if (typeof define === 'function' && typeof define.amd  === 'object') define(definition);
-    else context[name] = definition(name, context);
-  }('bean', this, function (name, context) {
-    var win = window
-      , old = context[name]
-      , overOut = /over|out/
-      , namespaceRegex = /[^\.]*(?=\..*)\.|.*/
-      , nameRegex = /\..*/
-      , addEvent = 'addEventListener'
-      , attachEvent = 'attachEvent'
-      , removeEvent = 'removeEventListener'
-      , detachEvent = 'detachEvent'
-      , doc = document || {}
-      , root = doc.documentElement || {}
-      , W3C_MODEL = root[addEvent]
-      , eventSupport = W3C_MODEL ? addEvent : attachEvent
-      , slice = Array.prototype.slice
-      , mouseTypeRegex = /click|mouse(?!(.*wheel|scroll))|menu|drag|drop/i
-      , mouseWheelTypeRegex = /mouse.*(wheel|scroll)/i
-      , textTypeRegex = /^text/i
-      , touchTypeRegex = /^touch|^gesture/i
-      , ONE = { one: 1 } // singleton for quick matching making add() do one()
-  
-      , nativeEvents = (function (hash, events, i) {
-          for (i = 0; i < events.length; i++)
-            hash[events[i]] = 1
-          return hash
-        })({}, (
-            'click dblclick mouseup mousedown contextmenu ' +                  // mouse buttons
-            'mousewheel mousemultiwheel DOMMouseScroll ' +                     // mouse wheel
-            'mouseover mouseout mousemove selectstart selectend ' +            // mouse movement
-            'keydown keypress keyup ' +                                        // keyboard
-            'orientationchange ' +                                             // mobile
-            'focus blur change reset select submit ' +                         // form elements
-            'load unload beforeunload resize move DOMContentLoaded readystatechange ' + // window
-            'error abort scroll ' +                                            // misc
-            (W3C_MODEL ? // element.fireEvent('onXYZ'... is not forgiving if we try to fire an event
-                         // that doesn't actually exist, so make sure we only do these on newer browsers
-              'show ' +                                                          // mouse buttons
-              'input invalid ' +                                                 // form elements
-              'touchstart touchmove touchend touchcancel ' +                     // touch
-              'gesturestart gesturechange gestureend ' +                         // gesture
-              'message readystatechange pageshow pagehide popstate ' +           // window
-              'hashchange offline online ' +                                     // window
-              'afterprint beforeprint ' +                                        // printing
-              'dragstart dragenter dragover dragleave drag drop dragend ' +      // dnd
-              'loadstart progress suspend emptied stalled loadmetadata ' +       // media
-              'loadeddata canplay canplaythrough playing waiting seeking ' +     // media
-              'seeked ended durationchange timeupdate play pause ratechange ' +  // media
-              'volumechange cuechange ' +                                        // media
-              'checking noupdate downloading cached updateready obsolete ' +     // appcache
-              '' : '')
-          ).split(' ')
-        )
-  
-      , customEvents = (function () {
-          var cdp = 'compareDocumentPosition'
-          var isAncestor = cdp in root
-            ? function (element, container) {
-                return container[cdp] && (container[cdp](element) & 16) === 16
-              }
-            : 'contains' in root
-              ? function (element, container) {
-                  container = container.nodeType === 9 || container === window ? root : container
-                  return container !== element && container.contains(element)
-                }
-              : function (element, container) {
-                  while (element = element.parentNode) if (element === container) return 1
-                  return 0
-                }
-  
-          function check(event) {
-            var related = event.relatedTarget
-            if (!related) return related === null
-            return (related !== this && related.prefix !== 'xul' && !/document/.test(this.toString()) && !isAncestor(related, this))
-          }
-  
-          return {
-              mouseenter: { base: 'mouseover', condition: check }
-            , mouseleave: { base: 'mouseout', condition: check }
-            , mousewheel: { base: /Firefox/.test(navigator.userAgent) ? 'DOMMouseScroll' : 'mousewheel' }
-          }
-        })()
-  
-      , fixEvent = (function () {
-          var commonProps = 'altKey attrChange attrName bubbles cancelable ctrlKey currentTarget detail eventPhase getModifierState isTrusted metaKey relatedNode relatedTarget shiftKey srcElement target timeStamp type view which'.split(' ')
-            , mouseProps = commonProps.concat('button buttons clientX clientY dataTransfer fromElement offsetX offsetY pageX pageY screenX screenY toElement'.split(' '))
-            , mouseWheelProps = mouseProps.concat('wheelDelta wheelDeltaX wheelDeltaY wheelDeltaZ axis'.split(' ')) // 'axis' is FF specific
-            , keyProps = commonProps.concat('char charCode key keyCode keyIdentifier keyLocation'.split(' '))
-            , textProps = commonProps.concat(['data'])
-            , touchProps = commonProps.concat('touches targetTouches changedTouches scale rotation'.split(' '))
-            , preventDefault = 'preventDefault'
-            , createPreventDefault = function (event) {
-                return function () {
-                  if (event[preventDefault])
-                    event[preventDefault]()
-                  else
-                    event.returnValue = false
-                }
-              }
-            , stopPropagation = 'stopPropagation'
-            , createStopPropagation = function (event) {
-                return function () {
-                  if (event[stopPropagation])
-                    event[stopPropagation]()
-                  else
-                    event.cancelBubble = true
-                }
-              }
-            , createStop = function (synEvent) {
-                return function () {
-                  synEvent[preventDefault]()
-                  synEvent[stopPropagation]()
-                  synEvent.stopped = true
-                }
-              }
-            , copyProps = function (event, result, props) {
-                var i, p
-                for (i = props.length; i--;) {
-                  p = props[i]
-                  if (!(p in result) && p in event) result[p] = event[p]
-                }
-              }
-  
-          return function (event, isNative) {
-            var result = { originalEvent: event, isNative: isNative }
-            if (!event)
-              return result
-  
-            var props
-              , type = event.type
-              , target = event.target || event.srcElement
-  
-            result[preventDefault] = createPreventDefault(event)
-            result[stopPropagation] = createStopPropagation(event)
-            result.stop = createStop(result)
-            result.target = target && target.nodeType === 3 ? target.parentNode : target
-  
-            if (isNative) { // we only need basic augmentation on custom events, the rest is too expensive
-              if (type.indexOf('key') !== -1) {
-                props = keyProps
-                result.keyCode = event.which || event.keyCode
-              } else if (mouseTypeRegex.test(type)) {
-                props = mouseProps
-                result.rightClick = event.which === 3 || event.button === 2
-                result.pos = { x: 0, y: 0 }
-                if (event.pageX || event.pageY) {
-                  result.clientX = event.pageX
-                  result.clientY = event.pageY
-                } else if (event.clientX || event.clientY) {
-                  result.clientX = event.clientX + doc.body.scrollLeft + root.scrollLeft
-                  result.clientY = event.clientY + doc.body.scrollTop + root.scrollTop
-                }
-                if (overOut.test(type))
-                  result.relatedTarget = event.relatedTarget || event[(type === 'mouseover' ? 'from' : 'to') + 'Element']
-              } else if (touchTypeRegex.test(type)) {
-                props = touchProps
-              } else if (mouseWheelTypeRegex.test(type)) {
-                props = mouseWheelProps
-              } else if (textTypeRegex.test(type)) {
-                props = textProps
-              }
-              copyProps(event, result, props || commonProps)
-            }
-            return result
-          }
-        })()
-  
-        // if we're in old IE we can't do onpropertychange on doc or win so we use doc.documentElement for both
-      , targetElement = function (element, isNative) {
-          return !W3C_MODEL && !isNative && (element === doc || element === win) ? root : element
-        }
-  
-        // we use one of these per listener, of any type
-      , RegEntry = (function () {
-          function entry(element, type, handler, original, namespaces) {
-            this.element = element
-            this.type = type
-            this.handler = handler
-            this.original = original
-            this.namespaces = namespaces
-            this.custom = customEvents[type]
-            this.isNative = nativeEvents[type] && element[eventSupport]
-            this.eventType = W3C_MODEL || this.isNative ? type : 'propertychange'
-            this.customType = !W3C_MODEL && !this.isNative && type
-            this.target = targetElement(element, this.isNative)
-            this.eventSupport = this.target[eventSupport]
-          }
-  
-          entry.prototype = {
-              // given a list of namespaces, is our entry in any of them?
-              inNamespaces: function (checkNamespaces) {
-                var i, j
-                if (!checkNamespaces)
-                  return true
-                if (!this.namespaces)
-                  return false
-                for (i = checkNamespaces.length; i--;) {
-                  for (j = this.namespaces.length; j--;) {
-                    if (checkNamespaces[i] === this.namespaces[j])
-                      return true
-                  }
-                }
-                return false
-              }
-  
-              // match by element, original fn (opt), handler fn (opt)
-            , matches: function (checkElement, checkOriginal, checkHandler) {
-                return this.element === checkElement &&
-                  (!checkOriginal || this.original === checkOriginal) &&
-                  (!checkHandler || this.handler === checkHandler)
-              }
-          }
-  
-          return entry
-        })()
-  
-      , registry = (function () {
-          // our map stores arrays by event type, just because it's better than storing
-          // everything in a single array. uses '$' as a prefix for the keys for safety
-          var map = {}
-  
-            // generic functional search of our registry for matching listeners,
-            // `fn` returns false to break out of the loop
-            , forAll = function (element, type, original, handler, fn) {
-                if (!type || type === '*') {
-                  // search the whole registry
-                  for (var t in map) {
-                    if (t.charAt(0) === '$')
-                      forAll(element, t.substr(1), original, handler, fn)
-                  }
-                } else {
-                  var i = 0, l, list = map['$' + type], all = element === '*'
-                  if (!list)
-                    return
-                  for (l = list.length; i < l; i++) {
-                    if (all || list[i].matches(element, original, handler))
-                      if (!fn(list[i], list, i, type))
-                        return
-                  }
-                }
-              }
-  
-            , has = function (element, type, original) {
-                // we're not using forAll here simply because it's a bit slower and this
-                // needs to be fast
-                var i, list = map['$' + type]
-                if (list) {
-                  for (i = list.length; i--;) {
-                    if (list[i].matches(element, original, null))
-                      return true
-                  }
-                }
-                return false
-              }
-  
-            , get = function (element, type, original) {
-                var entries = []
-                forAll(element, type, original, null, function (entry) { return entries.push(entry) })
-                return entries
-              }
-  
-            , put = function (entry) {
-                (map['$' + entry.type] || (map['$' + entry.type] = [])).push(entry)
-                return entry
-              }
-  
-            , del = function (entry) {
-                forAll(entry.element, entry.type, null, entry.handler, function (entry, list, i) {
-                  list.splice(i, 1)
-                  if (list.length === 0)
-                    delete map['$' + entry.type]
-                  return false
-                })
-              }
-  
-              // dump all entries, used for onunload
-            , entries = function () {
-                var t, entries = []
-                for (t in map) {
-                  if (t.charAt(0) === '$')
-                    entries = entries.concat(map[t])
-                }
-                return entries
-              }
-  
-          return { has: has, get: get, put: put, del: del, entries: entries }
-        })()
-  
-        // add and remove listeners to DOM elements
-      , listener = W3C_MODEL ? function (element, type, fn, add) {
-          element[add ? addEvent : removeEvent](type, fn, false)
-        } : function (element, type, fn, add, custom) {
-          if (custom && add && element['_on' + custom] === null)
-            element['_on' + custom] = 0
-          element[add ? attachEvent : detachEvent]('on' + type, fn)
-        }
-  
-      , nativeHandler = function (element, fn, args) {
-          var beanDel = fn.__beanDel
-            , handler = function (event) {
-            event = fixEvent(event || ((this.ownerDocument || this.document || this).parentWindow || win).event, true)
-            if (beanDel) // delegated event, fix the fix
-              event.currentTarget = beanDel.ft(event.target, element)
-            return fn.apply(element, [event].concat(args))
-          }
-          handler.__beanDel = beanDel
-          return handler
-        }
-  
-      , customHandler = function (element, fn, type, condition, args, isNative) {
-          var beanDel = fn.__beanDel
-            , handler = function (event) {
-            var target = beanDel ? beanDel.ft(event.target, element) : this // deleated event
-            if (condition ? condition.apply(target, arguments) : W3C_MODEL ? true : event && event.propertyName === '_on' + type || !event) {
-              if (event) {
-                event = fixEvent(event || ((this.ownerDocument || this.document || this).parentWindow || win).event, isNative)
-                event.currentTarget = target
-              }
-              fn.apply(element, event && (!args || args.length === 0) ? arguments : slice.call(arguments, event ? 0 : 1).concat(args))
-            }
-          }
-          handler.__beanDel = beanDel
-          return handler
-        }
-  
-      , once = function (rm, element, type, fn, originalFn) {
-          // wrap the handler in a handler that does a remove as well
-          return function () {
-            rm(element, type, originalFn)
-            fn.apply(this, arguments)
-          }
-        }
-  
-      , removeListener = function (element, orgType, handler, namespaces) {
-          var i, l, entry
-            , type = (orgType && orgType.replace(nameRegex, ''))
-            , handlers = registry.get(element, type, handler)
-  
-          for (i = 0, l = handlers.length; i < l; i++) {
-            if (handlers[i].inNamespaces(namespaces)) {
-              if ((entry = handlers[i]).eventSupport)
-                listener(entry.target, entry.eventType, entry.handler, false, entry.type)
-              // TODO: this is problematic, we have a registry.get() and registry.del() that
-              // both do registry searches so we waste cycles doing this. Needs to be rolled into
-              // a single registry.forAll(fn) that removes while finding, but the catch is that
-              // we'll be splicing the arrays that we're iterating over. Needs extra tests to
-              // make sure we don't screw it up. @rvagg
-              registry.del(entry)
-            }
-          }
-        }
-  
-      , addListener = function (element, orgType, fn, originalFn, args) {
-          var entry
-            , type = orgType.replace(nameRegex, '')
-            , namespaces = orgType.replace(namespaceRegex, '').split('.')
-  
-          if (registry.has(element, type, fn))
-            return element // no dupe
-          if (type === 'unload')
-            fn = once(removeListener, element, type, fn, originalFn) // self clean-up
-          if (customEvents[type]) {
-            if (customEvents[type].condition)
-              fn = customHandler(element, fn, type, customEvents[type].condition, args, true)
-            type = customEvents[type].base || type
-          }
-          entry = registry.put(new RegEntry(element, type, fn, originalFn, namespaces[0] && namespaces))
-          entry.handler = entry.isNative ?
-            nativeHandler(element, entry.handler, args) :
-            customHandler(element, entry.handler, type, false, args, false)
-          if (entry.eventSupport)
-            listener(entry.target, entry.eventType, entry.handler, true, entry.customType)
-        }
-  
-      , del = function (selector, fn, $) {
-          var findTarget = function (target, root) {
-                var i, array = typeof selector === 'string' ? $(selector, root) : selector
-                for (; target && target !== root; target = target.parentNode) {
-                  for (i = array.length; i--;) {
-                    if (array[i] === target)
-                      return target
-                  }
-                }
-              }
-            , handler = function (e) {
-                var match = findTarget(e.target, this)
-                if (match)
-                  fn.apply(match, arguments)
-              }
-  
-          handler.__beanDel = {
-              ft: findTarget // attach it here for customEvents to use too
-            , selector: selector
-            , $: $
-          }
-          return handler
-        }
-  
-      , remove = function (element, typeSpec, fn) {
-          var k, m, type, namespaces, i
-            , rm = removeListener
-            , isString = typeSpec && typeof typeSpec === 'string'
-  
-          if (isString && typeSpec.indexOf(' ') > 0) {
-            // remove(el, 't1 t2 t3', fn) or remove(el, 't1 t2 t3')
-            typeSpec = typeSpec.split(' ')
-            for (i = typeSpec.length; i--;)
-              remove(element, typeSpec[i], fn)
-            return element
-          }
-          type = isString && typeSpec.replace(nameRegex, '')
-          if (type && customEvents[type])
-            type = customEvents[type].type
-          if (!typeSpec || isString) {
-            // remove(el) or remove(el, t1.ns) or remove(el, .ns) or remove(el, .ns1.ns2.ns3)
-            if (namespaces = isString && typeSpec.replace(namespaceRegex, ''))
-              namespaces = namespaces.split('.')
-            rm(element, type, fn, namespaces)
-          } else if (typeof typeSpec === 'function') {
-            // remove(el, fn)
-            rm(element, null, typeSpec)
-          } else {
-            // remove(el, { t1: fn1, t2, fn2 })
-            for (k in typeSpec) {
-              if (typeSpec.hasOwnProperty(k))
-                remove(element, k, typeSpec[k])
-            }
-          }
-          return element
-        }
-  
-      , add = function (element, events, fn, delfn, $) {
-          var type, types, i, args
-            , originalFn = fn
-            , isDel = fn && typeof fn === 'string'
-  
-          if (events && !fn && typeof events === 'object') {
-            for (type in events) {
-              if (events.hasOwnProperty(type))
-                add.apply(this, [ element, type, events[type] ])
-            }
-          } else {
-            args = arguments.length > 3 ? slice.call(arguments, 3) : []
-            types = (isDel ? fn : events).split(' ')
-            isDel && (fn = del(events, (originalFn = delfn), $)) && (args = slice.call(args, 1))
-            // special case for one()
-            this === ONE && (fn = once(remove, element, events, fn, originalFn))
-            for (i = types.length; i--;) addListener(element, types[i], fn, originalFn, args)
-          }
-          return element
-        }
-  
-      , one = function () {
-          return add.apply(ONE, arguments)
-        }
-  
-      , fireListener = W3C_MODEL ? function (isNative, type, element) {
-          var evt = doc.createEvent(isNative ? 'HTMLEvents' : 'UIEvents')
-          evt[isNative ? 'initEvent' : 'initUIEvent'](type, true, true, win, 1)
-          element.dispatchEvent(evt)
-        } : function (isNative, type, element) {
-          element = targetElement(element, isNative)
-          // if not-native then we're using onpropertychange so we just increment a custom property
-          isNative ? element.fireEvent('on' + type, doc.createEventObject()) : element['_on' + type]++
-        }
-  
-      , fire = function (element, type, args) {
-          var i, j, l, names, handlers
-            , types = type.split(' ')
-  
-          for (i = types.length; i--;) {
-            type = types[i].replace(nameRegex, '')
-            if (names = types[i].replace(namespaceRegex, ''))
-              names = names.split('.')
-            if (!names && !args && element[eventSupport]) {
-              fireListener(nativeEvents[type], type, element)
-            } else {
-              // non-native event, either because of a namespace, arguments or a non DOM element
-              // iterate over all listeners and manually 'fire'
-              handlers = registry.get(element, type)
-              args = [false].concat(args)
-              for (j = 0, l = handlers.length; j < l; j++) {
-                if (handlers[j].inNamespaces(names))
-                  handlers[j].handler.apply(element, args)
-              }
-            }
-          }
-          return element
-        }
-  
-      , clone = function (element, from, type) {
-          var i = 0
-            , handlers = registry.get(from, type)
-            , l = handlers.length
-            , args, beanDel
-  
-          for (;i < l; i++) {
-            if (handlers[i].original) {
-              beanDel = handlers[i].handler.__beanDel
-              if (beanDel) {
-                args = [ element, beanDel.selector, handlers[i].type, handlers[i].original, beanDel.$]
-              } else
-                args = [ element, handlers[i].type, handlers[i].original ]
-              add.apply(null, args)
-            }
-          }
-          return element
-        }
-  
-      , bean = {
-            add: add
-          , one: one
-          , remove: remove
-          , clone: clone
-          , fire: fire
-          , noConflict: function () {
-              context[name] = old
-              return this
-            }
-        }
-  
-    if (win[attachEvent]) {
-      // for IE, clean up on unload to avoid leaks
-      var cleanup = function () {
-        var i, entries = registry.entries()
-        for (i in entries) {
-          if (entries[i].type && entries[i].type !== 'unload')
-            remove(entries[i].element, entries[i].type)
-        }
-        win[detachEvent]('onunload', cleanup)
-        win.CollectGarbage && win.CollectGarbage()
-      }
-      win[attachEvent]('onunload', cleanup)
-    }
-  
-    return bean
-  })
-  
-
-  provide("bean", module.exports);
-
-  !function ($) {
-    var b = require('bean')
-      , integrate = function (method, type, method2) {
-          var _args = type ? [type] : []
-          return function () {
-            for (var args, i = 0, l = this.length; i < l; i++) {
-              args = [this[i]].concat(_args, Array.prototype.slice.call(arguments, 0))
-              args.length == 4 && args.push($)
-              !arguments.length && method == 'add' && type && (method = 'fire')
-              b[method].apply(this, args)
-            }
-            return this
-          }
-        }
-      , add = integrate('add')
-      , remove = integrate('remove')
-      , fire = integrate('fire')
-  
-      , methods = {
-            on: add // NOTE: .on() is likely to change in the near future, don't rely on this as-is see https://github.com/fat/bean/issues/55
-          , addListener: add
-          , bind: add
-          , listen: add
-          , delegate: add
-  
-          , one: integrate('one')
-  
-          , off: remove
-          , unbind: remove
-          , unlisten: remove
-          , removeListener: remove
-          , undelegate: remove
-  
-          , emit: fire
-          , trigger: fire
-  
-          , cloneEvents: integrate('clone')
-  
-          , hover: function (enter, leave, i) { // i for internal
-              for (i = this.length; i--;) {
-                b.add.call(this, this[i], 'mouseenter', enter)
-                b.add.call(this, this[i], 'mouseleave', leave)
-              }
-              return this
-            }
-        }
-  
-      , shortcuts = [
-            'blur', 'change', 'click', 'dblclick', 'error', 'focus', 'focusin'
-          , 'focusout', 'keydown', 'keypress', 'keyup', 'load', 'mousedown'
-          , 'mouseenter', 'mouseleave', 'mouseout', 'mouseover', 'mouseup', 'mousemove'
-          , 'resize', 'scroll', 'select', 'submit', 'unload'
-        ]
-  
-    for (var i = shortcuts.length; i--;) {
-      methods[shortcuts[i]] = integrate('add', shortcuts[i])
-    }
-  
-    $.ender(methods, true)
-  }(ender)
-  
-
-}();
-
-!function () {
-
-  var module = { exports: {} }, exports = module.exports;
-
-  /*!
     * Qwery - A Blazing Fast query selector engine
     * https://github.com/ded/qwery
     * copyright Dustin Diaz & Jacob Thornton 2011
@@ -3047,318 +3361,3 @@
 
 }();
 
-
-
-!function () {
-
-  var module = { exports: {} }, exports = module.exports;
-
-  var charenc = {
-    // UTF-8 encoding
-    utf8: {
-      // Convert a string to a byte array
-      stringToBytes: function(str) {
-        return charenc.bin.stringToBytes(unescape(encodeURIComponent(str)));
-      },
-  
-      // Convert a byte array to a string
-      bytesToString: function(bytes) {
-        return decodeURIComponent(escape(charenc.bin.bytesToString(bytes)));
-      }
-    },
-  
-    // Binary encoding
-    bin: {
-      // Convert a string to a byte array
-      stringToBytes: function(str) {
-        for (var bytes = [], i = 0; i < str.length; i++)
-          bytes.push(str.charCodeAt(i) & 0xFF);
-        return bytes;
-      },
-  
-      // Convert a byte array to a string
-      bytesToString: function(bytes) {
-        for (var str = [], i = 0; i < bytes.length; i++)
-          str.push(String.fromCharCode(bytes[i]));
-        return str.join('');
-      }
-    }
-  };
-  
-  module.exports = charenc;
-  
-
-  provide("charenc", module.exports);
-
-  $.ender(module.exports);
-
-}();
-
-!function () {
-
-  var module = { exports: {} }, exports = module.exports;
-
-  (function() {
-    var base64map
-        = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/',
-  
-    crypt = {
-      // Bit-wise rotation left
-      rotl: function(n, b) {
-        return (n << b) | (n >>> (32 - b));
-      },
-  
-      // Bit-wise rotation right
-      rotr: function(n, b) {
-        return (n << (32 - b)) | (n >>> b);
-      },
-  
-      // Swap big-endian to little-endian and vice versa
-      endian: function(n) {
-        // If number given, swap endian
-        if (n.constructor == Number) {
-          return crypt.rotl(n, 8) & 0x00FF00FF | crypt.rotl(n, 24) & 0xFF00FF00;
-        }
-  
-        // Else, assume array and swap all items
-        for (var i = 0; i < n.length; i++)
-          n[i] = crypt.endian(n[i]);
-        return n;
-      },
-  
-      // Generate an array of any length of random bytes
-      randomBytes: function(n) {
-        for (var bytes = []; n > 0; n--)
-          bytes.push(Math.floor(Math.random() * 256));
-        return bytes;
-      },
-  
-      // Convert a byte array to big-endian 32-bit words
-      bytesToWords: function(bytes) {
-        for (var words = [], i = 0, b = 0; i < bytes.length; i++, b += 8)
-          words[b >>> 5] |= bytes[i] << (24 - b % 32);
-        return words;
-      },
-  
-      // Convert big-endian 32-bit words to a byte array
-      wordsToBytes: function(words) {
-        for (var bytes = [], b = 0; b < words.length * 32; b += 8)
-          bytes.push((words[b >>> 5] >>> (24 - b % 32)) & 0xFF);
-        return bytes;
-      },
-  
-      // Convert a byte array to a hex string
-      bytesToHex: function(bytes) {
-        for (var hex = [], i = 0; i < bytes.length; i++) {
-          hex.push((bytes[i] >>> 4).toString(16));
-          hex.push((bytes[i] & 0xF).toString(16));
-        }
-        return hex.join('');
-      },
-  
-      // Convert a hex string to a byte array
-      hexToBytes: function(hex) {
-        for (var bytes = [], c = 0; c < hex.length; c += 2)
-          bytes.push(parseInt(hex.substr(c, 2), 16));
-        return bytes;
-      },
-  
-      // Convert a byte array to a base-64 string
-      bytesToBase64: function(bytes) {
-        for (var base64 = [], i = 0; i < bytes.length; i += 3) {
-          var triplet = (bytes[i] << 16) | (bytes[i + 1] << 8) | bytes[i + 2];
-          for (var j = 0; j < 4; j++)
-            if (i * 8 + j * 6 <= bytes.length * 8)
-              base64.push(base64map.charAt((triplet >>> 6 * (3 - j)) & 0x3F));
-            else
-              base64.push('=');
-        }
-        return base64.join('');
-      },
-  
-      // Convert a base-64 string to a byte array
-      base64ToBytes: function(base64) {
-        // Remove non-base-64 characters
-        base64 = base64.replace(/[^A-Z0-9+\/]/ig, '');
-  
-        for (var bytes = [], i = 0, imod4 = 0; i < base64.length;
-            imod4 = ++i % 4) {
-          if (imod4 == 0) continue;
-          bytes.push(((base64map.indexOf(base64.charAt(i - 1))
-              & (Math.pow(2, -2 * imod4 + 8) - 1)) << (imod4 * 2))
-              | (base64map.indexOf(base64.charAt(i)) >>> (6 - imod4 * 2)));
-        }
-        return bytes;
-      }
-    };
-  
-    module.exports = crypt;
-  })();
-  
-
-  provide("crypt", module.exports);
-
-  $.ender(module.exports);
-
-}();
-
-!function () {
-
-  var module = { exports: {} }, exports = module.exports;
-
-  (function(){
-    var crypt = require('crypt'),
-        utf8 = require('charenc').utf8,
-        bin = require('charenc').bin,
-  
-    // The core
-    md5 = function (message) {
-      // Convert to byte array
-      if (message.constructor == String)
-        message = utf8.stringToBytes(message);
-      // else, assume byte array already
-  
-      var m = crypt.bytesToWords(message),
-          l = message.length * 8,
-          a =  1732584193,
-          b = -271733879,
-          c = -1732584194,
-          d =  271733878;
-  
-      // Swap endian
-      for (var i = 0; i < m.length; i++) {
-        m[i] = ((m[i] <<  8) | (m[i] >>> 24)) & 0x00FF00FF |
-               ((m[i] << 24) | (m[i] >>>  8)) & 0xFF00FF00;
-      }
-  
-      // Padding
-      m[l >>> 5] |= 0x80 << (l % 32);
-      m[(((l + 64) >>> 9) << 4) + 14] = l;
-  
-      // Method shortcuts
-      var FF = md5._ff,
-          GG = md5._gg,
-          HH = md5._hh,
-          II = md5._ii;
-  
-      for (var i = 0; i < m.length; i += 16) {
-  
-        var aa = a,
-            bb = b,
-            cc = c,
-            dd = d;
-  
-        a = FF(a, b, c, d, m[i+ 0],  7, -680876936);
-        d = FF(d, a, b, c, m[i+ 1], 12, -389564586);
-        c = FF(c, d, a, b, m[i+ 2], 17,  606105819);
-        b = FF(b, c, d, a, m[i+ 3], 22, -1044525330);
-        a = FF(a, b, c, d, m[i+ 4],  7, -176418897);
-        d = FF(d, a, b, c, m[i+ 5], 12,  1200080426);
-        c = FF(c, d, a, b, m[i+ 6], 17, -1473231341);
-        b = FF(b, c, d, a, m[i+ 7], 22, -45705983);
-        a = FF(a, b, c, d, m[i+ 8],  7,  1770035416);
-        d = FF(d, a, b, c, m[i+ 9], 12, -1958414417);
-        c = FF(c, d, a, b, m[i+10], 17, -42063);
-        b = FF(b, c, d, a, m[i+11], 22, -1990404162);
-        a = FF(a, b, c, d, m[i+12],  7,  1804603682);
-        d = FF(d, a, b, c, m[i+13], 12, -40341101);
-        c = FF(c, d, a, b, m[i+14], 17, -1502002290);
-        b = FF(b, c, d, a, m[i+15], 22,  1236535329);
-  
-        a = GG(a, b, c, d, m[i+ 1],  5, -165796510);
-        d = GG(d, a, b, c, m[i+ 6],  9, -1069501632);
-        c = GG(c, d, a, b, m[i+11], 14,  643717713);
-        b = GG(b, c, d, a, m[i+ 0], 20, -373897302);
-        a = GG(a, b, c, d, m[i+ 5],  5, -701558691);
-        d = GG(d, a, b, c, m[i+10],  9,  38016083);
-        c = GG(c, d, a, b, m[i+15], 14, -660478335);
-        b = GG(b, c, d, a, m[i+ 4], 20, -405537848);
-        a = GG(a, b, c, d, m[i+ 9],  5,  568446438);
-        d = GG(d, a, b, c, m[i+14],  9, -1019803690);
-        c = GG(c, d, a, b, m[i+ 3], 14, -187363961);
-        b = GG(b, c, d, a, m[i+ 8], 20,  1163531501);
-        a = GG(a, b, c, d, m[i+13],  5, -1444681467);
-        d = GG(d, a, b, c, m[i+ 2],  9, -51403784);
-        c = GG(c, d, a, b, m[i+ 7], 14,  1735328473);
-        b = GG(b, c, d, a, m[i+12], 20, -1926607734);
-  
-        a = HH(a, b, c, d, m[i+ 5],  4, -378558);
-        d = HH(d, a, b, c, m[i+ 8], 11, -2022574463);
-        c = HH(c, d, a, b, m[i+11], 16,  1839030562);
-        b = HH(b, c, d, a, m[i+14], 23, -35309556);
-        a = HH(a, b, c, d, m[i+ 1],  4, -1530992060);
-        d = HH(d, a, b, c, m[i+ 4], 11,  1272893353);
-        c = HH(c, d, a, b, m[i+ 7], 16, -155497632);
-        b = HH(b, c, d, a, m[i+10], 23, -1094730640);
-        a = HH(a, b, c, d, m[i+13],  4,  681279174);
-        d = HH(d, a, b, c, m[i+ 0], 11, -358537222);
-        c = HH(c, d, a, b, m[i+ 3], 16, -722521979);
-        b = HH(b, c, d, a, m[i+ 6], 23,  76029189);
-        a = HH(a, b, c, d, m[i+ 9],  4, -640364487);
-        d = HH(d, a, b, c, m[i+12], 11, -421815835);
-        c = HH(c, d, a, b, m[i+15], 16,  530742520);
-        b = HH(b, c, d, a, m[i+ 2], 23, -995338651);
-  
-        a = II(a, b, c, d, m[i+ 0],  6, -198630844);
-        d = II(d, a, b, c, m[i+ 7], 10,  1126891415);
-        c = II(c, d, a, b, m[i+14], 15, -1416354905);
-        b = II(b, c, d, a, m[i+ 5], 21, -57434055);
-        a = II(a, b, c, d, m[i+12],  6,  1700485571);
-        d = II(d, a, b, c, m[i+ 3], 10, -1894986606);
-        c = II(c, d, a, b, m[i+10], 15, -1051523);
-        b = II(b, c, d, a, m[i+ 1], 21, -2054922799);
-        a = II(a, b, c, d, m[i+ 8],  6,  1873313359);
-        d = II(d, a, b, c, m[i+15], 10, -30611744);
-        c = II(c, d, a, b, m[i+ 6], 15, -1560198380);
-        b = II(b, c, d, a, m[i+13], 21,  1309151649);
-        a = II(a, b, c, d, m[i+ 4],  6, -145523070);
-        d = II(d, a, b, c, m[i+11], 10, -1120210379);
-        c = II(c, d, a, b, m[i+ 2], 15,  718787259);
-        b = II(b, c, d, a, m[i+ 9], 21, -343485551);
-  
-        a = (a + aa) >>> 0;
-        b = (b + bb) >>> 0;
-        c = (c + cc) >>> 0;
-        d = (d + dd) >>> 0;
-      }
-  
-      return crypt.endian([a, b, c, d]);
-    };
-  
-    // Auxiliary functions
-    md5._ff  = function (a, b, c, d, x, s, t) {
-      var n = a + (b & c | ~b & d) + (x >>> 0) + t;
-      return ((n << s) | (n >>> (32 - s))) + b;
-    };
-    md5._gg  = function (a, b, c, d, x, s, t) {
-      var n = a + (b & d | c & ~d) + (x >>> 0) + t;
-      return ((n << s) | (n >>> (32 - s))) + b;
-    };
-    md5._hh  = function (a, b, c, d, x, s, t) {
-      var n = a + (b ^ c ^ d) + (x >>> 0) + t;
-      return ((n << s) | (n >>> (32 - s))) + b;
-    };
-    md5._ii  = function (a, b, c, d, x, s, t) {
-      var n = a + (c ^ (b | ~d)) + (x >>> 0) + t;
-      return ((n << s) | (n >>> (32 - s))) + b;
-    };
-  
-    // Package private blocksize
-    md5._blocksize = 16;
-    md5._digestsize = 16;
-  
-    module.exports = function (message, options) {
-      var digestbytes = crypt.wordsToBytes(md5(message));
-      return options && options.asBytes ? digestbytes :
-          options && options.asString ? bin.bytesToString(digestbytes) :
-          crypt.bytesToHex(digestbytes);
-    };
-  
-  })();
-  
-
-  provide("MD5", module.exports);
-
-  $.ender(module.exports);
-
-}();

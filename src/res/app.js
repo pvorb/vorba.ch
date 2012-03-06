@@ -120,11 +120,13 @@ $.domReady(function init() {
             if (status === 200) {
               showStatus('ok', 5);
               clearFields();
-              var email = comment.email;
-              comment.email = {
-                address: email,
-                hash: md5(email)
-              };
+              if (comment.email) {
+                var email = comment.email;
+                comment.email = {
+                  address: email,
+                  hash: md5(email)
+                };
+              }
               comment.message = marked(comment.message);
               showNewComment(comment);
             } else if (status === 412) {
@@ -187,9 +189,8 @@ function getComment(form) {
   var el = form.elements;
   var comment = {};
 
-  for (var i = 0; i < el.length; i++) {
+  for (var i = 0; i < el.length; i++)
     comment[el[i].name] = el[i].value;
-  }
 
   return comment;
 }
@@ -275,7 +276,7 @@ function clearFields() {
   $('#cf-author').val('');
   $('#cf-email').val('');
   $('#cf-website').val('');
-  $('#cf-nospam').val('');
+  $('#cf-nospam').attr('checked', '');
   $('#cp-stage').children().remove();
 }
 
