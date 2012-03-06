@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
-  <title>vorb.de: Kommentare</title>
-  <subtitle>Entwicklung</subtitle>
+  <title>vorb.de: Comments</title>
+  <subtitle></subtitle>
   <updated><%- (new Date()).toISOString() %></updated>
   <id>http://vorb.de/log/comment-feed.xml</id>
   <author>
