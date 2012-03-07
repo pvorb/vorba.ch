@@ -84,7 +84,17 @@ module.exports = function comments(app, logger, conf, globalConf, started) {
     });
   });
 
+  var feedCache = {};
   app.get('^/log/comment-feed\\.xml$', function getCommentFeed(req, resp) {
+
+    // the cached comment-feed lasts for 10 minutes
+    if (feedCache.modified && Date.now() - feedCache.modified < 600000) {
+      resp.writeHead(200, {
+        'Content-Type': 'text/xml',
+        'Content-Length': Buffer.byteLength(feedCache.xml) });
+      return resp.end(new Buffer(feedCache.xml));
+    }
+
     // get all comments
     comments.getComments(null, {
       res: true,
@@ -109,15 +119,17 @@ module.exports = function comments(app, logger, conf, globalConf, started) {
           props.esc = esc;
           props.__comments = comments.reverse();
 
-          var xml;
           try {
-            xml = ejs.render(tpl, { locals: props });
+            feedCache.xml = ejs.render(tpl, { locals: props });
+            feedCache.modified = Date.now();
           } catch (err) {
             return cancel(500, err, resp);
           }
 
-          resp.writeHead(200, { 'Content-Type': 'text/xml' });
-          resp.end(xml);
+          resp.writeHead(200, {
+            'Content-Type': 'text/xml',
+            'Content-Length': Buffer.byteLength(feedCache.xml) });
+          return resp.end(new Buffer(feedCache.xml));
         });
       });
     });
