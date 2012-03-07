@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de</title>
   <subtitle>web, development and other things</subtitle>
-  <updated>2012-03-07T16:58:57.641Z</updated>
+  <updated>2012-03-07T17:01:51.210Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -44,7 +44,7 @@
 &lt;p&gt;Da es sich anbietet, JavaScript-Programme modular zu schreiben, besteht Bread selbst aus einigen kleineren Modulen:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Zunächst sei einmal &lt;a href=&quot;https://github.com/pvorb/node-dive&quot;&gt;Dive&lt;/a&gt; genannt. Dive macht nichts anderes, als eine Ordnerstruktur zu durchlaufen und für jede Datei, die eine bestimmte Dateiendung hat, eine Aktion auszuführen.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Darauf baut &lt;a href=&quot;https://github.com/pvorb/node-bake&quot;&gt;Bake&lt;/a&gt; auf. Bake definiert die von Dive ausgeführte Aktion als:&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Darauf baut &lt;a href=&quot;https://github.com/pvorb/node-bake&quot;&gt;Bake&lt;/a&gt; auf. Bake definiert die von Dive ausgeführte Aktion so:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;„Wenn die Dateiendung &lt;code&gt;.txt&lt;/code&gt; ist, wandle den Text in HTML um und schreibe das Ergebnis in die zugehörige HTML-Datei.“&lt;/p&gt;
 &lt;/blockquote&gt;

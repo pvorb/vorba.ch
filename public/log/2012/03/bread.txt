@@ -66,8 +66,7 @@ selbst aus einigen kleineren Modulen:
     Ordnerstruktur zu durchlaufen und für jede Datei, die eine bestimmte
     Dateiendung hat, eine Aktion auszuführen.
 
-  * Darauf baut [Bake][] auf. Bake definiert die von Dive ausgeführte Aktion
-    als:
+  * Darauf baut [Bake][] auf. Bake definiert die von Dive ausgeführte Aktion so:
 
     > „Wenn die Dateiendung `.txt` ist, wandle den Text in HTML um und schreibe
     > das Ergebnis in die zugehörige HTML-Datei.“
