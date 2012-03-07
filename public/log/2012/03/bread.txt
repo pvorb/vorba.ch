@@ -1,7 +1,7 @@
 title: Bread
 
 created: 2012-03-07T18:00:00+0100
-modified: 2012-03-07T18:13:00+0100
+modified: 2012-03-07T18:20:00+0100
 tags: [ deutsch, dev, nodejs, cms, bread, html, markdown ]
 
 template: post.de.tpl
@@ -233,7 +233,7 @@ möchte mich bei [ben\_][aud], [Konstantin][konnexus] und [Maurice][fym]
 sowie allen Kommentatoren auf den jeweiligen Blogs bedanken, die einige
 wertvolle Gedanken zu diesem Thema zusammengetragen haben.
 
-Wer sich für die Hintergründe interessiert, wird unter anderem hier werden:
+Wer sich für die Hintergründe interessiert, wird unter anderem hier fündig:
 
   * [On my way to heimweh][heimweh]
   * [Blogracer][blogracer-topic]

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de</title>
   <subtitle>web, development and other things</subtitle>
-  <updated>2012-03-07T17:13:34.840Z</updated>
+  <updated>2012-03-07T17:19:53.158Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -19,7 +19,7 @@
     <title>Bread</title>
     <link href="http://vorb.de/log/2012/03/bread.html"/>
     <id>http://vorb.de/log/2012/03/bread.html</id>
-    <updated>2012-03-07T17:13:00.000Z</updated>
+    <updated>2012-03-07T17:20:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
       <uri>http://vorb.de/</uri>
@@ -133,7 +133,7 @@ ok&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Das soll aber nicht lange so bleiben. Wer nicht warten kann, kann sich auch gerne das &lt;a href=&quot;https://github.com/vorbach/vorb.de&quot;&gt;Repository zu dieser Website&lt;/a&gt; auf Github anschauen. Leider musste ich das in eine eigene &lt;em&gt;„Organization“&lt;/em&gt; auslagern, weil ich nicht mit dem 300 MB-Limit ausgekommen bin. ;)&lt;/p&gt;
 &lt;h2 id=&quot;standing-on-the-shoulders-of-giants&quot;&gt;Standing on the shoulders of giants&lt;/h2&gt;
 &lt;p&gt;Wie der &lt;a href=&quot;http://konnexus.net/2010/10/blogracer&quot;&gt;Blogracer&lt;/a&gt; steht auch Bread auf den Schultern von Giganten. Ich möchte mich bei &lt;a href=&quot;http://anmutunddemut.de/&quot;&gt;ben_&lt;/a&gt;, &lt;a href=&quot;http://konnexus.net/&quot;&gt;Konstantin&lt;/a&gt; und &lt;a href=&quot;http://blog.fymmie.de/&quot;&gt;Maurice&lt;/a&gt; sowie allen Kommentatoren auf den jeweiligen Blogs bedanken, die einige wertvolle Gedanken zu diesem Thema zusammengetragen haben.&lt;/p&gt;
-&lt;p&gt;Wer sich für die Hintergründe interessiert, wird unter anderem hier werden:&lt;/p&gt;
+&lt;p&gt;Wer sich für die Hintergründe interessiert, wird unter anderem hier fündig:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://anmutunddemut.de/thema/serie/on-my-way-to-heimweh&quot;&gt;On my way to heimweh&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://konnexus.net/lexicon/blogracer&quot;&gt;Blogracer&lt;/a&gt;&lt;/li&gt;
