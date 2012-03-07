@@ -91,7 +91,7 @@ module.exports = function comments(app, logger, conf, globalConf, started) {
       author: true,
       website: true,
       message: true
-    }, { sort: '_id', limit: 20 },
+    }, { sort: [[ 'modified', 'desc' ]], limit: 20 },
         function (err, cursor) {
       if (err)
         return cancel(404, err, resp);
@@ -107,11 +107,11 @@ module.exports = function comments(app, logger, conf, globalConf, started) {
 
           var props = {};
           props.esc = esc;
-          props.__comments = comments;
+          props.__comments = comments.reverse();
 
           var xml;
           try {
-          xml = ejs.render(tpl, { locals: props });
+            xml = ejs.render(tpl, { locals: props });
           } catch (err) {
             return cancel(500, err, resp);
           }
