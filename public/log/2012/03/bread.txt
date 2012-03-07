@@ -91,50 +91,51 @@ Kommandozeile mit `npm install -g bread` installieren.
 
 Anschließend braucht man nur noch in das Verzeichnis zu wechseln, das die Texte
 enthält und dann `bread` zu starten. Das Programm holt sich die benötigten
-[Informationen zur Konfiguration][bread.json] aus dem [Verzeichnis
-`.conf/`][bread-conf] und legt sofort mit dem Übersetzen los.
+[Informationen zur Konfiguration][bread-json] aus dem [Verzeichnis
+.conf/][bread-conf] und legt sofort mit dem Übersetzen los.
 
 Hier mal beispielhaft, wie so ein Aufruf dann konkret ausschaut:
 
     $ bread
-    Beginning to bake c:\web\vorb.de\public.
-      * c:\web\vorb.de\public\log\blogroll.html written.
-      * c:\web\vorb.de\public\info\markdown.de.html written.
-      * c:\web\vorb.de\public\info\contact.html written.
-      * c:\web\vorb.de\public\log\2012\02\node-and-npm-on-debian.html written.
-      * c:\web\vorb.de\public\license\mit.html written.
-      * c:\web\vorb.de\public\log\subscription.html written.
-      * c:\web\vorb.de\public\log\2012\03\was-lange-waehrt.html written.
-      * c:\web\vorb.de\public\info\markdown.en.html written.
-      * c:\web\vorb.de\public\info\index.html written.
-      * c:\web\vorb.de\public\log\2012\02\beginning.html written.
-      * c:\web\vorb.de\public\log\2012\03\bread.html written.
+    Beginning to bake c:\Dev\Src\web\vorb.de\public.
+      * c:\Dev\Src\web\vorb.de\public\info\contact.html written.
+      * c:\Dev\Src\web\vorb.de\public\info\markdown.de.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\blogroll.html written.
+      * c:\Dev\Src\web\vorb.de\public\license\mit.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\2012\02\node-and-npm-on-debian.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\2012\03\was-lange-waehrt.html written.
+      * c:\Dev\Src\web\vorb.de\public\info\index.html written.
+      * c:\Dev\Src\web\vorb.de\public\info\markdown.en.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\2012\02\beginning.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\subscription.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\2012\03\bread.html written.
     Content files written.
     Beginning to write index and tag files.
-      * c:\web\vorb.de\public\log\tag\index.html written.
-      * c:\web\vorb.de\public\index.html written.
-      * c:\web\vorb.de\public\log\feed.xml written.
-      * c:\web\vorb.de\public\log\tag\linux.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\tag\index.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\feed.xml written.
+      * c:\Dev\Src\web\vorb.de\public\index.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\tag\linux.html written.
     Tag files written.
-      * c:\web\vorb.de\public\log\tag\dev.html written.
-      * c:\web\vorb.de\public\log\index.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\tag\weblog.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\tag\misc.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\tag\html.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\tag\markdown.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\index.html written.
     Index files written.
-      * c:\web\vorb.de\public\log\tag\weblog.html written.
-      * c:\web\vorb.de\public\log\tag\html.html written.
-      * c:\web\vorb.de\public\log\tag\markdown.html written.
-      * c:\web\vorb.de\public\log\tag\cms.html written.
-      * c:\web\vorb.de\public\log\tag\misc.html written.
-      * c:\web\vorb.de\public\log\2011\index.html written.
-      * c:\web\vorb.de\public\log\2012\index.html written.
-      * c:\web\vorb.de\public\log\2012\02\index.html written.
-      * c:\web\vorb.de\public\log\2011\09\index.html written.
-      * c:\web\vorb.de\public\log\2012\03\index.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\tag\dev.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\tag\cms.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\2011\index.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\2012\index.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\2012\03\index.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\2011\09\index.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\2012\02\index.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\tag\deutsch.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\tag\nodejs.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\tag\bread.html written.
+      * c:\Dev\Src\web\vorb.de\public\log\tag\english.html written.
     Autoindex files written.
     ok
-      * c:\web\vorb.de\public\log\tag\nodejs.html written.
-      * c:\web\vorb.de\public\log\tag\english.html written.
-      * c:\web\vorb.de\public\log\tag\bread.html written.
-      * c:\web\vorb.de\public\log\tag\deutsch.html written.
+
 
 [nodejs]: http://nodejs.org/
 [dive]: https://github.com/pvorb/node-dive
@@ -145,6 +146,9 @@ Hier mal beispielhaft, wie so ein Aufruf dann konkret ausschaut:
 [ejs]: http://embeddedjs.com/
 
 [npm]: http://npmjs.org/
+
+[bread-json]: https://github.com/vorbach/vorb.de/blob/master/.conf/bread.json
+[bread-conf]: https://github.com/vorbach/vorb.de/tree/master/.conf
 
 ## Vor- und Nachteile
 

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de</title>
   <subtitle>web, development and other things</subtitle>
-  <updated>2012-03-07T17:01:51.210Z</updated>
+  <updated>2012-03-07T17:11:59.713Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -53,47 +53,47 @@
 &lt;li&gt;&lt;p&gt;Sowohl für das Generieren der Artikel als auch für die anderen HTML-Dateien werden &lt;a href=&quot;https://github.com/vorbach/vorb.de/tree/master/.conf/templates&quot;&gt;Templates&lt;/a&gt; mit &lt;a href=&quot;http://embeddedjs.com/&quot;&gt;embedded JavaScript&lt;/a&gt; verwendet, weil EJS die selben Prinzipien wie PHP verfolgt und ich PHP für die Template-Sprache schlechthin halte.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Das alles lässt sich mit dem &lt;a href=&quot;http://npmjs.org/&quot;&gt;Node package manager&lt;/a&gt; prima so zusammenklöppeln, dass man nur noch Node.js und MongoDB und installiert zu haben braucht. Dann kann man bread und alles was dazu gehört ganz bequem per Kommandozeile mit &lt;code&gt;npm install -g bread&lt;/code&gt; installieren.&lt;/p&gt;
-&lt;p&gt;Anschließend braucht man nur noch in das Verzeichnis zu wechseln, das die Texte enthält und dann &lt;code&gt;bread&lt;/code&gt; zu starten. Das Programm holt sich die benötigten [Informationen zur Konfiguration][bread.json] aus dem [Verzeichnis &lt;code&gt;.conf/&lt;/code&gt;][bread-conf] und legt sofort mit dem Übersetzen los.&lt;/p&gt;
+&lt;p&gt;Anschließend braucht man nur noch in das Verzeichnis zu wechseln, das die Texte enthält und dann &lt;code&gt;bread&lt;/code&gt; zu starten. Das Programm holt sich die benötigten &lt;a href=&quot;https://github.com/vorbach/vorb.de/blob/master/.conf/bread.json&quot;&gt;Informationen zur Konfiguration&lt;/a&gt; aus dem &lt;a href=&quot;https://github.com/vorbach/vorb.de/tree/master/.conf&quot;&gt;Verzeichnis .conf/&lt;/a&gt; und legt sofort mit dem Übersetzen los.&lt;/p&gt;
 &lt;p&gt;Hier mal beispielhaft, wie so ein Aufruf dann konkret ausschaut:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ bread
-Beginning to bake c:\web\vorb.de\public.
-  * c:\web\vorb.de\public\log\blogroll.html written.
-  * c:\web\vorb.de\public\info\markdown.de.html written.
-  * c:\web\vorb.de\public\info\contact.html written.
-  * c:\web\vorb.de\public\log\2012\02\node-and-npm-on-debian.html written.
-  * c:\web\vorb.de\public\license\mit.html written.
-  * c:\web\vorb.de\public\log\subscription.html written.
-  * c:\web\vorb.de\public\log\2012\03\was-lange-waehrt.html written.
-  * c:\web\vorb.de\public\info\markdown.en.html written.
-  * c:\web\vorb.de\public\info\index.html written.
-  * c:\web\vorb.de\public\log\2012\02\beginning.html written.
-  * c:\web\vorb.de\public\log\2012\03\bread.html written.
+Beginning to bake c:\Dev\Src\web\vorb.de\public.
+  * c:\Dev\Src\web\vorb.de\public\info\contact.html written.
+  * c:\Dev\Src\web\vorb.de\public\info\markdown.de.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\blogroll.html written.
+  * c:\Dev\Src\web\vorb.de\public\license\mit.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\2012\02\node-and-npm-on-debian.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\2012\03\was-lange-waehrt.html written.
+  * c:\Dev\Src\web\vorb.de\public\info\index.html written.
+  * c:\Dev\Src\web\vorb.de\public\info\markdown.en.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\2012\02\beginning.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\subscription.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\2012\03\bread.html written.
 Content files written.
 Beginning to write index and tag files.
-  * c:\web\vorb.de\public\log\tag\index.html written.
-  * c:\web\vorb.de\public\index.html written.
-  * c:\web\vorb.de\public\log\feed.xml written.
-  * c:\web\vorb.de\public\log\tag\linux.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\tag\index.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\feed.xml written.
+  * c:\Dev\Src\web\vorb.de\public\index.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\tag\linux.html written.
 Tag files written.
-  * c:\web\vorb.de\public\log\tag\dev.html written.
-  * c:\web\vorb.de\public\log\index.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\tag\weblog.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\tag\misc.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\tag\html.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\tag\markdown.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\index.html written.
 Index files written.
-  * c:\web\vorb.de\public\log\tag\weblog.html written.
-  * c:\web\vorb.de\public\log\tag\html.html written.
-  * c:\web\vorb.de\public\log\tag\markdown.html written.
-  * c:\web\vorb.de\public\log\tag\cms.html written.
-  * c:\web\vorb.de\public\log\tag\misc.html written.
-  * c:\web\vorb.de\public\log\2011\index.html written.
-  * c:\web\vorb.de\public\log\2012\index.html written.
-  * c:\web\vorb.de\public\log\2012\02\index.html written.
-  * c:\web\vorb.de\public\log\2011\09\index.html written.
-  * c:\web\vorb.de\public\log\2012\03\index.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\tag\dev.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\tag\cms.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\2011\index.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\2012\index.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\2012\03\index.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\2011\09\index.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\2012\02\index.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\tag\deutsch.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\tag\nodejs.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\tag\bread.html written.
+  * c:\Dev\Src\web\vorb.de\public\log\tag\english.html written.
 Autoindex files written.
-ok
-  * c:\web\vorb.de\public\log\tag\nodejs.html written.
-  * c:\web\vorb.de\public\log\tag\english.html written.
-  * c:\web\vorb.de\public\log\tag\bread.html written.
-  * c:\web\vorb.de\public\log\tag\deutsch.html written.&lt;/code&gt;&lt;/pre&gt;
+ok&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&quot;vor--und-nachteile&quot;&gt;Vor- und Nachteile&lt;/h2&gt;
 &lt;p&gt;Natürlich bringt das System seine Vor- und Nachteile mit sich.&lt;/p&gt;
 &lt;h3 id=&quot;vorteile&quot;&gt;Vorteile&lt;/h3&gt;
