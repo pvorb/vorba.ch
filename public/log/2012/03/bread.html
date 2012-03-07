@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="utf-8">
-    <title>Blog | Paul Vorbach</title>
+    <title>Bread | Paul Vorbach</title>
     <link rel="stylesheet" href="/res/milten.css">
     <link rel="icon" href="/favicon.ico">
     <link rel="alternate" type="application/atom+xml" href="/log/feed.xml"
-      title="Article feed">
+      title="Artikel-Feed">
     <link rel="alternate" type="application/atom+xml"
-      href="/log/comment-feed.xml" title="Comment feed">
+      href="/log/comment-feed.xml" title="Kommentar-Feed">
+    <link rel="pingback" href="http://vorb.de/log/pingback">
     <meta name="author" content="Paul Vorbach">
+
+    <meta name="keywords" content="deutsch, dev, nodejs, cms, bread, html, markdown">
+
   </head>
   <body>
     <header id="site">
@@ -23,29 +27,33 @@
       <ol id="path">
         <li><a href="/">vorb.de</a>
 
-        <li>log
+        <li><a href="/log/">log</a>
+
+        <li><a href="/log/2012/">2012</a>
+
+        <li><a href="/log/2012/03/">03</a>
+
+        <li>bread.html
 
       </ol>
       <ol id="access">
-        <li><a href="#top" title="To the top" id="back">↑</a>
+        <li><a href="#top" title="Zum Anfang" id="back">↑</a>
         <li><a href="#nav">Navigation</a>
-        <li><a href="#content">Content</a>
+        <li><a href="#content">Inhalt</a>
       </ol>
     </nav>
-    <section id="content" class="digest">
+    <article id="content">
+      <header>
 
-      <article>
-        <header>
+        <figure class="teaser">
+          <img src="windmill.jpg">
+        </figure>
 
-          <figure class="teaser">
-            <a href="/log/2012/03/bread.html"><img src="/log/2012/03/windmill.jpg"></a>
-          </figure>
-
-          <h1><a href="/log/2012/03/bread.html">Bread</a></h1>
-          <p class="meta">2012-03-07</p>
-        </header>
-        <section>
-          <p>In diesem Artikel will ich <a href="https://github.com/pvorb/node-bread">Bread</a> und was dazugehört auf technischer Ebene erläutern.</p>
+        <h1>Bread</h1>
+        <p class="meta">07.03.2012</p>
+      </header>
+      <section>
+        <p>In diesem Artikel will ich <a href="https://github.com/pvorb/node-bread">Bread</a> und was dazugehört auf technischer Ebene erläutern.</p>
 <h2 id="statisches-html">Statisches HTML</h2>
 <p>Prinzipiell war ja die Idee von ben_ nicht schlecht, <a href="http://anmutunddemut.de/2010/05/18/the-anmut-of-static-html.html">direkt statische HTML-Dateien zu schreiben</a>. Ich habe das vor zirka einem Jahr schon mit <a href="https://github.com/pvorb/php-yuki">Yuki</a> versucht, aber kaum zwei Wochen durchgehalten. Das Problem war, dass ich zunächst sowohl den Blog-Index als auch den Feed von Hand schreiben musste. Das macht einfach keinen Spaß und ich bewundere ben_ dafür, dass er das über ein Jahr so durchgehalten hat. (Auch wenn bei ihm zumindest der Feed automatisch generiert wurde.)</p>
 <h2 id="markdown">Markdown</h2>
@@ -158,80 +166,32 @@ ok
 </ul>
 <p>So, jetzt muss ich mich aber mal zügeln. Das mag ja sonst keiner mehr lesen. Ich freue mich schon auf die Diskussion. <em>Was meint ihr dazu?</em></p>
 
-        </section>
-      </article>
-
-      <article>
-        <header>
-
-          <figure class="teaser">
-            <a href="/log/2012/03/was-lange-waehrt.html"><img src="/log/2012/03/kosmonaut.jpg"></a>
-          </figure>
-
-          <h1><a href="/log/2012/03/was-lange-waehrt.html">Was lange währt</a></h1>
-          <p class="meta">2012-03-04</p>
-        </header>
-        <section>
-          <p>Ein halbes Jahr hat es gedauert. Nun ist es endlich vollbracht: Mein Blog geht ans Netz.</p>
-<p>Irgendwann im August 2011 habe ich damit begonnen, ein <a href="https://github.com/pvorb/node-bread">eigenes Blogsystem für Node.js</a> zu schreiben. Vorher waren schon ein paar Versuche in PHP vorausgegangen.</p>
-<p>Im Wesentlichen ist es ein System, das aus Textdateien (genauer: <a href="/log/2012/03/was-lange-waehrt.txt">Markdown-formatiertem Text mit ein paar Zusatzinformationen am Anfang</a>) HTML-Dokumente generiert. Außerdem kümmert sich das System um die Erstellung von Index-, Tag- und Feed-Dateien.</p>
-<p>Es verfolgt ein paar Prinzipien, die <a href="http://anmutunddemut.de/2010/05/23/heimweh-20-die-ziele.html">ben_ mit heimweh</a>, <a href="http://konnexus.net/lexicon/blogracer">Konstantin mit blog-</a> und <a href="http://konnexus.net/lexicon/txtracer">txtracer</a> und <a href="http://blog.fymmie.de/thema/nihil">Maurice mit nihil</a> vor fast zwei bis anderthalb Jahren aufgestellt haben.</p>
-<p>In den kommenden Tagen werden noch ein paar Artikel folgen, die den Aufbau genauer beschreiben. Bis dahin werde ich noch ein paar Dinge verfeinern.</p>
-
-        </section>
-      </article>
-
-      <article>
-        <header>
-
-          <figure class="teaser">
-            <a href="/log/2012/02/node-and-npm-on-debian.html"><img src="/log/2012/02/nodejs-npm.png"></a>
-          </figure>
-
-          <h1><a href="/log/2012/02/node-and-npm-on-debian.html">Recent Node.js and npm versions on Debian 6</a></h1>
-          <p class="meta">2012-02-29</p>
-        </header>
-        <section>
-          <p>Several months ago, it was somehow a little tricky to install Node.js and npm on Debian systems. Now it has become as easy as it could be with the help of <a href="http://wiki.debian.org/AptPreferences">APT pinning</a>. (Be careful with APT pinning, since it may break your system.)</p>
-<p>Now you can install the latest stable version (v0.6.x) of Node.js with</p>
-<pre><code>apt-get -t unstable install nodejs</code></pre>
-<p>and npm with</p>
-<pre><code>curl http://npmjs.org/install.sh | sh</code></pre>
-<p>And that’s it! By the way, it’s a little confusing, that the latest stable version of Node.js is in the unstable distribution of squeeze. But that’s the Debian policy.</p>
-
-        </section>
-      </article>
-
-      <article>
-        <header>
-
-          <figure class="teaser">
-            <a href="/log/2012/02/beginning.html"><img src="/log/2012/02/sunrise.jpg"></a>
-          </figure>
-
-          <h1><a href="/log/2012/02/beginning.html">At the beginning</a></h1>
-          <p class="meta">2012-02-28</p>
-        </header>
-        <section>
-          <p>.</p>
-
-        </section>
-      </article>
-
-      <ul class="pagination">
-
-        <li><span>1</span>
-
-      </ul>
+      </section>
       <footer class="meta">
-        <p><a href="tag/">Tags</a> · <a href="feed.xml" class="feed">Article
-          feed</a> · <a href="comment-feed.xml" class="feed">Comment feed</a> ·
-          <a href="blogroll.html"%>Blogroll</a></p>
+        <p>Kategorien:
+
+          <a href="/log/tag/deutsch.html">deutsch</a> ·
+
+          <a href="/log/tag/dev.html">dev</a> ·
+
+          <a href="/log/tag/nodejs.html">nodejs</a> ·
+
+          <a href="/log/tag/cms.html">cms</a> ·
+
+          <a href="/log/tag/bread.html">bread</a> ·
+
+          <a href="/log/tag/html.html">html</a> ·
+
+          <a href="/log/tag/markdown.html">markdown</a> 
+
+        </p>
       </footer>
-    </section>
+    </article>
+    <section id="comments"></section>
     <footer id="about">
-      <p>© 2008-2012 – Paul Vorbach.
-        <a href="/info/contact.html">Contact</a>.</p>
+      <p>© 2012 – Paul Vorbach.
+        <a href="/info/contact.html">Kontakt</a>.</p>
     </footer>
+    <script src="/res/comments.de.min.js"></script>
   </body>
 </html>
