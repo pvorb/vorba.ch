@@ -49,12 +49,15 @@ marked.setOptions({
 $.domReady(function init() {
   'use strict';
   var clist;
+  var plist;
   var path = window.location.pathname;
   var c = $('#comments');
 
   if (c) {
     c.append('<h2>'+l10n.comments+'</h2><div id="clist"></div>');
+    c.append('<div id="plist"></div>');
     clist = $('#clist');
+    plist = $('#plist');
 
     path = path.replace(/\/\//, '/');
 
@@ -80,7 +83,7 @@ $.domReady(function init() {
 
           if (status === 200) {
             var comments = JSON.parse(result);
-            addComments(clist, comments);
+            addComments(clist, plist, comments);
           } else if (status >= 400) {
             commentsNotAvailable(clist);
           }
@@ -175,12 +178,23 @@ function getCommentHTML(comment, isNew) {
 }
 
 // add comments
-function addComments(clist, comments) {
+function addComments(clist, plist, comments) {
   'use strict';
   var i;
+  var hasPingback = false;
 
   for (i = 0; i < comments.length; i++) {
-    clist.append(getCommentHTML(comments[i]));
+    var c = comments[i];
+
+    if (c.pingback) {
+      if (!hasPingback) {
+        plist.append('<h2>'+l10n.pingbacks+'</h2>');
+        hasPingback = true;
+      }
+
+      plist.append(getCommentHTML(comments[i]));
+    } else
+      clist.append(getCommentHTML(comments[i]));
   }
 }
 

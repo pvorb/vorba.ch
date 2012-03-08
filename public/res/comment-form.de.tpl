@@ -1,5 +1,5 @@
 <form id="cf" method="POST">
-  <h3>Kommentar schreiben</h3>
+  <h2>Kommentar schreiben</h2>
   <textarea name="message" rows="12" cols="30" placeholder="Kommentar"
     id="cf-message"></textarea><br>
 

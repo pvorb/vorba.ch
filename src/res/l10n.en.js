@@ -5,6 +5,7 @@ var l10n = {
   language: 'en_US',
 
   comments: 'Comments',
+  pingbacks: 'Reactions',
   commentsNotAvailable: 'Comments are temporarily not available.',
   dateString: function (date) {
     return date.getFullYear()+'-'+pad(date.getMonth())+'-'+date.getDate();
