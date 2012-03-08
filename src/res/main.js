@@ -20,8 +20,7 @@ $.domReady(function init() {
   var c = $('#comments');
 
   if (c) {
-    c.append('<h2>'+l10n.comments+'</h2><div id="clist"></div>');
-    c.append('<div id="plist"></div>');
+    c.append('<div id="clist"></div><div id="plist"></div>');
     clist = $('#clist');
     plist = $('#plist');
 
@@ -148,6 +147,7 @@ function addComments(clist, plist, comments) {
   'use strict';
   var i;
   var hasPingback = false;
+  var hasComment = false;
 
   for (i = 0; i < comments.length; i++) {
     var c = comments[i];
@@ -159,8 +159,14 @@ function addComments(clist, plist, comments) {
       }
 
       plist.append(getCommentHTML(comments[i]));
-    } else
+    } else {
+      if (!hasComment) {
+        clist.append('<h2>'+l10n.comments+'</h2>');
+        hasComment = true;
+      }
+
       clist.append(getCommentHTML(comments[i]));
+    }
   }
 }
 

@@ -157,33 +157,6 @@
 
   var module = { exports: {} }, exports = module.exports;
 
-  module.exports = function numpad(x, digits) {
-    var result = Math.floor(x).toString();
-  
-    if (typeof digits == 'undefined')
-      digits = 2;
-  
-    while (result.length < digits)
-      result = '0'+result;
-  
-    var dec = x.toString().split('.')[1];
-    if (dec)
-      return result + '.' + dec;
-  
-    return result;
-  };
-  
-
-  provide("numpad", module.exports);
-
-  $.ender(module.exports);
-
-}();
-
-!function () {
-
-  var module = { exports: {} }, exports = module.exports;
-
   /**
    * marked - A markdown parser (https://github.com/chjj/marked)
    * Copyright (c) 2011-2012, Christopher Jeffrey. (MIT Licensed)
@@ -965,6 +938,33 @@
   
 
   provide("marked", module.exports);
+
+  $.ender(module.exports);
+
+}();
+
+!function () {
+
+  var module = { exports: {} }, exports = module.exports;
+
+  module.exports = function numpad(x, digits) {
+    var result = Math.floor(x).toString();
+  
+    if (typeof digits == 'undefined')
+      digits = 2;
+  
+    while (result.length < digits)
+      result = '0'+result;
+  
+    var dec = x.toString().split('.')[1];
+    if (dec)
+      return result + '.' + dec;
+  
+    return result;
+  };
+  
+
+  provide("numpad", module.exports);
 
   $.ender(module.exports);
 
