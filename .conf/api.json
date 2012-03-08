@@ -8,7 +8,8 @@
     "modules": ".conf/modules"
   },
   "modules": [
-    "comments"
+    "comments",
+    "search"
   ],
   "errorPages": {
     "404": ".conf/error/404.html",
