@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de</title>
   <subtitle>web, development and other things</subtitle>
-  <updated>2012-03-07T20:36:41.907Z</updated>
+  <updated>2012-03-08T11:58:17.997Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -14,6 +14,34 @@
   <category term="web"/>
   <category term="development"/>
   <icon>http://vorb.de/favicon.ico</icon>
+
+  <entry>
+    <title>Volltextsuche</title>
+    <link href="http://vorb.de/log/2012/03/volltextsuche.html"/>
+    <id>http://vorb.de/log/2012/03/volltextsuche.html</id>
+    <updated>2012-03-08T10:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>http://vorb.de/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/03/hdd-search.jpg"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Hier fehlt noch eine Volltextsuche. Das ist, aufgrund der Architektur von Bread, nicht ganz trivial. Also habe ich mir überlegt, ob es vielleicht für den Moment ausreichen würde, das einfache UNIX-Kommando&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;find . -iname &amp;#39;*.html&amp;#39; | xargs grep &amp;#39;suchterm&amp;#39; -sl&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;dafür zu benutzen. Das durchsucht dann alle HTML-Dateien nach dem exakten Begriff und gibt eine Liste aus. Diese Liste könnte ich dann einfach so als dynamisch gerendertes HTML ausgeben.&lt;/p&gt;
+&lt;p&gt;Ja, ich glaube, das versuche ich mal.&lt;/p&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="dev"/>
+
+    <category term="bread"/>
+
+  </entry>
 
   <entry>
     <title>Bread und Git</title>
