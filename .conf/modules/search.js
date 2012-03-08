@@ -10,7 +10,7 @@ module.exports = function comments(app, logger, conf, globalConf, started) {
 
   function search(query, resp) {
     query = query.replace("'", '"');
-    exec("find . -iname '*.html' | xargs grep '"+query+"' -sl",
+    exec("find . -iname '*.html' | xargs grep '"+query+"' -isl",
         { timeout: 10000, cwd: conf.publicDirectory },
         function (err, stdout, stderr) {
       resp.writeHead(200, { 'Content-Type': 'text/html' });

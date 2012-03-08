@@ -49,7 +49,7 @@
         </figure>
 <% } %>
       </header>
-      <form id="search" action="/search" method="get">
+      <form id="search" action="/search.html" method="get">
         <input type="text" name="s"<%- locals.query ? ' value="'+query+'"' : ''
           %>> <input type="submit" value="Search">
       </form>
