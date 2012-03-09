@@ -16,7 +16,9 @@ if (locals.authorLink) { %>
   <category term="web"/>
   <category term="development"/>
   <icon>http://vorb.de/favicon.ico</icon>
-<% __docs.forEach(function(doc) { %>
+<%
+__docs = __docs.reverse();
+__docs.forEach(function(doc) { %>
   <entry>
     <title><%= doc.title %></title>
     <link href="http://vorb.de/<%= doc._id %>"/>
