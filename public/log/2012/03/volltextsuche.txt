@@ -6,7 +6,7 @@ tags: [ deutsch, dev, bread ]
 template: post.de.tpl
 
 
-Hier fehlt noch eine Volltextsuche. Das ist, aufgrund der Architektur von Bread,
+Hier fehlt noch eine Volltextsuche. Das ist aufgrund der Architektur von Bread
 nicht ganz trivial. Also habe ich mir überlegt, ob es vielleicht für den Moment
 ausreichen würde, das einfache UNIX-Kommando
 
