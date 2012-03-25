@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /log/comments
+Disallow: /log/2011/09/test.html
 Disallow: /search.html
 Disallow: /public.asc
 Disallow: /paul.png
