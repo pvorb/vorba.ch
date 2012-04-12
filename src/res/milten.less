@@ -99,9 +99,9 @@ a.feed {
 }
 
 blockquote {
-  border-left: .3em solid @border-color;
-  margin: 1em 2em 1em 1em;
-  padding-left: .7em;
+  border-left: 4px solid @border-color;
+  margin: 1em 2em 1em 25px;
+  padding-left: 11px;
 }
 
 address {
@@ -113,6 +113,10 @@ code {
   border: 1px solid @border-color;
   padding: 0 5px;
   .round-corners(2px);
+}
+
+dt {
+  font-weight: bold;
 }
 
 pre {
@@ -163,6 +167,12 @@ table {
 
 figure {
   margin: 0;
+}
+
+hr {
+  border: 1px solid black;
+  border-width: 1px 0 0;
+  margin: 1em auto 1em 0;
 }
 
 #access {
@@ -235,6 +245,11 @@ figure {
 
 .teaser {
   img { .round-corners; }
+}
+
+.footnotes hr {
+  margin-top: 2em;
+  width: 200px;
 }
 
 section aside, footer.meta {
@@ -465,8 +480,9 @@ input[type=checkbox].invalid + label {
 
 /* source code */
 code {
-  .kw { color: navy; }
-  .ch { color: darkgreen; }
+  .kw { color: navy; font-weight: bold; }
+  .ch, .st { color: darkgreen; }
   .dv { color: crimson; }
+  .co { color: teal; }
 }
 
