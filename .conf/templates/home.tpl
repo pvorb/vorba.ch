@@ -42,15 +42,15 @@ function indentHeadings(text) {
     <section id="content" class="digest">
       <article class="intro">
         <h1>Hi,</h1>
-        <p>my name is Paul Vorbach. I live near Würzburg, Germany, where I’m
-        working on my bachelor’s degree in
+        <p>my name is Paul Vorbach. I live near Würzburg, Germany, where I study
         <a href="http://www.informatik.uni-wuerzburg.de/">Computer Science</a>.
-        <p>I’m interested in web development and design. Recently, much of
-        my time is spent on server-side web development, mainly in
+        <p>I’m interested in web development and design. Recently, I spend much
+        of my time on server-side web development, mainly in
         <a href="http://nodejs.org/" title="Node.js">JavaScript</a>,
         <a href="http://scala-lang.org/">Scala</a> and
         <a href="http://www.oracle.com/technetwork/java/index.html">Java</a>.
-        <p>You can also</p>
+        I have also worked a lot with PHP, Delphi, some Python, C++ and C#.</p>
+        <p>This page contains information on what I do. You can also</p>
         <ul>
           <li><p>follow me on <img src="/res/github-icon.png">
             <a href="https://github.com/pvorb">Github</a>. Almost all of my
