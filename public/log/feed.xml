@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de</title>
   <subtitle>web, development and other things</subtitle>
-  <updated>2012-03-19T12:12:13.004Z</updated>
+  <updated>2012-04-12T23:07:53.459Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -319,6 +319,147 @@ $ git push web&lt;/code&gt;&lt;/pre&gt;
     <category term="dev"/>
 
     <category term="bread"/>
+
+  </entry>
+
+  <entry>
+    <title>Node.js</title>
+    <link href="http://vorb.de/log/2012/04/nodejs.html"/>
+    <id>http://vorb.de/log/2012/04/nodejs.html</id>
+    <updated>2012-04-10T09:31:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>http://vorb.de/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/04/net.jpg"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Wie ich feststellen musste, lässt sich &lt;a href=&quot;http://vorb.de/log/2012/03/bread.html&quot;&gt;Bread&lt;/a&gt; kaum erklären, ohne ein paar Grundlagen zu Node.js gelegt zu haben. (Achtung: Hier geht’s ans Eingemachte!)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Node.js is a platform built on &lt;a href=&quot;http://code.google.com/p/v8/&quot;&gt;Chrome's JavaScript runtime&lt;/a&gt; for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So heißt es lapidar auf der &lt;a href=&quot;http://nodejs.org/&quot;&gt;Node.js-Website&lt;/a&gt;. Über manche dieser Punkte lässt sich sicherlich streiten. Auf die wichtigsten will ich aber hier kurz eingehen und die Besonderheiten bzw. Unterschiede des neuen &lt;em&gt;Hicen Shice&lt;/em&gt; der Webentwicklung zu PHP und anderen Plattformen aufzeigen.&lt;/p&gt;
+&lt;p&gt;Im Grunde ist Node.js eine Umgebung, mit der man JavaScript ohne einen Browser ausführen kann. Dabei kommt die &lt;a href=&quot;http://code.google.com/p/v8/&quot;&gt;V8-JavaScript-Engine&lt;/a&gt; zum Einsatz. Diese zeichnet sich dadurch aus, nicht gerade die langsamste Implementierung von JavaScript zu bieten. ;-)&lt;/p&gt;
+&lt;p&gt;Es gab auch vorher zahlreiche andere Anwendungsmöglichkeiten für JavaScript außerhalb des Browsers. So wird es beispielsweise in Adobes Flash-Plattform unter dem Namen ActionScript genutzt oder auch zum Scripting verschiedener Programme, die eigentlich nichts mit JavaScript am Hut haben, zum Beispiel in &lt;a href=&quot;http://www.adobe.com/devnet/acrobat/javascript.html&quot;&gt;PDF&lt;/a&gt;, der &lt;a href=&quot;http://live.gnome.org/Gjs&quot;&gt;Gnome 3 Shell&lt;/a&gt; oder als Makrosprache in &lt;a href=&quot;http://www.openoffice.org/framework/scripting/release-0.2/javascript-devguide.html&quot;&gt;OpenOffice&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;JavaScript ist anders als die meisten prozeduralen (und objektorientierten) Sprachen. Es sieht aus wie Java oder C, ist aber eher ein Lisp mit geschweiften Klammern. &lt;a href=&quot;http://www.crockford.com/javascript/javascript.html&quot;&gt;So sagt man zumindest.&lt;/a&gt; So sehr möchte ich aber gar nicht auf die Sprache eingehen. Eine gute Einführung in die Sprache gibt es &lt;a href=&quot;https://developer.mozilla.org/en/JavaScript/Guide&quot;&gt;bei Mozilla&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Node.js bietet ein paar Erweiterungen der winzigen Standardbibliothek. Node enthält hauptsächlich zusätzliche Module für typische Netzwerk- oder Dateisystem-Aufgaben. Es lassen sich aber auch prima Konsolenprogramme mit aber auch ohne jegliche Netzwerk-Interaktion programmieren und mittlerweile gibt es auch &lt;a href=&quot;https://github.com/creationix/topcube&quot;&gt;Erweiterungen, die grafische Benutzeroberflächen ermöglichen&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;unterschiede-zu-anderen-plattformen&quot;&gt;Unterschiede zu anderen Plattformen&lt;/h2&gt;
+&lt;p&gt;Ein großer Unterschied zwischen Node und PHP ist, dass PHP entweder über FastCGI oder direkt als Apache-Modul immer einen einzelnen Request von einem einzelnen Browser vorgesetzt bekommt, den man dann nach Belieben verarbeiten und beantworten kann.&lt;/p&gt;
+&lt;p&gt;Da Node.js nicht immer HTTP-Requests beantwortet, muss man sich einen solchen Webserver selbst schreiben. Dafür gibt es aber die nötigen Bibliotheken, die diese Aufgabe erheblich vereinfachen.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode javascript&quot;&gt;&lt;code class=&quot;sourceCode javascript&quot;&gt;&lt;span class=&quot;kw&quot;&gt;var&lt;/span&gt; http = require(&lt;span class=&quot;ch&quot;&gt;&amp;#39;http&amp;#39;&lt;/span&gt;);
+&lt;span class=&quot;kw&quot;&gt;var&lt;/span&gt; address = &lt;span class=&quot;ch&quot;&gt;&amp;#39;localhost&amp;#39;&lt;/span&gt;;
+&lt;span class=&quot;kw&quot;&gt;var&lt;/span&gt; port = &lt;span class=&quot;dv&quot;&gt;8080&lt;/span&gt;;
+
+&lt;span class=&quot;kw&quot;&gt;var&lt;/span&gt; server = &lt;span class=&quot;kw&quot;&gt;http&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;createServer&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;function&lt;/span&gt; handle(req, resp) {
+  &lt;span class=&quot;kw&quot;&gt;response&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;end&lt;/span&gt;(&lt;span class=&quot;ch&quot;&gt;&amp;#39;Hallo Welt!&amp;#39;&lt;/span&gt;);
+});
+
+&lt;span class=&quot;kw&quot;&gt;server&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;listen&lt;/span&gt;(port, address, &lt;span class=&quot;kw&quot;&gt;function&lt;/span&gt; () {
+  &lt;span class=&quot;kw&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;ch&quot;&gt;&amp;#39;Server running at &amp;quot;http://&amp;#39;&lt;/span&gt; + address + &lt;span class=&quot;ch&quot;&gt;&amp;#39;:&amp;#39;&lt;/span&gt;
+      + port + &lt;span class=&quot;ch&quot;&gt;&amp;#39;/&amp;quot;.&amp;#39;&lt;/span&gt;);
+});&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Speichert man diese Zeilen Code in eine Datei namens &lt;code&gt;server.js&lt;/code&gt; und startet diese über die Kommandozeile mit &lt;code&gt;node server.js&lt;/code&gt;, so erhält man die Ausgabe &lt;code&gt;Server running at &amp;quot;http://localhost:8080/&amp;quot;.&lt;/code&gt; auf der Konsole. Ruft man nun im Browser die angegebene Adresse auf, so bekommt man „Hallo Welt!“ angezeigt.&lt;/p&gt;
+&lt;p&gt;Das Server-Objekt aus dem Beispiel wartet auf eingehende HTTP-Verbindungen und führt jeweils die Funktion &lt;code&gt;handle&lt;/code&gt; aus. Diese bekommt über den Parameter &lt;code&gt;req&lt;/code&gt; (Request) die Informationen über den Request mitgeteilt.&lt;sup&gt;&lt;a href=&quot;http://vorb.de/log/2012/04/nodejs.html#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; Das Objekt &lt;code&gt;resp&lt;/code&gt; (Response) ermöglicht dann das Antworten auf den Request mit den Methoden &lt;code&gt;writeHead&lt;/code&gt;, &lt;code&gt;write&lt;/code&gt; und &lt;code&gt;end&lt;/code&gt; (u.a.).&lt;sup&gt;&lt;a href=&quot;http://vorb.de/log/2012/04/nodejs.html#fn2&quot; class=&quot;footnoteRef&quot; id=&quot;fnref2&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Das gleiche Programm lässt sich in PHP viel kürzer schreiben:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode PHP&quot;&gt;&lt;code class=&quot;sourceCode php&quot;&gt;&lt;span class=&quot;kw&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;fu&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;#39;Hallo Welt!&amp;#39;&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Alles, was innerhalb der Funktion &lt;code&gt;handle&lt;/code&gt; steht, kann in der Regel auch mit PHP bewerkstelligt werden.&lt;/p&gt;
+&lt;h2 id=&quot;vorteile&quot;&gt;Vorteile&lt;/h2&gt;
+&lt;h3 id=&quot;asynchronizität&quot;&gt;Asynchronizität&lt;/h3&gt;
+&lt;p&gt;(Furchtbares Wort.) Ein weiterer wichtiger Unterschied zu herkömmlichen Umgebungen ist die besondere Behandlung von Festplatten-, Datenbank- und Netzwerkzugriffen. Während PHP bei einer Datenbankabfrage (oder Festplattenzugriff oder Netzwerkrequest) solange nichts tut, bis die Datenbank (die Festplatte, das Netzwerk) entweder das Ergebnis oder einen Fehler liefert, blockieren solche „langsamen“ Operationen in Node den Programmablauf nicht. Das heißt, eine Datenbank-Query wird losgeschickt und eine Funktion registriert, die das Resultat verarbeitet. Anstatt zu warten, läuft das Programm danach jedoch weiter und der Callback erfolgt erst, wenn das Ergebnis da ist. Wo mehrere Zustände erreicht werden können, werden auch teilweise Event-Objekte und entsprechende Funktionen eingesetzt.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode javascript&quot;&gt;&lt;code class=&quot;sourceCode javascript&quot;&gt;&lt;span class=&quot;kw&quot;&gt;client&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;query&lt;/span&gt;(
+  &lt;span class=&quot;ch&quot;&gt;&amp;#39;SELECT * FROM table&amp;#39;&lt;/span&gt;,
+  &lt;span class=&quot;kw&quot;&gt;function&lt;/span&gt; selected(err, results, fields) {
+    &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (err)
+      &lt;span class=&quot;kw&quot;&gt;throw&lt;/span&gt; err;
+
+    &lt;span class=&quot;kw&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;log&lt;/span&gt;(results);
+    &lt;span class=&quot;kw&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;log&lt;/span&gt;(fields);
+    &lt;span class=&quot;kw&quot;&gt;client&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;end&lt;/span&gt;();
+  }
+);&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Dies steht im Gegensatz zu Apache/PHP, wo für jeden eingehenden Request ein neuer Thread erzeugt wird. Threads sind für diesen Zweck jedoch vergleichsweise ineffizient.&lt;sup&gt;&lt;a href=&quot;http://vorb.de/log/2012/04/nodejs.html#fn3&quot; class=&quot;footnoteRef&quot; id=&quot;fnref3&quot;&gt;3&lt;/a&gt;&lt;/sup&gt; So kann PHP auf schwächeren Rechnern schon bei 10 bis 100 gleichzeitigen Zugriffen ins Straucheln kommen, während Node.js weit über 10.000 gleichzeigige Verbindungen abarbeiten kann.&lt;/p&gt;
+&lt;p&gt;Für Python gibt es mit &lt;a href=&quot;http://twistedmatrix.com/&quot;&gt;Twisted&lt;/a&gt;, für Ruby mit &lt;a href=&quot;http://rubyeventmachine.com/&quot;&gt;Event Machine&lt;/a&gt; ähnliche Ansätze zur Programmierung schnellerer Webserver. Der Vorteil von Node liegt aber darin, dass JavaScript genau für Event-basierte Programmierung konzipiert wurde. Oberflächen (bzw. Benutzer, die diese bedienen) verhalten sich genauso, wie Netzwerke oder Festplatten: Man weiß nie, wann eine Aktion ausgeführt wird.&lt;/p&gt;
+&lt;p&gt;Daher lässt sich in JavaScript sehr einfach und natürlich Event-basiert programmieren.&lt;/p&gt;
+&lt;p&gt;Durch die Events lassen sich viele Dinge mehr oder weniger parallelisieren. Das trifft aber nur auf „ausgelagerte“ Aktionen zu. Man kann beispielsweise gleichzeitig mehrere Datenbankabfragen laufen lassen und eine Datei auslesen. Das Programm wird jedoch niemals mitten im Ablauf unterbrochen. Somit können keine &lt;a href=&quot;http://de.wikipedia.org/wiki/Race_Condition&quot;&gt;Race Conditions&lt;/a&gt; entstehen. Das macht die Programmierung wesentlich leichter überschaubar als mit Threads.&lt;sup&gt;&lt;a href=&quot;http://vorb.de/log/2012/04/nodejs.html#fn4&quot; class=&quot;footnoteRef&quot; id=&quot;fnref4&quot;&gt;4&lt;/a&gt;&lt;/sup&gt; Der Zustand der Objekte bleibt immer gewahrt.&lt;/p&gt;
+&lt;p&gt;Wenn man den Programmablauf selbst parallelisieren möchte, muss man Teile des Programms als eigene Prozesse starten und dann mit Nachrichten (über &lt;a href=&quot;http://en.wikipedia.org/wiki/Unix_domain_socket&quot;&gt;Unix-Domain-Sockets&lt;/a&gt; oder &lt;a href=&quot;http://de.wikipedia.org/wiki/Transmission_Control_Protocol&quot;&gt;TCP-Verbindungen&lt;/a&gt;) synchron halten, ähnlich wie es im &lt;a href=&quot;http://en.wikipedia.org/wiki/Actor_model&quot;&gt;Aktor-Modell&lt;/a&gt; beschrieben wird. Das kann bei sehr rechenintensiven Programmen nötig werden. Meist reicht es aber, wenn lediglich asynchrone I/O verwendet wird. In Node lässt sich das Aktor-Modell umsetzen, ist aber nicht in die Plattform integriert wie beispielsweise in Erlang.&lt;/p&gt;
+&lt;h3 id=&quot;paketsystem&quot;&gt;Paketsystem&lt;/h3&gt;
+&lt;p&gt;Ich schrieb ja bereits, dass man mit JavaScript &lt;a href=&quot;http://vorb.de/log/2012/03/bread.html#umsetzung&quot;&gt;sehr modularen Code schreiben kann&lt;/a&gt;. Das erkläre ich mal am Beispiel von &lt;a href=&quot;https://github.com/pvorb/node-dive&quot;&gt;dive&lt;/a&gt;.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode javascript&quot;&gt;&lt;code class=&quot;sourceCode javascript&quot;&gt;&lt;span class=&quot;kw&quot;&gt;var&lt;/span&gt; dive = require(&lt;span class=&quot;ch&quot;&gt;&amp;#39;dive&amp;#39;&lt;/span&gt;);
+
+dive(&lt;span class=&quot;ch&quot;&gt;&amp;#39;/some/directory&amp;#39;&lt;/span&gt;, &lt;span class=&quot;kw&quot;&gt;function&lt;/span&gt; action(path) {
+  &lt;span class=&quot;co&quot;&gt;// wird für jede Datei aufgerufen&lt;/span&gt;
+}, &lt;span class=&quot;kw&quot;&gt;function&lt;/span&gt; complete() {
+  &lt;span class=&quot;co&quot;&gt;// wird aufgerufen nachdem alle Dateien durchlaufen wurden&lt;/span&gt;
+});&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Dive nimmt einen String mit einem absoluten Ordnerpfad entgegen, „taucht“ in dieses Verzeichnis ein und durchläuft alle Unterverzeichnisse und Dateien rekursiv. Für jede Datei wird dann der Callback &lt;code&gt;action&lt;/code&gt; ausgeführt. Nachdem alle Dateien durchlaufen wurden, wird &lt;code&gt;complete&lt;/code&gt; ausgeführt. That’s it. Mehr kann es nicht, ist aber trotzdem für viele Zwecke einsetzbar, weil man ja ganze Funktionen übergeben kann. Diese können dann ihrerseits beispielsweise nach dem Dateinamen filtern und so kann die Funktionalität verfeinert werden.&lt;/p&gt;
+&lt;p&gt;Node.js verwendet das &lt;a href=&quot;http://wiki.commonjs.org/wiki/Packages/1.0&quot;&gt;CommonJS&lt;/a&gt;-Modulsystem und erlaubt es dadurch, solchen Code unkompliziert in Pakete zu verpacken. Für ein Paket benötigt man nur zwei Dateien. Eine Datei namens &lt;code&gt;package.json&lt;/code&gt; sowie das eigentliche Programm.&lt;/p&gt;
+&lt;p&gt;Die Datei &lt;code&gt;package.json&lt;/code&gt; enthält Informationen über das Paket.&lt;/p&gt;
+&lt;pre class=&quot;sourceCode javascript&quot;&gt;&lt;code class=&quot;sourceCode javascript&quot;&gt;{
+  &lt;span class=&quot;st&quot;&gt;&amp;quot;name&amp;quot;&lt;/span&gt;: &lt;span class=&quot;st&quot;&gt;&amp;quot;dive&amp;quot;&lt;/span&gt;,
+  &lt;span class=&quot;st&quot;&gt;&amp;quot;description&amp;quot;&lt;/span&gt;: &lt;span class=&quot;st&quot;&gt;&amp;quot;walk through directory trees and apply an action to every file&amp;quot;&lt;/span&gt;,
+  &lt;span class=&quot;st&quot;&gt;&amp;quot;tags&amp;quot;&lt;/span&gt;: [ &lt;span class=&quot;st&quot;&gt;&amp;quot;recursive&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;file walking&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;directories&amp;quot;&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;async&amp;quot;&lt;/span&gt; ],
+  &lt;span class=&quot;st&quot;&gt;&amp;quot;author&amp;quot;&lt;/span&gt;: &lt;span class=&quot;st&quot;&gt;&amp;quot;Paul Vorbach &amp;lt;paul@vorb.de&amp;gt; (http://vorb.de)&amp;quot;&lt;/span&gt;,
+  &lt;span class=&quot;st&quot;&gt;&amp;quot;version&amp;quot;&lt;/span&gt;: &lt;span class=&quot;st&quot;&gt;&amp;quot;0.2.0&amp;quot;&lt;/span&gt;,
+  &lt;span class=&quot;st&quot;&gt;&amp;quot;main&amp;quot;&lt;/span&gt;: &lt;span class=&quot;st&quot;&gt;&amp;quot;./dive.js&amp;quot;&lt;/span&gt;,
+  &lt;span class=&quot;st&quot;&gt;&amp;quot;repository&amp;quot;&lt;/span&gt;: {
+    &lt;span class=&quot;st&quot;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;: &lt;span class=&quot;st&quot;&gt;&amp;quot;git&amp;quot;&lt;/span&gt;,
+    &lt;span class=&quot;st&quot;&gt;&amp;quot;url&amp;quot;&lt;/span&gt;: &lt;span class=&quot;st&quot;&gt;&amp;quot;git://github.com/pvorb/node-dive.git&amp;quot;&lt;/span&gt;
+  },
+  &lt;span class=&quot;st&quot;&gt;&amp;quot;dependencies&amp;quot;&lt;/span&gt;: {
+    &lt;span class=&quot;st&quot;&gt;&amp;quot;append&amp;quot;&lt;/span&gt;: &lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;gt;=0.1.1&amp;quot;&lt;/span&gt;
+  }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Im Quelltext kann man dann beliebige Teile des Codes „exportieren“. Sprich: Man kann der Variable &lt;code&gt;exports&lt;/code&gt; dann alle möglichen Werte zuweisen. Im Beispiel oben wurde einfach eine Funktion exportiert. Das sieht im Quelltext so aus:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode javascript&quot;&gt;&lt;code class=&quot;sourceCode javascript&quot;&gt;&lt;span class=&quot;kw&quot;&gt;function&lt;/span&gt; dive(dir, action, complete) {
+  &lt;span class=&quot;co&quot;&gt;// ...&lt;/span&gt;
+}
+
+exports = dive;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Mit &lt;a href=&quot;http://search.npmjs.org/&quot;&gt;Node Package Manager (npm)&lt;/a&gt; existiert außerdem ein Verzeichnis solcher Pakete. Über ein einfaches &lt;code&gt;npm install paketname&lt;/code&gt; lassen sich diese installieren und im Code dann, wie oben schon gesehen, über &lt;code&gt;var paketname = require('paketname');&lt;/code&gt; einbinden.&lt;/p&gt;
+&lt;p&gt;Solch ein Paketsystem ist aber nichts neues, das gibt es für viele Programmierumgebungen.&lt;sup&gt;&lt;a href=&quot;http://vorb.de/log/2012/04/nodejs.html#fn5&quot; class=&quot;footnoteRef&quot; id=&quot;fnref5&quot;&gt;5&lt;/a&gt;&lt;/sup&gt; Mit momentan über 8000 Paketen hat das Verzeichnis in nur knapp anderthalb Jahren eine stolze Größe erreicht.&lt;/p&gt;
+&lt;h3 id=&quot;wiederverwendbarkeit&quot;&gt;Wiederverwendbarkeit&lt;/h3&gt;
+&lt;p&gt;Der große Vorteil von JavaScript als serverseitiger Scriptsprache liegt in der Wiederverwendbarkeit der Pakete. Sie lassen sich sowohl in Node als auch im Browser verwenden. Über &lt;a href=&quot;http://ender.no.de/&quot;&gt;Ender&lt;/a&gt; lassen sich diese dann auch einfach zu Bibliotheken so zusammenstellen, wie man es gerade braucht. So könnte man zum Beispiel den Code, der Nutzereingaben validiert, sowohl auf dem Server als auch im Browser benutzen.&lt;/p&gt;
+&lt;h2 id=&quot;nachteile&quot;&gt;Nachteile&lt;/h2&gt;
+&lt;p&gt;Node ist alles andere als perfekt. Man sollte sich genau überlegen, ob es für ein bestimmtes Projekt geeignet ist, bevor man sich ins kühle Nass wirft.&lt;/p&gt;
+&lt;h3 id=&quot;callback-hölle&quot;&gt;Callback-Hölle:&lt;/h3&gt;
+&lt;p&gt;Wenn man viele asynchrone Dinge hintereinander ausführen möchte, kann das Programm schnell unübersichtlich werden. Für jeden Callback wird der Code in der Regel eine Ebene weiter eingerückt. Es gibt zwar Möglichkeiten, das zu umgehen, trotzdem muss man sich damit beschäftigen.&lt;/p&gt;
+&lt;h3 id=&quot;kleine-standardbibliothek&quot;&gt;Kleine Standardbibliothek&lt;/h3&gt;
+&lt;p&gt;Die kleine Standardbibliothek von JavaScript ist Segen und Fluch zugleich. Die Erweiterungen von Node helfen auch nur bei speziellen Problemen. An die Java Platform oder das .Net-Framework kommt die Funktionalität bei weitem nicht heran. Viele Dinge muss man entweder selbst schreiben oder aus den zahlreichen Paketen von npm zusammensuchen. Dann hat man aber häufig inkonsistente Schnittstellen und muss die benötigten Informationen an vielen verschiedenen Stellen nachlesen.&lt;/p&gt;
+&lt;h3 id=&quot;parallelisierung&quot;&gt;Parallelisierung&lt;/h3&gt;
+&lt;p&gt;Node.js bietet von sich aus keine Möglichkeiten zur echten Parallelisierung des Programmablaufs. Über das Aktor-Modell lässt sich Parallelisierung erreichen. Das ist jedoch aufwendig. Mit &lt;a href=&quot;http://fabricengine.com/&quot;&gt;FabricEngine&lt;/a&gt; soll es angeblich auch möglich sein, Programme für mehrere Threads zu optimieren.&lt;/p&gt;
+&lt;h2 id=&quot;fazit&quot;&gt;Fazit&lt;/h2&gt;
+&lt;p&gt;Durch Node.js wird es wesentlich einfacher, schnelle und schlanke Programme zu schreiben. Es ist aber keine eierlegende Wollmilchsau. Es ist einfach ein Werkzeug, das für bestimmte Anwendungszwecke Sinn ergibt. Für viele Aufgaben, die bisher mit typischen Web-Frameworks wie &lt;a href=&quot;http://rubyonrails.org/&quot;&gt;Ruby on Rails&lt;/a&gt; oder dem Klon in der jeweils bevorzugten Sprache gelöst werden, sind diese immer noch angebracht.&lt;/p&gt;
+&lt;p&gt;Wer aber mit JavaScript gut klarkommt und bereit ist, seine Denkweise teilweise anzupassen, der findet mit Node.js eine Alternative, die durch die Asynchronizität und die Schnelligkeit von V8 einiges aus so manch alter Kiste herausholt. Die Plattform ist aber auf jeden Fall einen Blick wert.&lt;/p&gt;
+&lt;h2 id=&quot;weiterführendes-material&quot;&gt;Weiterführendes Material&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.youtube.com/watch?v=jo_B4LTHi3I&quot;&gt;Introduction to Node.js with Ryan Dahl&lt;/a&gt; (Einführungsvideo, Englisch)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://nodeguide.com/beginner.html&quot;&gt;Felix’s Node.js Beginners Guide&lt;/a&gt; (Tutorial, Englisch)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://cre.fm/cre167&quot;&gt;CRE 167 node.js&lt;/a&gt; (Podcast, Deutsch)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://howtonode.org/&quot;&gt;How To Node&lt;/a&gt; (Blog/Tutorials, Englisch)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;Vergleichbar mit den Variablen &lt;code&gt;$_GET&lt;/code&gt; und &lt;code&gt;$_POST&lt;/code&gt; in PHP.&lt;a href=&quot;http://vorb.de/log/2012/04/nodejs.html#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn2&quot;&gt;&lt;p&gt;In PHP wäre das alles, was nicht zwischen &lt;code&gt;&amp;lt;?php&lt;/code&gt; und &lt;code&gt;?&amp;gt;&lt;/code&gt; steht, oder die Ausgabe von Strings mit &lt;code&gt;echo&lt;/code&gt; und &lt;code&gt;print&lt;/code&gt;.&lt;a href=&quot;http://vorb.de/log/2012/04/nodejs.html#fnref2&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn3&quot;&gt;&lt;p&gt;siehe das &lt;a href=&quot;http://www.kegel.com/c10k.html&quot;&gt;C10K-Problem&lt;/a&gt;.&lt;a href=&quot;http://vorb.de/log/2012/04/nodejs.html#fnref3&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn4&quot;&gt;&lt;p&gt;Bei den gängigen Plattformen wie PHP, Python oder Ruby spielen Threads für den Programmierer keine Rolle. Bei Java und C# kann man jedoch echte Parallelität des Codes durch Threads erreichen und diese selbst kontrollieren.&lt;a href=&quot;http://vorb.de/log/2012/04/nodejs.html#fnref4&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&quot;fn5&quot;&gt;&lt;p&gt;siehe &lt;a href=&quot;http://www.cpan.org/&quot;&gt;CPAN&lt;/a&gt; (Perl; über 100.000 Pakete), &lt;a href=&quot;http://rubygems.org/&quot;&gt;RubyGems&lt;/a&gt; (Ruby; über 37.000 Pakete), &lt;a href=&quot;http://pypi.python.org/pypi&quot;&gt;pypi&lt;/a&gt; (Pyhton; über 20.000 Pakete), &lt;a href=&quot;http://pear.php.net/&quot;&gt;PEAR&lt;/a&gt; (PHP; über 586 Pakete).&lt;a href=&quot;http://vorb.de/log/2012/04/nodejs.html#fnref5&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="dev"/>
+
+    <category term="javascript"/>
+
+    <category term="nodejs"/>
 
   </entry>
 

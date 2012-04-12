@@ -1,75 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="utf-8">
-    <title>Paul Vorbach</title>
+    <title>Node.js | Paul Vorbach</title>
     <link rel="stylesheet" href="/res/milten.css">
     <link rel="icon" href="/favicon.ico">
     <link rel="alternate" type="application/atom+xml" href="/log/feed.xml"
-      title="Article feed">
+      title="Artikel-Feed">
     <link rel="alternate" type="application/atom+xml"
-      href="/log/comment-feed.xml" title="Comment feed">
+      href="/log/comment-feed.xml" title="Kommentar-Feed">
+    <link rel="pingback" href="http://vorb.de/log/pingback">
     <meta name="author" content="Paul Vorbach">
-    <meta name="keywords" content="development, web, node.js,
-      scala, github, Paul Vorbach, Paul Rafael Vorbach, pvorb, pvorbach">
-    <style>#top { font-size: 3em }</style>
+
+    <meta name="keywords" content="deutsch, dev, javascript, nodejs">
+
   </head>
   <body>
-    <header id="top">Paul Vorbach</header>
+    <header id="site">
+      <a href="/">Paul Vorbach</a>
+    </header>
     <nav id="nav">
       <ul id="branches">
-        <li><a href="/log/">Blog</a>
+        <li class="active"><a href="/log/">Blog</a>
         <li><a href="/info/">Info</a>
       </ul>
       <ol id="path">
-        <li>vorb.de
+        <li><a href="/">vorb.de</a>
+
+        <li><a href="/log/">log</a>
+
+        <li><a href="/log/2012/">2012</a>
+
+        <li><a href="/log/2012/04/">04</a>
+
+        <li>nodejs.html
+
       </ol>
       <ol id="access">
-        <li><a href="#top" title="To the top" id="back">↑</a>
+        <li><a href="#top" title="Zum Anfang" id="back">↑</a>
         <li><a href="#nav">Navigation</a>
-        <li><a href="#content">Content</a>
+        <li><a href="#content">Inhalt</a>
       </ol>
     </nav>
-    <section id="content" class="digest">
-      <article class="intro">
-        <h1>Hi,</h1>
-        <p>my name is Paul Vorbach. I live near Würzburg, Germany, where I study
-        <a href="http://www.informatik.uni-wuerzburg.de/">Computer Science</a>.
-        <p>I’m interested in web development and design. Recently, I spend much
-        of my time on server-side web development, mainly in
-        <a href="http://nodejs.org/" title="Node.js">JavaScript</a>,
-        <a href="http://scala-lang.org/">Scala</a> and
-        <a href="http://www.oracle.com/technetwork/java/index.html">Java</a>.
-        I have also worked a lot with PHP, Delphi, some Python, C++ and C#.</p>
-        <p>This page contains information on what I do. You can also</p>
-        <ul>
-          <li><p>follow me on <img src="/res/github-icon.png">
-            <a href="https://github.com/pvorb">Github</a>. Almost all of my
-            personal projects are hosted on this website. The majority of them
-            is licensed under a <a href="/license/mit.html">MIT license</a>.</p>
-          <li><p>follow me on <img src="/res/twitter-icon.png">
-            <a href="https://twitter.com/pvorb">Twitter</a>, where I irregularly
-            post things that I find newsworthy.</p>
-        </ul>
-      </article>
-      <section class="log">
-        <h1>Weblog</h1>
-        <p>Most of the articles in the <a href="/log/">blog</a> are in German,
-        although there may be one or the other English article.</p>
-        <p>Here is the newest article:</p>
+    <article id="content">
+      <header>
 
-        <article lang="en">
-          <header>
+        <figure class="teaser">
+          <img src="net.jpg">
+        </figure>
 
-            <figure class="teaser">
-              <a href="/log/2012/04/nodejs.html"><img src="log/2012/04/net.jpg"></a>
-            </figure>
-
-            <h2><a href="/log/2012/04/nodejs.html">Node.js</a></h2>
-            <p class="meta">2012-04-10</p>
-          </header>
-          <section>
-            <p>Wie ich feststellen musste, lässt sich <a href="/log/2012/03/bread.html">Bread</a> kaum erklären, ohne ein paar Grundlagen zu Node.js gelegt zu haben. (Achtung: Hier geht’s ans Eingemachte!)</p>
+        <h1>Node.js</h1>
+        <p class="meta">10.04.2012</p>
+      </header>
+      <section>
+        <p>Wie ich feststellen musste, lässt sich <a href="/log/2012/03/bread.html">Bread</a> kaum erklären, ohne ein paar Grundlagen zu Node.js gelegt zu haben. (Achtung: Hier geht’s ans Eingemachte!)</p>
 <blockquote>
 <p>“Node.js is a platform built on <a href="http://code.google.com/p/v8/">Chrome's JavaScript runtime</a> for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.”</p>
 </blockquote>
@@ -78,7 +62,7 @@
 <p>Es gab auch vorher zahlreiche andere Anwendungsmöglichkeiten für JavaScript außerhalb des Browsers. So wird es beispielsweise in Adobes Flash-Plattform unter dem Namen ActionScript genutzt oder auch zum Scripting verschiedener Programme, die eigentlich nichts mit JavaScript am Hut haben, zum Beispiel in <a href="http://www.adobe.com/devnet/acrobat/javascript.html">PDF</a>, der <a href="http://live.gnome.org/Gjs">Gnome 3 Shell</a> oder als Makrosprache in <a href="http://www.openoffice.org/framework/scripting/release-0.2/javascript-devguide.html">OpenOffice</a>.</p>
 <p>JavaScript ist anders als die meisten prozeduralen (und objektorientierten) Sprachen. Es sieht aus wie Java oder C, ist aber eher ein Lisp mit geschweiften Klammern. <a href="http://www.crockford.com/javascript/javascript.html">So sagt man zumindest.</a> So sehr möchte ich aber gar nicht auf die Sprache eingehen. Eine gute Einführung in die Sprache gibt es <a href="https://developer.mozilla.org/en/JavaScript/Guide">bei Mozilla</a>.</p>
 <p>Node.js bietet ein paar Erweiterungen der winzigen Standardbibliothek. Node enthält hauptsächlich zusätzliche Module für typische Netzwerk- oder Dateisystem-Aufgaben. Es lassen sich aber auch prima Konsolenprogramme mit aber auch ohne jegliche Netzwerk-Interaktion programmieren und mittlerweile gibt es auch <a href="https://github.com/creationix/topcube">Erweiterungen, die grafische Benutzeroberflächen ermöglichen</a>.</p>
-<h2 id="unterschiede-zu-anderen-plattformen">Unterschiede zu anderen Plattformen</h3>
+<h2 id="unterschiede-zu-anderen-plattformen">Unterschiede zu anderen Plattformen</h2>
 <p>Ein großer Unterschied zwischen Node und PHP ist, dass PHP entweder über FastCGI oder direkt als Apache-Modul immer einen einzelnen Request von einem einzelnen Browser vorgesetzt bekommt, den man dann nach Belieben verarbeiten und beantworten kann.</p>
 <p>Da Node.js nicht immer HTTP-Requests beantwortet, muss man sich einen solchen Webserver selbst schreiben. Dafür gibt es aber die nötigen Bibliotheken, die diese Aufgabe erheblich vereinfachen.</p>
 <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> http = require(<span class="ch">&#39;http&#39;</span>);
@@ -100,8 +84,8 @@
 <span class="fu">echo</span> <span class="st">&#39;Hallo Welt!&#39;</span><span class="ot">;</span>
 <span class="kw">?&gt;</span></code></pre>
 <p>Alles, was innerhalb der Funktion <code>handle</code> steht, kann in der Regel auch mit PHP bewerkstelligt werden.</p>
-<h2 id="vorteile">Vorteile</h3>
-<h3 id="asynchronizität">Asynchronizität</h4>
+<h2 id="vorteile">Vorteile</h2>
+<h3 id="asynchronizität">Asynchronizität</h3>
 <p>(Furchtbares Wort.) Ein weiterer wichtiger Unterschied zu herkömmlichen Umgebungen ist die besondere Behandlung von Festplatten-, Datenbank- und Netzwerkzugriffen. Während PHP bei einer Datenbankabfrage (oder Festplattenzugriff oder Netzwerkrequest) solange nichts tut, bis die Datenbank (die Festplatte, das Netzwerk) entweder das Ergebnis oder einen Fehler liefert, blockieren solche „langsamen“ Operationen in Node den Programmablauf nicht. Das heißt, eine Datenbank-Query wird losgeschickt und eine Funktion registriert, die das Resultat verarbeitet. Anstatt zu warten, läuft das Programm danach jedoch weiter und der Callback erfolgt erst, wenn das Ergebnis da ist. Wo mehrere Zustände erreicht werden können, werden auch teilweise Event-Objekte und entsprechende Funktionen eingesetzt.</p>
 <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">client</span>.<span class="fu">query</span>(
   <span class="ch">&#39;SELECT * FROM table&#39;</span>,
@@ -119,7 +103,7 @@
 <p>Daher lässt sich in JavaScript sehr einfach und natürlich Event-basiert programmieren.</p>
 <p>Durch die Events lassen sich viele Dinge mehr oder weniger parallelisieren. Das trifft aber nur auf „ausgelagerte“ Aktionen zu. Man kann beispielsweise gleichzeitig mehrere Datenbankabfragen laufen lassen und eine Datei auslesen. Das Programm wird jedoch niemals mitten im Ablauf unterbrochen. Somit können keine <a href="http://de.wikipedia.org/wiki/Race_Condition">Race Conditions</a> entstehen. Das macht die Programmierung wesentlich leichter überschaubar als mit Threads.<sup><a href="#fn4" class="footnoteRef" id="fnref4">4</a></sup> Der Zustand der Objekte bleibt immer gewahrt.</p>
 <p>Wenn man den Programmablauf selbst parallelisieren möchte, muss man Teile des Programms als eigene Prozesse starten und dann mit Nachrichten (über <a href="http://en.wikipedia.org/wiki/Unix_domain_socket">Unix-Domain-Sockets</a> oder <a href="http://de.wikipedia.org/wiki/Transmission_Control_Protocol">TCP-Verbindungen</a>) synchron halten, ähnlich wie es im <a href="http://en.wikipedia.org/wiki/Actor_model">Aktor-Modell</a> beschrieben wird. Das kann bei sehr rechenintensiven Programmen nötig werden. Meist reicht es aber, wenn lediglich asynchrone I/O verwendet wird. In Node lässt sich das Aktor-Modell umsetzen, ist aber nicht in die Plattform integriert wie beispielsweise in Erlang.</p>
-<h3 id="paketsystem">Paketsystem</h4>
+<h3 id="paketsystem">Paketsystem</h3>
 <p>Ich schrieb ja bereits, dass man mit JavaScript <a href="/log/2012/03/bread.html#umsetzung">sehr modularen Code schreiben kann</a>. Das erkläre ich mal am Beispiel von <a href="https://github.com/pvorb/node-dive">dive</a>.</p>
 <pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> dive = require(<span class="ch">&#39;dive&#39;</span>);
 
@@ -154,20 +138,20 @@ dive(<span class="ch">&#39;/some/directory&#39;</span>, <span class="kw">functio
 exports = dive;</code></pre>
 <p>Mit <a href="http://search.npmjs.org/">Node Package Manager (npm)</a> existiert außerdem ein Verzeichnis solcher Pakete. Über ein einfaches <code>npm install paketname</code> lassen sich diese installieren und im Code dann, wie oben schon gesehen, über <code>var paketname = require('paketname');</code> einbinden.</p>
 <p>Solch ein Paketsystem ist aber nichts neues, das gibt es für viele Programmierumgebungen.<sup><a href="#fn5" class="footnoteRef" id="fnref5">5</a></sup> Mit momentan über 8000 Paketen hat das Verzeichnis in nur knapp anderthalb Jahren eine stolze Größe erreicht.</p>
-<h3 id="wiederverwendbarkeit">Wiederverwendbarkeit</h4>
+<h3 id="wiederverwendbarkeit">Wiederverwendbarkeit</h3>
 <p>Der große Vorteil von JavaScript als serverseitiger Scriptsprache liegt in der Wiederverwendbarkeit der Pakete. Sie lassen sich sowohl in Node als auch im Browser verwenden. Über <a href="http://ender.no.de/">Ender</a> lassen sich diese dann auch einfach zu Bibliotheken so zusammenstellen, wie man es gerade braucht. So könnte man zum Beispiel den Code, der Nutzereingaben validiert, sowohl auf dem Server als auch im Browser benutzen.</p>
-<h2 id="nachteile">Nachteile</h3>
+<h2 id="nachteile">Nachteile</h2>
 <p>Node ist alles andere als perfekt. Man sollte sich genau überlegen, ob es für ein bestimmtes Projekt geeignet ist, bevor man sich ins kühle Nass wirft.</p>
-<h3 id="callback-hölle">Callback-Hölle:</h4>
+<h3 id="callback-hölle">Callback-Hölle:</h3>
 <p>Wenn man viele asynchrone Dinge hintereinander ausführen möchte, kann das Programm schnell unübersichtlich werden. Für jeden Callback wird der Code in der Regel eine Ebene weiter eingerückt. Es gibt zwar Möglichkeiten, das zu umgehen, trotzdem muss man sich damit beschäftigen.</p>
-<h3 id="kleine-standardbibliothek">Kleine Standardbibliothek</h4>
+<h3 id="kleine-standardbibliothek">Kleine Standardbibliothek</h3>
 <p>Die kleine Standardbibliothek von JavaScript ist Segen und Fluch zugleich. Die Erweiterungen von Node helfen auch nur bei speziellen Problemen. An die Java Platform oder das .Net-Framework kommt die Funktionalität bei weitem nicht heran. Viele Dinge muss man entweder selbst schreiben oder aus den zahlreichen Paketen von npm zusammensuchen. Dann hat man aber häufig inkonsistente Schnittstellen und muss die benötigten Informationen an vielen verschiedenen Stellen nachlesen.</p>
-<h3 id="parallelisierung">Parallelisierung</h4>
+<h3 id="parallelisierung">Parallelisierung</h3>
 <p>Node.js bietet von sich aus keine Möglichkeiten zur echten Parallelisierung des Programmablaufs. Über das Aktor-Modell lässt sich Parallelisierung erreichen. Das ist jedoch aufwendig. Mit <a href="http://fabricengine.com/">FabricEngine</a> soll es angeblich auch möglich sein, Programme für mehrere Threads zu optimieren.</p>
-<h2 id="fazit">Fazit</h3>
+<h2 id="fazit">Fazit</h2>
 <p>Durch Node.js wird es wesentlich einfacher, schnelle und schlanke Programme zu schreiben. Es ist aber keine eierlegende Wollmilchsau. Es ist einfach ein Werkzeug, das für bestimmte Anwendungszwecke Sinn ergibt. Für viele Aufgaben, die bisher mit typischen Web-Frameworks wie <a href="http://rubyonrails.org/">Ruby on Rails</a> oder dem Klon in der jeweils bevorzugten Sprache gelöst werden, sind diese immer noch angebracht.</p>
 <p>Wer aber mit JavaScript gut klarkommt und bereit ist, seine Denkweise teilweise anzupassen, der findet mit Node.js eine Alternative, die durch die Asynchronizität und die Schnelligkeit von V8 einiges aus so manch alter Kiste herausholt. Die Plattform ist aber auf jeden Fall einen Blick wert.</p>
-<h2 id="weiterführendes-material">Weiterführendes Material</h3>
+<h2 id="weiterführendes-material">Weiterführendes Material</h2>
 <ul>
 <li><a href="http://www.youtube.com/watch?v=jo_B4LTHi3I">Introduction to Node.js with Ryan Dahl</a> (Einführungsvideo, Englisch)</li>
 <li><a href="http://nodeguide.com/beginner.html">Felix’s Node.js Beginners Guide</a> (Tutorial, Englisch)</li>
@@ -185,15 +169,26 @@ exports = dive;</code></pre>
 </ol>
 </div>
 
-          </section>
-        </article>
-
-        <p><a href="/log/">More articles »</a></p>
       </section>
-    </section>
+      <footer class="meta">
+        <p>Kategorien:
+
+          <a href="/log/tag/deutsch.html">deutsch</a> ·
+
+          <a href="/log/tag/dev.html">dev</a> ·
+
+          <a href="/log/tag/javascript.html">javascript</a> ·
+
+          <a href="/log/tag/nodejs.html">nodejs</a> 
+
+        </p>
+      </footer>
+    </article>
+    <section id="comments"></section>
     <footer id="about">
-      <p>© 2008-2012 – Paul Vorbach.
-        <a href="/info/contact.html">Contact</a>.</p>
+      <p>© 2012 – Paul Vorbach.
+        <a href="/info/contact.html">Kontakt</a>.</p>
     </footer>
+    <script src="/res/comments.de.min.js"></script>
   </body>
 </html>
