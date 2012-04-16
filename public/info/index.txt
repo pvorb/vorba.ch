@@ -1,9 +1,9 @@
 title: Information
-
 template: page.en.tpl
 branch: info
 
 
+My name is Paul Vorbach.
 This is my personal website. I’ve written the vast bulk of the software under
 the hood of this website on my own. It’s made available at Github. You can also
 see the website’s source files there.

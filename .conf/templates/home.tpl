@@ -41,31 +41,41 @@ function indentHeadings(text) {
     </nav>
     <section id="content" class="digest">
       <article class="intro">
-        <h1>Hi,</h1>
-        <p>my name is Paul Vorbach. I live near Würzburg, Germany, where I study
-        <a href="http://www.informatik.uni-wuerzburg.de/">Computer Science</a>.
-        <p>I’m interested in web development and design. Recently, I spend much
-        of my time on server-side web development, mainly in
-        <a href="http://nodejs.org/" title="Node.js">JavaScript</a>,
-        <a href="http://scala-lang.org/">Scala</a> and
-        <a href="http://www.oracle.com/technetwork/java/index.html">Java</a>.
+        <header>
+          <figure class="teaser">
+            <img src="/paul.png">
+          </figure>
+        </header>
+        <p><strong>Hi, my name is Paul Vorbach.</strong> I live near
+        <strong>Würzburg, Germany</strong>, where I study
+        <strong><a href="http://www.informatik.uni-wuerzburg.de/">Computer Science</a></strong>.
+        <p>I’m interested in <strong>web development</strong> and
+        <strong>web design</strong>. Recently, I spend much
+        of my time on <strong>server-side</strong> web development, mainly in
+        <strong><a href="http://nodejs.org/" title="Node.js">JavaScript</a></strong>,
+        <strong><a href="http://scala-lang.org/">Scala</a></strong> and
+        <strong><a href="http://www.oracle.com/technetwork/java/index.html">Java</a></strong>.
         I have also worked a lot with PHP, Delphi, some Python, C++ and C#.</p>
-        <p>This page contains information on what I do. You can also</p>
+        <p>This web site contains information on what I do. You can also</p>
         <ul>
-          <li><p>follow me on <img src="/res/github-icon.png">
-            <a href="https://github.com/pvorb">Github</a>. Almost all of my
-            personal projects are hosted on this website. The majority of them
-            is licensed under a <a href="/license/mit.html">MIT license</a>.</p>
-          <li><p>follow me on <img src="/res/twitter-icon.png">
-            <a href="https://twitter.com/pvorb">Twitter</a>, where I irregularly
+          <li><p>follow me on <strong><img src="/res/github-icon.png">
+            <a href="https://github.com/pvorb">Github</a></strong>. Almost all
+            of my personal projects are hosted on this web site. The majority of
+            them is licensed under a <a href="/license/mit.html">MIT
+            license</a>.</p>
+          <li><p>follow me on <strong><img src="/res/twitter-icon.png">
+            <a href="https://twitter.com/pvorb">Twitter</a></strong>, where I irregularly
             post things that I find newsworthy.</p>
         </ul>
+        <p>You won’t find me on Facebook or Google+, because I don’t have
+        accounts there.</p>
       </article>
       <section class="log">
-        <h1>Weblog</h1>
-        <p>Most of the articles in the <a href="/log/">blog</a> are in German,
-        although there may be one or the other English article.</p>
-        <p>Here is the newest article:</p>
+        <p>The most interesting part of this web site might be the
+        <a href="/log/">weblog</a>. Most of the articles in the blog are
+        <a href="/log/tag/deutsch.html">in German</a>, although there may be one
+        or the other <a href="/log/tag/english.html">English article</a>.</p>
+        <p>This is the most recent article:</p>
 <% __docs.forEach(function(doc) { %>
         <article lang="<%= doc.language %>">
           <header>

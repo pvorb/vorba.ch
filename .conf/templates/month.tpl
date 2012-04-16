@@ -12,11 +12,14 @@
   '11': 'November',
   '12': 'December'
 };
+
+var path = ('/'+__dir).split('/');
+var pathref = '/';
 %><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title><%= title %> | <%= siteTitle %></title>
+    <title><%- monthNames[title] %> <%- path[2] %> | <%- siteTitle %></title>
     <link rel="stylesheet" href="/res/milten.css">
     <link rel="icon" href="/favicon.ico">
     <link rel="alternate" type="application/atom+xml" href="/log/feed.xml"
@@ -34,10 +37,8 @@
         <li class="active"><a href="/log/">Blog</a>
         <li><a href="/info/">Info</a>
       </ul>
-      <ol id="path"><%
-  var path = ('/'+__dir).split('/');
-  var pathref = '/';
-
+      <ol id="path">
+<%
   for (var i = 0; i < path.length; i++) {
     if (i == 0) {%>
         <li><a href="<%= pathref %>">vorb.de</a>
@@ -58,7 +59,7 @@
     </nav>
     <section id="content" class="digest">
       <header>
-        <h1><%- monthNames[title] ? monthNames[title] : title %></h1>
+        <h1><%- monthNames[title] %> <%- path[2] %></h1>
       </header>
       <ul>
 <% __files.forEach(function(file) { %>
