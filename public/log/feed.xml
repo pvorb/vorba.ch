@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de</title>
   <subtitle>web, development and other things</subtitle>
-  <updated>2012-04-17T13:07:03.795Z</updated>
+  <updated>2012-04-17T13:24:44.680Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -489,6 +489,36 @@ exports = dive;&lt;/code&gt;&lt;/pre&gt;
     <category term="weblog"/>
 
     <category term="semantic-web"/>
+
+  </entry>
+
+  <entry>
+    <title>git reset --soft HEAD^</title>
+    <link href="http://vorb.de/log/2012/04/git-reset.html"/>
+    <id>http://vorb.de/log/2012/04/git-reset.html</id>
+    <updated>2012-04-17T13:14:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>http://vorb.de/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/04/reset.png"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Kurze Notiz an mich, weil ich es so oft brauche: Mit dem Kommando&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git reset --soft HEAD^&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;lässt sich der letzte Commit in einem Git-Repository rückgängig machen. Danach kann man den Commit ganz normal bearbeiten und anschließend wieder committen.&lt;/p&gt;
+&lt;p&gt;(&lt;a href=&quot;http://stackoverflow.com/questions/927358/git-undo-last-commit&quot;&gt;via StackOverflow&lt;/a&gt;)&lt;/p&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="note"/>
+
+    <category term="git"/>
+
+    <category term="dev"/>
 
   </entry>
 
