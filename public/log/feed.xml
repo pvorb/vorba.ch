@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de</title>
   <subtitle>web, development and other things</subtitle>
-  <updated>2012-04-17T13:24:44.680Z</updated>
+  <updated>2012-04-17T13:43:13.012Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -14,27 +14,6 @@
   <category term="web"/>
   <category term="development"/>
   <icon>http://vorb.de/favicon.ico</icon>
-
-  <entry>
-    <title>At the beginning</title>
-    <link href="http://vorb.de/log/2012/02/beginning.html"/>
-    <id>http://vorb.de/log/2012/02/beginning.html</id>
-    <updated>2012-02-28T10:31:00.000Z</updated>
-    <author>
-      <name>Paul Vorbach</name>
-      <uri>http://vorb.de/</uri>
-    </author>
-    <content type="html">
-
-      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/02/sunrise.jpg"&gt;&lt;/p&gt;
-
-      &lt;p&gt;.&lt;/p&gt;
-
-    </content>
-
-    <category term="misc"/>
-
-  </entry>
 
   <entry>
     <title>Recent Node.js and npm versions on Debian 6</title>

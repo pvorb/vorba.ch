@@ -36,7 +36,7 @@
         "pattern": "log/index-{{page}}.html"
       },
       "template": "index.tpl",
-      "limit": 10,
+      "limit": 5,
       "sort": [["created", "desc"]]
     },
     {
@@ -45,7 +45,7 @@
       "pattern": "^log/\\d{4}/\\d{2}/.+$",
       "path": "log/feed.xml",
       "template": "article-feed.tpl",
-      "limit": 10,
+      "limit": 8,
       "sort": [["created", "desc"]],
       "properties": {
         "title": "vorb.de",
