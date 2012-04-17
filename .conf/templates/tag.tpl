@@ -69,12 +69,14 @@ if (locals.tags) {
         <%- __content %>
       </section>
 <% } %>
+<% if (__docs.length > 0) { %>
       <ul>
 <% __docs.forEach(function (doc) { %>
         <li><%- getDate(doc.created) %>, <a href="/<%= doc._id %>"><%-
           doc.title %></a>
 <% }); %>
       </ul>
+<% } %>
     </article>
     <footer id="about">
       <p>© 2008-<%- (new Date()).getFullYear() %> – <%= author %>.

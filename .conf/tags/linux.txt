@@ -1,0 +1,10 @@
+title: Linux
+teaser: tux.png
+
+
+Linux is a free, [UNIX]-like multi-user [operating system][OS] developed by
+[Linus Torvalds].
+
+[UNIX]: http://en.wikipedia.org/wiki/Unix
+[OS]: http://en.wikipedia.org/wiki/Operating_system
+[Linus Torvalds]: http://en.wikipedia.org/wiki/Linus_Torvalds

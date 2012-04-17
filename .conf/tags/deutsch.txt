@@ -1,4 +1,7 @@
 title: Deutsch
+teaser: deutsch.png
 
 
-Diese Artikel sind auf Deutsch:
+German is my mother tongue.
+
+These are the German articles:
