@@ -1,0 +1,8 @@
+title: Operating System
+
+
+An [Operating System][OS] is a set of software that manages the hardware
+resources of a computer and provides interfaces to the hardware for the use in
+application software.
+
+[OS]: http://en.wikipedia.org/wiki/Operating_system
