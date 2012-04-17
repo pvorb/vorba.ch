@@ -48,6 +48,12 @@ function getDate(d) {
       </ol>
     </nav>
     <section id="content" class="digest">
+      <header class="meta">
+        <p><a href="tag/" class="button">Tags</a> ·
+          <a href="feed.xml" class="feed button">Article feed</a> ·
+          <a href="comment-feed.xml" class="feed button">Comment feed</a> ·
+          <a href="blogroll.html" class="button"%>Blogroll</a></p>
+      </header>
 <% __docs.forEach(function(doc) { %>
       <article>
         <header>
@@ -92,11 +98,6 @@ if (__pagination.last) { %>
           __pagination.last.page %></a>
 <% } %>
       </ul>
-      <footer class="meta">
-        <p><a href="tag/">Tags</a> · <a href="feed.xml" class="feed">Article
-          feed</a> · <a href="comment-feed.xml" class="feed">Comment feed</a> ·
-          <a href="blogroll.html"%>Blogroll</a></p>
-      </footer>
     </section>
     <footer id="about">
       <p>© 2008-<%= __docs[0].created.getFullYear() %> – <%= siteAuthor %>.
