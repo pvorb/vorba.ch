@@ -1,0 +1,39 @@
+title: Pandoc
+created: 2012-04-17T21:00:00+0200
+tags: [ deutsch, pandoc, haskell, markdown, html, tex, pdf, ms-word, e-book, epub, bread ]
+template: post.de.tpl
+
+teaser:
+  img: pinned-docs.jpg
+  author: Mark Jensen
+  url: http://www.flickr.com/photos/markcph/5600473226/
+  license:
+    name: CC BY-SA 2.0
+    url: http://creativecommons.org/licenses/by-sa/2.0/
+
+
+[Pandoc] ist ein Haskell-Programm zur Konvertierung von Dokumenten für die
+Konsole. Damit lassen sich verschiedene Markup-Sprachen in andere
+Markup-Sprachen oder Dokumentformate umwandeln.
+
+Vorrangig unterstützt Pandoc als Eingabe-Format das allseits beliebte Markdown.
+Daraus lassen sich dann beispielsweise HTML- oder LaTeX-Dokumente erzeugen,
+genauso leicht aber auch PDF- oder Word-Dokumente und sogar E-books im
+EPUB-Format.
+
+Viele werden sagen, dass das wieder nur ein weiteres Tool ist, das kein Mensch
+braucht. Es mag sein, dass das bei vielen zutrifft. Für micht bedeutet es aber,
+dass viele andere Programme überflüssig werden. Ich habe sogar meine
+Bachelorarbeit anstatt mit LaTeX mit Pandoc geschrieben. Mit Erfolg. Der
+Quellcode ist sehr viel angenehmer zu lesen.
+
+Damit Pandoc mit LaTeX mithalten kann, enthält Pandoc einige Erweiterungen zu
+Markdown wie zum Beispiel Tabellen, mathematische Formeln nach LaTeX-Manier
+und Fußnoten. Zudem kann man auch direkt HTML- und LaTeX-Blöcke in den Quelltext
+schreiben, wenn ein benötigtes Feature mal nicht zur Verfügung steht.
+
+Pandoc übernimmt außerdem die HTML-Generierung von Bread.
+
+Wer also schon mit Markdown arbeitet, sollte sich Pandoc einmal genauer ansehen.
+
+[Pandoc]: http://johnmacfarlane.net/pandoc/
