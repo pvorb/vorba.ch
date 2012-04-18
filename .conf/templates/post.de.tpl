@@ -59,7 +59,10 @@ if (locals.tags) {
       <header>
 <% if (locals.teaser) { %>
         <figure class="teaser">
-          <img src="<%= teaser %>">
+          <% if (typeof teaser == 'string') {
+            %><img src="<%= teaser %>"><% }
+          else if (typeof teaser == 'object') {
+            %><img src="<%= teaser.img %>"><% } %>
         </figure>
 <% } %>
         <h1><%= title %></h1>
@@ -80,6 +83,12 @@ if (locals.tags)
   }
 %>
         </p>
+<% if (typeof locals.teaser == 'object') { %>
+        <p>Aufmacherbild von <%- teaser.url
+          ? '<a href="'+teaser.url+'">'+teaser.author+'</a>' : teaser.author
+          %>.<%- teaser.license ? ' Lizenz: <a href="'+teaser.license.url
+          +'">'+teaser.license.name+'</a>.':'' %></p>
+<% } %>
       </footer>
     </article>
     <section id="comments"></section>

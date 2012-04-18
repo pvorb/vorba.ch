@@ -81,7 +81,10 @@ function indentHeadings(text) {
           <header>
 <% if (doc.teaser) {
   var teaser = doc._id.split('/').slice(0, -1);
-  teaser.push(doc.teaser);
+  if (typeof doc.teaser == 'string')
+    teaser.push(doc.teaser);
+  else if (typeof doc.teaser == 'object')
+    teaser.push(doc.teaser.img);
   teaser = teaser.join('/');
 %>
             <figure class="teaser">
