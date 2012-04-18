@@ -1,0 +1,7 @@
+title: E-mail
+
+
+[E-mail] is an application of the [Internet].
+
+[E-mail]: http://en.wikipedia.org/wiki/Email
+[Internet]: internet.html

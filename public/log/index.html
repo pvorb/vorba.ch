@@ -44,6 +44,27 @@
         <header>
 
           <figure class="teaser">
+            <a href="/log/2012/04/pandoc.html"><img src="/log/2012/04/pinned-docs.jpg"></a>
+          </figure>
+
+          <h1><a href="/log/2012/04/pandoc.html">Pandoc</a></h1>
+          <p class="meta">2012-04-18</p>
+        </header>
+        <section>
+          <p><a href="http://johnmacfarlane.net/pandoc/">Pandoc</a> ist ein Haskell-Programm zur Konvertierung von Dokumenten für die Konsole. Damit lassen sich verschiedene Markup-Sprachen in andere Markup-Sprachen oder Dokumentformate umwandeln.</p>
+<p>Vorrangig unterstützt Pandoc als Eingabe-Format das allseits beliebte Markdown. Daraus lassen sich dann beispielsweise HTML- oder LaTeX-Dokumente erzeugen, genauso leicht aber auch PDF- oder Word-Dokumente und sogar E-books im EPUB-Format.</p>
+<p>Viele werden sagen, dass das wieder nur ein weiteres Tool ist, das kein Mensch braucht. Es mag sein, dass das bei vielen zutrifft. Für micht bedeutet es aber, dass viele andere Programme überflüssig werden. Ich habe sogar meine Bachelorarbeit anstatt mit LaTeX mit Pandoc geschrieben. Mit Erfolg. Der Quellcode ist sehr viel angenehmer zu lesen.</p>
+<p>Damit Pandoc mit LaTeX mithalten kann, enthält Pandoc einige Erweiterungen zu Markdown wie zum Beispiel Tabellen, mathematische Formeln nach LaTeX-Manier und Fußnoten. Zudem kann man auch direkt HTML- und LaTeX-Blöcke in den Quelltext schreiben, wenn ein benötigtes Feature mal nicht zur Verfügung steht.</p>
+<p>Pandoc übernimmt außerdem die HTML-Generierung von Bread.</p>
+<p>Wer also schon mit Markdown arbeitet, sollte sich Pandoc einmal genauer ansehen.</p>
+
+        </section>
+      </article>
+
+      <article>
+        <header>
+
+          <figure class="teaser">
             <a href="/log/2012/04/git-reset.html"><img src="/log/2012/04/reset.png"></a>
           </figure>
 
@@ -222,46 +243,6 @@ exports = dive;</code></pre>
 <pre><code>find . -iname &#39;*.html&#39; | xargs grep &#39;suchterm&#39; -sl</code></pre>
 <p>dafür zu benutzen. Das durchsucht dann alle HTML-Dateien nach dem exakten Begriff und gibt eine Liste aus. Diese Liste könnte ich dann einfach so als dynamisch gerendertes HTML ausgeben.</p>
 <p>Ja, ich glaube, das versuche ich mal.</p>
-
-        </section>
-      </article>
-
-      <article>
-        <header>
-
-          <figure class="teaser">
-            <a href="/log/2012/03/bread-git.html"><img src="/log/2012/03/fork.jpg"></a>
-          </figure>
-
-          <h1><a href="/log/2012/03/bread-git.html">Bread und Git</a></h1>
-          <p class="meta">2012-03-07</p>
-        </header>
-        <section>
-          <p>Kommen wir zu einem wirklich schönen Teil, den Bread mitbringt. Und zwar veröffentlichen von Beiträgen mit Hilfe von <a href="http://git-scm.com/">Git</a>. Ich sollte vielleicht noch dazu sagen, dass das nicht direkt ein Bestandteil von Bread ist. Aber da man einfach nur Dateien auf den Server packt und keine Datenbank dazu braucht, ist das ziemlich leicht umzusetzen und <em>uuunendlich</em> praktisch.</p>
-<p>So bediene ich meine Website nun schon seit mehreren Wochen immer mal wieder mit kleinen Updates, auch schon vor dem Blog. Wie ich bei der erneuten Lektüre der Heimweh-Artikel feststellen durfte, bin ich gar nicht selbst auf die Idee gekommen, das so zu machen. Das war <a href="http://anmutunddemut.de/2010/05/23/heimweh-20-die-ziele.html#comment-7626">schon 2010 fester Bestandteil von Heimweh</a>.</p>
-<p>Das tut meiner Freude über dieses Feature aber keinen Abbruch.</p>
-<p>Folgender Arbeitsablauf ergibt sich beim Erstellen eines Artikels:</p>
-<pre><code>// In das richtige Verzeichnis wechseln oder bei Bedarf
-// vorher anlegen:
-$ cd public/log/YYYY/MM
-
-$ cp $POST_DE_TPL neuer-artikel.txt
-// wobei $POST_DE_TPL auf eine Textdatei mit dem
-// grundlegenden Aufbau
-// verweist
-
-// Schreiben, was das Zeug hält
-$ vim neuer-artikel.txt
-
-// Teaser-Bild suchen, auf die richtige Größe bringen
-// und im Verzeichnis ablegen
-$ bread
-
-// Alle Dateien aus dem Verzeichnis public/ hinzufügen
-$ git add ../../..
-$ git commit
-$ git push web</code></pre>
-<p>Und fertig. Also eigentlich kaum Aufwand.</p>
 
         </section>
       </article>

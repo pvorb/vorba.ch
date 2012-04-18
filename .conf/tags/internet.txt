@@ -1,0 +1,6 @@
+title: Internet
+
+
+The [Internet] is a global system of interconnected computer networks.
+
+[Internet]: http://en.wikipedia.org/wiki/Internet

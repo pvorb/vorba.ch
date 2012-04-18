@@ -59,6 +59,7 @@ Name          compiled typing          paradigms     appeared in
 
 *   [HTML](html.html)
 *   [JSON](json.html)
+*   [TeX/LaTeX](tex.html)
 *   [Markdown](markdown.html)
 *   [XML](xml.html)
 *   [YAML](yaml.html)

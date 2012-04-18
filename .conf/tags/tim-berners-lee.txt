@@ -1,0 +1,5 @@
+title: Tim Berners-Lee
+teaser: berners-lee.jpg
+
+
+Creator of the [WWW](www.html).
