@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de</title>
   <subtitle>web, development and other things</subtitle>
-  <updated>2012-04-18T20:19:10.581Z</updated>
+  <updated>2012-04-19T15:13:42.607Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -14,41 +14,6 @@
   <category term="web"/>
   <category term="development"/>
   <icon>http://vorb.de/favicon.ico</icon>
-
-  <entry>
-    <title>Was lange währt</title>
-    <link href="http://vorb.de/log/2012/03/was-lange-waehrt.html"/>
-    <id>http://vorb.de/log/2012/03/was-lange-waehrt.html</id>
-    <updated>2012-03-04T14:36:00.000Z</updated>
-    <author>
-      <name>Paul Vorbach</name>
-      <uri>http://vorb.de/</uri>
-    </author>
-    <content type="html">
-
-      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/03/kosmonaut.jpg"&gt;&lt;/p&gt;
-
-      &lt;p&gt;Ein halbes Jahr hat es gedauert. Nun ist es endlich vollbracht: Mein Blog geht ans Netz.&lt;/p&gt;
-&lt;p&gt;Irgendwann im August 2011 habe ich damit begonnen, ein &lt;a href=&quot;https://github.com/pvorb/node-bread&quot;&gt;eigenes Blogsystem für Node.js&lt;/a&gt; zu schreiben. Vorher waren schon ein paar Versuche in PHP vorausgegangen.&lt;/p&gt;
-&lt;p&gt;Im Wesentlichen ist es ein System, das aus Textdateien (genauer: &lt;a href=&quot;http://vorb.de/log/2012/03/was-lange-waehrt.txt&quot;&gt;Markdown-formatiertem Text mit ein paar Zusatzinformationen am Anfang&lt;/a&gt;) HTML-Dokumente generiert. Außerdem kümmert sich das System um die Erstellung von Index-, Tag- und Feed-Dateien.&lt;/p&gt;
-&lt;p&gt;Es verfolgt ein paar Prinzipien, die &lt;a href=&quot;http://anmutunddemut.de/2010/05/23/heimweh-20-die-ziele.html&quot;&gt;ben_ mit heimweh&lt;/a&gt;, &lt;a href=&quot;http://konnexus.net/lexicon/blogracer&quot;&gt;Konstantin mit blog-&lt;/a&gt; und &lt;a href=&quot;http://konnexus.net/lexicon/txtracer&quot;&gt;txtracer&lt;/a&gt; und &lt;a href=&quot;http://blog.fymmie.de/thema/nihil&quot;&gt;Maurice mit nihil&lt;/a&gt; vor fast zwei bis anderthalb Jahren aufgestellt haben.&lt;/p&gt;
-&lt;p&gt;In den kommenden Tagen werden noch ein paar Artikel folgen, die den Aufbau genauer beschreiben. Bis dahin werde ich noch ein paar Dinge verfeinern.&lt;/p&gt;
-
-    </content>
-
-    <category term="deutsch"/>
-
-    <category term="dev"/>
-
-    <category term="nodejs"/>
-
-    <category term="bread"/>
-
-    <category term="cms"/>
-
-    <category term="weblog"/>
-
-  </entry>
 
   <entry>
     <title>Bread</title>
@@ -514,6 +479,35 @@ exports = dive;&lt;/code&gt;&lt;/pre&gt;
     <category term="epub"/>
 
     <category term="bread"/>
+
+  </entry>
+
+  <entry>
+    <title>Minecraft: DOTA</title>
+    <link href="http://vorb.de/log/2012/04/minecraft-dota.html"/>
+    <id>http://vorb.de/log/2012/04/minecraft-dota.html</id>
+    <updated>2012-04-19T15:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>http://vorb.de/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/04/minecraft-dota.png"&gt;&lt;/p&gt;
+
+      &lt;p&gt;War ja nur eine Frage der Zeit:&lt;/p&gt;
+&lt;iframe width=&quot;520&quot; height=&quot;320&quot; src=&quot;https://www.youtube.com/embed/xY5XpjmpR78&quot;
+  frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.minecraftforum.net/topic/1161133-minecraft-dota/&quot;&gt;Das&lt;/a&gt; könnte spaßig werden.&lt;/p&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="games"/>
+
+    <category term="minecraft"/>
 
   </entry>
 

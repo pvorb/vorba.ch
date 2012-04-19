@@ -57,6 +57,8 @@ if (locals.tags) {
     </nav>
     <article id="content">
       <header>
+        <h1><%= title %></h1>
+        <p class="meta"><%- getDate(created) %></p>
 <% if (locals.teaser) { %>
         <figure class="teaser">
           <% if (typeof teaser == 'string') {
@@ -65,8 +67,6 @@ if (locals.tags) {
             %><img src="<%= teaser.img %>"><% } %>
         </figure>
 <% } %>
-        <h1><%= title %></h1>
-        <p class="meta"><%- getDate(created) %></p>
       </header>
       <section>
         <%- __content %>

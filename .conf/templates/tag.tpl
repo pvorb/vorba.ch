@@ -56,13 +56,13 @@ if (locals.tags) {
     </nav>
     <article id="content">
       <header>
+        <h1>Tag: <em><%- title %></em></h1>
+        <p class="meta"><%- __docs.length %> articles</p>
 <% if (locals.teaser) { %>
         <figure class="teaser">
           <img src="<%= teaser %>">
         </figure>
 <% } %>
-        <h1>Tag: <em><%- title %></em></h1>
-        <p class="meta"><%- __docs.length %> articles</p>
       </header>
 <% if (locals.__content) { %>
       <section>

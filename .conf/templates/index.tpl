@@ -58,7 +58,12 @@ function getDate(d) {
       <article>
         <header>
 <%
-if (doc.teaser) {
+var lines = doc.__content.split('</p>', 2);
+doc.__content = lines.join('</p>');
+%>
+          <h1><a href="/<%= doc._id %>"><%= doc.title %></a></h1>
+          <p class="meta"><%- getDate(doc.created) %></p>
+<% if (doc.teaser) {
   var teaser = doc._id.split('/').slice(0, -1);
   if (typeof doc.teaser == 'string')
     teaser.push(doc.teaser);
@@ -69,15 +74,7 @@ if (doc.teaser) {
           <figure class="teaser">
             <a href="/<%= doc._id %>"><img src="/<%= teaser %>"></a>
           </figure>
-<%
-}
-
-// Only show the first three lines
-var lines = doc.__content.split('</p>', 2);
-doc.__content = lines.join('</p>');
-%>
-          <h1><a href="/<%= doc._id %>"><%= doc.title %></a></h1>
-          <p class="meta"><%- getDate(doc.created) %></p>
+<% } %>
         </header>
         <section>
           <%- doc.__content %>

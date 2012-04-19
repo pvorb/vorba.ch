@@ -79,6 +79,12 @@ function indentHeadings(text) {
 <% __docs.forEach(function(doc) { %>
         <article lang="<%= doc.language %>">
           <header>
+<%
+var lines = doc.__content.split('</p>', 3);
+doc.__content = lines.join('</p>');
+%>
+            <h2><a href="/<%= doc._id %>"><%= doc.title %></a></h2>
+            <p class="meta"><%- getDate(doc.created) %></p>
 <% if (doc.teaser) {
   var teaser = doc._id.split('/').slice(0, -1);
   if (typeof doc.teaser == 'string')
@@ -90,13 +96,7 @@ function indentHeadings(text) {
             <figure class="teaser">
               <a href="/<%= doc._id %>"><img src="<%= teaser %>"></a>
             </figure>
-<% }
-
-var lines = doc.__content.split('</p>', 3);
-doc.__content = lines.join('</p>');
-%>
-            <h2><a href="/<%= doc._id %>"><%= doc.title %></a></h2>
-            <p class="meta"><%- getDate(doc.created) %></p>
+<% } %>
           </header>
           <section>
             <%- indentHeadings(doc.__content) %>
