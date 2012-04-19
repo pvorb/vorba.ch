@@ -43,7 +43,7 @@ function indentHeadings(text) {
       <article class="intro">
         <header>
           <figure class="teaser">
-            <img src="/paul.png">
+            <img src="/logo.png">
           </figure>
         </header>
         <p><strong>Hi, my name is Paul Vorbach.</strong> I live near
