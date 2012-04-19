@@ -32,8 +32,15 @@ __docs.forEach(function(doc) { %>
     <content type="html">
 <% if (doc.screenshot) { %>
 
-<% } else if (doc.teaser) { %>
-      &lt;p&gt;&lt;img src="http://vorb.de/<%= doc._id.split('/').slice(0, -1).join('/') + '/' + doc.teaser %>"&gt;&lt;/p&gt;
+<% } else if (doc.teaser) {
+  var teaser = doc._id.split('/').slice(0, -1);
+  if (typeof doc.teaser == 'string')
+    teaser.push(doc.teaser);
+  else if (typeof doc.teaser == 'object')
+    teaser.push(doc.teaser.img);
+  teaser = teaser.join('/');
+%>
+      &lt;p&gt;&lt;img src="http://vorb.de/<%= teaser %>"&gt;&lt;/p&gt;
 <% } %>
       <%- esc(doc.__content, { uri: "http://vorb.de/"+doc._id }) %>
     </content>
