@@ -90,16 +90,25 @@ function indentHeadings(text) {
             <figure class="teaser">
               <a href="/<%= doc._id %>"><img src="<%= teaser %>"></a>
             </figure>
-<% } %>
+<% }
+
+var lines = doc.__content.split('</p>', 3);
+doc.__content = lines.join('</p>');
+%>
             <h2><a href="/<%= doc._id %>"><%= doc.title %></a></h2>
             <p class="meta"><%- getDate(doc.created) %></p>
           </header>
           <section>
             <%- indentHeadings(doc.__content) %>
           </section>
+          <footer>
+            <p><a href="/<%= doc._id %>">Read on »</a></p>
+          </footer>
         </article>
 <% }); %>
-        <p><a href="/log/">More articles »</a></p>
+        <footer>
+          <p><a href="/log/">More articles »</a></p>
+        </footer>
       </section>
     </section>
     <footer id="about">

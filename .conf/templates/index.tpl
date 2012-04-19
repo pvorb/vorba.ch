@@ -71,12 +71,17 @@ if (doc.teaser) {
           </figure>
 <%
 }
+
+// Only show the first three lines
+var lines = doc.__content.split('</p>', 2);
+doc.__content = lines.join('</p>');
 %>
           <h1><a href="/<%= doc._id %>"><%= doc.title %></a></h1>
           <p class="meta"><%- getDate(doc.created) %></p>
         </header>
         <section>
           <%- doc.__content %>
+          <p><a href="/<%= doc._id %>">Read on »</a></p>
         </section>
       </article>
 <% }); %>
