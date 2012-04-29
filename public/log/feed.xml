@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de</title>
   <subtitle>web, development and other things</subtitle>
-  <updated>2012-04-19T16:05:19.821Z</updated>
+  <updated>2012-04-29T20:15:20.422Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -15,150 +15,6 @@
   <category term="web"/>
   <category term="development"/>
   <icon>http://vorb.de/favicon.ico</icon>
-
-  <entry>
-    <title>Bread</title>
-    <link href="http://vorb.de/log/2012/03/bread.html"/>
-    <id>http://vorb.de/log/2012/03/bread.html</id>
-    <updated>2012-03-07T17:20:00.000Z</updated>
-    <author>
-      <name>Paul Vorbach</name>
-      <uri>http://vorb.de/</uri>
-    </author>
-    <content type="html">
-
-      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/03/windmill.jpg"&gt;&lt;/p&gt;
-
-      &lt;p&gt;In diesem Artikel will ich &lt;a href=&quot;https://github.com/pvorb/node-bread&quot;&gt;Bread&lt;/a&gt; und was dazugehört auf technischer Ebene erläutern.&lt;/p&gt;
-&lt;h2 id=&quot;statisches-html&quot;&gt;Statisches HTML&lt;/h2&gt;
-&lt;p&gt;Prinzipiell war ja die Idee von ben_ nicht schlecht, &lt;a href=&quot;http://anmutunddemut.de/2010/05/18/the-anmut-of-static-html.html&quot;&gt;direkt statische HTML-Dateien zu schreiben&lt;/a&gt;. Ich habe das vor zirka einem Jahr schon mit &lt;a href=&quot;https://github.com/pvorb/php-yuki&quot;&gt;Yuki&lt;/a&gt; versucht, aber kaum zwei Wochen durchgehalten. Das Problem war, dass ich zunächst sowohl den Blog-Index als auch den Feed von Hand schreiben musste. Das macht einfach keinen Spaß und ich bewundere ben_ dafür, dass er das über ein Jahr so durchgehalten hat. (Auch wenn bei ihm zumindest der Feed automatisch generiert wurde.)&lt;/p&gt;
-&lt;h2 id=&quot;markdown&quot;&gt;Markdown&lt;/h2&gt;
-&lt;p&gt;Was das Schreiben angeht, habe ich mich dann für &lt;a href=&quot;http://konnexus.net/2010/10/blogracer&quot;&gt;Konstantins Ansatz&lt;/a&gt; mit &lt;a href=&quot;http://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt; als Markup-Sprache entschieden. Markdown finde ich ganz vorzüglich zum Schreiben von allen möglichen Texten, weil es dem Schreiben nicht im Weg steht. Das scheinen in den letzten Jahren auch einige andere bemerkt zu haben und so ist Markdown an &lt;a href=&quot;http://github.github.com/github-flavored-markdown/&quot;&gt;allen&lt;/a&gt; &lt;a href=&quot;http://stackoverflow.com/editing-help&quot;&gt;möglichen&lt;/a&gt; &lt;a href=&quot;http://www.iawriter.com/&quot;&gt;Ecken&lt;/a&gt; &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;zu&lt;/a&gt; &lt;a href=&quot;https://github.com/millermedeiros/mdoc&quot;&gt;finden&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;umsetzung&quot;&gt;Umsetzung&lt;/h2&gt;
-&lt;p&gt;Ich habe Bread für &lt;a href=&quot;http://nodejs.org/&quot;&gt;Node.js&lt;/a&gt; geschrieben. Das hat mehrere Gründe:&lt;/p&gt;
-&lt;ol style=&quot;list-style-type: decimal&quot;&gt;
-&lt;li&gt;Node.js hat ein paar interessante Konzepte, die mir sofort eingeleuchtet haben, und die wirklich Sinn ergeben. Dazu vielleicht an anderer Stelle mehr.&lt;/li&gt;
-&lt;li&gt;Node.js ist eine sehr schlanke Plattform. Da JavaScript einen kleinen Sprachkern hat, gibt es kaum unnötigen Balast.&lt;/li&gt;
-&lt;li&gt;Node.js hat ein sehr komfortables Modulsystem. Für viele Dinge gibt es schon fertige Module, die einfach installiert und verwendet werden können. Außerdem kann man in JavaScript auf sehr einfache Weise sehr modular programmieren.&lt;/li&gt;
-&lt;li&gt;Ich finde PHP auf Dauer ziemlich langweilig. Es ist auch immer nützlich, neues zu lernen.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Da es sich anbietet, JavaScript-Programme modular zu schreiben, besteht Bread selbst aus einigen kleineren Modulen:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Zunächst sei einmal &lt;a href=&quot;https://github.com/pvorb/node-dive&quot;&gt;Dive&lt;/a&gt; genannt. Dive macht nichts anderes, als eine Ordnerstruktur zu durchlaufen und für jede Datei, die eine bestimmte Dateiendung hat, eine Aktion auszuführen.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Darauf baut &lt;a href=&quot;https://github.com/pvorb/node-bake&quot;&gt;Bake&lt;/a&gt; auf. Bake definiert die von Dive ausgeführte Aktion so:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;„Wenn die Dateiendung &lt;code&gt;.txt&lt;/code&gt; ist, wandle den Text in HTML um und schreibe das Ergebnis in die zugehörige HTML-Datei.“&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Zusätzlich werden Zusatzinformationen wie die Schlagwörter oder das Datum vom Anfang der Textdateien gelesen und in einer Datenbank (in meinem Fall &lt;a href=&quot;http://mongodb.org/&quot;&gt;MongoDB&lt;/a&gt;) abgelegt.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Nachdem die Dateien alle Transformiert wurden, werden noch Index-Dateien und Tag-Seiten erstellt. Dafür wird die Datenbank verwendet. Hieraus können die benötigten Informationen auf einfache Weise bereitgestellt werden.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Sowohl für das Generieren der Artikel als auch für die anderen HTML-Dateien werden &lt;a href=&quot;https://github.com/vorbach/vorb.de/tree/master/.conf/templates&quot;&gt;Templates&lt;/a&gt; mit &lt;a href=&quot;http://embeddedjs.com/&quot;&gt;embedded JavaScript&lt;/a&gt; verwendet, weil EJS die selben Prinzipien wie PHP verfolgt und ich PHP für die Template-Sprache schlechthin halte.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Das alles lässt sich mit dem &lt;a href=&quot;http://npmjs.org/&quot;&gt;Node package manager&lt;/a&gt; prima so zusammenklöppeln, dass man nur noch Node.js und MongoDB und installiert zu haben braucht. Dann kann man bread und alles was dazu gehört ganz bequem per Kommandozeile mit &lt;code&gt;npm install -g bread&lt;/code&gt; installieren.&lt;/p&gt;
-&lt;p&gt;Anschließend braucht man nur noch in das Verzeichnis zu wechseln, das die Texte enthält und dann &lt;code&gt;bread&lt;/code&gt; zu starten. Das Programm holt sich die benötigten &lt;a href=&quot;https://github.com/vorbach/vorb.de/blob/master/.conf/bread.json&quot;&gt;Informationen zur Konfiguration&lt;/a&gt; aus dem &lt;a href=&quot;https://github.com/vorbach/vorb.de/tree/master/.conf&quot;&gt;Verzeichnis .conf/&lt;/a&gt; und legt sofort mit dem Übersetzen los.&lt;/p&gt;
-&lt;p&gt;Hier mal beispielhaft, wie so ein Aufruf dann konkret ausschaut:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ bread
-Beginning to bake c:\Dev\Src\web\vorb.de\public.
-  * c:\Dev\Src\web\vorb.de\public\info\contact.html written.
-  * c:\Dev\Src\web\vorb.de\public\info\markdown.de.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\blogroll.html written.
-  * c:\Dev\Src\web\vorb.de\public\license\mit.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\2012\02\node-and-npm-on-debian.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\2012\03\was-lange-waehrt.html written.
-  * c:\Dev\Src\web\vorb.de\public\info\index.html written.
-  * c:\Dev\Src\web\vorb.de\public\info\markdown.en.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\2012\02\beginning.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\subscription.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\2012\03\bread.html written.
-Content files written.
-Beginning to write index and tag files.
-  * c:\Dev\Src\web\vorb.de\public\log\tag\index.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\feed.xml written.
-  * c:\Dev\Src\web\vorb.de\public\index.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\tag\linux.html written.
-Tag files written.
-  * c:\Dev\Src\web\vorb.de\public\log\tag\weblog.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\tag\misc.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\tag\html.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\tag\markdown.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\index.html written.
-Index files written.
-  * c:\Dev\Src\web\vorb.de\public\log\tag\dev.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\tag\cms.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\2011\index.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\2012\index.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\2012\03\index.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\2011\09\index.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\2012\02\index.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\tag\deutsch.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\tag\nodejs.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\tag\bread.html written.
-  * c:\Dev\Src\web\vorb.de\public\log\tag\english.html written.
-Autoindex files written.
-ok&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id=&quot;vor--und-nachteile&quot;&gt;Vor- und Nachteile&lt;/h2&gt;
-&lt;p&gt;Natürlich bringt das System seine Vor- und Nachteile mit sich.&lt;/p&gt;
-&lt;h3 id=&quot;vorteile&quot;&gt;Vorteile&lt;/h3&gt;
-&lt;dl&gt;
-&lt;dt&gt;Komfort:&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;Neue Artikel lassen sich einfach und schnell schreiben. Markdown eignet sich hervorragend genau für diesen Zweck.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;Standortunabhängigkeit:&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;Die HTML-Dateien lassen sich eins zu eins auf einen beliebigen Webserver übertragen. Damit kann man das Blog dann auf jedem Billig-Hoster veröffentlichen, solange dieser einen FTP-Zugang anbietet. Außerdem lassen sich, wie ben_ schon vor einer Ewigkeit erkannt hat, alle Dateien prima mit Git sichern und versionieren.&lt;/p&gt;
-&lt;p&gt;Dass Node.js und MongoDB benötigt werden ist hierfür kein Problem. Die Website kann (und das wird von mir auch so betrieben) komplett auf dem Client generiert werden. Es reicht, die Resultate per FTP auf den Server zu schieben. Die MongoDB wird sowieso mit jedem Aufruf neugestartet und wird somit auch nicht auf dem Server benötigt.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;Editor der Wahl:&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;Web-Editoren sind Mist. Viel komfortabler lassen sich Texte mit den Tools schreiben, die man bei sich auf dem Rechner laufen lassen kann.&lt;/p&gt;
-&lt;p&gt;Da mir leider der &lt;a href=&quot;http://www.iawriter.com/&quot;&gt;iAwriter&lt;/a&gt; wegen mangelnder Unterstützung für Windows noch verwehrt bleibt, kommt aktuell &lt;a href=&quot;http://vim.org/&quot;&gt;Vim&lt;/a&gt; zum Einsatz. Damit und mit der Kommandozeile lässt sich sehr komfortabel und schnell arbeiten.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h3 id=&quot;nachteile&quot;&gt;Nachteile&lt;/h3&gt;
-&lt;p&gt;Nachteile sehe ich im Moment in folgenden Bereichen:&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;Datenbank:&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;Die Tatsache, dass ich eine Datenbank brauche, um die Inhalte so zu generieren wie ich sie brauche, stört mich. Das muss auch besser und einfacher gehen. Der Einsatz von MongoDB ist eher eine Notlösung.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;Langer Übersetzungsprozess:&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;Noch läuft der gesamte Übersetzungsprozess innerhalb von – mal schnell ausprobieren – weniger als zwei Sekunden ab. Fraglich ist jedoch, wie das aussieht, wenn ich erst mal mehrere hundert oder gar tausend Artikel geschrieben habe, sieht das aber anders aus. Dafür muss ich mir noch eine Lösung einfallen lassen.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;Komplexität:&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;Die vielen Module (und ich habe noch ein paar wichtige ausgelassen) führen zwangsläufig zu einer selbst erschaffenen Komplexität. Teilweise ist auch der Code selbst etwas kompliziert geworden, woran Node.js mit schuld ist. Da in Node.js sämtliche &lt;em&gt;I/O asynchron&lt;/em&gt; abläuft, benötigt man viele Closures, was schon mal zu sechs Schachtelungsebenen führen kann. Das ist suboptimal und für Laien schlecht zu verstehen.&lt;/p&gt;
-&lt;p&gt;Da ich das meiste aber selbst geschrieben habe, komme ich recht gut mit dieser Komplexität klar. Schön wäre aber, wenn ich da in Zukunft einiges vereinfachen könnte.&lt;/p&gt;
-&lt;/dd&gt;
-&lt;/dl&gt;
-&lt;h2 id=&quot;was-noch-kommt&quot;&gt;Was noch kommt&lt;/h2&gt;
-&lt;p&gt;Ein paar Sachen habe ich vorerst noch nicht beschrieben:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Veröffentlichen mit Git&lt;/li&gt;
-&lt;li&gt;Kommentare und Pingbacks&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Das soll aber nicht lange so bleiben. Wer nicht warten kann, kann sich auch gerne das &lt;a href=&quot;https://github.com/vorbach/vorb.de&quot;&gt;Repository zu dieser Website&lt;/a&gt; auf Github anschauen. Leider musste ich das in eine eigene &lt;em&gt;„Organization“&lt;/em&gt; auslagern, weil ich nicht mit dem 300 MB-Limit ausgekommen bin. ;)&lt;/p&gt;
-&lt;h2 id=&quot;standing-on-the-shoulders-of-giants&quot;&gt;Standing on the shoulders of giants&lt;/h2&gt;
-&lt;p&gt;Wie der &lt;a href=&quot;http://konnexus.net/2010/10/blogracer&quot;&gt;Blogracer&lt;/a&gt; steht auch Bread auf den Schultern von Giganten. Ich möchte mich bei &lt;a href=&quot;http://anmutunddemut.de/&quot;&gt;ben_&lt;/a&gt;, &lt;a href=&quot;http://konnexus.net/&quot;&gt;Konstantin&lt;/a&gt; und &lt;a href=&quot;http://blog.fymmie.de/&quot;&gt;Maurice&lt;/a&gt; sowie allen Kommentatoren auf den jeweiligen Blogs bedanken, die einige wertvolle Gedanken zu diesem Thema zusammengetragen haben.&lt;/p&gt;
-&lt;p&gt;Wer sich für die Hintergründe interessiert, wird unter anderem hier fündig:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://anmutunddemut.de/thema/serie/on-my-way-to-heimweh&quot;&gt;On my way to heimweh&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://konnexus.net/lexicon/blogracer&quot;&gt;Blogracer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://blog.fymmie.de/thema/nihil&quot;&gt;Nihil&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;So, jetzt muss ich mich aber mal zügeln. Das mag ja sonst keiner mehr lesen. Ich freue mich schon auf die Diskussion. &lt;em&gt;Was meint ihr dazu?&lt;/em&gt;&lt;/p&gt;
-
-    </content>
-
-    <category term="deutsch"/>
-
-    <category term="dev"/>
-
-    <category term="nodejs"/>
-
-    <category term="cms"/>
-
-    <category term="bread"/>
-
-    <category term="html"/>
-
-    <category term="markdown"/>
-
-  </entry>
 
   <entry>
     <title>Bread und Git</title>
@@ -441,7 +297,7 @@ exports = dive;&lt;/code&gt;&lt;/pre&gt;
     <title>Pandoc</title>
     <link href="http://vorb.de/log/2012/04/pandoc.html"/>
     <id>http://vorb.de/log/2012/04/pandoc.html</id>
-    <updated>2012-04-18T20:05:00.000Z</updated>
+    <updated>2012-04-18T20:00:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
       <uri>http://vorb.de/</uri>
@@ -509,6 +365,113 @@ exports = dive;&lt;/code&gt;&lt;/pre&gt;
     <category term="games"/>
 
     <category term="minecraft"/>
+
+  </entry>
+
+  <entry>
+    <title>Stylesheet für Atom-Feeds</title>
+    <link href="http://vorb.de/log/2012/04/stylesheet-fuer-feeds.html"/>
+    <id>http://vorb.de/log/2012/04/stylesheet-fuer-feeds.html</id>
+    <updated>2012-04-29T20:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>http://vorb.de/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/04/milten-xsl.png"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Seit gerade eben hat der &lt;a href=&quot;http://vorb.de/log/feed.xml&quot;&gt;Artikel-Feed&lt;/a&gt; hier ein eigenes Stylesheet. Wie das funktioniert kann man bei &lt;a href=&quot;http://24ways.org/2006/beautiful-xml-with-xsl&quot;&gt;24ways.org&lt;/a&gt; nachlesen.&lt;/p&gt;
+&lt;p&gt;Für die meisten wird das vermutlich zu viel Aufwand sein. Ich fand jedoch interessant, dass das von den meisten Browsern unterstützt wird. Bei Feeds wird das Stylesheet aber nur in Webkit-Browsern standardmäßig angezeigt. Schade eigentlich.&lt;/p&gt;
+&lt;p&gt;Also hab ich das mal ausprobiert. Hier das &lt;a href=&quot;http://vorb.de/res/milten.feed.xsl&quot;&gt;vorläufige XSL-Stylesheet&lt;/a&gt;:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode xml&quot;&gt;&lt;code class=&quot;sourceCode xml&quot;&gt;&lt;span class=&quot;kw&quot;&gt;&amp;lt;?xml&lt;/span&gt; version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;&lt;span class=&quot;kw&quot;&gt;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:stylesheet&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; version=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;1.0&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;ot&quot;&gt;    xmlns:xsl=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;http://www.w3.org/1999/XSL/Transform&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;ot&quot;&gt;    xmlns:atom=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;http://www.w3.org/2005/Atom&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:output&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; method=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;html&amp;quot;&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; encoding=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:template&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; match=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:apply-templates&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/atom:feed&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;&amp;lt;/xsl:template&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:template&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; match=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/atom:feed&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;kw&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;title&amp;gt;&amp;lt;xsl:value-of&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:title&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&lt;/span&gt; (Feed)&lt;span class=&quot;kw&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;link&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; rel=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/res/milten.css&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;kw&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;kw&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;header&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; id=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;site&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;kw&quot;&gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&amp;lt;xsl:value-of&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:author&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;nav&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; id=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;nav&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;kw&quot;&gt;&amp;lt;ul&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; id=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;branches&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;li&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; class=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;active&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/log/&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;Blog&lt;span class=&quot;kw&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/info/&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;Info&lt;span class=&quot;kw&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;kw&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;kw&quot;&gt;&amp;lt;ol&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; id=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;path&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;vorb.de&lt;span class=&quot;kw&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/log/&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;log&lt;span class=&quot;kw&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;feed.xml&lt;span class=&quot;kw&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;kw&quot;&gt;&amp;lt;/ol&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;kw&quot;&gt;&amp;lt;ol&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; id=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;access&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;#top&amp;quot;&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; title=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;To the top&amp;quot;&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; id=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;back&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;↑&lt;span class=&quot;kw&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;#nav&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;Navigation&lt;span class=&quot;kw&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;#content&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;Content&lt;span class=&quot;kw&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;kw&quot;&gt;&amp;lt;/ol&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/nav&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;section&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; id=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;content&amp;quot;&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; class=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;digest&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;kw&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Article Feed&lt;span class=&quot;kw&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;kw&quot;&gt;&amp;lt;form&amp;gt;&lt;/span&gt;
+            Add the following link to your favorite feed reader:
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;input&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; type=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;ot&quot;&gt;              size=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;{string-length(atom:link[attribute::rel=&amp;#39;self&amp;#39;]/@href)}&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;ot&quot;&gt;              value=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;{atom:link[attribute::rel=&amp;#39;self&amp;#39;]/@href}&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;ot&quot;&gt;              onclick=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;select()&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;kw&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:apply-templates&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:entry&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/section&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;footer&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; id=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;about&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;kw&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;© 2012 – Paul Vorbach.
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/info/contact.html&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;Contact&lt;span class=&quot;kw&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;.&lt;span class=&quot;kw&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/footer&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;kw&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;&amp;lt;/xsl:template&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:template&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; match=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:entry&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;article&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;kw&quot;&gt;&amp;lt;header&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;h2&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;kw&quot;&gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;{atom:link/@href}&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&amp;lt;xsl:value-of&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:title&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;p&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; class=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;meta&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:value-of&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;substring-before(atom:updated,&amp;#39;T&amp;#39;)&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;kw&quot;&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:value-of&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:content&amp;quot;&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; disable-output-escaping=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;kw&quot;&gt;&amp;lt;footer&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; class=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;meta&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Author: &lt;span class=&quot;kw&quot;&gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;{atom:author/atom:uri}&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&amp;lt;xsl:value-of&lt;/span&gt;
+&lt;span class=&quot;ot&quot;&gt;              select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:author/atom:name&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:if&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; test=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:category&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
+         &lt;span class=&quot;kw&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Tags:&lt;span class=&quot;kw&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+         &lt;span class=&quot;kw&quot;&gt;&amp;lt;ul&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; class=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;tags&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&amp;lt;xsl:apply-templates&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:category&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/xsl:if&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;kw&quot;&gt;&amp;lt;/footer&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;/article&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;&amp;lt;/xsl:template&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:template&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; match=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:category&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;http://vorb.de/log/tag/{@term}.html&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&amp;lt;xsl:value-of&lt;/span&gt;
+&lt;span class=&quot;ot&quot;&gt;      select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;@term&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;&amp;lt;/xsl:template&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;&amp;lt;/xsl:stylesheet&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="dev"/>
+
+    <category term="xml"/>
+
+    <category term="xsl"/>
 
   </entry>
 
