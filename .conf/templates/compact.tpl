@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<%= language %>">
+<html lang="<%= language %>" id="top">
   <head>
     <meta charset="utf-8">
     <title><%- siteTitle %></title>
@@ -8,7 +8,7 @@
     <meta name="author" content="<%= author %>">
   </head>
   <body>
-    <header id="top"><a href="/"><%- siteTitle %></a></header>
+    <header id="site"><a href="/"><%- siteTitle %></a></header>
     <nav id="nav">
       <ul id="branches">
         <li><a href="/log/">Blog</a>

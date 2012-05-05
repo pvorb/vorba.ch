@@ -4,7 +4,7 @@ function getDate(d) {
   return pad(d.getDate())+'.'+pad(d.getMonth()+1)+'.'+d.getFullYear();
 }
 %><!DOCTYPE html>
-<html lang="de">
+<html lang="de" id="top">
   <head>
     <meta charset="utf-8">
     <title><%= title %> | <%= siteTitle %></title>
@@ -26,12 +26,12 @@ if (locals.tags) {
   </head>
   <body>
     <header id="site">
-      <a href="/"><%= siteTitle %></a>
+      <a href="/" accesskey="h"><%= siteTitle %></a>
     </header>
     <nav id="nav">
       <ul id="branches">
-        <li class="active"><a href="/log/">Blog</a>
-        <li><a href="/info/">Info</a>
+        <li class="active"><a href="/log/" accesskey="l">Blog</a>
+        <li><a href="/info/" accesskey="i">Info</a>
       </ul>
       <ol id="path"><%
   var path = _id.split('/');
@@ -50,9 +50,10 @@ if (locals.tags) {
 %>
       </ol>
       <ol id="access">
-        <li><a href="#top" title="Zum Anfang" id="back">↑</a>
+        <li><a href="#top" title="Zum Anfang" id="back" accesskey="t">↑</a>
         <li><a href="#nav">Navigation</a>
         <li><a href="#content">Inhalt</a>
+        <li><a href="#comments" accesskey="c">Kommentare</a>
       </ol>
     </nav>
     <article id="content">
@@ -92,6 +93,11 @@ if (locals.tags)
       </footer>
     </article>
     <section id="comments"></section>
+    <aside id="extra">
+      <form id="sf" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Suche">
+      </form>
+    </aside>
     <footer id="about">
       <p>© <%= created.getFullYear() %> – <%= author %>.
         <a href="/info/contact.html">Kontakt</a>.</p>

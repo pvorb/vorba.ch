@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="top">
   <head>
     <meta charset="utf-8">
     <title>Search<%= locals.query ? ': '+query : ''

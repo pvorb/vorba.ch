@@ -4,7 +4,7 @@ function getDate(d) {
   return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
 }
 %><!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="top">
   <head>
     <meta charset="utf-8">
     <title><%= title %> | <%= siteTitle %></title>
@@ -18,12 +18,12 @@ function getDate(d) {
   </head>
   <body>
     <header id="site">
-      <a href="/"><%= siteTitle %></a>
+      <a href="/" accesskey="h"><%= siteTitle %></a>
     </header>
     <nav id="nav">
       <ul id="branches">
-        <li class="active"><a href="/log/">Blog</a>
-        <li><a href="/info/">Info</a>
+        <li class="active"><a href="/log/" accesskey="l">Blog</a>
+        <li><a href="/info/" accesskey="i">Info</a>
       </ul>
       <ol id="path"><%
   var path = ('/log').split('/');
@@ -42,7 +42,7 @@ function getDate(d) {
 %>
       </ol>
       <ol id="access">
-        <li><a href="#top" title="To the top" id="back">↑</a>
+        <li><a href="#top" title="To the top" id="back" accesskey="t">↑</a>
         <li><a href="#nav">Navigation</a>
         <li><a href="#content">Content</a>
       </ol>
@@ -89,12 +89,12 @@ doc.__content = lines.join('</p>');
         <li>…
 <% }
 if (__pagination.prev) { %>
-        <li><a href="/<%= __pagination.prev.file %>"><%-
+        <li><a href="/<%= __pagination.prev.file %>" accesskey="p"><%-
           __pagination.prev.page %></a>
 <% } %>
         <li><span><%- __pagination.this %></span>
 <% if (__pagination.next) { %>
-        <li><a href="/<%= __pagination.next.file %>"><%-
+        <li><a href="/<%= __pagination.next.file %>" accesskey="n"><%-
           __pagination.next.page %></a>
 <% }
 if (__pagination.last) { %>
@@ -104,6 +104,11 @@ if (__pagination.last) { %>
 <% } %>
       </ul>
     </section>
+    <aside id="extra">
+      <form id="sf" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Search">
+      </form>
+    </aside>
     <footer id="about">
       <p>© 2008-<%= __docs[0].created.getFullYear() %> – <%= siteAuthor %>.
         <a href="/info/contact.html">Contact</a>.</p>

@@ -8,7 +8,7 @@ function indentHeadings(text) {
       .replace(/h3>/g, 'h4>').replace(/h2>/g, 'h3>').replace(/h1>/g, 'h2>');
 }
 %><!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="top">
   <head>
     <meta charset="utf-8">
     <title><%- siteTitle %></title>
@@ -19,22 +19,24 @@ function indentHeadings(text) {
     <link rel="alternate" type="application/atom+xml"
       href="/log/comment-feed.xml" title="Comment feed">
     <meta name="author" content="<%= author %>">
-    <meta name="keywords" content="development, web, node.js,
-      scala, github, Paul Vorbach, Paul Rafael Vorbach, pvorb, pvorbach">
-    <style>#top { font-size: 3em }</style>
+    <meta name="keywords" content="development, web, node.js, scala, github,
+      Paul Vorbach, Paul Rafael Vorbach, pvorb, pvorbach, Paul, Vorbach">
+    <meta name="description" content="Personal website of Paul Vorbach, B.Sc. in
+      Computer Science. Scala, Node.js and Java development. Work and personal
+      weblog.">
   </head>
   <body>
-    <header id="top"><%- siteTitle %></header>
+    <header id="site"><%- siteTitle %></header>
     <nav id="nav">
       <ul id="branches">
-        <li><a href="/log/">Blog</a>
-        <li><a href="/info/">Info</a>
+        <li><a href="/log/" accesskey="l">Blog</a>
+        <li><a href="/info/" accesskey="i">Info</a>
       </ul>
       <ol id="path">
         <li>vorb.de
       </ol>
       <ol id="access">
-        <li><a href="#top" title="To the top" id="back">↑</a>
+        <li><a href="#top" title="To the top" id="back" accesskey="t">↑</a>
         <li><a href="#nav">Navigation</a>
         <li><a href="#content">Content</a>
       </ol>
@@ -111,6 +113,11 @@ doc.__content = lines.join('</p>');
         </footer>
       </section>
     </section>
+    <aside id="extra">
+      <form id="sf" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Search">
+      </form>
+    </aside>
     <footer id="about">
       <p>© 2008-<%= (new Date()).getFullYear() %> – <%= siteAuthor %>.
         <a href="/info/contact.html">Contact</a>.</p>
