@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" id="top">
   <head>
     <meta charset="utf-8">
     <title>Volltextsuche | Paul Vorbach</title>
@@ -17,12 +17,12 @@
   </head>
   <body>
     <header id="site">
-      <a href="/">Paul Vorbach</a>
+      <a href="/" accesskey="h">Paul Vorbach</a>
     </header>
     <nav id="nav">
       <ul id="branches">
-        <li class="active"><a href="/log/">Blog</a>
-        <li><a href="/info/">Info</a>
+        <li class="active"><a href="/log/" accesskey="l">Blog</a>
+        <li><a href="/info/" accesskey="i">Info</a>
       </ul>
       <ol id="path">
         <li><a href="/">vorb.de</a>
@@ -37,9 +37,10 @@
 
       </ol>
       <ol id="access">
-        <li><a href="#top" title="Zum Anfang" id="back">↑</a>
+        <li><a href="#top" title="Zum Anfang" id="back" accesskey="t">↑</a>
         <li><a href="#nav">Navigation</a>
         <li><a href="#content">Inhalt</a>
+        <li><a href="#comments" accesskey="c">Kommentare</a>
       </ol>
     </nav>
     <article id="content">
@@ -73,6 +74,11 @@
       </footer>
     </article>
     <section id="comments"></section>
+    <aside id="extra">
+      <form id="sf" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Suche">
+      </form>
+    </aside>
     <footer id="about">
       <p>© 2012 – Paul Vorbach.
         <a href="/info/contact.html">Kontakt</a>.</p>

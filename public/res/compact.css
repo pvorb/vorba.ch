@@ -25,21 +25,21 @@ h3 {
   font-size: 1.1em;
 }
 
-#top, h1, h2 {
+#site, h1, h2 {
   font-family: "Open Sans", Arial, sans-serif;
   font-weight: 300;
 }
 
-#top {
+#site {
   font-size: 1.5em;
 }
 
-#top a {
+#site a {
   color: black;
   text-decoration: none;
 }
 
-#top a:hover {
+#site a:hover {
   color: #800;
 }
 

@@ -180,8 +180,8 @@ hr {
 }
 
 /* top bar */
-#top, #site {
-  display: none;
+#st, #site {
+  .hidden;
 }
 
 #branches, #path {
@@ -468,6 +468,13 @@ input[type=checkbox].invalid + label {
   }
   #cp > h3 {
     margin: 1.3em 0 .6em;
+  }
+
+  /* search form */
+  #sf {
+    position: absolute;
+    top: 1em;
+    left: 680px;
   }
 }
 

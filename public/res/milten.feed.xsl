@@ -7,19 +7,19 @@
     <xsl:apply-templates select="/atom:feed"/>
   </xsl:template>
   <xsl:template match="/atom:feed">
-    <html>
+    <html lang="en" id="top">
       <head>
         <title><xsl:value-of select="atom:title"/> (Feed)</title>
         <link rel="stylesheet" href="/res/milten.css"/>
       </head>
       <body>
         <header id="site">
-          <a href="/"><xsl:value-of select="atom:author"/></a>
+          <a href="/" accesskey="h"><xsl:value-of select="atom:author"/></a>
         </header>
         <nav id="nav">
           <ul id="branches">
-            <li class="active"><a href="/log/">Blog</a></li>
-            <li><a href="/info/">Info</a></li>
+            <li class="active"><a href="/log/" accesskey="l">Blog</a></li>
+            <li><a href="/info/" accesskey="i">Info</a></li>
           </ul>
           <ol id="path">
             <li><a href="/">vorb.de</a></li>
@@ -27,7 +27,7 @@
             <li>feed.xml</li>
           </ol>
           <ol id="access">
-            <li><a href="#top" title="To the top" id="back">↑</a></li>
+            <li><a href="#top" title="To the top" id="back" accesskey="t">↑</a></li>
             <li><a href="#nav">Navigation</a></li>
             <li><a href="#content">Content</a></li>
           </ol>
@@ -40,6 +40,11 @@
           </form>
           <xsl:apply-templates select="atom:entry"/>
         </section>
+        <aside id="extra">
+          <form id="sf" action="/search.html" method="GET">
+            <input type="search" name="s" accesskey="s" placeholder="Search">
+          </form>
+        </aside>
         <footer id="about">
           <p>© 2012 – Paul Vorbach.
             <a href="/info/contact.html">Contact</a>.</p>
