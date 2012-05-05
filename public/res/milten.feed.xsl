@@ -27,7 +27,8 @@
             <li>feed.xml</li>
           </ol>
           <ol id="access">
-            <li><a href="#top" title="To the top" id="back" accesskey="t">↑</a></li>
+            <li><a href="#top" title="To the top" id="back"
+              accesskey="t">↑</a></li>
             <li><a href="#nav">Navigation</a></li>
             <li><a href="#content">Content</a></li>
           </ol>
@@ -36,13 +37,16 @@
           <h1>Article Feed</h1>
           <form>
             Add the following link to your favorite feed reader:
-            <input type="text" size="{string-length(atom:link[attribute::rel='self']/@href)}" value="{atom:link[attribute::rel='self']/@href}" onclick="select()"/>
+            <input type="text"
+              size="{string-length(atom:link[attribute::rel='self']/@href)}"
+              value="{atom:link[attribute::rel='self']/@href}"
+              onclick="select()"/>
           </form>
           <xsl:apply-templates select="atom:entry"/>
         </section>
         <aside id="extra">
           <form id="sf" action="/search.html" method="GET">
-            <input type="search" name="s" accesskey="s" placeholder="Search">
+            <input type="search" name="s" accesskey="s" placeholder="Search"/>
           </form>
         </aside>
         <footer id="about">
@@ -74,6 +78,7 @@
     </article>
   </xsl:template>
   <xsl:template match="atom:category">
-    <li><a href="http://vorb.de/log/tag/{@term}.html"><xsl:value-of select="@term"/></a></li>
+    <li><a href="http://vorb.de/log/tag/{@term}.html"><xsl:value-of
+      select="@term"/></a></li>
   </xsl:template>
 </xsl:stylesheet>
