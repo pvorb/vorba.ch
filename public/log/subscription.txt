@@ -4,4 +4,11 @@ template: page.en.tpl
 branch: log
 
 
-Hallo
+There are several Atom feeds that you can subscribe to:
+
+<ul>
+  <li><a href="feed.xml" class="feed button">Article feed</a>
+  <li><a href="comment-feed.xml" class="feed button">Comment feed</a>
+</ul>
+
+I also plan to set up a possibility to subscribe to specific tags.

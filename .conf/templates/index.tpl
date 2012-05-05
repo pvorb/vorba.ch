@@ -50,6 +50,7 @@ function getDate(d) {
     <section id="content" class="digest">
       <header class="meta">
         <p><a href="tag/" class="button">Tags</a> ·
+          <a href="subscription.html" class="button">Subscribe</a> ·
           <a href="feed.xml" class="feed button">Article feed</a> ·
           <a href="comment-feed.xml" class="feed button">Comment feed</a> ·
           <a href="blogroll.html" class="button"%>Blogroll</a></p>
