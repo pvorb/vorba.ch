@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de</title>
   <subtitle>web, development and other things</subtitle>
-  <updated>2012-05-06T00:06:56.868Z</updated>
+  <updated>2012-05-06T00:59:20.541Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -432,7 +432,7 @@ exports = dive;&lt;/code&gt;&lt;/pre&gt;
     <title>Suchschlitz und Benutzbarkeit</title>
     <link href="http://vorb.de/log/2012/05/suchschlitz-und-benutzbarkeit.html"/>
     <id>http://vorb.de/log/2012/05/suchschlitz-und-benutzbarkeit.html</id>
-    <updated>2012-05-05T21:00:00.000Z</updated>
+    <updated>2012-05-05T21:10:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
       <uri>http://vorb.de/</uri>
@@ -442,33 +442,26 @@ exports = dive;&lt;/code&gt;&lt;/pre&gt;
       &lt;p&gt;&lt;img src="http://vorb.de/log/2012/05/typewriter.jpg"&gt;&lt;/p&gt;
 
       &lt;p&gt;Die &lt;a href=&quot;http://vorb.de/log/2012/03/volltextsuche.html&quot;&gt;Volltextsuche&lt;/a&gt; hat sich jetzt schon zwei Monate bewährt. Also habe ich nun einen Suchschlitz ins Design eingebaut.&lt;/p&gt;
-&lt;p&gt;Und wo ich schon dabei war, jedes Template zu ändern, habe ich auch gleich noch ein paar nette Tastenkombinationen eingefügt, die die Seite für Tastatur-Fanatiker (wie mich) einfacher bedienbar machen sollen. Da wären:&lt;/p&gt;
-&lt;dl&gt;
-&lt;dt&gt;&lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;H&lt;/code&gt;:&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;Zur Startseite wechseln&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;L&lt;/code&gt;:&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;Zur Sektion „Blog“ wechseln&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;I&lt;/code&gt;:&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;Zur Sektion „Info“ wechseln&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;T&lt;/code&gt;:&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;Zum Seitenanfang springen&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;S&lt;/code&gt;:&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;Zur Suche springen&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;C&lt;/code&gt;:&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;Zu den Kommentaren springen (nur bei Seiten mit Kommentarfunktion)&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;P&lt;/code&gt;:&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;Zur vorherigen Seite wechseln (nur bei Index-Seiten)&lt;/p&gt;
-&lt;/dd&gt;
-&lt;dt&gt;&lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;N&lt;/code&gt;:&lt;/dt&gt;
-&lt;dd&gt;&lt;p&gt;Zur nächsten Seite wechseln (nur bei Index-Seiten)&lt;/p&gt;
-&lt;/dd&gt;
-&lt;/dl&gt;
+&lt;p&gt;Und wo ich schon dabei war, jedes Template zu ändern, habe ich auch gleich noch ein paar nette Tastenkombinationen eingefügt, die die Seite für Tastatur-Fanatiker (wie mich) einfacher bedienbar machen sollen.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Im Firefox muss man &lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;⇧ Shift&lt;/code&gt; + die genannte Taste unter Windows und &lt;code&gt;Ctrl&lt;/code&gt; + Taste unter Mac drücken.&lt;/li&gt;
+&lt;li&gt;Im Chrome reicht &lt;code&gt;Alt&lt;/code&gt; + die genannte Taste (bei bereits belegten Kombinationen muss zusätzlich &lt;code&gt;⇧ Shift&lt;/code&gt; gedrückt werden) unter Windows, Mac benötigt &lt;code&gt;Ctrl&lt;/code&gt; + &lt;code&gt;⌥ Opt&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Genauso geht es in Safari.&lt;/li&gt;
+&lt;li&gt;Im Internet Explorer funktioniert es wie in Chrome und Safari mit &lt;code&gt;Alt&lt;/code&gt;, nur dass die Links hier lediglich vorausgewählt werden und man mit &lt;code&gt;Return&lt;/code&gt; bestätigen muss.&lt;/li&gt;
+&lt;li&gt;In Opera aktiviert man den „Access-Key-Modus“ mit &lt;code&gt;⇧ Shift&lt;/code&gt; + &lt;code&gt;Esc&lt;/code&gt; und kann dann die genannten Tasten drücken.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sinnvoll fände ich, wenn das plattformübergreifend ganz ohne Modifier-Tasten funktionieren würde. Das ist nämlich nirgends belegt und könnte somit überall gleich funktionieren. Aber man kann schließlich nicht alles haben.&lt;/p&gt;
+&lt;p&gt;Die Tasten sind folgendermaßen belegt:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;H&lt;/code&gt;: Zur Startseite wechseln&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;L&lt;/code&gt;: Zum „Blog“ wechseln&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;I&lt;/code&gt;: Zu den Info-Seiten wechseln&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;T&lt;/code&gt;: Zum Seitenanfang springen&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;S&lt;/code&gt;: Zur Suche springen&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;C&lt;/code&gt;: Zu den Kommentaren springen (nur bei Seiten mit Kommentarfunktion)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;P&lt;/code&gt;: Zur vorherigen Seite wechseln (nur bei Index-Seiten)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;N&lt;/code&gt;: Zur nächsten Seite wechseln (nur bei Index-Seiten)&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;Das ganze funktioniert ganz einfach über das HTML-Attribut &lt;a href=&quot;http://www.w3.org/TR/html-markup/global-attributes.html#common.attrs.accesskey&quot;&gt;&lt;code&gt;accesskey&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 
     </content>
