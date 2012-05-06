@@ -2,7 +2,7 @@ title: Volltextsuche
 created: 2012-03-08T11:00:00+0100
 
 teaser: hdd-search.jpg
-tags: [ deutsch, dev, bread ]
+tags: [ deutsch, dev, search, bread ]
 template: post.de.tpl
 
 

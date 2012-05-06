@@ -2,7 +2,7 @@
 <html lang="de" id="top">
   <head>
     <meta charset="utf-8">
-    <title>Volltextsuche | Paul Vorbach</title>
+    <title>Suchschlitz und Benutzbarkeit | Paul Vorbach</title>
     <link rel="stylesheet" href="/res/milten.css">
     <link rel="icon" href="/favicon.ico">
     <link rel="alternate" type="application/atom+xml" href="/log/feed.xml"
@@ -12,7 +12,7 @@
     <link rel="pingback" href="http://vorb.de/log/pingback">
     <meta name="author" content="Paul Vorbach">
 
-    <meta name="keywords" content="deutsch, dev, search, bread">
+    <meta name="keywords" content="deutsch, html, search">
 
   </head>
   <body>
@@ -31,9 +31,9 @@
 
         <li><a href="/log/2012/">2012</a>
 
-        <li><a href="/log/2012/03/">03</a>
+        <li><a href="/log/2012/05/">05</a>
 
-        <li>volltextsuche.html
+        <li>suchschlitz-und-benutzbarkeit.html
 
       </ol>
       <ol id="access">
@@ -45,19 +45,44 @@
     </nav>
     <article id="content">
       <header>
-        <h1>Volltextsuche</h1>
-        <p class="meta">08.03.2012</p>
+        <h1>Suchschlitz und Benutzbarkeit</h1>
+        <p class="meta">05.05.2012</p>
 
         <figure class="teaser">
-          <img src="hdd-search.jpg">
+          <img src="typewriter.jpg">
         </figure>
 
       </header>
       <section>
-        <p>Hier fehlt noch eine Volltextsuche. Das ist aufgrund der Architektur von Bread nicht ganz trivial. Also habe ich mir überlegt, ob es vielleicht für den Moment ausreichen würde, das einfache UNIX-Kommando</p>
-<pre><code>find . -iname &#39;*.html&#39; | xargs grep &#39;suchterm&#39; -sl</code></pre>
-<p>dafür zu benutzen. Das durchsucht dann alle HTML-Dateien nach dem exakten Begriff und gibt eine Liste aus. Diese Liste könnte ich dann einfach so als dynamisch gerendertes HTML ausgeben.</p>
-<p>Ja, ich glaube, das versuche ich mal.</p>
+        <p>Die <a href="/log/2012/03/volltextsuche.html">Volltextsuche</a> hat sich jetzt schon zwei Monate bewährt. Also habe ich nun einen Suchschlitz ins Design eingebaut.</p>
+<p>Und wo ich schon dabei war, jedes Template zu ändern, habe ich auch gleich noch ein paar nette Tastenkombinationen eingefügt, die die Seite für Tastatur-Fanatiker (wie mich) einfacher bedienbar machen sollen. Da wären:</p>
+<dl>
+<dt><code>Alt</code> + <code>H</code>:</dt>
+<dd><p>Zur Startseite wechseln</p>
+</dd>
+<dt><code>Alt</code> + <code>L</code>:</dt>
+<dd><p>Zur Sektion „Blog“ wechseln</p>
+</dd>
+<dt><code>Alt</code> + <code>I</code>:</dt>
+<dd><p>Zur Sektion „Info“ wechseln</p>
+</dd>
+<dt><code>Alt</code> + <code>T</code>:</dt>
+<dd><p>Zum Seitenanfang springen</p>
+</dd>
+<dt><code>Alt</code> + <code>S</code>:</dt>
+<dd><p>Zur Suche springen</p>
+</dd>
+<dt><code>Alt</code> + <code>C</code>:</dt>
+<dd><p>Zu den Kommentaren springen (nur bei Seiten mit Kommentarfunktion)</p>
+</dd>
+<dt><code>Alt</code> + <code>P</code>:</dt>
+<dd><p>Zur vorherigen Seite wechseln (nur bei Index-Seiten)</p>
+</dd>
+<dt><code>Alt</code> + <code>N</code>:</dt>
+<dd><p>Zur nächsten Seite wechseln (nur bei Index-Seiten)</p>
+</dd>
+</dl>
+<p>Das ganze funktioniert ganz einfach über das HTML-Attribut <a href="http://www.w3.org/TR/html-markup/global-attributes.html#common.attrs.accesskey"><code>accesskey</code></a>.</p>
 
       </section>
       <footer class="meta">
@@ -65,11 +90,9 @@
 
           <a href="/log/tag/deutsch.html">deutsch</a> ·
 
-          <a href="/log/tag/dev.html">dev</a> ·
+          <a href="/log/tag/html.html">html</a> ·
 
-          <a href="/log/tag/search.html">search</a> ·
-
-          <a href="/log/tag/bread.html">bread</a> 
+          <a href="/log/tag/search.html">search</a> 
 
         </p>
 

@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de</title>
   <subtitle>web, development and other things</subtitle>
-  <updated>2012-05-05T15:36:41.737Z</updated>
+  <updated>2012-05-06T00:06:56.868Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -15,55 +15,6 @@
   <category term="web"/>
   <category term="development"/>
   <icon>http://vorb.de/favicon.ico</icon>
-
-  <entry>
-    <title>Bread und Git</title>
-    <link href="http://vorb.de/log/2012/03/bread-git.html"/>
-    <id>http://vorb.de/log/2012/03/bread-git.html</id>
-    <updated>2012-03-07T20:30:00.000Z</updated>
-    <author>
-      <name>Paul Vorbach</name>
-      <uri>http://vorb.de/</uri>
-    </author>
-    <content type="html">
-
-      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/03/fork.jpg"&gt;&lt;/p&gt;
-
-      &lt;p&gt;Kommen wir zu einem wirklich schönen Teil, den Bread mitbringt. Und zwar veröffentlichen von Beiträgen mit Hilfe von &lt;a href=&quot;http://git-scm.com/&quot;&gt;Git&lt;/a&gt;. Ich sollte vielleicht noch dazu sagen, dass das nicht direkt ein Bestandteil von Bread ist. Aber da man einfach nur Dateien auf den Server packt und keine Datenbank dazu braucht, ist das ziemlich leicht umzusetzen und &lt;em&gt;uuunendlich&lt;/em&gt; praktisch.&lt;/p&gt;
-&lt;p&gt;So bediene ich meine Website nun schon seit mehreren Wochen immer mal wieder mit kleinen Updates, auch schon vor dem Blog. Wie ich bei der erneuten Lektüre der Heimweh-Artikel feststellen durfte, bin ich gar nicht selbst auf die Idee gekommen, das so zu machen. Das war &lt;a href=&quot;http://anmutunddemut.de/2010/05/23/heimweh-20-die-ziele.html#comment-7626&quot;&gt;schon 2010 fester Bestandteil von Heimweh&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Das tut meiner Freude über dieses Feature aber keinen Abbruch.&lt;/p&gt;
-&lt;p&gt;Folgender Arbeitsablauf ergibt sich beim Erstellen eines Artikels:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;// In das richtige Verzeichnis wechseln oder bei Bedarf
-// vorher anlegen:
-$ cd public/log/YYYY/MM
-
-$ cp $POST_DE_TPL neuer-artikel.txt
-// wobei $POST_DE_TPL auf eine Textdatei mit dem
-// grundlegenden Aufbau
-// verweist
-
-// Schreiben, was das Zeug hält
-$ vim neuer-artikel.txt
-
-// Teaser-Bild suchen, auf die richtige Größe bringen
-// und im Verzeichnis ablegen
-$ bread
-
-// Alle Dateien aus dem Verzeichnis public/ hinzufügen
-$ git add ../../..
-$ git commit
-$ git push web&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Und fertig. Also eigentlich kaum Aufwand.&lt;/p&gt;
-
-    </content>
-
-    <category term="deutsch"/>
-
-    <category term="bread"/>
-
-    <category term="git"/>
-
-  </entry>
 
   <entry>
     <title>Volltextsuche</title>
@@ -88,6 +39,8 @@ $ git push web&lt;/code&gt;&lt;/pre&gt;
     <category term="deutsch"/>
 
     <category term="dev"/>
+
+    <category term="search"/>
 
     <category term="bread"/>
 
@@ -472,6 +425,59 @@ exports = dive;&lt;/code&gt;&lt;/pre&gt;
     <category term="xml"/>
 
     <category term="xsl"/>
+
+  </entry>
+
+  <entry>
+    <title>Suchschlitz und Benutzbarkeit</title>
+    <link href="http://vorb.de/log/2012/05/suchschlitz-und-benutzbarkeit.html"/>
+    <id>http://vorb.de/log/2012/05/suchschlitz-und-benutzbarkeit.html</id>
+    <updated>2012-05-05T21:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>http://vorb.de/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/05/typewriter.jpg"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Die &lt;a href=&quot;http://vorb.de/log/2012/03/volltextsuche.html&quot;&gt;Volltextsuche&lt;/a&gt; hat sich jetzt schon zwei Monate bewährt. Also habe ich nun einen Suchschlitz ins Design eingebaut.&lt;/p&gt;
+&lt;p&gt;Und wo ich schon dabei war, jedes Template zu ändern, habe ich auch gleich noch ein paar nette Tastenkombinationen eingefügt, die die Seite für Tastatur-Fanatiker (wie mich) einfacher bedienbar machen sollen. Da wären:&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;&lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;H&lt;/code&gt;:&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;Zur Startseite wechseln&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;L&lt;/code&gt;:&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;Zur Sektion „Blog“ wechseln&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;I&lt;/code&gt;:&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;Zur Sektion „Info“ wechseln&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;T&lt;/code&gt;:&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;Zum Seitenanfang springen&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;S&lt;/code&gt;:&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;Zur Suche springen&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;C&lt;/code&gt;:&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;Zu den Kommentaren springen (nur bei Seiten mit Kommentarfunktion)&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;P&lt;/code&gt;:&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;Zur vorherigen Seite wechseln (nur bei Index-Seiten)&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt&gt;&lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;N&lt;/code&gt;:&lt;/dt&gt;
+&lt;dd&gt;&lt;p&gt;Zur nächsten Seite wechseln (nur bei Index-Seiten)&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Das ganze funktioniert ganz einfach über das HTML-Attribut &lt;a href=&quot;http://www.w3.org/TR/html-markup/global-attributes.html#common.attrs.accesskey&quot;&gt;&lt;code&gt;accesskey&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="html"/>
+
+    <category term="search"/>
 
   </entry>
 

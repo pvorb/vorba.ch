@@ -1,0 +1,43 @@
+title: Suchschlitz und Benutzbarkeit
+created: 2012-05-05T23:00:00+0200
+teaser: typewriter.jpg
+tags: [ deutsch, html, search ]
+template: post.de.tpl
+
+
+Die [Volltextsuche] hat sich jetzt schon zwei Monate bewährt. Also habe ich nun
+einen Suchschlitz ins Design eingebaut.
+
+[Volltextsuche]: /log/2012/03/volltextsuche.html
+
+Und wo ich schon dabei war, jedes Template zu ändern, habe ich auch gleich noch
+ein paar nette Tastenkombinationen eingefügt, die die Seite für
+Tastatur-Fanatiker (wie mich) einfacher bedienbar machen sollen. Da wären:
+
+`Alt` + `H`:
+  ~ Zur Startseite wechseln
+
+`Alt` + `L`:
+  ~ Zur Sektion „Blog“ wechseln
+
+`Alt` + `I`:
+  ~ Zur Sektion „Info“ wechseln
+
+`Alt` + `T`:
+  ~ Zum Seitenanfang springen
+
+`Alt` + `S`:
+  ~ Zur Suche springen
+
+`Alt` + `C`:
+  ~ Zu den Kommentaren springen (nur bei Seiten mit Kommentarfunktion)
+
+`Alt` + `P`:
+  ~ Zur vorherigen Seite wechseln (nur bei Index-Seiten)
+
+`Alt` + `N`:
+  ~ Zur nächsten Seite wechseln (nur bei Index-Seiten)
+
+Das ganze funktioniert ganz einfach über das HTML-Attribut [`accesskey`][a].
+
+[a]: http://www.w3.org/TR/html-markup/global-attributes.html#common.attrs.accesskey
