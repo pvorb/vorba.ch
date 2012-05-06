@@ -1,5 +1,5 @@
 title: Blogroll
-modified: 2012-02-27
+modified: 2012-05-06
 
 template: page.en.tpl
 branch: log
@@ -18,6 +18,13 @@ These are my favorite blogs in alphabetical order:
 *   [relativwenigbartwuchs](http://www.relativwenigbartwuchs.de/)
 *   [stromzufuhr](http://stromzufuhr.de/)
 *   [threelittlebirds](http://threelittlebirds.de/)
+
+Some of my favorite web comics are:
+
+*   [Abstruse Goose](http://abstrusegoose.com/)
+*   [Doghousediaries](http://thedoghousediaries.com/)
+*   [Geek and Poke](http://geekandpoke.typepad.com/geekandpoke/)
+*   [xkcd](http://xkcd.com/)
 
 I also listen to some podcasts regularly:
 
