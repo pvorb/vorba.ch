@@ -1,0 +1,4 @@
+title: OGame
+
+
+One of the first [Browser Games](http://en.wikipedia.org/wiki/Browser_game).
