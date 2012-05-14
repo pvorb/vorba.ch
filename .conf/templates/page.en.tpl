@@ -27,6 +27,8 @@ if (locals.tags) {
       <ul id="branches">
         <li<%- locals.branch == 'log' ? ' class="active"' : ''
           %>><a href="/log/" accesskey="l">Blog</a>
+        <li<%- locals.branch == 'dev' ? ' class="active"' : ''
+          %>><a href="/dev/" accesskey="d">Dev</a>
         <li<%- locals.branch == 'info' ? ' class="active"' : ''
           %>><a href="/info/" accesskey="i">Info</a>
       </ul>
