@@ -1,5 +1,5 @@
 title: git
-teaser: git.png
+teaser: git2.png
 
 
 [Git] is a free software for distributed revision control and source code
