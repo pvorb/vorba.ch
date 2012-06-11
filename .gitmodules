@@ -1,3 +1,0 @@
-[submodule "public/dev/util/tuple"]
-	path = public/dev/util/tuple
-	url = git://github.com/pvorb/tuple.git
