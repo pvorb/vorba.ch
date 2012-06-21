@@ -43,11 +43,6 @@ function indentHeadings(text) {
     </nav>
     <section id="content" class="digest">
       <article class="intro">
-        <header>
-          <figure class="teaser">
-            <img src="/logo.png">
-          </figure>
-        </header>
         <p><strong>Hi, my name is Paul Vorbach.</strong> I live near
         <strong>Würzburg, Germany</strong>, where I study
         <strong><a href="http://www.informatik.uni-wuerzburg.de/">Computer Science</a></strong>.
@@ -58,26 +53,18 @@ function indentHeadings(text) {
         <strong><a href="http://scala-lang.org/">Scala</a></strong> and
         <strong><a href="http://www.oracle.com/technetwork/java/index.html">Java</a></strong>.
         I have also worked a lot with PHP, Delphi, some Python, C++ and C#.</p>
-        <p>This web site contains information on what I do. You can also</p>
-        <ul>
-          <li><p>follow me on <strong><img src="/res/github-icon.png">
-            <a href="https://github.com/pvorb">Github</a></strong>. Almost all
-            of my personal projects are hosted on this web site. The majority of
-            them is licensed under a <a href="/license/mit.html">MIT
-            license</a>.</p>
-          <li><p>follow me on <strong><img src="/res/twitter-icon.png">
-            <a href="https://twitter.com/pvorb">Twitter</a></strong>, where I irregularly
-            post things that I find newsworthy.</p>
-        </ul>
-        <p>You won’t find me on Facebook or Google+, because I don’t have
-        accounts there.</p>
+        <p>This web site contains information on what I do. You can also follow
+        me on <strong><a href="https://github.com/pvorb"><img
+        src="/res/github-icon.png"> Github</a></strong>. Almost all of my
+        personal projects are hosted there. Most of them are
+        <a href="/license/mit.html">MIT licensed</a>.</p>
       </article>
       <section class="log">
         <p>The most interesting part of this web site might be the
         <a href="/log/">weblog</a>. Most of the articles in the blog are
         <a href="/log/tag/deutsch.html">in German</a>, although there may be one
         or the other <a href="/log/tag/english.html">English article</a>.</p>
-        <p>This is the most recent article:</p>
+        <p>Recent article:</p>
 <% __docs.forEach(function(doc) { %>
         <article lang="<%= doc.language %>">
           <header>
