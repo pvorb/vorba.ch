@@ -1,2 +1,4 @@
 .conf/api.log
+.project
+.settings
 nginx/
