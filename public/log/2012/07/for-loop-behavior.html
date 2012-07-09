@@ -2,74 +2,59 @@
 <html lang="en" id="top">
   <head>
     <meta charset="utf-8">
-    <title>Paul Vorbach</title>
+    <title>For loop behavior in PHP | Paul Vorbach</title>
     <link rel="stylesheet" href="/res/milten.css">
     <link rel="icon" href="/favicon.ico">
     <link rel="alternate" type="application/atom+xml" href="/log/feed.xml"
       title="Article feed">
     <link rel="alternate" type="application/atom+xml"
       href="/log/comment-feed.xml" title="Comment feed">
+    <link rel="pingback" href="http://vorb.de/log/pingback">
     <meta name="author" content="Paul Vorbach">
-    <meta name="keywords" content="development, web, node.js, scala, github,
-      Paul Vorbach, Paul Rafael Vorbach, pvorb, pvorbach, Paul, Vorbach">
-    <meta name="description" content="Personal website of Paul Vorbach, B.Sc. in
-      Computer Science. Scala, Node.js and Java development. Work and personal
-      weblog.">
+
+    <meta name="keywords" content="english, note, dev, php">
+
   </head>
   <body>
-    <header id="site">Paul Vorbach</header>
+    <header id="site">
+      <a href="/" accesskey="h">Paul Vorbach</a>
+    </header>
     <nav id="nav">
       <ul id="branches">
-        <li><a href="/log/" accesskey="l">Blog</a>
+        <li class="active"><a href="/log/" accesskey="l">Blog</a>
         <li><a href="/info/" accesskey="i">Info</a>
       </ul>
       <ol id="path">
-        <li>vorb.de
+        <li><a href="/">vorb.de</a>
+
+        <li><a href="/log/">log</a>
+
+        <li><a href="/log/2012/">2012</a>
+
+        <li><a href="/log/2012/07/">07</a>
+
+        <li>for-loop-behavior.html
+
       </ol>
       <ol id="access">
         <li><a href="#top" title="To the top" id="back" accesskey="t">↑</a>
         <li><a href="#nav">Navigation</a>
         <li><a href="#content">Content</a>
+        <li><a href="#comments" accesskey="c">Comments</a>
       </ol>
     </nav>
-    <section id="content" class="digest">
-      <article class="intro">
-        <p><strong>Hi, my name is Paul Vorbach.</strong> I live near
-        <strong>Würzburg, Germany</strong>, where I study
-        <strong><a href="http://www.informatik.uni-wuerzburg.de/">Computer Science</a></strong>.
-        <p>I’m interested in <strong>web development</strong> and
-        <strong>web design</strong>. Recently, I spend much
-        of my time on <strong>server-side</strong> web development, mainly in
-        <strong><a href="http://nodejs.org/" title="Node.js">JavaScript</a></strong>,
-        <strong><a href="http://scala-lang.org/">Scala</a></strong> and
-        <strong><a href="http://www.oracle.com/technetwork/java/index.html">Java</a></strong>.
-        I have also worked a lot with PHP, Delphi, some Python, C++ and C#.</p>
-        <p>This web site contains information on what I do. You can also follow
-        me on <strong><a href="https://github.com/pvorb"><img
-        src="/res/github-icon.png"> Github</a></strong>. Almost all of my
-        personal projects are hosted there. Most of them are
-        <a href="/license/mit.html">MIT licensed</a>.</p>
-      </article>
-      <section class="log">
-        <p>The most interesting part of this web site might be the
-        <a href="/log/">weblog</a>. Most of the articles in the blog are
-        <a href="/log/tag/deutsch.html">in German</a>, although there may be one
-        or the other <a href="/log/tag/english.html">English article</a>.</p>
-        <p>Recent article:</p>
+    <article id="content">
+      <header>
+        <h1>For loop behavior in PHP</h1>
+        <p class="meta">2012-07-09</p>
 
-        <article lang="en">
-          <header>
+        <figure class="teaser">
+          <img src="rollercoaster.jpg">
+        </figure>
 
-            <h2><a href="/log/2012/07/for-loop-behavior.html">For loop behavior in PHP</a></h2>
-            <p class="meta">2012-07-09</p>
-
-            <figure class="teaser">
-              <a href="/log/2012/07/for-loop-behavior.html"><img src="log/2012/07/rollercoaster.jpg"></a>
-            </figure>
-
-          </header>
-          <section>
-            <p>I always asked myself how often a function gets evaluated if you place it in the break condition of a for loop (or a for-each loop). Unfortunately I have always been too lazy to look for an answer – until today.</p>
+      </header>
+      <section>
+        <p>I always asked myself how often a function gets evaluated if you place it in the break condition of a for loop (or a for-each loop). Unfortunately I have always been too lazy to look for an answer – until today.</p>
 <p>Let’s have a look at an implementation in <em>PHP</em>:</p>
 <pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
 
@@ -94,26 +79,63 @@
 <span class="kw">foreach</span> <span class="ot">(</span><span class="fu">set</span><span class="ot">()</span> <span class="kw">as</span> <span class="kw">$i</span><span class="ot">)</span> {
   <span class="fu">echo</span> <span class="kw">$i</span> . <span class="st">&quot;</span><span class="kw">\n</span><span class="st">&quot;</span><span class="ot">;</span>
 }</code></pre>
-<p>This will print
-          </section>
-          <footer>
-            <p><a href="/log/2012/07/for-loop-behavior.html">Read on »</a></p>
-          </footer>
-        </article>
+<p>This will print</p>
+<pre><code># for loop:
 
-        <footer>
-          <p><a href="/log/">More articles »</a></p>
-        </footer>
+evaluation
+0
+evaluation
+1
+evaluation
+2
+evaluation
+3
+evaluation
+4
+evaluation
+
+# for-each loop:
+
+evaluation
+0
+1
+2
+3
+4</code></pre>
+<p>As we can see, PHP evaluates the break condition of a <em>for loop</em> at each iteration, whereas in a <em>foreach loop</em>, the set of values over which the loop iterates, only gets evaluated once.</p>
+<p>So, if you use a function with an expensive calculation as a break condition in a for loop, just store that value in a temporary variable. E.g.:</p>
+<pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+
+<span class="kw">for</span> <span class="ot">(</span><span class="kw">$i</span> = <span class="dv">0</span><span class="ot">,</span> <span class="kw">$times</span> = times<span class="ot">();</span> <span class="kw">$i</span> &lt; <span class="kw">$times</span><span class="ot">;</span> <span class="kw">$i</span>++<span class="ot">)</span> {
+  <span class="co">// ...</span>
+}</code></pre>
+
       </section>
-    </section>
+      <footer class="meta">
+        <p>Tags:
+
+          <a href="/log/tag/english.html">english</a> ·
+
+          <a href="/log/tag/note.html">note</a> ·
+
+          <a href="/log/tag/dev.html">dev</a> ·
+
+          <a href="/log/tag/php.html">php</a> 
+
+        </p>
+
+      </footer>
+    </article>
+    <section id="comments"></section>
     <aside id="extra">
       <form id="sf" action="/search.html" method="GET">
         <input type="search" name="s" accesskey="s" placeholder="Search">
       </form>
     </aside>
     <footer id="about">
-      <p>© 2008-2012 – Paul Vorbach.
+      <p>© 2012 – Paul Vorbach.
         <a href="/info/contact.html">Contact</a>.</p>
     </footer>
+    <script src="/res/comments.en.min.js"></script>
   </body>
 </html>
