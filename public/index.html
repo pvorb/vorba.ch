@@ -60,44 +60,23 @@
         <article lang="en">
           <header>
 
-            <h2><a href="/log/2012/07/for-loop-behavior.html">For loop behavior in PHP</a></h2>
-            <p class="meta">2012-07-09</p>
+            <h2><a href="/log/2012/07/file-search-nodejs.html">File search in Node.js</a></h2>
+            <p class="meta">2012-07-12</p>
 
             <figure class="teaser">
-              <a href="/log/2012/07/for-loop-behavior.html"><img src="log/2012/07/rollercoaster.jpg"></a>
+              <a href="/log/2012/07/file-search-nodejs.html"><img src="log/2012/07/magnify.jpg"></a>
             </figure>
 
           </header>
           <section>
-            <p>I always asked myself how often a function gets evaluated if you place it in the break condition of a for loop (or a for-each loop). Unfortunately I have always been too lazy to look for an answer – until today.</p>
-<p>Let’s have a look at an implementation in <em>PHP</em>:</p>
-<pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
-
-<span class="kw">function</span> times<span class="ot">()</span> {
-  <span class="fu">echo</span> <span class="st">&quot;evaluation</span><span class="kw">\n</span><span class="st">&quot;</span><span class="ot">;</span> <span class="co">// report evaluation</span>
-  <span class="kw">return</span> <span class="dv">5</span><span class="ot">;</span>
-}
-
-<span class="fu">echo</span> <span class="st">&quot;# for loop:</span><span class="kw">\n\n</span><span class="st">&quot;</span><span class="ot">;</span>
-
-<span class="kw">for</span> <span class="ot">(</span><span class="kw">$i</span> = <span class="dv">0</span><span class="ot">;</span> <span class="kw">$i</span> &lt; times<span class="ot">();</span> <span class="kw">$i</span>++<span class="ot">)</span> {
-  <span class="fu">echo</span> <span class="kw">$i</span> . <span class="st">&quot;</span><span class="kw">\n</span><span class="st">&quot;</span><span class="ot">;</span>
-}
-
-<span class="kw">function</span> <span class="fu">set</span><span class="ot">()</span> {
-  <span class="fu">echo</span> <span class="st">&quot;evaluation</span><span class="kw">\n</span><span class="st">&quot;</span><span class="ot">;</span> <span class="co">// report evaluation</span>
-  <span class="kw">return</span> <span class="fu">array</span><span class="ot">(</span><span class="dv">0</span><span class="ot">,</span> <span class="dv">1</span><span class="ot">,</span> <span class="dv">2</span><span class="ot">,</span> <span class="dv">3</span><span class="ot">,</span> <span class="dv">4</span><span class="ot">);</span>
-}
-
-<span class="fu">echo</span> <span class="st">&quot;</span><span class="kw">\n</span><span class="st"># for-each loop:</span><span class="kw">\n\n</span><span class="st">&quot;</span><span class="ot">;</span>
-
-<span class="kw">foreach</span> <span class="ot">(</span><span class="fu">set</span><span class="ot">()</span> <span class="kw">as</span> <span class="kw">$i</span><span class="ot">)</span> {
-  <span class="fu">echo</span> <span class="kw">$i</span> . <span class="st">&quot;</span><span class="kw">\n</span><span class="st">&quot;</span><span class="ot">;</span>
-}</code></pre>
-<p>This will print
+            <p>Since the German blog post <a href="/log/2012/03/volltextsuche.html">Volltextsuche</a> is the most clicked on this blog, I’ll explain, how I realised the full-text search of this website with the help of Node.js.</p>
+<h2 id="prerequisites">Prerequisites</h3>
+<p>You need to be on a Linux/Unix machine, since the search uses native command line commands like <a href="http://en.wikipedia.org/wiki/Find"><code>find</code></a> and <a href="http://en.wikipedia.org/wiki/Grep"><code>grep</code></a> and you need to have <a href="http://nodejs.org/">Node.js</a> (v0.4.0+) installed. Maybe there is a similar way to do it on Windows, too. I think you could install <a href="http://git-scm.com/download">Git for Windows</a> and add the <code>/bin</code> directory to your system <code>PATH</code> to use the same commands on Windows. If somebody has a better solution (maybe one that works out of the box) he/she may <a href="/log/2012/07/file-search-nodejs.html#comments">leave a comment</a>.</p>
+<h2 id="finding-files-on-the-command-line">Finding files on the command line</h3>
+<p>If you are in a Unix shell, you don’t have a nifty search box, that lets you search for files in your current working directory. Instead, you have the command <code>find</code>, that lets you search for files by specifying various arguments.
           </section>
           <footer>
-            <p><a href="/log/2012/07/for-loop-behavior.html">Read on »</a></p>
+            <p><a href="/log/2012/07/file-search-nodejs.html">Read on »</a></p>
           </footer>
         </article>
 
