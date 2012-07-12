@@ -111,9 +111,11 @@ var server = http.createServer(function (req, resp) {
     query.s = query.s.replace("'", '"');
 
     // run the search
-    exec("find . -iname '*html' | xargs grep '"+query+"' -isl",
-        { timeout: timeout, cwd: root },
-        function (err, stdout, stdin) {
+    exec("find . -iname '*html' | xargs grep '"+query+
+        "' -isl", {
+          timeout: timeout,
+          cwd: root
+        }, function (err, stdout, stdin) {
 
       resp.writeHead(200, { 'Content-Type': 'text/html' });
 

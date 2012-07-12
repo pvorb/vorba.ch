@@ -93,9 +93,11 @@
     <span class="kw">query</span>.<span class="fu">s</span> = <span class="kw">query.s</span>.<span class="fu">replace</span>(<span class="st">&quot;&#39;&quot;</span>, <span class="ch">&#39;&quot;&#39;</span>);
 
     <span class="co">// run the search</span>
-    exec(<span class="st">&quot;find . -iname &#39;*html&#39; | xargs grep &#39;&quot;</span>+query+<span class="st">&quot;&#39; -isl&quot;</span>,
-        { <span class="dt">timeout</span>: timeout, <span class="dt">cwd</span>: root },
-        <span class="kw">function</span> (err, stdout, stdin) {
+    exec(<span class="st">&quot;find . -iname &#39;*html&#39; | xargs grep &#39;&quot;</span>+query+
+        <span class="st">&quot;&#39; -isl&quot;</span>, {
+          <span class="dt">timeout</span>: timeout,
+          <span class="dt">cwd</span>: root
+        }, <span class="kw">function</span> (err, stdout, stdin) {
 
       <span class="kw">resp</span>.<span class="fu">writeHead</span>(<span class="dv">200</span>, { <span class="ch">&#39;Content-Type&#39;</span>: <span class="ch">&#39;text/html&#39;</span> });
 
