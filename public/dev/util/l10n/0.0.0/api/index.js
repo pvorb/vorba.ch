@@ -1,0 +1,1 @@
+Index.PACKAGES = {"de" : [], "de.vorb" : [], "de.vorb.util" : [], "de.vorb.util.l10n" : [{"trait" : "de\/vorb\/util\/l10n\/Language.html", "name" : "de.vorb.util.l10n.Language"}, {"trait" : "de\/vorb\/util\/l10n\/Term.html", "name" : "de.vorb.util.l10n.Term"}]};
