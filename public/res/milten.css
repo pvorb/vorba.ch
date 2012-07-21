@@ -1,4 +1,4 @@
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:400');
+@import url('//fonts.googleapis.com/css?family=Open+Sans:400');
 .bar-link{color:#fff;text-decoration:none;}
 .bar-pos{position:fixed;bottom:0;z-index:10;}
 .hidden{position:absolute;visibility:hidden;}
