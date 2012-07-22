@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de</title>
   <subtitle>web, development and other things</subtitle>
-  <updated>2012-07-18T14:29:15.108Z</updated>
+  <updated>2012-07-22T17:36:27.381Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -15,35 +15,6 @@
   <category term="web"/>
   <category term="development"/>
   <icon>http://vorb.de/favicon.ico</icon>
-
-  <entry>
-    <title>Semantic Weblog</title>
-    <link href="http://vorb.de/log/2012/04/semantic-weblog.html"/>
-    <id>http://vorb.de/log/2012/04/semantic-weblog.html</id>
-    <updated>2012-04-17T13:00:00.000Z</updated>
-    <author>
-      <name>Paul Vorbach</name>
-      <uri>http://vorb.de/</uri>
-    </author>
-    <content type="html">
-
-      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/04/green-roof-norway.jpg"&gt;&lt;/p&gt;
-
-      &lt;p&gt;Mit den &lt;a href=&quot;http://vorb.de/log/tag/&quot;&gt;Tag-Seiten&lt;/a&gt; kann Bread etwas, das ein wenig in Richtung Semantic Weblog geht.&lt;/p&gt;
-&lt;p&gt;Seit heute habe ich dann auch mal angefangen, ein paar Informationen in den Tag-Seiten zu den Themen dieses Blogs zu sammeln. Semantic Web geht eigentlich viel weiter. Ich glaube aber nicht, dass ich die Disziplin für ein formal standardisiertes Dokumentenformat wie &lt;a href=&quot;http://de.wikipedia.org/wiki/Web_Ontology_Language&quot;&gt;OWL&lt;/a&gt; oder &lt;a href=&quot;http://de.wikipedia.org/wiki/Resource_Description_Framework&quot;&gt;RDF&lt;/a&gt; habe. Die Tag-Seiten sollen eher etwas in Richtung von &lt;a href=&quot;http://konnexus.net/lexicon/&quot;&gt;Konstantins Lexikon&lt;/a&gt; werden.&lt;/p&gt;
-&lt;p&gt;Einiges Interessantes im Bezug auf das &lt;em&gt;Semantic Web&lt;/em&gt; und &lt;em&gt;Semantig Weblogs&lt;/em&gt; im Speziellen &lt;a href=&quot;http://anmutunddemut.de/thema/semantic-weblog&quot;&gt;findet sich bei Anmut und Demut&lt;/a&gt;.&lt;/p&gt;
-
-    </content>
-
-    <category term="deutsch"/>
-
-    <category term="bread"/>
-
-    <category term="weblog"/>
-
-    <category term="semantic-web"/>
-
-  </entry>
 
   <entry>
     <title>git reset --soft HEAD^</title>
@@ -487,6 +458,38 @@ evaluation
     <category term="dev"/>
 
     <category term="nodejs"/>
+
+  </entry>
+
+  <entry>
+    <title>Gitit</title>
+    <link href="http://vorb.de/log/2012/07/gitit.html"/>
+    <id>http://vorb.de/log/2012/07/gitit.html</id>
+    <updated>2012-07-21T22:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>http://vorb.de/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/07/gitit.png"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Vor einiger Zeit (vermutlich im Zusammenhang mit &lt;a href=&quot;http://vorb.de/log/2012/04/pandoc.html&quot;&gt;Pandoc&lt;/a&gt;) bin ich über die Wiki-Software &lt;a href=&quot;https://github.com/jgm/gitit/&quot;&gt;Gitit&lt;/a&gt; gestolpert. Gitit ist – genau wie Pandoc – in Haskell geschrieben und verwendet Git zur Versionierung der einzelnen Artikel. Außerdem wird Pandoc zum Übersetzen der Texte verwendet, sodass man zahlreiche Markup-Sprachen wie Markdown oder LaTeX verwenden kann. Der eine oder andere wird das schon von den Github-Wikis kennen.&lt;/p&gt;
+&lt;p&gt;Ich hatte schon lange den Wunsch, ein Wiki für persönliche Notizen zu haben. Also habe ich mir heute die Zeit genommen und Gitit &lt;a href=&quot;https://wiki.vorb.de/&quot;&gt;aufgesetzt&lt;/a&gt;. Unter Debian ist das eine Aufgabe von 10 Minuten. Hier habe ich vor, ab und zu mal ein paar Notizen zu dem ein oder anderen Projekt aufzuschreiben oder schon ein paar Gedanken für Artikel aufzuschreiben. Vielleicht wird auch mehr daraus.&lt;/p&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="wiki"/>
+
+    <category term="haskell"/>
+
+    <category term="pandoc"/>
+
+    <category term="markdown"/>
+
+    <category term="github"/>
 
   </entry>
 

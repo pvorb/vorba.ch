@@ -1,0 +1,25 @@
+title: Gitit
+created: 2012-07-22
+
+teaser: gitit.png
+tags: [ deutsch, wiki, haskell, pandoc, markdown, github ]
+template: post.de.tpl
+
+
+Vor einiger Zeit (vermutlich im Zusammenhang mit [Pandoc]) bin ich über die
+Wiki-Software [Gitit] gestolpert. Gitit ist &ndash; genau wie Pandoc &ndash; in
+Haskell geschrieben und verwendet Git zur Versionierung der einzelnen Artikel.
+Außerdem wird Pandoc zum Übersetzen der Texte verwendet, sodass man zahlreiche
+Markup-Sprachen wie Markdown oder LaTeX verwenden kann. Der eine oder andere
+wird das schon von den Github-Wikis kennen.
+
+Ich hatte schon lange den Wunsch, ein Wiki für persönliche Notizen zu haben.
+Also habe ich mir heute die Zeit genommen und Gitit
+[aufgesetzt](https://wiki.vorb.de/). Unter Debian ist das eine Aufgabe von 10
+Minuten. Hier habe ich vor, ab und zu mal ein paar
+Notizen zu dem ein oder anderen Projekt aufzuschreiben oder schon ein paar
+Gedanken für Artikel aufzuschreiben. Vielleicht wird auch mehr daraus.
+
+
+[Gitit]: https://github.com/jgm/gitit/
+[Pandoc]: /log/2012/04/pandoc.html
