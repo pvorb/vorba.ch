@@ -162,7 +162,7 @@ function getCommentHTML(comment, isNew) {
         +(isNew ? ' new' : '')+'">'
       + '<a id="'+comment._id+'" class="bm"></a><header>'
       + (comment.email && comment.email.hash ? '<figure class="avatar">'
-        + '<img src="http://www.gravatar.com/avatar/'
+        + '<img src="//gravatar.com/avatar/'
         + comment.email.hash + '.jpg?s=60&d=mm" alt="Avatar"'
         + 'width="60" height="60"></figure>' : '')
       + '<p class="meta">'
