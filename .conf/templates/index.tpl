@@ -100,7 +100,7 @@ if (__pagination.prev) { %>
 <% }
 if (__pagination.last) { %>
         <li>…
-        <li><a href="/<% __pagination.last.file %>"><%-
+        <li><a href="/<%= __pagination.last.file %>"><%-
           __pagination.last.page %></a>
 <% } %>
       </ul>
