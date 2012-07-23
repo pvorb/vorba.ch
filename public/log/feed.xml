@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="/res/milten.feed.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
-  <title>vorb.de</title>
-  <subtitle>web, development and other things</subtitle>
-  <updated>2012-07-23T09:20:34.937Z</updated>
+  <title>vorb.de: Articles</title>
+  <subtitle>web, development and other ramblings</subtitle>
+  <updated>2012-07-23T12:02:56.436Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
   </author>
-  <rights>© 2008-2011 Paul Vorbach</rights>
-  <link href="http://vorb.de/log/"/>
-  <link rel="self" href="http://vorb.de/log/feed.xml"/>
+  <rights>© 2008-2012 Paul Vorbach</rights>
+  <link href="https://vorb.de/log/"/>
+  <link rel="self" href="https://vorb.de/log/feed.xml"/>
   <category term="computer"/>
   <category term="web"/>
   <category term="development"/>
-  <icon>http://vorb.de/favicon.ico</icon>
+  <icon>https://vorb.de/favicon.ico</icon>
 
   <entry>
     <title>Pandoc</title>
-    <link href="http://vorb.de/log/2012/04/pandoc.html"/>
+    <link href="https://vorb.de/log/2012/04/pandoc.html"/>
     <id>http://vorb.de/log/2012/04/pandoc.html</id>
     <updated>2012-04-18T20:00:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
-      <uri>http://vorb.de/</uri>
+      <uri>https://vorb.de/</uri>
     </author>
     <content type="html">
 
@@ -64,12 +64,12 @@
 
   <entry>
     <title>Minecraft: DOTA</title>
-    <link href="http://vorb.de/log/2012/04/minecraft-dota.html"/>
+    <link href="https://vorb.de/log/2012/04/minecraft-dota.html"/>
     <id>http://vorb.de/log/2012/04/minecraft-dota.html</id>
     <updated>2012-04-19T15:00:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
-      <uri>http://vorb.de/</uri>
+      <uri>https://vorb.de/</uri>
     </author>
     <content type="html">
 
@@ -95,12 +95,12 @@
 
   <entry>
     <title>Stylesheet für Atom-Feeds</title>
-    <link href="http://vorb.de/log/2012/04/stylesheet-fuer-feeds.html"/>
+    <link href="https://vorb.de/log/2012/04/stylesheet-fuer-feeds.html"/>
     <id>http://vorb.de/log/2012/04/stylesheet-fuer-feeds.html</id>
     <updated>2012-04-29T20:00:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
-      <uri>http://vorb.de/</uri>
+      <uri>https://vorb.de/</uri>
     </author>
     <content type="html">
 
@@ -202,12 +202,12 @@
 
   <entry>
     <title>Suchschlitz und Benutzbarkeit</title>
-    <link href="http://vorb.de/log/2012/05/suchschlitz-und-benutzbarkeit.html"/>
+    <link href="https://vorb.de/log/2012/05/suchschlitz-und-benutzbarkeit.html"/>
     <id>http://vorb.de/log/2012/05/suchschlitz-und-benutzbarkeit.html</id>
     <updated>2012-05-05T21:10:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
-      <uri>http://vorb.de/</uri>
+      <uri>https://vorb.de/</uri>
     </author>
     <content type="html">
 
@@ -248,12 +248,12 @@
 
   <entry>
     <title>For loop behavior in PHP</title>
-    <link href="http://vorb.de/log/2012/07/for-loop-behavior.html"/>
+    <link href="https://vorb.de/log/2012/07/for-loop-behavior.html"/>
     <id>http://vorb.de/log/2012/07/for-loop-behavior.html</id>
     <updated>2012-07-09T11:00:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
-      <uri>http://vorb.de/</uri>
+      <uri>https://vorb.de/</uri>
     </author>
     <content type="html">
 
@@ -329,12 +329,12 @@ evaluation
 
   <entry>
     <title>File search in Node.js</title>
-    <link href="http://vorb.de/log/2012/07/file-search-nodejs.html"/>
+    <link href="https://vorb.de/log/2012/07/file-search-nodejs.html"/>
     <id>http://vorb.de/log/2012/07/file-search-nodejs.html</id>
     <updated>2012-07-12T10:00:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
-      <uri>http://vorb.de/</uri>
+      <uri>https://vorb.de/</uri>
     </author>
     <content type="html">
 
@@ -433,12 +433,12 @@ evaluation
 
   <entry>
     <title>Gitit</title>
-    <link href="http://vorb.de/log/2012/07/gitit.html"/>
+    <link href="https://vorb.de/log/2012/07/gitit.html"/>
     <id>http://vorb.de/log/2012/07/gitit.html</id>
     <updated>2012-07-21T22:00:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
-      <uri>http://vorb.de/</uri>
+      <uri>https://vorb.de/</uri>
     </author>
     <content type="html">
 
@@ -465,12 +465,12 @@ evaluation
 
   <entry>
     <title>HTTPS</title>
-    <link href="http://vorb.de/log/2012/07/https.html"/>
+    <link href="https://vorb.de/log/2012/07/https.html"/>
     <id>http://vorb.de/log/2012/07/https.html</id>
     <updated>2012-07-22T22:00:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
-      <uri>http://vorb.de/</uri>
+      <uri>https://vorb.de/</uri>
     </author>
     <content type="html">
 

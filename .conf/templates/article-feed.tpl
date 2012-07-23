@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="/res/milten.feed.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
-  <title><%= title %></title>
-  <subtitle><%= subtitle %></subtitle>
+  <title>vorb.de: Articles</title>
+  <subtitle>web, development and other ramblings</subtitle>
   <updated><%= (new Date()).toISOString() %></updated>
   <id><%- id %></id>
   <author>
@@ -10,19 +10,19 @@
 if (locals.authorLink) { %>
     <uri><%= authorLink %></uri><% } %>
   </author>
-  <rights>© 2008-2011 Paul Vorbach</rights>
-  <link href="http://vorb.de/log/"/>
-  <link rel="self" href="http://vorb.de/log/feed.xml"/>
+  <rights>© 2008-<%- (new Date()).getFullYear() %> Paul Vorbach</rights>
+  <link href="https://vorb.de/log/"/>
+  <link rel="self" href="https://vorb.de/log/feed.xml"/>
   <category term="computer"/>
   <category term="web"/>
   <category term="development"/>
-  <icon>http://vorb.de/favicon.ico</icon>
+  <icon>https://vorb.de/favicon.ico</icon>
 <%
 __docs = __docs.reverse();
 __docs.forEach(function(doc) { %>
   <entry>
     <title><%= doc.title %></title>
-    <link href="http://vorb.de/<%= doc._id %>"/>
+    <link href="https://vorb.de/<%= doc._id %>"/>
     <id>http://vorb.de/<%- doc._id %></id>
     <updated><%= doc.modified.toISOString() %></updated>
     <author>
