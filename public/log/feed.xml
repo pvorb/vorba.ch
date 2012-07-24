@@ -2,8 +2,8 @@
 <?xml-stylesheet type="text/xsl" href="/res/milten.feed.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de: Articles</title>
-  <subtitle>web, development and other ramblings</subtitle>
-  <updated>2012-07-23T12:02:56.436Z</updated>
+  <subtitle>vorb opposes recursive backronyms</subtitle>
+  <updated>2012-07-24T13:18:41.955Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>

@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="/res/milten.feed.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de: Articles</title>
-  <subtitle>web, development and other ramblings</subtitle>
+  <subtitle>vorb opposes recursive backronyms</subtitle>
   <updated><%= (new Date()).toISOString() %></updated>
   <id><%- id %></id>
   <author>

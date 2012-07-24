@@ -17,3 +17,13 @@ see the website’s source files there.
 *   [pvorb/node-api](https://github.com/pvorb/node-api) and
     [pvorb/node-comments](https://github.com/pvorb/node-comments): comment
     server
+
+## vorb
+
+The term “vorb” is an abbreviation of my last name, Vorbach, but also an
+recursive backronym. ;)
+
+  > **v**orb **o**pposes **r**ecursive **b**ackronyms
+
+On many platforms in the WWW, I’m also referred to as “pvorb”, which is another
+abbreviation for my name.
