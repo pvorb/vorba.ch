@@ -41,9 +41,9 @@ __docs.forEach(function(doc) { %>
     teaser.push(doc.teaser.img);
   teaser = teaser.join('/');
 %>
-      &lt;p&gt;&lt;img src="http://vorb.de/<%= teaser %>"&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src="https://vorb.de/<%= teaser %>"&gt;&lt;/p&gt;
 <% } %>
-      <%- esc(doc.__content, { uri: "http://vorb.de/"+doc._id }) %>
+      <%- esc(doc.__content, { uri: "https://vorb.de/"+doc._id }) %>
     </content>
 <% doc.tags.forEach(function(tag) { %>
     <category term="<%= tag %>"/>

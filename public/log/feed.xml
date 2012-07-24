@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de: Articles</title>
   <subtitle>vorb opposes recursive backronyms</subtitle>
-  <updated>2012-07-24T13:18:41.955Z</updated>
+  <updated>2012-07-24T20:21:11.668Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -27,7 +27,7 @@
     </author>
     <content type="html">
 
-      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/04/pinned-docs.jpg"&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src="https://vorb.de/log/2012/04/pinned-docs.jpg"&gt;&lt;/p&gt;
 
       &lt;p&gt;&lt;a href=&quot;http://johnmacfarlane.net/pandoc/&quot;&gt;Pandoc&lt;/a&gt; ist ein Haskell-Programm zur Konvertierung von Dokumenten für die Konsole. Damit lassen sich verschiedene Markup-Sprachen in andere Markup-Sprachen oder Dokumentformate umwandeln.&lt;/p&gt;
 &lt;p&gt;Vorrangig unterstützt Pandoc als Eingabe-Format das allseits beliebte Markdown. Daraus lassen sich dann beispielsweise HTML- oder LaTeX-Dokumente erzeugen, genauso leicht aber auch PDF- oder Word-Dokumente und sogar E-books im EPUB-Format.&lt;/p&gt;
@@ -73,7 +73,7 @@
     </author>
     <content type="html">
 
-      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/04/minecraft-dota.png"&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src="https://vorb.de/log/2012/04/minecraft-dota.png"&gt;&lt;/p&gt;
 
       &lt;p&gt;War ja nur eine Frage der Zeit:&lt;/p&gt;
 &lt;iframe width=&quot;520&quot; height=&quot;320&quot; src=&quot;https://www.youtube.com/embed/xY5XpjmpR78&quot;
@@ -104,11 +104,11 @@
     </author>
     <content type="html">
 
-      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/04/milten-xsl.png"&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src="https://vorb.de/log/2012/04/milten-xsl.png"&gt;&lt;/p&gt;
 
-      &lt;p&gt;Seit gerade eben hat der &lt;a href=&quot;http://vorb.de/log/feed.xml&quot;&gt;Artikel-Feed&lt;/a&gt; hier ein eigenes Stylesheet. Wie das funktioniert kann man bei &lt;a href=&quot;http://24ways.org/2006/beautiful-xml-with-xsl&quot;&gt;24ways.org&lt;/a&gt; nachlesen.&lt;/p&gt;
+      &lt;p&gt;Seit gerade eben hat der &lt;a href=&quot;https://vorb.de/log/feed.xml&quot;&gt;Artikel-Feed&lt;/a&gt; hier ein eigenes Stylesheet. Wie das funktioniert kann man bei &lt;a href=&quot;http://24ways.org/2006/beautiful-xml-with-xsl&quot;&gt;24ways.org&lt;/a&gt; nachlesen.&lt;/p&gt;
 &lt;p&gt;Für die meisten wird das vermutlich zu viel Aufwand sein. Ich fand jedoch interessant, dass das von den meisten Browsern unterstützt wird. Bei Feeds wird das Stylesheet aber nur in Webkit-Browsern standardmäßig angezeigt. Schade eigentlich.&lt;/p&gt;
-&lt;p&gt;Also hab ich das mal ausprobiert. Hier das &lt;a href=&quot;http://vorb.de/res/milten.feed.xsl&quot;&gt;vorläufige XSL-Stylesheet&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Also hab ich das mal ausprobiert. Hier das &lt;a href=&quot;https://vorb.de/res/milten.feed.xsl&quot;&gt;vorläufige XSL-Stylesheet&lt;/a&gt;:&lt;/p&gt;
 &lt;pre class=&quot;sourceCode xml&quot;&gt;&lt;code class=&quot;sourceCode xml&quot;&gt;&lt;span class=&quot;kw&quot;&gt;&amp;lt;?xml&lt;/span&gt; version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;&lt;span class=&quot;kw&quot;&gt;?&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:stylesheet&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; version=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;1.0&amp;quot;&lt;/span&gt;
 &lt;span class=&quot;ot&quot;&gt;    xmlns:xsl=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;http://www.w3.org/1999/XSL/Transform&amp;quot;&lt;/span&gt;
@@ -211,9 +211,9 @@
     </author>
     <content type="html">
 
-      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/05/typewriter.jpg"&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src="https://vorb.de/log/2012/05/typewriter.jpg"&gt;&lt;/p&gt;
 
-      &lt;p&gt;Die &lt;a href=&quot;http://vorb.de/log/2012/03/volltextsuche.html&quot;&gt;Volltextsuche&lt;/a&gt; hat sich jetzt schon zwei Monate bewährt. Also habe ich nun einen Suchschlitz ins Design eingebaut.&lt;/p&gt;
+      &lt;p&gt;Die &lt;a href=&quot;https://vorb.de/log/2012/03/volltextsuche.html&quot;&gt;Volltextsuche&lt;/a&gt; hat sich jetzt schon zwei Monate bewährt. Also habe ich nun einen Suchschlitz ins Design eingebaut.&lt;/p&gt;
 &lt;p&gt;Und wo ich schon dabei war, jedes Template zu ändern, habe ich auch gleich noch ein paar nette Tastenkombinationen eingefügt, die die Seite für Tastatur-Fanatiker (wie mich) einfacher bedienbar machen sollen.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Im Firefox muss man &lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;⇧ Shift&lt;/code&gt; + die genannte Taste unter Windows und &lt;code&gt;Ctrl&lt;/code&gt; + Taste unter Mac drücken.&lt;/li&gt;
@@ -257,7 +257,7 @@
     </author>
     <content type="html">
 
-      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/07/rollercoaster.jpg"&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src="https://vorb.de/log/2012/07/rollercoaster.jpg"&gt;&lt;/p&gt;
 
       &lt;p&gt;I always asked myself how often a function gets evaluated if you place it in the break condition of a for loop (or a for-each loop). Unfortunately I have always been too lazy to look for an answer – until today.&lt;/p&gt;
 &lt;p&gt;Let’s have a look at an implementation in &lt;em&gt;PHP&lt;/em&gt;:&lt;/p&gt;
@@ -338,11 +338,11 @@ evaluation
     </author>
     <content type="html">
 
-      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/07/magnify.jpg"&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src="https://vorb.de/log/2012/07/magnify.jpg"&gt;&lt;/p&gt;
 
-      &lt;p&gt;Since the German blog post &lt;a href=&quot;http://vorb.de/log/2012/03/volltextsuche.html&quot;&gt;Volltextsuche&lt;/a&gt; is the most clicked on this blog, I’ll explain, how I realised the full-text search of this website with the help of Node.js.&lt;/p&gt;
+      &lt;p&gt;Since the German blog post &lt;a href=&quot;https://vorb.de/log/2012/03/volltextsuche.html&quot;&gt;Volltextsuche&lt;/a&gt; is the most clicked on this blog, I’ll explain, how I realised the full-text search of this website with the help of Node.js.&lt;/p&gt;
 &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
-&lt;p&gt;You need to be on a Linux/Unix machine, since the search uses native command line commands like &lt;a href=&quot;http://en.wikipedia.org/wiki/Find&quot;&gt;&lt;code&gt;find&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;http://en.wikipedia.org/wiki/Grep&quot;&gt;&lt;code&gt;grep&lt;/code&gt;&lt;/a&gt; and you need to have &lt;a href=&quot;http://nodejs.org/&quot;&gt;Node.js&lt;/a&gt; (v0.4.0+) installed. Maybe there is a similar way to do it on Windows, too. I think you could install &lt;a href=&quot;http://git-scm.com/download&quot;&gt;Git for Windows&lt;/a&gt; and add the &lt;code&gt;/bin&lt;/code&gt; directory to your system &lt;code&gt;PATH&lt;/code&gt; to use the same commands on Windows. If somebody has a better solution (maybe one that works out of the box) he/she may &lt;a href=&quot;http://vorb.de/log/2012/07/file-search-nodejs.html#comments&quot;&gt;leave a comment&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You need to be on a Linux/Unix machine, since the search uses native command line commands like &lt;a href=&quot;http://en.wikipedia.org/wiki/Find&quot;&gt;&lt;code&gt;find&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;http://en.wikipedia.org/wiki/Grep&quot;&gt;&lt;code&gt;grep&lt;/code&gt;&lt;/a&gt; and you need to have &lt;a href=&quot;http://nodejs.org/&quot;&gt;Node.js&lt;/a&gt; (v0.4.0+) installed. Maybe there is a similar way to do it on Windows, too. I think you could install &lt;a href=&quot;http://git-scm.com/download&quot;&gt;Git for Windows&lt;/a&gt; and add the &lt;code&gt;/bin&lt;/code&gt; directory to your system &lt;code&gt;PATH&lt;/code&gt; to use the same commands on Windows. If somebody has a better solution (maybe one that works out of the box) he/she may &lt;a href=&quot;https://vorb.de/log/2012/07/file-search-nodejs.html#comments&quot;&gt;leave a comment&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&quot;finding-files-on-the-command-line&quot;&gt;Finding files on the command line&lt;/h2&gt;
 &lt;p&gt;If you are in a Unix shell, you don’t have a nifty search box, that lets you search for files in your current working directory. Instead, you have the command &lt;code&gt;find&lt;/code&gt;, that lets you search for files by specifying various arguments.&lt;/p&gt;
 &lt;p&gt;For example with &lt;code&gt;find . -name '*.txt'&lt;/code&gt; you can search for all files (or directories) ending in &lt;code&gt;.txt&lt;/code&gt; in the current working directory and in any subdirectories.&lt;/p&gt;
@@ -415,10 +415,10 @@ evaluation
 &lt;span class=&quot;kw&quot;&gt;server&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;listen&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;8080&lt;/span&gt;, &lt;span class=&quot;kw&quot;&gt;function&lt;/span&gt; () {
   &lt;span class=&quot;kw&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;ch&quot;&gt;&amp;#39;Server running at http://localhost:8080/&amp;#39;&lt;/span&gt;);
 });&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You may &lt;a href=&quot;http://vorb.de\log\2012\07\file-search.js&quot;&gt;download the source file&lt;/a&gt;. You can start it on the command line with &lt;code&gt;node file-search.js&lt;/code&gt;. Then go to &lt;a href=&quot;http://localhost:8080/?s=test&quot;&gt;localhost:8080&lt;/a&gt; try it. Of course you need to create some HTML files first, if you want to find something.&lt;/p&gt;
+&lt;p&gt;You may &lt;a href=&quot;https://vorb.de\log\2012\07\file-search.js&quot;&gt;download the source file&lt;/a&gt;. You can start it on the command line with &lt;code&gt;node file-search.js&lt;/code&gt;. Then go to &lt;a href=&quot;http://localhost:8080/?s=test&quot;&gt;localhost:8080&lt;/a&gt; try it. Of course you need to create some HTML files first, if you want to find something.&lt;/p&gt;
 &lt;p&gt;Here’s how the result will look like:&lt;/p&gt;
 &lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;http://vorb.de\log\2012\07\search-results.png&quot; alt=&quot;Screenshot of the search results page&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Screenshot of the search results page&lt;/p&gt;
+&lt;img src=&quot;https://vorb.de\log\2012\07\search-results.png&quot; alt=&quot;Screenshot of the search results page&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Screenshot of the search results page&lt;/p&gt;
 &lt;/div&gt;
 
     </content>
@@ -442,9 +442,9 @@ evaluation
     </author>
     <content type="html">
 
-      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/07/gitit.png"&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src="https://vorb.de/log/2012/07/gitit.png"&gt;&lt;/p&gt;
 
-      &lt;p&gt;Vor einiger Zeit (vermutlich im Zusammenhang mit &lt;a href=&quot;http://vorb.de/log/2012/04/pandoc.html&quot;&gt;Pandoc&lt;/a&gt;) bin ich über die Wiki-Software &lt;a href=&quot;https://github.com/jgm/gitit/&quot;&gt;Gitit&lt;/a&gt; gestolpert. Gitit ist – genau wie Pandoc – in Haskell geschrieben und verwendet Git zur Versionierung der einzelnen Artikel. Außerdem wird Pandoc zum Übersetzen der Texte verwendet, sodass man zahlreiche Markup-Sprachen wie Markdown oder LaTeX verwenden kann. Der eine oder andere wird das schon von den Github-Wikis kennen.&lt;/p&gt;
+      &lt;p&gt;Vor einiger Zeit (vermutlich im Zusammenhang mit &lt;a href=&quot;https://vorb.de/log/2012/04/pandoc.html&quot;&gt;Pandoc&lt;/a&gt;) bin ich über die Wiki-Software &lt;a href=&quot;https://github.com/jgm/gitit/&quot;&gt;Gitit&lt;/a&gt; gestolpert. Gitit ist – genau wie Pandoc – in Haskell geschrieben und verwendet Git zur Versionierung der einzelnen Artikel. Außerdem wird Pandoc zum Übersetzen der Texte verwendet, sodass man zahlreiche Markup-Sprachen wie Markdown oder LaTeX verwenden kann. Der eine oder andere wird das schon von den Github-Wikis kennen.&lt;/p&gt;
 &lt;p&gt;Ich hatte schon lange den Wunsch, ein Wiki für persönliche Notizen zu haben. Also habe ich mir heute die Zeit genommen und Gitit &lt;a href=&quot;https://wiki.vorb.de/&quot;&gt;aufgesetzt&lt;/a&gt;. Unter Debian ist das eine Aufgabe von 10 Minuten. Hier habe ich vor, ab und zu mal ein paar Notizen zu dem ein oder anderen Projekt aufzuschreiben oder schon ein paar Gedanken für Artikel aufzuschreiben. Vielleicht wird auch mehr daraus.&lt;/p&gt;
 
     </content>
@@ -474,7 +474,7 @@ evaluation
     </author>
     <content type="html">
 
-      &lt;p&gt;&lt;img src="http://vorb.de/log/2012/07/lock.png"&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src="https://vorb.de/log/2012/07/lock.png"&gt;&lt;/p&gt;
 
       &lt;p&gt;Man sollte wo es geht über verschlüsselte Verbindungen im Netz unterwegs sein. Das macht auch vor dem eigenen Blog nicht halt und so habe ich mir gestern ein paar SSL-Zertifikate erzeugt und diese bei &lt;a href=&quot;https://startssl.com/&quot;&gt;StartSSL&lt;/a&gt; registriert. Das ist nämlich der einzige mir bekannte Anbieter für SSL-Zertifikate, der auch kostenlose Zertifikate anbietet. Anderswo kosten einjährige Zertifikate zwischen 20 und 500 Euro, je nachdem bei wem man bestellt und wie viele Subdomains man gerne schützen möchte. Für eine Firma ist das in der Regel kein Problem, für einen Studenten jedoch schon.&lt;/p&gt;
 &lt;p&gt;Prinzipiell ist es auch möglich, seine eigene &lt;a href=&quot;http://en.wikipedia.org/wiki/Certificate_authority&quot;&gt;Zertifizierungsstelle (CA)&lt;/a&gt; &lt;a href=&quot;http://workaround.org/certificate-authority&quot;&gt;zu eröffnen&lt;/a&gt;. Das ist in meinen Augen sogar sicherer als die gängige Methode, sich Zertifikate bei VeriSign &amp;amp; Co. zu besorgen. Schließlich ist keine dritte Instanz vorhanden, die die Möglichkeit hat, verschlüsselte Nachrichten zu entschlüsseln, weil sie die Schlüssel kennt. Leider ist die Mehrheit der Menschen (insbesondere aller Browser-Hersteller) anderer Meinung und so macht eine eigene CA zu viele Probleme mit verschiedenen Browsern.&lt;/p&gt;
