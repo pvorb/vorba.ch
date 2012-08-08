@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de" id="top">
+  <head>
+    <meta charset="utf-8">
+    <title>Opinions | vorb.de</title>
+    <link rel="stylesheet" href="/res/milten.css">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/log/feed.xml"
+      title="Artikel-Feed">
+    <link rel="alternate" type="application/atom+xml"
+      href="/log/comment-feed.xml" title="Kommentar-Feed">
+    <link rel="pingback" href="http://vorb.de/log/pingback">
+    <meta name="author" content="Paul Vorbach">
+
+    <meta name="keywords" content="deutsch, dev, nodejs">
+
+  </head>
+  <body>
+    <header id="site">
+      <a href="/" accesskey="h">vorb.de</a>
+    </header>
+    <nav id="nav">
+      <ul id="branches">
+        <li class="active"><a href="/log/" accesskey="l">Blog</a>
+        <li><a href="/info/" accesskey="i">Info</a>
+      </ul>
+      <ol id="path">
+        <li><a href="/">vorb.de</a>
+
+        <li><a href="/log/">log</a>
+
+        <li><a href="/log/2012/">2012</a>
+
+        <li><a href="/log/2012/08/">08</a>
+
+        <li>opinions.html
+
+      </ol>
+      <ol id="access">
+        <li><a href="#top" title="Zum Anfang" id="back" accesskey="t">↑</a>
+        <li><a href="#nav">Navigation</a>
+        <li><a href="#content">Inhalt</a>
+        <li><a href="#comments" accesskey="c">Kommentare</a>
+      </ol>
+    </nav>
+    <article id="content">
+      <header>
+        <h1>Opinions</h1>
+        <p class="meta">08.08.2012</p>
+
+        <figure class="teaser">
+          <img src="talk.jpg">
+        </figure>
+
+      </header>
+      <section>
+        <p>Die Kommentarfunktion hier läuft überraschend gut. Per JavaScript wird für jeden Artikel ein Request gestartet, der die Kommentare als JSON-Dokument zurückliefert. Dieses wird anschließend geparst und ins HTML eingebaut, sodass die Kommentare angezeigt werden können. Im Prinzip wie bei <a href="http://disqus.com/">Disqus</a> mit dem Unterschied, dass die Kommentare nicht bei einem anderen Dienst landen. Sogar Pingbacks funktionieren.</p>
+<p>Den Code dazu kann man sich im zugehörigen <a href="https://github.com/pvorb/node-comments">Github-Repository</a> anschauen<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup>.</p>
+<p>Trotzdem bin ich mit der Kommentarfunktion, wie sie jetzt ist, unzufrieden. Der Grund dafür liegt in der Verwendung der Datenbank. Durch die Verwendung von MongoDB als Datenspeicher liegen die Kommentare zu den Artikeln nicht im Git-Repository des Blogs und werden dadurch auch nicht versioniert. Für Backups muss ich separat sorgen.</p>
+<p>In den nächsten Tagen werde ich versuchen, ein neues Kommentar-Modul für das Blog zu schreiben, welches die Kommentare in Git versioniert. Der Aufbau ist recht einfach:</p>
+<ul>
+<li>Sobald ein Nutzer einen Kommentar über das Web-Interface anlegt, wird er in eine Kommentar-Datei zum jeweiligen Artikel geschrieben.</li>
+<li>Anschließend wird ein <code>git commit</code> durchgeführt, der die Datei unter Versionskontrolle stellt.</li>
+</ul>
+<p>Ein Problem stellt sich dabei jedoch:</p>
+<p>Was geschieht, wenn zufällig zwei Nutzer mehr oder weniger gleichzeitig einen neuen Kommentar abschicken? Ein Kommentar könnte verloren gehen, wenn von zwei Seiten aus versucht wird, die Datei zu verändern.</p>
+<p>Dazu bräuchte ich wohl eine Warteschlange auf dem Server, die sicherstellt, dass mehrere Kommentare immer korrekt verarbeitet werden. Mal sehen, ob das so gut funktioniert, wie ich mir das vorstelle.</p>
+<p>Dann will ich mich mal ans Werk machen. Die Entwicklung kann selbstverständlich <a href="https://github.com/pvorb/node-opinions">bei Github</a> verfolgt werden.</p>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Der Kitt zwischen dem Node.js-Modul und dem Server-Backend ist <a href="https://github.com/vorbach/vorb.de/blob/master/.conf/modules/comments.js">hier</a> zu finden.<a href="#fnref1">↩</a></p></li>
+</ol>
+</div>
+
+      </section>
+      <footer class="meta">
+        <p>Kategorien:
+
+          <a href="/log/tag/deutsch.html">deutsch</a> ·
+
+          <a href="/log/tag/dev.html">dev</a> ·
+
+          <a href="/log/tag/nodejs.html">nodejs</a> 
+
+        </p>
+
+      </footer>
+    </article>
+    <section id="comments"></section>
+    <aside id="extra">
+      <form id="sf" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Suche">
+      </form>
+    </aside>
+    <footer id="about">
+      <p>© 2012 – Paul Vorbach.
+        <a href="/info/contact.html">Kontakt</a>.</p>
+    </footer>
+    <script src="/res/comments.de.min.js"></script>
+  </body>
+</html>

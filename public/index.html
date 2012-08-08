@@ -59,21 +59,21 @@
         <article lang="en">
           <header>
 
-            <h2><a href="/log/2012/07/https.html">HTTPS</a></h2>
-            <p class="meta">2012-07-23</p>
+            <h2><a href="/log/2012/08/opinions.html">Opinions</a></h2>
+            <p class="meta">2012-08-08</p>
 
             <figure class="teaser">
-              <a href="/log/2012/07/https.html"><img src="log/2012/07/lock.png"></a>
+              <a href="/log/2012/08/opinions.html"><img src="log/2012/08/talk.jpg"></a>
             </figure>
 
           </header>
           <section>
-            <p>Man sollte wo es geht über verschlüsselte Verbindungen im Netz unterwegs sein. Das macht auch vor dem eigenen Blog nicht halt und so habe ich mir gestern ein paar SSL-Zertifikate erzeugt und diese bei <a href="https://startssl.com/">StartSSL</a> registriert. Das ist nämlich der einzige mir bekannte Anbieter für SSL-Zertifikate, der auch kostenlose Zertifikate anbietet. Anderswo kosten einjährige Zertifikate zwischen 20 und 500 Euro, je nachdem bei wem man bestellt und wie viele Subdomains man gerne schützen möchte. Für eine Firma ist das in der Regel kein Problem, für einen Studenten jedoch schon.</p>
-<p>Prinzipiell ist es auch möglich, seine eigene <a href="http://en.wikipedia.org/wiki/Certificate_authority">Zertifizierungsstelle (CA)</a> <a href="http://workaround.org/certificate-authority">zu eröffnen</a>. Das ist in meinen Augen sogar sicherer als die gängige Methode, sich Zertifikate bei VeriSign &amp; Co. zu besorgen. Schließlich ist keine dritte Instanz vorhanden, die die Möglichkeit hat, verschlüsselte Nachrichten zu entschlüsseln, weil sie die Schlüssel kennt. Leider ist die Mehrheit der Menschen (insbesondere aller Browser-Hersteller) anderer Meinung und so macht eine eigene CA zu viele Probleme mit verschiedenen Browsern.</p>
-<p>Es gäbe da auch noch die gemeinnützige <a href="http://www.cacert.org/">CAcert</a>, aber die hat die gleichen Probleme wie eine eigene CA. Daher die Lösung mit StartSSL.
+            <p>Die Kommentarfunktion hier läuft überraschend gut. Per JavaScript wird für jeden Artikel ein Request gestartet, der die Kommentare als JSON-Dokument zurückliefert. Dieses wird anschließend geparst und ins HTML eingebaut, sodass die Kommentare angezeigt werden können. Im Prinzip wie bei <a href="http://disqus.com/">Disqus</a> mit dem Unterschied, dass die Kommentare nicht bei einem anderen Dienst landen. Sogar Pingbacks funktionieren.</p>
+<p>Den Code dazu kann man sich im zugehörigen <a href="https://github.com/pvorb/node-comments">Github-Repository</a> anschauen<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup>.</p>
+<p>Trotzdem bin ich mit der Kommentarfunktion, wie sie jetzt ist, unzufrieden. Der Grund dafür liegt in der Verwendung der Datenbank. Durch die Verwendung von MongoDB als Datenspeicher liegen die Kommentare zu den Artikeln nicht im Git-Repository des Blogs und werden dadurch auch nicht versioniert. Für Backups muss ich separat sorgen.
           </section>
           <footer>
-            <p><a href="/log/2012/07/https.html">Read on »</a></p>
+            <p><a href="/log/2012/08/opinions.html">Read on »</a></p>
           </footer>
         </article>
 
