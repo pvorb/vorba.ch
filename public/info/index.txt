@@ -10,20 +10,15 @@ see the website’s source files there.
 
 ## Repositories
 
-*   [vorbach/vorb.de](https://github.com/vorbach/vorb.de): source files of this
+  * [vorbach/vorb.de](https://github.com/vorbach/vorb.de): source files of this
     website
-*   [pvorb/node-bread](https://github.com/pvorb/node-bread): static website
+  * [pvorb/node-bread](https://github.com/pvorb/node-bread): static website
     generation with Node.js
-*   [pvorb/node-api](https://github.com/pvorb/node-api) and
+  * [pvorb/node-api](https://github.com/pvorb/node-api) and
     [pvorb/node-comments](https://github.com/pvorb/node-comments): comment
     server
 
-## vorb
+## Miscellaneous topics
 
-The term “vorb” is an abbreviation of my last name, Vorbach, but also an
-recursive backronym. ;)
-
-  > **v**orb **o**pposes **r**ecursive **b**ackronyms
-
-On many platforms in the WWW, I’m also referred to as “pvorb”, which is another
-abbreviation for my name.
+  * [vorb.de](vorb.de.html)
+  * [pvorb](pvorb.html)
