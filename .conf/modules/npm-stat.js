@@ -14,8 +14,8 @@ module.exports = function comments(app, logger, conf, globalConf, started) {
         resp.writeHead(200, {'Content-Type': 'application/json'});
         res.pipe(resp);
       }).on('error', function (e) {
-        res.writeHead(500, {'Content-Type': 'application/json'});
-        res.end('{"error": {"code": 500, "message": "internal server error"}');
+        resp.writeHead(500, {'Content-Type': 'application/json'});
+        resp.end('{"error": {"code": 500, "message": "internal server error"}');
       });
     } else {
       resp.writeHead(200, {'Content-Type': 'application/json'});
