@@ -9,7 +9,8 @@
   },
   "modules": [
     "comments",
-    "search"
+    "search",
+    "npm-stat"
   ],
   "errorPages": {
     "404": ".conf/error/404.html",

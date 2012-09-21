@@ -26,21 +26,15 @@
     $('h2').html('Download statistics for package <input type="text" '
       + 'name="package" value="'+pkg+'"> <input type="submit" value="Show charts">');
 
-    $.ajax({
-      url: 'https://isaacs.iriscouch.com/downloads/_design/app/_view/pkg?'
-        +'group_level=3&start_key=["'+pkg+'"]&end_key=["'+pkg+'%22,{}]',
-      dataType: 'jsonp',
-      success: function (json) {
-        var dailyData = getDailyData(json);
-        chart('days', 'Downloads per day', dailyData);
-        var weeklyData = getWeeklyData(dailyData);
-        chart('weeks', 'Downloads per week', weeklyData);
-        var monthlyData = getMonthlyData(dailyData);
-        chart('months', 'Downloads per month', monthlyData);
-      },
-      error: function (err) {
-        alert('Could not receive statistical data.');
-      }
+    $.getJSON('/dev/npm-stat/'+pkg+'.json', function success(json) {
+      var dailyData = getDailyData(json);
+      chart('days', 'Downloads per day', dailyData);
+      var weeklyData = getWeeklyData(dailyData);
+      chart('weeks', 'Downloads per week', weeklyData);
+      var monthlyData = getMonthlyData(dailyData);
+      chart('months', 'Downloads per month', monthlyData);
+    }).error(function () {
+      alert('Could not receive statistical data.');
     });
   });
 
@@ -114,12 +108,17 @@
     });
   }
 
+  var oneDay = 24 * 60 * 60 * 1000;
+
   function getDailyData(json) {
     var result = [];
     var data = json.rows;
 
+    var date = new Date(data[0].key[1]);
+
     for (var i in data) {
-      result.push([ new Date(data[i].key[1]).getTime(), data[i].value ]);
+      date = new Date(data[i].key[1]);
+      result.push([ date.getTime(), data[i].value ]);
     }
 
     return result;
@@ -129,6 +128,8 @@
     var year = new Date(d.getFullYear(), 0, 1);
     return Math.ceil((((d - year) / 86400000) + year.getDay() + 1) / 7);
   }
+
+  var threeDays = 3 * oneDay;
 
   function getWeeklyData(dailyData) {
     var result = [];
@@ -141,7 +142,7 @@
       record = dailyData[i];
       date = new Date(record[0]);
       if (lastWeek != getWeekOfDate(date)) {
-        result.push([ date.getTime(), weekTotal ]);
+        result.push([ date.getTime() - threeDays, weekTotal ]);
         weekTotal = record[1];
         lastWeek = getWeekOfDate(date);
       } else weekTotal += record[1];
@@ -161,7 +162,7 @@
       record = dailyData[i];
       date = new Date(record[0]);
       if (lastMonth != date.getMonth()) {
-        result.push({ x: new Date(date.getFullYear(), date.getMonth(), 1).getTime(),
+        result.push({ x: new Date(date.getFullYear(), date.getMonth(), 15).getTime(),
             y: monthTotal });
         monthTotal = record[1];
         lastMonth = date.getMonth();
