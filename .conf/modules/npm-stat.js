@@ -19,7 +19,7 @@ module.exports = function comments(app, logger, conf, globalConf, started) {
       });
     } else {
       resp.writeHead(200, {'Content-Type': 'application/json'});
-      res.end('{"error": {"code": 404, "message": "not found"}');
+      resp.end('{"error": {"code": 404, "message": "not found"}');
     }
   });
 
