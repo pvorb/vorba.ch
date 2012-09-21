@@ -20,8 +20,6 @@
     var days, weeks, months;
     var pkg = getURLParam('package');
 
-    console.log(pkg);
-
     if (pkg === null)
       pkg = 'npm';
 
