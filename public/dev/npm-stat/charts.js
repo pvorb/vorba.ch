@@ -29,7 +29,7 @@
       + 'name="package" value="'+pkg+'"> <input type="submit" value="Show charts">');
 
     $.ajax({
-      url: 'http://isaacs.iriscouch.com/downloads/_design/app/_view/pkg?'
+      url: 'https://isaacs.iriscouch.com/downloads/_design/app/_view/pkg?'
         +'group_level=3&start_key=["'+pkg+'"]&end_key=["'+pkg+'%22,{}]',
       dataType: 'jsonp',
       success: function (json) {
