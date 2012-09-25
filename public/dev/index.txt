@@ -7,7 +7,7 @@ teaser: /res/code.jpg
 I write software primarily for [Node.js](/log/tag/nodejs.html) and the
 [Java VM](/log/tag/jvm.html).
 
-## [util](util)
+## util
 
 util/tuple:
   ~ A Java library that provides classes for working with generic tuples
