@@ -69,6 +69,8 @@
 }
 
 html {
+  border: 0 solid @color-link;
+  border-width: 5px 0;
   color: @color-txt;
   font: 100%/1.5 @running-font;
   quotes: none;
@@ -364,13 +366,13 @@ input[type=checkbox].invalid + label {
 
 #about {
   color: #333;
-  margin: 4em 0 8em;
+  margin: 4em 0 0;
 }
 
 /* responsive */
 
-@media screen and (max-width: 659px), projection and (max-width: 659px),
-    tv and (max-width: 659px), print {
+@media screen and (max-width: 799px), projection and (max-width: 799px),
+    tv and (max-width: 799px), print {
   .comment {
     margin-left: 80px;
 
@@ -389,8 +391,8 @@ input[type=checkbox].invalid + label {
   .forkme img { width: auto; }
 }
 
-@media screen and (min-width: 660px), projection and (min-width: 660px),
-    tv and (min-width: 660px) {
+@media screen and (min-width: 800px), projection and (min-width: 800px),
+    tv and (min-width: 800px) {
   body {
     padding-left: 120px;
     width: @content-width-medium;
@@ -425,6 +427,10 @@ input[type=checkbox].invalid + label {
 /* wide */
 @media screen and (min-width: 1005px), projection and (min-width: 1005px),
     tv and (min-width: 1005px) {
+  html {
+    padding: 4em 0;
+  }
+
   #content aside, #extra {
     width: @aside-width-wide;
   }
@@ -481,14 +487,19 @@ input[type=checkbox].invalid + label {
   /* search form */
   #sf {
     position: absolute;
-    top: 1em;
+    top: 5.25em;
     left: 680px;
   }
 }
 
 /* print */
 @media print {
-  #cf, #cp {
+  html {
+    border-width: 0;
+    padding: 0;
+  }
+
+  #sf, #cf, #cp {
     display: none;
   }
 }
