@@ -18,9 +18,8 @@ dt{font-weight:bold;}
 pre{background:#eeeeee;border:1px solid #bbbbbb;border-width:1px 0;padding:.5em 10px;}
 pre code{background:inherit;padding:0;border:0;}
 pre,figure{overflow:auto;}
-h1,h2,h3,h4,h5,h6{font-weight:normal;margin-bottom:.3em;}
-h1{font-family:'Open Sans',Arial,sans-serif;font-size:2em;margin-top:0;}h1 em{font-style:normal;font-weight:bold;}
-h2,h3,h4,h5,h6{font-family:Georgia,serif;}
+h1,h2,h3,h4,h5,h6{font-family:'Open Sans',Arial,sans-serif;font-weight:normal;margin-bottom:.3em;}
+h1{font-size:2em;margin-top:0;}h1 em{font-style:normal;font-weight:bold;}
 h1,h2,h3{line-height:1.2;}
 table{width:100%;}
 figure{margin:0;}
