@@ -59,7 +59,8 @@ if (locals.tags) {
     <article id="content">
       <header>
         <h1><%= title %></h1>
-        <p class="meta"><%- getDate(created) %></p>
+        <p class="meta">by <span class="author"><%- author
+          %></span>, <span class="created"><%- getDate(created) %></span></p>
 <% if (locals.teaser) { %>
         <figure class="teaser">
           <% if (typeof teaser == 'string') {
