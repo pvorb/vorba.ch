@@ -10,7 +10,7 @@ see the website’s source files there.
 
 ## Repositories
 
-  * [vorbach/vorb.de](https://github.com/vorbach/vorb.de): source files of this
+  * [pvorb/vorb.de](https://github.com/pvorb/vorb.de): source files of this
     website
   * [pvorb/node-bread](https://github.com/pvorb/node-bread): static website
     generation with Node.js
