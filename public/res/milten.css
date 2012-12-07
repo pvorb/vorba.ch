@@ -5,7 +5,7 @@
 .inline-block{display:-moz-inline-stack;display:inline-block;}
 .disclaimer{text-transform:uppercase;}
 .icon-button{background:#ffffff none no-repeat 5px center;border:1px solid #bbbbbb;display:inline-block;height:16px;line-height:16px;padding:6px 10px 4px 25px;text-decoration:none;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;}
-html{border:0 solid #aa0000;border-width:5px 0;color:#000000;font:100%/1.5 Georgia,serif;quotes:none;}
+html{border:0 solid #aa0000;border-width:5px 0 0;color:#000000;font:100%/1.5 Georgia,serif;quotes:none;}
 body{margin:0 20px 3em;}
 a{color:#aa0000;cursor:pointer;}a:visited{color:#883333;}
 a:hover{color:#dd0000;}
