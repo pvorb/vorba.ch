@@ -33,6 +33,7 @@ hr{border:1px solid black;border-width:1px 0 0;margin:1em auto 1em 0;}
 #path li:after{content:' / ';}
 #path li:last-child:after{content:'';}
 #content header .meta{color:#999999;margin-top:.3em;}
+.meta .author,.meta .created{color:#555555;}
 .teaser img{border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px;}
 .footnotes hr{margin-top:2em;width:200px;}
 section aside,footer.meta{background:#eeeeee;border:1px solid #bbbbbb;border-width:1px 0;margin:1em 0;padding:0 10px;}
