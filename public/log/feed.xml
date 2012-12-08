@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de: Articles</title>
   <subtitle>vorb opposes recursive backronyms</subtitle>
-  <updated>2012-12-08T01:22:22.230Z</updated>
+  <updated>2012-12-08T02:14:35.183Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -15,113 +15,6 @@
   <category term="web"/>
   <category term="development"/>
   <icon>https://vorb.de/favicon.ico</icon>
-
-  <entry>
-    <title>Stylesheet für Atom-Feeds</title>
-    <link href="https://vorb.de/log/2012/04/stylesheet-fuer-feeds.html"/>
-    <id>http://vorb.de/log/2012/04/stylesheet-fuer-feeds.html</id>
-    <updated>2012-04-29T20:00:00.000Z</updated>
-    <author>
-      <name>Paul Vorbach</name>
-      <uri>https://vorb.de/</uri>
-    </author>
-    <content type="html">
-
-      &lt;p&gt;&lt;img src="https://vorb.de/log/2012/04/milten-xsl.png"&gt;&lt;/p&gt;
-
-      &lt;p&gt;Seit gerade eben hat der &lt;a href=&quot;https://vorb.de/log/feed.xml&quot;&gt;Artikel-Feed&lt;/a&gt; hier ein eigenes Stylesheet. Wie das funktioniert kann man bei &lt;a href=&quot;http://24ways.org/2006/beautiful-xml-with-xsl&quot;&gt;24ways.org&lt;/a&gt; nachlesen.&lt;/p&gt;
-&lt;p&gt;Für die meisten wird das vermutlich zu viel Aufwand sein. Ich fand jedoch interessant, dass das von den meisten Browsern unterstützt wird. Bei Feeds wird das Stylesheet aber nur in Webkit-Browsern standardmäßig angezeigt. Schade eigentlich.&lt;/p&gt;
-&lt;p&gt;Also hab ich das mal ausprobiert. Hier das &lt;a href=&quot;https://vorb.de/res/milten.feed.xsl&quot;&gt;vorläufige XSL-Stylesheet&lt;/a&gt;:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode xml&quot;&gt;&lt;code class=&quot;sourceCode xml&quot;&gt;&lt;span class=&quot;kw&quot;&gt;&amp;lt;?xml&lt;/span&gt; version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;&lt;span class=&quot;kw&quot;&gt;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:stylesheet&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; version=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;1.0&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;ot&quot;&gt;    xmlns:xsl=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;http://www.w3.org/1999/XSL/Transform&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;ot&quot;&gt;    xmlns:atom=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;http://www.w3.org/2005/Atom&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:output&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; method=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;html&amp;quot;&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; encoding=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:template&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; match=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:apply-templates&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/atom:feed&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;kw&quot;&gt;&amp;lt;/xsl:template&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:template&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; match=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/atom:feed&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;kw&quot;&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;kw&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;kw&quot;&gt;&amp;lt;title&amp;gt;&amp;lt;xsl:value-of&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:title&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&lt;/span&gt; (Feed)&lt;span class=&quot;kw&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;kw&quot;&gt;&amp;lt;link&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; rel=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;stylesheet&amp;quot;&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/res/milten.css&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;kw&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;kw&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;kw&quot;&gt;&amp;lt;header&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; id=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;site&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;kw&quot;&gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&amp;lt;xsl:value-of&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:author&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;kw&quot;&gt;&amp;lt;nav&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; id=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;nav&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;kw&quot;&gt;&amp;lt;ul&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; id=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;branches&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;kw&quot;&gt;&amp;lt;li&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; class=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;active&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/log/&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;Blog&lt;span class=&quot;kw&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;kw&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/info/&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;Info&lt;span class=&quot;kw&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;kw&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;kw&quot;&gt;&amp;lt;ol&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; id=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;path&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;kw&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;vorb.de&lt;span class=&quot;kw&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;kw&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/log/&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;log&lt;span class=&quot;kw&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;kw&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;feed.xml&lt;span class=&quot;kw&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;kw&quot;&gt;&amp;lt;/ol&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;kw&quot;&gt;&amp;lt;ol&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; id=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;access&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;kw&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;#top&amp;quot;&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; title=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;To the top&amp;quot;&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; id=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;back&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;↑&lt;span class=&quot;kw&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;kw&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;#nav&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;Navigation&lt;span class=&quot;kw&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-            &lt;span class=&quot;kw&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;#content&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;Content&lt;span class=&quot;kw&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;kw&quot;&gt;&amp;lt;/ol&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/nav&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;kw&quot;&gt;&amp;lt;section&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; id=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;content&amp;quot;&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; class=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;digest&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;kw&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Article Feed&lt;span class=&quot;kw&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;kw&quot;&gt;&amp;lt;form&amp;gt;&lt;/span&gt;
-            Add the following link to your favorite feed reader:
-            &lt;span class=&quot;kw&quot;&gt;&amp;lt;input&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; type=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;text&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;ot&quot;&gt;              size=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;{string-length(atom:link[attribute::rel=&amp;#39;self&amp;#39;]/@href)}&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;ot&quot;&gt;              value=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;{atom:link[attribute::rel=&amp;#39;self&amp;#39;]/@href}&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;ot&quot;&gt;              onclick=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;select()&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;kw&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:apply-templates&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:entry&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/section&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;kw&quot;&gt;&amp;lt;footer&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; id=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;about&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;kw&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;© 2012 – Paul Vorbach.
-            &lt;span class=&quot;kw&quot;&gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;/info/contact.html&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;Contact&lt;span class=&quot;kw&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;.&lt;span class=&quot;kw&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/footer&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;kw&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;kw&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;kw&quot;&gt;&amp;lt;/xsl:template&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:template&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; match=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:entry&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;kw&quot;&gt;&amp;lt;article&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;kw&quot;&gt;&amp;lt;header&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;kw&quot;&gt;&amp;lt;h2&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;kw&quot;&gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;{atom:link/@href}&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&amp;lt;xsl:value-of&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:title&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;kw&quot;&gt;&amp;lt;p&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; class=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;meta&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:value-of&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;substring-before(atom:updated,&amp;#39;T&amp;#39;)&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;kw&quot;&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:value-of&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:content&amp;quot;&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; disable-output-escaping=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;yes&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;kw&quot;&gt;&amp;lt;footer&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; class=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;meta&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;kw&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Author: &lt;span class=&quot;kw&quot;&gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;{atom:author/atom:uri}&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&amp;lt;xsl:value-of&lt;/span&gt;
-&lt;span class=&quot;ot&quot;&gt;              select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:author/atom:name&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:if&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; test=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:category&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
-         &lt;span class=&quot;kw&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Tags:&lt;span class=&quot;kw&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-         &lt;span class=&quot;kw&quot;&gt;&amp;lt;ul&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; class=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;tags&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&amp;lt;xsl:apply-templates&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:category&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/xsl:if&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;kw&quot;&gt;&amp;lt;/footer&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;kw&quot;&gt;&amp;lt;/article&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;kw&quot;&gt;&amp;lt;/xsl:template&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;kw&quot;&gt;&amp;lt;xsl:template&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; match=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;atom:category&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;kw&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;a&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; href=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;http://vorb.de/log/tag/{@term}.html&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&amp;lt;xsl:value-of&lt;/span&gt;
-&lt;span class=&quot;ot&quot;&gt;      select=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;@term&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;/&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;kw&quot;&gt;&amp;lt;/xsl:template&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;&amp;lt;/xsl:stylesheet&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-
-    </content>
-
-    <category term="deutsch"/>
-
-    <category term="dev"/>
-
-    <category term="xml"/>
-
-    <category term="xsl"/>
-
-  </entry>
 
   <entry>
     <title>Suchschlitz und Benutzbarkeit</title>
@@ -459,6 +352,86 @@ evaluation
     <category term="dev"/>
 
     <category term="nodejs"/>
+
+  </entry>
+
+  <entry>
+    <title>Über Subpixel</title>
+    <link href="https://vorb.de/log/2012/12/subpixel.html"/>
+    <id>http://vorb.de/log/2012/12/subpixel.html</id>
+    <updated>2012-12-07T23:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>https://vorb.de/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="https://vorb.de/log/2012/12/subpixel.png"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Zum Thema Subpixel-Rendering von Fonts auf Rasterbildschirmen ist gestern &lt;a href=&quot;http://www.webkrauts.de/artikel/2012/techniken-zur-schriftglaettung-rasterizer&quot;&gt;ein Artikel&lt;/a&gt; im &lt;a href=&quot;http://www.webkrauts.de/serien/adventskalender/2012&quot;&gt;Webkrauts-Adventskalender&lt;/a&gt; erschienen.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.webkrauts.de/comment/3748#comment-3748&quot;&gt;In einem Kommentar&lt;/a&gt; regt sich ein Leser darüber auf, dass das Beispielbild zur Subpixel-Glättung schlecht gewählt ist. Es wird nicht deutlich, dass die verschiedenen Farben bei üblichen Display-Panels horizontal nebeneinander angeordnet sind und durch diese Anordnung theoretisch die dreifache Auflösung erreicht werden kann.&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;https://vorb.de\log\2012\12\raster-subpixel.png&quot; alt=&quot;Subpixel-Beispiel&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Subpixel-Beispiel&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Da es gar nicht so ohne weiteres Möglich ist, einen Screenshot so zu vergrößern, dass die Subpixel sichtbar werden, habe ich ein Programm dafür geschrieben: &lt;a href=&quot;https://github.com/pvorb/subpixel-illustrator&quot;&gt;Subpixel Illustrator&lt;/a&gt;. Damit lässt sich ein Screenshot im PNG-Format öffnen und vergrößern.&lt;/p&gt;
+&lt;p&gt;Der Kern des Programms ist, dank Scala, recht kurz:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode scala&quot;&gt;&lt;code class=&quot;sourceCode scala&quot;&gt;&lt;span class=&quot;kw&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;scaleUp&lt;/span&gt;(input: BufferedImage, factor: Int) = {
+  &lt;span class=&quot;fu&quot;&gt;require&lt;/span&gt;(factor &amp;gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;factor not greater than one&amp;quot;&lt;/span&gt;)
+  &lt;span class=&quot;fu&quot;&gt;require&lt;/span&gt;(factor % &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt; == &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;,
+    &lt;span class=&quot;st&quot;&gt;&amp;quot;factor not divisible by three&amp;quot;&lt;/span&gt;)
+
+  &lt;span class=&quot;kw&quot;&gt;val&lt;/span&gt; width = input.&lt;span class=&quot;fu&quot;&gt;getWidth&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;val&lt;/span&gt; height = input.&lt;span class=&quot;fu&quot;&gt;getHeight&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;val&lt;/span&gt; step = factor / &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;
+
+  &lt;span class=&quot;co&quot;&gt;// Erzeuge leeres Bild mit `factor`-facher Größe&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;val&lt;/span&gt; out = &lt;span class=&quot;kw&quot;&gt;new&lt;/span&gt; BufferedImage(input.&lt;span class=&quot;fu&quot;&gt;getWidth&lt;/span&gt; * factor,
+    input.&lt;span class=&quot;fu&quot;&gt;getHeight&lt;/span&gt; * factor,
+    BufferedImage.&lt;span class=&quot;fu&quot;&gt;TYPE_INT_RGB&lt;/span&gt;)
+
+  &lt;span class=&quot;co&quot;&gt;// Durchlaufe das Bild Zeilenweise, von links nach&lt;/span&gt;
+  &lt;span class=&quot;co&quot;&gt;// rechts&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;for&lt;/span&gt; {
+    _y &amp;lt;- &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt; until height
+    (yMin, yMax) = (_y * factor, (_y + &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) * factor)
+                              &lt;span class=&quot;co&quot;&gt;// Vergrößere Ausschnitt&lt;/span&gt;
+    _x &amp;lt;- &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt; until width
+    (xMin, xMax) = (_x * factor, (_x + &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) * factor)
+                              &lt;span class=&quot;co&quot;&gt;// Vergrößere Ausschnitt&lt;/span&gt;
+    _rgb = input.&lt;span class=&quot;fu&quot;&gt;getRGB&lt;/span&gt;(_x, _y)
+                              &lt;span class=&quot;co&quot;&gt;// Lies RGB-Wert&lt;/span&gt;
+    y &amp;lt;- yMin until yMax
+    x &amp;lt;- xMin until xMax
+    component = {
+      &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (x &amp;lt; xMin + step) _rgb &amp;amp;&amp;amp; &lt;span class=&quot;bn&quot;&gt;0xFF0000&lt;/span&gt;
+                              &lt;span class=&quot;co&quot;&gt;// Maskiere Rotanteil&lt;/span&gt;
+      &lt;span class=&quot;kw&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (xMax - step &amp;lt;= x) _rgb &amp;amp;&amp;amp; &lt;span class=&quot;bn&quot;&gt;0x0000FF&lt;/span&gt;
+                              &lt;span class=&quot;co&quot;&gt;// Maskiere Blauanteil&lt;/span&gt;
+      &lt;span class=&quot;kw&quot;&gt;else&lt;/span&gt; _rgb &amp;amp;&amp;amp; &lt;span class=&quot;bn&quot;&gt;0x00FF00&lt;/span&gt;
+                              &lt;span class=&quot;co&quot;&gt;// Maskiere Grünanteil&lt;/span&gt;
+    }
+  } {
+    out.&lt;span class=&quot;fu&quot;&gt;setRGB&lt;/span&gt;(x, y, component)
+                              &lt;span class=&quot;co&quot;&gt;// Setze neuen Farbwert&lt;/span&gt;
+  }
+
+  out
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;https://vorb.de\log\2012\12\raster-subpixel-improved.png&quot; alt=&quot;Das Ergebnis mit 15-facher Vergrößerung&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Das Ergebnis mit 15-facher Vergrößerung&lt;/p&gt;
+&lt;/div&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="ux"/>
+
+    <category term="typography"/>
+
+    <category term="dev"/>
+
+    <category term="scala"/>
 
   </entry>
 
