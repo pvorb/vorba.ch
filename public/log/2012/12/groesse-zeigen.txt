@@ -1,5 +1,5 @@
 title: Größe zeigen
-created: 2012-12-08
+created: 2012-12-08T01:00:00+0100
 
 tags: [ deutsch, ux, typography ]
 teaser: font-sizes.png
