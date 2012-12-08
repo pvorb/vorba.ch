@@ -167,6 +167,12 @@ figure {
   margin: 0;
 }
 
+figure .caption, .figure .caption {
+  color: #333;
+  font-style: italic;
+  margin: .2em 0 2em;
+}
+
 hr {
   border: 1px solid black;
   border-width: 1px 0 0;
@@ -406,7 +412,7 @@ input[type=checkbox].invalid + label {
     width: @aside-width-medium;
   }
 
-  figure.full, figure.wide {
+  .full, .wide {
     position: relative;
     left: -120px;
 
@@ -457,13 +463,14 @@ input[type=checkbox].invalid + label {
   figure.full, figure.wide {
     position: relative;
     left: -120px;
+  }
 
-    &.full {
-      width: 980px;
-    }
-    &.wide {
-      width: 640px;
-    }
+  figure.full {
+    width: 980px;
+  }
+
+  figure.wide {
+    width: 640px;
   }
 
   /* comments */
