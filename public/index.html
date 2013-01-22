@@ -57,22 +57,21 @@
         <article lang="en">
           <header>
 
-            <h2><a href="/log/2012/12/subpixel.html">Über Subpixel</a></h2>
-            <p class="meta">2012-12-08</p>
+            <h2><a href="/log/2013/01/binarisierung.html">Binarisierung</a></h2>
+            <p class="meta">2013-01-22</p>
 
             <figure class="teaser">
-              <a href="/log/2012/12/subpixel.html"><img src="log/2012/12/subpixel.png"></a>
+              <a href="/log/2013/01/binarisierung.html"><img src="log/2013/01/binarization.jpg"></a>
             </figure>
 
           </header>
           <section>
-            <p>Zum Thema Subpixel-Rendering von Fonts auf Rasterbildschirmen ist vor kurzem <a href="http://www.webkrauts.de/artikel/2012/techniken-zur-schriftglaettung-rasterizer">ein Artikel</a> im <a href="http://www.webkrauts.de/serien/adventskalender/2012">Webkrauts-Adventskalender</a> erschienen.</p>
-<p><a href="http://www.webkrauts.de/comment/3748#comment-3748">In einem Kommentar</a> regt sich ein Leser darüber auf, dass das Beispielbild zur Subpixel-Glättung schlecht gewählt ist. Es wird nicht deutlich, dass die verschiedenen Farben bei üblichen Display-Panels horizontal nebeneinander angeordnet sind und durch diese Anordnung theoretisch die dreifache Auflösung erreicht werden kann.</p>
-<div class="figure">
-<img src="/log/2012/12/raster-subpixel.png" alt="Subpixel-Beispiel" /><p class="caption">Subpixel-Beispiel
+            <p>In meiner Bachelorarbeit, die den Titel „Erstellung von TrueType-Fonts zu historischen Manuskripten“ trägt, stand ich vor dem Problem, wie Zeichen in gescannten Manuskripten am besten erkannt werden können und wie sie in ein Vektorformat überführt werden können. Dazu hat es sich als hilfreich erwiesen, diese Scans zunächst in eine binarisierte Form zu bringen. Pixelmengen lassen sich sehr einfach gruppieren, wenn es nur schwarze und weiße Pixel gibt.</p>
+<p>Zunächst einmal kann man sich ohne Mühe einfache Verfahren ausdenken, die für jeden Pixel eines Bildes entscheiden, ob er schwarz oder weiß erscheinen soll. Das einfachste solche Verfahren ist, einen <em>festen Schwellwert</em> zu verwenden, nach dem das Bild aufgeteilt wird. Ist die Farbe in einem Pixel heller, so wird der Pixel weiß gefärbt, ist der Pixel dunkler, so wird der Pixel schwarz gefärbt.</p>
+<p>Bei gescannten Dokumenten und besonders historischen Schriften steht man aber vor dem Problem, dass der Kontrast zwischen Schrift und Hintergrund (teilweise vergilbtes Papier oder Pergament) sehr klein werden können. Außerdem können einzelne Bildbereiche heller oder dunkler sein als andere. Deshalb lässt sich die Schrift mit einem festen Schwellwert nur noch sehr schlecht vom Hintergrund trennen.
           </section>
           <footer>
-            <p><a href="/log/2012/12/subpixel.html">Read on »</a></p>
+            <p><a href="/log/2013/01/binarisierung.html">Read on »</a></p>
           </footer>
         </article>
 
@@ -87,7 +86,7 @@
       </form>
     </aside>
     <footer id="about">
-      <p>© 2008-2012 – Paul Vorbach.
+      <p>© 2008-2013 – Paul Vorbach.
         <a href="/info/contact.html">Contact</a>.</p>
     </footer>
   </body>

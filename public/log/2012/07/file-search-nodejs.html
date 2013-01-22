@@ -88,7 +88,7 @@
   <span class="kw">var</span> query = <span class="kw">url</span>.<span class="fu">parse</span>(<span class="kw">req</span>.<span class="fu">url</span>, <span class="kw">true</span>).<span class="fu">query</span>;
 
   <span class="co">// ensure both are != null or &#39;&#39;</span>
-<span class="er">  if (query &amp;&amp; query.s) {</span>
+  <span class="kw">if</span> (query &amp;&amp; <span class="kw">query</span>.<span class="fu">s</span>) {
     <span class="co">// replace single with double quotes</span>
     <span class="kw">query</span>.<span class="fu">s</span> = <span class="kw">query.s</span>.<span class="fu">replace</span>(<span class="st">&quot;&#39;&quot;</span>, <span class="ch">&#39;&quot;&#39;</span>);
 

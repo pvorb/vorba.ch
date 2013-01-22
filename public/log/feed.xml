@@ -3,64 +3,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de: Articles</title>
   <subtitle>vorb opposes recursive backronyms</subtitle>
-  <updated>2012-12-08T02:24:52.731Z</updated>
+  <updated>2013-01-22T20:39:49.752Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
   </author>
-  <rights>© 2008-2012 Paul Vorbach</rights>
+  <rights>© 2008-2013 Paul Vorbach</rights>
   <link href="https://vorb.de/log/"/>
   <link rel="self" href="https://vorb.de/log/feed.xml"/>
   <category term="computer"/>
   <category term="web"/>
   <category term="development"/>
   <icon>https://vorb.de/favicon.ico</icon>
-
-  <entry>
-    <title>Suchschlitz und Benutzbarkeit</title>
-    <link href="https://vorb.de/log/2012/05/suchschlitz-und-benutzbarkeit.html"/>
-    <id>http://vorb.de/log/2012/05/suchschlitz-und-benutzbarkeit.html</id>
-    <updated>2012-05-05T21:10:00.000Z</updated>
-    <author>
-      <name>Paul Vorbach</name>
-      <uri>https://vorb.de/</uri>
-    </author>
-    <content type="html">
-
-      &lt;p&gt;&lt;img src="https://vorb.de/log/2012/05/typewriter.jpg"&gt;&lt;/p&gt;
-
-      &lt;p&gt;Die &lt;a href=&quot;https://vorb.de/log/2012/03/volltextsuche.html&quot;&gt;Volltextsuche&lt;/a&gt; hat sich jetzt schon zwei Monate bewährt. Also habe ich nun einen Suchschlitz ins Design eingebaut.&lt;/p&gt;
-&lt;p&gt;Und wo ich schon dabei war, jedes Template zu ändern, habe ich auch gleich noch ein paar nette Tastenkombinationen eingefügt, die die Seite für Tastatur-Fanatiker (wie mich) einfacher bedienbar machen sollen.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Im Firefox muss man &lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;⇧ Shift&lt;/code&gt; + die genannte Taste unter Windows und &lt;code&gt;Ctrl&lt;/code&gt; + Taste unter Mac drücken.&lt;/li&gt;
-&lt;li&gt;Im Chrome reicht &lt;code&gt;Alt&lt;/code&gt; + die genannte Taste (bei bereits belegten Kombinationen muss zusätzlich &lt;code&gt;⇧ Shift&lt;/code&gt; gedrückt werden) unter Windows, Mac benötigt &lt;code&gt;Ctrl&lt;/code&gt; + &lt;code&gt;⌥ Opt&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Genauso geht es in Safari.&lt;/li&gt;
-&lt;li&gt;Im Internet Explorer funktioniert es wie in Chrome und Safari mit &lt;code&gt;Alt&lt;/code&gt;, nur dass die Links hier lediglich vorausgewählt werden und man mit &lt;code&gt;Return&lt;/code&gt; bestätigen muss.&lt;/li&gt;
-&lt;li&gt;In Opera aktiviert man den „Access-Key-Modus“ mit &lt;code&gt;⇧ Shift&lt;/code&gt; + &lt;code&gt;Esc&lt;/code&gt; und kann dann die genannten Tasten drücken.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Sinnvoll fände ich, wenn das plattformübergreifend ganz ohne Modifier-Tasten funktionieren würde. Das ist nämlich nirgends belegt und könnte somit überall gleich funktionieren. Aber man kann schließlich nicht alles haben.&lt;/p&gt;
-&lt;p&gt;Die Tasten sind folgendermaßen belegt:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;H&lt;/code&gt;: Zur Startseite wechseln&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;L&lt;/code&gt;: Zum „Blog“ wechseln&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;I&lt;/code&gt;: Zu den Info-Seiten wechseln&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;T&lt;/code&gt;: Zum Seitenanfang springen&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;S&lt;/code&gt;: Zur Suche springen&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;C&lt;/code&gt;: Zu den Kommentaren springen (nur bei Seiten mit Kommentarfunktion)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;P&lt;/code&gt;: Zur vorherigen Seite wechseln (nur bei Index-Seiten)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;N&lt;/code&gt;: Zur nächsten Seite wechseln (nur bei Index-Seiten)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Das ganze funktioniert ganz einfach über das HTML-Attribut &lt;a href=&quot;http://www.w3.org/TR/html-markup/global-attributes.html#common.attrs.accesskey&quot;&gt;&lt;code&gt;accesskey&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-
-    </content>
-
-    <category term="deutsch"/>
-
-    <category term="html"/>
-
-    <category term="search"/>
-
-  </entry>
 
   <entry>
     <title>For loop behavior in PHP</title>
@@ -190,7 +144,7 @@ evaluation
   &lt;span class=&quot;kw&quot;&gt;var&lt;/span&gt; query = &lt;span class=&quot;kw&quot;&gt;url&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;parse&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;req&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;url&lt;/span&gt;, &lt;span class=&quot;kw&quot;&gt;true&lt;/span&gt;).&lt;span class=&quot;fu&quot;&gt;query&lt;/span&gt;;
 
   &lt;span class=&quot;co&quot;&gt;// ensure both are != null or &amp;#39;&amp;#39;&lt;/span&gt;
-&lt;span class=&quot;er&quot;&gt;  if (query &amp;amp;&amp;amp; query.s) {&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (query &amp;amp;&amp;amp; &lt;span class=&quot;kw&quot;&gt;query&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;s&lt;/span&gt;) {
     &lt;span class=&quot;co&quot;&gt;// replace single with double quotes&lt;/span&gt;
     &lt;span class=&quot;kw&quot;&gt;query&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;s&lt;/span&gt; = &lt;span class=&quot;kw&quot;&gt;query.s&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;replace&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;#39;&amp;quot;&lt;/span&gt;, &lt;span class=&quot;ch&quot;&gt;&amp;#39;&amp;quot;&amp;#39;&lt;/span&gt;);
 
@@ -460,6 +414,40 @@ evaluation
     <category term="dev"/>
 
     <category term="scala"/>
+
+  </entry>
+
+  <entry>
+    <title>Binarisierung</title>
+    <link href="https://vorb.de/log/2013/01/binarisierung.html"/>
+    <id>http://vorb.de/log/2013/01/binarisierung.html</id>
+    <updated>2013-01-21T23:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>https://vorb.de/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="https://vorb.de/log/2013/01/binarization.jpg"&gt;&lt;/p&gt;
+
+      &lt;p&gt;In meiner Bachelorarbeit, die den Titel „Erstellung von TrueType-Fonts zu historischen Manuskripten“ trägt, stand ich vor dem Problem, wie Zeichen in gescannten Manuskripten am besten erkannt werden können und wie sie in ein Vektorformat überführt werden können. Dazu hat es sich als hilfreich erwiesen, diese Scans zunächst in eine binarisierte Form zu bringen. Pixelmengen lassen sich sehr einfach gruppieren, wenn es nur schwarze und weiße Pixel gibt.&lt;/p&gt;
+&lt;p&gt;Zunächst einmal kann man sich ohne Mühe einfache Verfahren ausdenken, die für jeden Pixel eines Bildes entscheiden, ob er schwarz oder weiß erscheinen soll. Das einfachste solche Verfahren ist, einen &lt;em&gt;festen Schwellwert&lt;/em&gt; zu verwenden, nach dem das Bild aufgeteilt wird. Ist die Farbe in einem Pixel heller, so wird der Pixel weiß gefärbt, ist der Pixel dunkler, so wird der Pixel schwarz gefärbt.&lt;/p&gt;
+&lt;p&gt;Bei gescannten Dokumenten und besonders historischen Schriften steht man aber vor dem Problem, dass der Kontrast zwischen Schrift und Hintergrund (teilweise vergilbtes Papier oder Pergament) sehr klein werden können. Außerdem können einzelne Bildbereiche heller oder dunkler sein als andere. Deshalb lässt sich die Schrift mit einem festen Schwellwert nur noch sehr schlecht vom Hintergrund trennen.&lt;/p&gt;
+&lt;p&gt;Für solche Fälle existieren &lt;em&gt;adaptive&lt;/em&gt; Verfahren, die jeweils nur die Umgebung um einen Pixel beim Ermitteln eines lokalen Schwellwerts betrachten. Diese Verfahren sind aber wesentlich aufwändiger als einfache Schwellwertverfahren. Leider existieren keine Programme, die &lt;em&gt;out of the box&lt;/em&gt; Bilder adaptiv binarisieren können.&lt;/p&gt;
+&lt;p&gt;Diesen Umstand habe ich mir zum Anlass genommen, ein kleines Scala-Programm zu schreiben, das diesen Zweck erfüllt und mit einer kleinen GUI daherkommt. Zunächst einmal habe ich nur den &lt;a href=&quot;http://www.mediateam.oulu.fi/publications/pdf/24.p&quot;&gt;Binarisierungsalgorithmus nach Sauvola&lt;/a&gt; implementiert. Weitere Verfahren sollen folgen.&lt;/p&gt;
+&lt;p&gt;Zur Installation benötigt man lediglich das &lt;em&gt;Java Runtime Environment (JRE) 6&lt;/em&gt; oder höher. Die &lt;a href=&quot;https://repo.vorb.de/downloads/image-binarization.jnlp&quot;&gt;Installation erfolgt über Java WebStart&lt;/a&gt;. Der Quelltext steht unter einer &lt;a href=&quot;https://vorb.de/license/mit.html&quot;&gt;MIT-Lizenz&lt;/a&gt; und ist bei &lt;a href=&quot;https://github.com/pvorb/image-binarization&quot;&gt;GitHub&lt;/a&gt; verfügbar.&lt;/p&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="dev"/>
+
+    <category term="scala"/>
+
+    <category term="computer-vision"/>
+
+    <category term="algorithm"/>
 
   </entry>
 
