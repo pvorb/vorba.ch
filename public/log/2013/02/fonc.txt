@@ -1,0 +1,29 @@
+title: Flash Of No Content
+created: 2013-02-07
+
+tags: [ de, ux, typography ]
+teaser: fonc-small.png
+template: post.de.tpl
+
+
+Es ist noch gar nicht so lange her, da klagte man gerne mal über den
+_[Flash of Unstyled Content][fouc] (FOUC)_. Das bedeutet, beim erstmaligen Laden
+einer Webseite wurde der Inhalt für kurze Zeit ohne Formatierungen angezeigt.
+Vor allem, wenn das Stylsheet ein weiteres Stylesheet über ein
+`@import`-Statement referenziert, war der FOUC zu beobachten. Durch immer
+schnellere DSL-Verbindungen und Verbesserungen der Darstellung im Browser ist
+der FOUC heute jedoch kein großes Problem mehr.
+
+Heute kann man [einen anderen Effekt beobachten][fonc]: Wenn eine Webseite
+Webfonts zur Darstellung von Text verwendet, zeigen Webkit-Browser keinen Text,
+bis die Font-Datei heruntergeladen, geparst und der Text gerendert wurde.
+
+Ich weiß ja nicht, ob dieser _Flash of No Content_ wirklich besser ist.
+
+![Der _Flash of No Content_ auf PortableApps.com](/log/2013/02/fonc.png)
+
+Vielleicht sollte ich mal den Einsatz der _Open Sans_ für die Überschriften auf
+dieser Website überdenken…
+
+[fouc]: https://www.webkit.org/blog/66/the-fouc-problem/
+[fonc]: http://superuser.com/questions/547743/why-dont-websites-immediately-display-their-text-these-days

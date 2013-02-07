@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de" id="top">
+  <head>
+    <meta charset="utf-8">
+    <title>Flash Of No Content | vorb.de</title>
+    <link rel="stylesheet" href="/res/milten.css">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/log/feed.xml"
+      title="Artikel-Feed">
+    <link rel="alternate" type="application/atom+xml"
+      href="/log/comment-feed.xml" title="Kommentar-Feed">
+    <link rel="pingback" href="http://vorb.de/log/pingback">
+    <meta name="author" content="Paul Vorbach">
+
+    <meta name="keywords" content="de, ux, typography">
+
+  </head>
+  <body>
+    <header id="site">
+      <a href="/" accesskey="h">vorb.de</a>
+    </header>
+    <nav id="nav">
+      <ul id="branches">
+        <li class="active"><a href="/log/" accesskey="l">Blog</a>
+        <li><a href="/info/" accesskey="i">Info</a>
+      </ul>
+      <ol id="path">
+        <li><a href="/">vorb.de</a>
+
+        <li><a href="/log/">log</a>
+
+        <li><a href="/log/2013/">2013</a>
+
+        <li><a href="/log/2013/02/">02</a>
+
+        <li>fonc.html
+
+      </ol>
+      <ol id="access">
+        <li><a href="#top" title="Zum Anfang" id="back" accesskey="t">↑</a>
+        <li><a href="#nav">Navigation</a>
+        <li><a href="#content">Inhalt</a>
+        <li><a href="#comments" accesskey="c">Kommentare</a>
+      </ol>
+    </nav>
+    <article id="content">
+      <header>
+        <h1>Flash Of No Content</h1>
+        <p class="meta">von <span class="author">Paul Vorbach</span>, <span class="created">07.02.2013</span></p>
+
+        <figure class="teaser">
+          <img src="fonc-small.png">
+        </figure>
+
+      </header>
+      <section>
+        <p>Es ist noch gar nicht so lange her, da klagte man gerne mal über den <em><a href="https://www.webkit.org/blog/66/the-fouc-problem/">Flash of Unstyled Content</a> (FOUC)</em>. Das bedeutet, beim erstmaligen Laden einer Webseite wurde der Inhalt für kurze Zeit ohne Formatierungen angezeigt. Vor allem, wenn das Stylsheet ein weiteres Stylesheet über ein <code>@import</code>-Statement referenziert, war der FOUC zu beobachten. Durch immer schnellere DSL-Verbindungen und Verbesserungen der Darstellung im Browser ist der FOUC heute jedoch kein großes Problem mehr.</p>
+<p>Heute kann man <a href="http://superuser.com/questions/547743/why-dont-websites-immediately-display-their-text-these-days">einen anderen Effekt beobachten</a>: Wenn eine Webseite Webfonts zur Darstellung von Text verwendet, zeigen Webkit-Browser keinen Text, bis die Font-Datei heruntergeladen, geparst und der Text gerendert wurde.</p>
+<p>Ich weiß ja nicht, ob dieser <em>Flash of No Content</em> wirklich besser ist.</p>
+<div class="figure">
+<img src="/log/2013/02/fonc.png" alt="Der Flash of No Content auf PortableApps.com" /><p class="caption">Der <em>Flash of No Content</em> auf PortableApps.com</p>
+</div>
+<p>Vielleicht sollte ich mal den Einsatz der <em>Open Sans</em> für die Überschriften auf dieser Website überdenken…</p>
+
+      </section>
+      <footer class="meta">
+        <p>Kategorien:
+
+          <a href="/log/tag/de.html">de</a> ·
+
+          <a href="/log/tag/ux.html">ux</a> ·
+
+          <a href="/log/tag/typography.html">typography</a> 
+
+        </p>
+
+      </footer>
+    </article>
+    <section id="comments"></section>
+    <aside id="extra">
+      <form id="sf" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Suche">
+      </form>
+    </aside>
+    <footer id="about">
+      <p>© 2013 – Paul Vorbach.
+        <a href="/info/contact.html">Kontakt</a>.</p>
+    </footer>
+    <script src="/res/comments.de.min.js"></script>
+  </body>
+</html>

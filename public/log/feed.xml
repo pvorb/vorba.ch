@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de: Articles</title>
   <subtitle>vorb opposes recursive backronyms</subtitle>
-  <updated>2013-01-22T20:39:49.752Z</updated>
+  <updated>2013-02-07T20:44:15.216Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -15,87 +15,6 @@
   <category term="web"/>
   <category term="development"/>
   <icon>https://vorb.de/favicon.ico</icon>
-
-  <entry>
-    <title>For loop behavior in PHP</title>
-    <link href="https://vorb.de/log/2012/07/for-loop-behavior.html"/>
-    <id>http://vorb.de/log/2012/07/for-loop-behavior.html</id>
-    <updated>2012-07-09T11:00:00.000Z</updated>
-    <author>
-      <name>Paul Vorbach</name>
-      <uri>https://vorb.de/</uri>
-    </author>
-    <content type="html">
-
-      &lt;p&gt;&lt;img src="https://vorb.de/log/2012/07/rollercoaster.jpg"&gt;&lt;/p&gt;
-
-      &lt;p&gt;I always asked myself how often a function gets evaluated if you place it in the break condition of a for loop (or a for-each loop). Unfortunately I have always been too lazy to look for an answer – until today.&lt;/p&gt;
-&lt;p&gt;Let’s have a look at an implementation in &lt;em&gt;PHP&lt;/em&gt;:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode php&quot;&gt;&lt;code class=&quot;sourceCode php&quot;&gt;&lt;span class=&quot;kw&quot;&gt;&amp;lt;?php&lt;/span&gt;
-
-&lt;span class=&quot;kw&quot;&gt;function&lt;/span&gt; times&lt;span class=&quot;ot&quot;&gt;()&lt;/span&gt; {
-  &lt;span class=&quot;fu&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;evaluation&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;co&quot;&gt;// report evaluation&lt;/span&gt;
-  &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;;&lt;/span&gt;
-}
-
-&lt;span class=&quot;fu&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;# for loop:&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kw&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;$i&lt;/span&gt; = &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;$i&lt;/span&gt; &amp;lt; times&lt;span class=&quot;ot&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;$i&lt;/span&gt;++&lt;span class=&quot;ot&quot;&gt;)&lt;/span&gt; {
-  &lt;span class=&quot;fu&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;$i&lt;/span&gt; . &lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;;&lt;/span&gt;
-}
-
-&lt;span class=&quot;kw&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;()&lt;/span&gt; {
-  &lt;span class=&quot;fu&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;evaluation&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;co&quot;&gt;// report evaluation&lt;/span&gt;
-  &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dv&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;);&lt;/span&gt;
-}
-
-&lt;span class=&quot;fu&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;# for-each loop:&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;kw&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;fu&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;)&lt;/span&gt; {
-  &lt;span class=&quot;fu&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;$i&lt;/span&gt; . &lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;;&lt;/span&gt;
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This will print&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# for loop:
-
-evaluation
-0
-evaluation
-1
-evaluation
-2
-evaluation
-3
-evaluation
-4
-evaluation
-
-# for-each loop:
-
-evaluation
-0
-1
-2
-3
-4&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;As we can see, PHP evaluates the break condition of a &lt;em&gt;for loop&lt;/em&gt; at each iteration, whereas in a &lt;em&gt;foreach loop&lt;/em&gt;, the set of values over which the loop iterates, only gets evaluated once.&lt;/p&gt;
-&lt;p&gt;So, if you use a function with an expensive calculation as a break condition in a for loop, just store that value in a temporary variable. E.g.:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode php&quot;&gt;&lt;code class=&quot;sourceCode php&quot;&gt;&lt;span class=&quot;kw&quot;&gt;&amp;lt;?php&lt;/span&gt;
-
-&lt;span class=&quot;kw&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;ot&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;$i&lt;/span&gt; = &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;$times&lt;/span&gt; = times&lt;span class=&quot;ot&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;$i&lt;/span&gt; &amp;lt; &lt;span class=&quot;kw&quot;&gt;$times&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;$i&lt;/span&gt;++&lt;span class=&quot;ot&quot;&gt;)&lt;/span&gt; {
-  &lt;span class=&quot;co&quot;&gt;// ...&lt;/span&gt;
-}&lt;/code&gt;&lt;/pre&gt;
-
-    </content>
-
-    <category term="english"/>
-
-    <category term="note"/>
-
-    <category term="dev"/>
-
-    <category term="php"/>
-
-  </entry>
 
   <entry>
     <title>File search in Node.js</title>
@@ -430,7 +349,7 @@ evaluation
 
       &lt;p&gt;&lt;img src="https://vorb.de/log/2013/01/binarization.jpg"&gt;&lt;/p&gt;
 
-      &lt;p&gt;In meiner Bachelorarbeit, die den Titel „Erstellung von TrueType-Fonts zu historischen Manuskripten“ trägt, stand ich vor dem Problem, wie Zeichen in gescannten Manuskripten am besten erkannt werden können und wie sie in ein Vektorformat überführt werden können. Dazu hat es sich als hilfreich erwiesen, diese Scans zunächst in eine binarisierte Form zu bringen. Pixelmengen lassen sich sehr einfach gruppieren, wenn es nur schwarze und weiße Pixel gibt.&lt;/p&gt;
+      &lt;p&gt;In meiner Bachelorarbeit, die den Titel „Erstellung von TrueType-Fonts zu historischen Manuskripten“ trägt, stand ich vor dem Problem, wie Zeichen in gescannten Manuskripten am besten erkannt werden können und wie sie in ein Vektorformat überführt werden können. Dazu hat es sich als hilfreich erwiesen, solche Scans zunächst in eine binarisierte Form zu bringen. Pixelmengen lassen sich sehr einfach gruppieren, wenn es nur schwarze und weiße Pixel gibt.&lt;/p&gt;
 &lt;p&gt;Zunächst einmal kann man sich ohne Mühe einfache Verfahren ausdenken, die für jeden Pixel eines Bildes entscheiden, ob er schwarz oder weiß erscheinen soll. Das einfachste solche Verfahren ist, einen &lt;em&gt;festen Schwellwert&lt;/em&gt; zu verwenden, nach dem das Bild aufgeteilt wird. Ist die Farbe in einem Pixel heller, so wird der Pixel weiß gefärbt, ist der Pixel dunkler, so wird der Pixel schwarz gefärbt.&lt;/p&gt;
 &lt;p&gt;Bei gescannten Dokumenten und besonders historischen Schriften steht man aber vor dem Problem, dass der Kontrast zwischen Schrift und Hintergrund (teilweise vergilbtes Papier oder Pergament) sehr klein werden können. Außerdem können einzelne Bildbereiche heller oder dunkler sein als andere. Deshalb lässt sich die Schrift mit einem festen Schwellwert nur noch sehr schlecht vom Hintergrund trennen.&lt;/p&gt;
 &lt;p&gt;Für solche Fälle existieren &lt;em&gt;adaptive&lt;/em&gt; Verfahren, die jeweils nur die Umgebung um einen Pixel beim Ermitteln eines lokalen Schwellwerts betrachten. Diese Verfahren sind aber wesentlich aufwändiger als einfache Schwellwertverfahren. Leider existieren keine Programme, die &lt;em&gt;out of the box&lt;/em&gt; Bilder adaptiv binarisieren können.&lt;/p&gt;
@@ -448,6 +367,37 @@ evaluation
     <category term="computer-vision"/>
 
     <category term="algorithm"/>
+
+  </entry>
+
+  <entry>
+    <title>Flash Of No Content</title>
+    <link href="https://vorb.de/log/2013/02/fonc.html"/>
+    <id>http://vorb.de/log/2013/02/fonc.html</id>
+    <updated>2013-02-06T23:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>https://vorb.de/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="https://vorb.de/log/2013/02/fonc-small.png"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Es ist noch gar nicht so lange her, da klagte man gerne mal über den &lt;em&gt;&lt;a href=&quot;https://www.webkit.org/blog/66/the-fouc-problem/&quot;&gt;Flash of Unstyled Content&lt;/a&gt; (FOUC)&lt;/em&gt;. Das bedeutet, beim erstmaligen Laden einer Webseite wurde der Inhalt für kurze Zeit ohne Formatierungen angezeigt. Vor allem, wenn das Stylsheet ein weiteres Stylesheet über ein &lt;code&gt;@import&lt;/code&gt;-Statement referenziert, war der FOUC zu beobachten. Durch immer schnellere DSL-Verbindungen und Verbesserungen der Darstellung im Browser ist der FOUC heute jedoch kein großes Problem mehr.&lt;/p&gt;
+&lt;p&gt;Heute kann man &lt;a href=&quot;http://superuser.com/questions/547743/why-dont-websites-immediately-display-their-text-these-days&quot;&gt;einen anderen Effekt beobachten&lt;/a&gt;: Wenn eine Webseite Webfonts zur Darstellung von Text verwendet, zeigen Webkit-Browser keinen Text, bis die Font-Datei heruntergeladen, geparst und der Text gerendert wurde.&lt;/p&gt;
+&lt;p&gt;Ich weiß ja nicht, ob dieser &lt;em&gt;Flash of No Content&lt;/em&gt; wirklich besser ist.&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;https://vorb.de/log/2013/02/fonc.png&quot; alt=&quot;Der Flash of No Content auf PortableApps.com&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Der &lt;em&gt;Flash of No Content&lt;/em&gt; auf PortableApps.com&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Vielleicht sollte ich mal den Einsatz der &lt;em&gt;Open Sans&lt;/em&gt; für die Überschriften auf dieser Website überdenken…&lt;/p&gt;
+
+    </content>
+
+    <category term="de"/>
+
+    <category term="ux"/>
+
+    <category term="typography"/>
 
   </entry>
 
