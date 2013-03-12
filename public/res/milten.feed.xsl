@@ -18,8 +18,8 @@
         </header>
         <nav id="nav">
           <ul id="branches">
-            <li class="active"><a href="/log/" accesskey="l">Blog</a></li>
-            <li><a href="/info/" accesskey="i">Info</a></li>
+            <li class="active"><a href="/log/" accesskey="l">/log</a></li>
+            <li><a href="/info/" accesskey="i">/info</a></li>
           </ul>
           <ol id="path">
             <li><a href="/">vorb.de</a></li>

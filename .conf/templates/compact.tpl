@@ -11,8 +11,8 @@
     <header id="site"><a href="/"><%- siteTitle %></a></header>
     <nav id="nav">
       <ul id="branches">
-        <li><a href="/log/">Blog</a>
-        <li class="active"><a href="/info/">Info</a>
+        <li><a href="/log/">/log</a>
+        <li class="active"><a href="/info/">/info</a>
       </ul>
       <ol id="path">
         <li>Home

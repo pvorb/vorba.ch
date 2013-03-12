@@ -22,8 +22,8 @@ function getDate(d) {
     </header>
     <nav id="nav">
       <ul id="branches">
-        <li class="active"><a href="/log/" accesskey="l">Blog</a>
-        <li><a href="/info/" accesskey="i">Info</a>
+        <li class="active"><a href="/log/" accesskey="l">/log</a>
+        <li><a href="/info/" accesskey="i">/info</a>
       </ul>
       <ol id="path"><%
   var path = ('/log/tag').split('/');

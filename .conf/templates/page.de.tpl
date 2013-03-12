@@ -26,9 +26,9 @@ if (locals.tags) {
     <nav id="nav">
       <ul id="branches">
         <li<%- locals.branch == 'log' ? ' class="active"' : ''
-          %>><a href="/log/" accesskey="l">Blog</a>
+          %>><a href="/log/" accesskey="l">/blog</a>
         <li<%- locals.branch == 'info' ? ' class="active"' : ''
-          %>><a href="/info/" accesskey="i">Info</a>
+          %>><a href="/info/" accesskey="i">/info</a>
       </ul>
       <ol id="path"><%
   var path = _id.replace(/\/index\.html$/, '');

@@ -27,8 +27,8 @@ function indentHeadings(text) {
     <header id="site"><%- siteTitle %></header>
     <nav id="nav">
       <ul id="branches">
-        <li><a href="/log/" accesskey="l">Blog</a>
-        <li><a href="/info/" accesskey="i">Info</a>
+        <li><a href="/log/" accesskey="l">/log</a>
+        <li><a href="/info/" accesskey="i">/info</a>
       </ul>
       <ol id="path">
         <li>vorb.de

@@ -14,8 +14,8 @@
     </header>
     <nav id="nav">
       <ul id="branches">
-        <li><a href="/log/">Blog</a>
-        <li><a href="/info/">Info</a>
+        <li><a href="/log/">/log</a>
+        <li><a href="/info/">/info</a>
       </ul>
       <ol id="path"><%
   var path = '/search.html';
