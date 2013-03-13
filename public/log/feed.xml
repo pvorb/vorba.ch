@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de: Articles</title>
   <subtitle>vorb opposes recursive backronyms</subtitle>
-  <updated>2013-03-13T00:23:42.304Z</updated>
+  <updated>2013-03-13T22:04:12.898Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -15,38 +15,6 @@
   <category term="web"/>
   <category term="development"/>
   <icon>https://vorb.de/favicon.ico</icon>
-
-  <entry>
-    <title>Gitit</title>
-    <link href="https://vorb.de/log/2012/07/gitit.html"/>
-    <id>http://vorb.de/log/2012/07/gitit.html</id>
-    <updated>2012-07-21T22:00:00.000Z</updated>
-    <author>
-      <name>Paul Vorbach</name>
-      <uri>https://vorb.de/</uri>
-    </author>
-    <content type="html">
-
-      &lt;p&gt;&lt;img src="https://vorb.de/log/2012/07/gitit.png"&gt;&lt;/p&gt;
-
-      &lt;p&gt;Vor einiger Zeit (vermutlich im Zusammenhang mit &lt;a href=&quot;https://vorb.de/log/2012/04/pandoc.html&quot;&gt;Pandoc&lt;/a&gt;) bin ich über die Wiki-Software &lt;a href=&quot;https://github.com/jgm/gitit/&quot;&gt;Gitit&lt;/a&gt; gestolpert. Gitit ist – genau wie Pandoc – in Haskell geschrieben und verwendet Git zur Versionierung der einzelnen Artikel. Außerdem wird Pandoc zum Übersetzen der Texte verwendet, sodass man zahlreiche Markup-Sprachen wie Markdown oder LaTeX verwenden kann. Der eine oder andere wird das schon von den Github-Wikis kennen.&lt;/p&gt;
-&lt;p&gt;Ich hatte schon lange den Wunsch, ein Wiki für persönliche Notizen zu haben. Also habe ich mir heute die Zeit genommen und Gitit &lt;a href=&quot;https://wiki.vorb.de/&quot;&gt;aufgesetzt&lt;/a&gt;. Unter Debian ist das eine Aufgabe von 10 Minuten. Hier habe ich vor, ab und zu mal ein paar Notizen zu dem ein oder anderen Projekt aufzuschreiben oder schon ein paar Gedanken für Artikel aufzuschreiben. Vielleicht wird auch mehr daraus.&lt;/p&gt;
-
-    </content>
-
-    <category term="deutsch"/>
-
-    <category term="wiki"/>
-
-    <category term="haskell"/>
-
-    <category term="pandoc"/>
-
-    <category term="markdown"/>
-
-    <category term="github"/>
-
-  </entry>
 
   <entry>
     <title>HTTPS</title>
@@ -349,6 +317,54 @@
     <category term="json"/>
 
     <category term="javascript"/>
+
+  </entry>
+
+  <entry>
+    <title>Einfaches PHP-CMS</title>
+    <link href="https://vorb.de/log/2013/03/einfaches-php-cms.html"/>
+    <id>http://vorb.de/log/2013/03/einfaches-php-cms.html</id>
+    <updated>2013-03-13T22:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>https://vorb.de/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="https://vorb.de/log/2013/03/pen-and-notebook.jpg"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Ich schreibe gerade an einem CMS. In PHP. Ja, richtig gehört: PHP. Wie kommt jemand, der täglich mit Node.js, Scala und noch abgefahreneren Sprachen zu tun hat, ausgerechnet auf PHP? Die Antwort ist ganz einfach. Das ganze soll auf jedem noch so günstigen Webspace laufen und das möglichst ohne Konfiguration. Dazu kommt nur PHP in Frage.&lt;/p&gt;
+&lt;p&gt;Nachdem ich seit 2011 viel mit neuen Sprachen und Plattformen experimentiert habe, tut es ganz gut, mal wieder einfachstes PHP in den Bildschirm zu meißeln.&lt;/p&gt;
+&lt;h2 id=&quot;warum-noch-ein-cms&quot;&gt;Warum &lt;em&gt;noch ein&lt;/em&gt; CMS?&lt;/h2&gt;
+&lt;p&gt;Ich habe mir im Zuge eines kleineren privaten Projekts viele verschiedene Systeme angeschaut. Bei jedem CMS habe ich mir gedacht: Das geht auch einfacher.&lt;/p&gt;
+&lt;p&gt;Mein Use Case ist eine kleine Website mit einer Hand voll Seiten, die von mir vorgefertigt erstellt werden und danach von angemeldeten Benutzern editiert werden können sollen. Also muss ich es halt selbst machen, es sei den jemand nennt mir in den Kommentaren ein CMS, das genau das tut und nicht wesentlich mehr. &lt;em&gt;Daran glaube ich aber nicht.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Hier in ein paar Stichpunkten, was mir so vorschwebt:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Websites bestehen aus HTML. Daher wird es einen einzigen Inhaltstyp geben: HTML-Snippets. Diese werden dann über Templates in einer oder mehreren Seite(n) platziert.&lt;/li&gt;
+&lt;li&gt;Andere Möglichkeiten zur Definition von Inhalten sind nur noch händisch getippelte HTML- oder PHP-Dateien.&lt;/li&gt;
+&lt;li&gt;PHP ist eine Templatesprache. D.h. für Templates wird reines HTML mit eingebettetem PHP verwendet.&lt;/li&gt;
+&lt;li&gt;Es wird keinerlei Rechteverwaltung geben. Nach dem Login darf man alles editieren, was existiert. Meiner Meinung stören aufwendige Rechtesysteme meist nur bei der täglichen Arbeit. Hier geht es definitiv ohne.&lt;/li&gt;
+&lt;li&gt;Das Backend umfasst nur 2 bis 3 Seiten:
+&lt;ol style=&quot;list-style-type: decimal&quot;&gt;
+&lt;li&gt;Eine Editor-Seite, in der man die HTML-Snippets editieren kann&lt;/li&gt;
+&lt;li&gt;Eine Liste der Benutzer mit Funktionen zum Hinzufügen und Entfernen&lt;/li&gt;
+&lt;li&gt;Eventuell noch zusätzlich ein Formular, in dem man die Templates anpassen kann, sollte man keinen FTP-Zugang o.ä. haben&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Die Editor-Seite wird vielleicht einen WYSIWYG-Editor spendiert bekommen, (der sich abstellen lässt), damit auch HTML-unerfahrene Benutzer das CMS benutzen können. Hier habe ich lange überlegt, ob ich vielleicht nicht lieber stattdessen Markdown anbieten soll. Je länger ich überlege, desto schwerer fällt mir die Wahl. Vielleicht bleibe ich doch bei einfachem Markdown mit Vorschau, wie hier in den Kommentaren. Vielleicht kann mir ja jemand mit Erfahrung in diesem Bereich die Entscheidung erleichtern.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Beim Endprodukt kann man dann wohl kaum noch von einem CMS sprechen (denn verwaltet wird ja nicht viel), aber einen anderen Namen habe ich dafür nicht. Website-Editor vielleicht...&lt;/p&gt;
+&lt;p&gt;Die Entwicklung am CMS kann im &lt;a href=&quot;https://github.com/pvorb/chx&quot;&gt;GitHub-Repository&lt;/a&gt; verfolgt werden. Ich habe aber gerade erst damit begonnen, also erwartet noch nicht zu viel.&lt;/p&gt;
+&lt;p&gt;Meinungen und Ratschläge: Immer her damit!&lt;/p&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="dev"/>
+
+    <category term="php"/>
+
+    <category term="cms"/>
 
   </entry>
 
