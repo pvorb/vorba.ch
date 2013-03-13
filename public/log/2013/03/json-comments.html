@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+  <head>
+    <meta charset="utf-8">
+    <title>Why are comments not allowed in JSON? | vorb.de</title>
+    <link rel="stylesheet" href="/res/milten.css">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/log/feed.xml"
+      title="Article feed">
+    <link rel="alternate" type="application/atom+xml"
+      href="/log/comment-feed.xml" title="Comment feed">
+    <link rel="pingback" href="http://vorb.de/log/pingback">
+    <meta name="author" content="Paul Vorbach">
+
+    <meta name="keywords" content="english, dev, json, javascript">
+
+  </head>
+  <body>
+    <header id="site">
+      <a href="/" accesskey="h">vorb.de</a>
+    </header>
+    <nav id="nav">
+      <ul id="branches">
+        <li class="active"><a href="/log/" accesskey="l">/log</a>
+        <li><a href="/info/" accesskey="i">/info</a>
+      </ul>
+      <ol id="path">
+        <li><a href="/">vorb.de</a>
+
+        <li><a href="/log/">log</a>
+
+        <li><a href="/log/2013/">2013</a>
+
+        <li><a href="/log/2013/03/">03</a>
+
+        <li>json-comments.html
+
+      </ol>
+      <ol id="access">
+        <li><a href="#top" title="To the top" id="back" accesskey="t">↑</a>
+        <li><a href="#nav">Navigation</a>
+        <li><a href="#content">Content</a>
+        <li><a href="#comments" accesskey="c">Comments</a>
+      </ol>
+    </nav>
+    <article id="content">
+      <header>
+        <h1>Why are comments not allowed in JSON?</h1>
+        <p class="meta">by <span class="author">Paul Vorbach</span>, <span class="created">2013-03-13</span></p>
+
+        <figure class="teaser">
+          <img src="json.png">
+        </figure>
+
+      </header>
+      <section>
+        <p>Every markup or data exchange format that I am aware of, supports the definition of comments. There’s only one exception: <a href="http://json.org/">JSON</a>.</p>
+<p>I am dealing with JSON a lot these days. Recently, many developers prefer JSON over the more complex <a href="http://www.w3.org/XML/">XML</a> that’s been around for a while now. And that’s why it’s common practice to implement <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">REST</a>-APIs in JSON instead of XML. Another common use case for JSON documents is configuration of software systems of all kind. Regularly I feel a need to comment some lines of such JSON documents. Maybe it’s just to clarify my intention or to make some notes for later.</p>
+<p>If you work with JSON a lot, you will once come to a point where it would be great if you could have comments on some properties, a specific value or the like. Since JSON is a subset from JavaScript, one could think it would allow comments like in this example:</p>
+<pre class="sourceCode javascript"><code class="sourceCode javascript">{
+  <span class="st">&quot;key&quot;</span>: <span class="st">&quot;value&quot;</span> <span class="co">// comment</span>
+}</code></pre>
+<p>But it doesn’t. The <a href="http://json.org/">JSON website</a> doesn’t say much about this circumstance. The <a href="http://tools.ietf.org/html/rfc4627.html">corresponding RFC</a> doesn’t either. Douglas Crockford, who is said to have discovered JSON, gives <a href="http://youtu.be/-C-JoyNuQJs?t=16m6s">the answer</a> in his talk “The JSON Saga”. He states that initially you were allowed to use <code>// comments after a double slash</code> as well as <code>/* block comments */</code> in JSON. Later he decided to remove support for comments because of three reasons:</p>
+<ol style="list-style-type: decimal">
+<li><p>Dangerous practices</p>
+<blockquote>
+<p>“People were putting instructions to the parser in comments, which was a really bad thing, because that would totally break interoperability, because this whole level of metalanguage wouldn’t be common, which would be outside of the standard.”</p>
+</blockquote></li>
+<li><p>Unnecessary complexity</p>
+<blockquote>
+<p>“[...] And for some of the ports to other languages about half of the complexity of doing the thing was just doing the comments [...]”</p>
+</blockquote></li>
+<li><p>Alignment with <a href="http://yaml.org/">YAML</a></p></li>
+</ol>
+<p>I don’t really think that these are valid reasons for removing something as quintessential as comments, but at least there are reasons for this decision.</p>
+<p>There are two possible ways of working around the lack of comments (besides from being frustrated and leaving them out).</p>
+<ol style="list-style-type: decimal">
+<li><p>You can either agree on a special property that holds a comment for the surrounding object. For example:</p>
+<pre class="sourceCode json"><code class="sourceCode json">{
+  <span class="dt">&quot;key&quot;</span>: <span class="st">&quot;value&quot;</span>,
+  <span class="dt">&quot;__comment&quot;</span>: <span class="st">&quot;defines a key and a value&quot;</span>
+}</code></pre></li>
+<li><p>Or you could use another markup format that supports comments. Examples would be XML, YAML or the newer <a href="https://github.com/typesafehub/config/blob/master/HOCON.md">HOCON (Human-Optimized Config Object Notation)</a>.</p></li>
+</ol>
+<p>Personally, I think that YAML is a bloated spec and HOCON is preferably used to configure software systems. Sometimes, bringing XML to client-side web applications can be a real pain, so in-JSON comments often are the only solution.</p>
+
+      </section>
+      <footer class="meta">
+        <p>Tags:
+
+          <a href="/log/tag/english.html">english</a> ·
+
+          <a href="/log/tag/dev.html">dev</a> ·
+
+          <a href="/log/tag/json.html">json</a> ·
+
+          <a href="/log/tag/javascript.html">javascript</a> 
+
+        </p>
+
+      </footer>
+    </article>
+    <section id="comments"></section>
+    <aside id="extra">
+      <form id="sf" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Search">
+      </form>
+    </aside>
+    <footer id="about">
+      <p>© 2013 – Paul Vorbach.
+        <a href="/info/contact.html">Contact</a>.</p>
+    </footer>
+    <script src="/res/comments.en.min.js"></script>
+  </body>
+</html>

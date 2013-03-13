@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de: Articles</title>
   <subtitle>vorb opposes recursive backronyms</subtitle>
-  <updated>2013-03-12T20:24:59.316Z</updated>
+  <updated>2013-03-13T00:15:37.130Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -15,110 +15,6 @@
   <category term="web"/>
   <category term="development"/>
   <icon>https://vorb.de/favicon.ico</icon>
-
-  <entry>
-    <title>File search in Node.js</title>
-    <link href="https://vorb.de/log/2012/07/file-search-nodejs.html"/>
-    <id>http://vorb.de/log/2012/07/file-search-nodejs.html</id>
-    <updated>2013-02-13T09:30:00.000Z</updated>
-    <author>
-      <name>Paul Vorbach</name>
-      <uri>https://vorb.de/</uri>
-    </author>
-    <content type="html">
-
-      &lt;p&gt;&lt;img src="https://vorb.de/log/2012/07/magnify.jpg"&gt;&lt;/p&gt;
-
-      &lt;p&gt;Since the German blog post &lt;a href=&quot;https://vorb.de/log/2012/03/volltextsuche.html&quot;&gt;Volltextsuche&lt;/a&gt; is the most clicked on this blog, I’ll explain, how I realised the full-text search of this website with the help of Node.js.&lt;/p&gt;
-&lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
-&lt;p&gt;You need to be on a Linux/Unix machine, since the search uses native command line commands like &lt;a href=&quot;http://en.wikipedia.org/wiki/Find&quot;&gt;&lt;code&gt;find&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;http://en.wikipedia.org/wiki/Grep&quot;&gt;&lt;code&gt;grep&lt;/code&gt;&lt;/a&gt; and you need to have &lt;a href=&quot;http://nodejs.org/&quot;&gt;Node.js&lt;/a&gt; (v0.4.0+) installed. Maybe there is a similar way to do it on Windows, too. I think you could install &lt;a href=&quot;http://git-scm.com/download&quot;&gt;Git for Windows&lt;/a&gt; and add the &lt;code&gt;/bin&lt;/code&gt; directory to your system &lt;code&gt;PATH&lt;/code&gt; to use the same commands on Windows. If somebody has a better solution (maybe one that works out of the box) he/she may &lt;a href=&quot;https://vorb.de/log/2012/07/file-search-nodejs.html#comments&quot;&gt;leave a comment&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;finding-files-on-the-command-line&quot;&gt;Finding files on the command line&lt;/h2&gt;
-&lt;p&gt;If you are in a Unix shell, you don’t have a nifty search box, that lets you search for files in your current working directory. Instead, you have the command &lt;code&gt;find&lt;/code&gt;, that lets you search for files by specifying various arguments.&lt;/p&gt;
-&lt;p&gt;For example with &lt;code&gt;find . -name '*.txt'&lt;/code&gt; you can search for all files (or directories) ending in &lt;code&gt;.txt&lt;/code&gt; in the current working directory and in any subdirectories.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;But how would you search for the contents of a file?&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;This is quite a bit more difficult to find out. There’s another command, &lt;code&gt;grep&lt;/code&gt;, that allows you to filter lines from &lt;code&gt;stdin&lt;/code&gt; or from the contents of a given file.&lt;/p&gt;
-&lt;p&gt;Usually, Unix shells allow you to use the pipe character &lt;code&gt;|&lt;/code&gt; to combine commands. This way, you can use &lt;code&gt;find&lt;/code&gt; to first find all files of a specific type and the to filter out all the files that contain a specific search string, as follows:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode bash&quot;&gt;&lt;code class=&quot;sourceCode bash&quot;&gt;&lt;span class=&quot;kw&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;.&lt;/span&gt; -name &lt;span class=&quot;st&quot;&gt;&amp;#39;*.html&amp;#39;&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;xargs&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;#39;example&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The command &lt;code&gt;xargs&lt;/code&gt; makes sure, that the results of find are used as arguments for grep, so that it reads the contents of each file. As a result, the command returns a line seperated list of HTML files, that contain the string “example”.&lt;/p&gt;
-&lt;p&gt;To improve results and prevent errors, the command can still be improved.&lt;/p&gt;
-&lt;pre class=&quot;sourceCode bash&quot;&gt;&lt;code class=&quot;sourceCode bash&quot;&gt;&lt;span class=&quot;kw&quot;&gt;find&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;.&lt;/span&gt; -iname &lt;span class=&quot;st&quot;&gt;&amp;#39;*.html&amp;#39;&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;xargs&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;#39;example&amp;#39;&lt;/span&gt; -isl&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This way, it doesn’t matter if file names are upper- or lowercase and the text search is also case insensitive. Binary content is ignored and warnings will be suppressed.&lt;/p&gt;
-&lt;h2 id=&quot;the-basic-code&quot;&gt;The basic code&lt;/h2&gt;
-&lt;p&gt;Let’s have a look at the required JavaScript code.&lt;/p&gt;
-&lt;p&gt;What you need to write is a simple HTTP server, that parses the query part of the URL from a HTTP GET request. The search module only takes one parameter, &lt;code&gt;s&lt;/code&gt;, like in &lt;code&gt;http://vorb.de/search.html?s=example&lt;/code&gt;. This website (vorb.de) uses a small REST framework of mine, &lt;a href=&quot;https://github.com/pvorb/node-api&quot;&gt;api&lt;/a&gt;, which enables me to register modules for different URLs, but I’ll only show how to do it without any framework. This way you can adapt the solution to your framework of choice (&lt;a href=&quot;http://expressjs.com/&quot;&gt;express&lt;/a&gt;, &lt;a href=&quot;http://flatironjs.org/&quot;&gt;flatiron&lt;/a&gt;, &lt;a href=&quot;https://github.com/joyent/node/wiki/Modules#wiki-web-frameworks-full&quot;&gt;etc.&lt;/a&gt;).&lt;/p&gt;
-&lt;p&gt;You need to load several packages during start-up:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode javascript&quot;&gt;&lt;code class=&quot;sourceCode javascript&quot;&gt;&lt;span class=&quot;kw&quot;&gt;var&lt;/span&gt; http = require(&lt;span class=&quot;ch&quot;&gt;&amp;#39;http&amp;#39;&lt;/span&gt;);
-&lt;span class=&quot;kw&quot;&gt;var&lt;/span&gt; url = require(&lt;span class=&quot;ch&quot;&gt;&amp;#39;url&amp;#39;&lt;/span&gt;);
-&lt;span class=&quot;kw&quot;&gt;var&lt;/span&gt; exec = require(&lt;span class=&quot;ch&quot;&gt;&amp;#39;child_process&amp;#39;&lt;/span&gt;).&lt;span class=&quot;fu&quot;&gt;exec&lt;/span&gt;;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;After that, define some other values:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode javascript&quot;&gt;&lt;code class=&quot;sourceCode javascript&quot;&gt;&lt;span class=&quot;co&quot;&gt;// timeout in ms for a single search&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;var&lt;/span&gt; timeout = &lt;span class=&quot;dv&quot;&gt;10000&lt;/span&gt;;
-&lt;span class=&quot;co&quot;&gt;// specify the root directory, where the search will begin&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;var&lt;/span&gt; root = &lt;span class=&quot;kw&quot;&gt;process&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;cwd&lt;/span&gt;();&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Now you can write the server code:&lt;/p&gt;
-&lt;pre class=&quot;sourceCode javascript&quot;&gt;&lt;code class=&quot;sourceCode javascript&quot;&gt;&lt;span class=&quot;kw&quot;&gt;var&lt;/span&gt; server = &lt;span class=&quot;kw&quot;&gt;http&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;createServer&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;function&lt;/span&gt; (req, resp) {
-  &lt;span class=&quot;co&quot;&gt;// parse the request url&lt;/span&gt;
-  &lt;span class=&quot;co&quot;&gt;// the query is everything after the &amp;#39;?&amp;#39;&lt;/span&gt;
-  &lt;span class=&quot;co&quot;&gt;// the second param says that the query shall be evaluated&lt;/span&gt;
-  &lt;span class=&quot;kw&quot;&gt;var&lt;/span&gt; query = &lt;span class=&quot;kw&quot;&gt;url&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;parse&lt;/span&gt;(&lt;span class=&quot;kw&quot;&gt;req&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;url&lt;/span&gt;, &lt;span class=&quot;kw&quot;&gt;true&lt;/span&gt;).&lt;span class=&quot;fu&quot;&gt;query&lt;/span&gt;;
-
-  &lt;span class=&quot;co&quot;&gt;// ensure both are != null or &amp;#39;&amp;#39;&lt;/span&gt;
-  &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (query &amp;amp;&amp;amp; &lt;span class=&quot;kw&quot;&gt;query&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;s&lt;/span&gt;) {
-    &lt;span class=&quot;co&quot;&gt;// replace single with double quotes&lt;/span&gt;
-    &lt;span class=&quot;kw&quot;&gt;query&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;s&lt;/span&gt; = &lt;span class=&quot;kw&quot;&gt;query.s&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;replace&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;#39;&amp;quot;&lt;/span&gt;, &lt;span class=&quot;ch&quot;&gt;&amp;#39;&amp;quot;&amp;#39;&lt;/span&gt;);
-
-    &lt;span class=&quot;co&quot;&gt;// run the search&lt;/span&gt;
-    exec(&lt;span class=&quot;st&quot;&gt;&amp;quot;find . -iname &amp;#39;*html&amp;#39; | xargs grep &amp;#39;&amp;quot;&lt;/span&gt;+&lt;span class=&quot;kw&quot;&gt;query&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;s&lt;/span&gt;+
-        &lt;span class=&quot;st&quot;&gt;&amp;quot;&amp;#39; -isl&amp;quot;&lt;/span&gt;, {
-          &lt;span class=&quot;dt&quot;&gt;timeout&lt;/span&gt;: timeout,
-          &lt;span class=&quot;dt&quot;&gt;cwd&lt;/span&gt;: root
-        }, &lt;span class=&quot;kw&quot;&gt;function&lt;/span&gt; (err, stdout, stdin) {
-
-      &lt;span class=&quot;kw&quot;&gt;resp&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;writeHead&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;200&lt;/span&gt;, { &lt;span class=&quot;ch&quot;&gt;&amp;#39;Content-Type&amp;#39;&lt;/span&gt;: &lt;span class=&quot;ch&quot;&gt;&amp;#39;text/html&amp;#39;&lt;/span&gt; });
-
-      &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (err) {
-        &lt;span class=&quot;kw&quot;&gt;resp&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;end&lt;/span&gt;(&lt;span class=&quot;ch&quot;&gt;&amp;#39;&amp;lt;p&amp;gt;Error on search&amp;lt;/p&amp;gt;&amp;#39;&lt;/span&gt;);
-        &lt;span class=&quot;kw&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;log&lt;/span&gt;(err);
-      }
-
-      &lt;span class=&quot;co&quot;&gt;// split the results&lt;/span&gt;
-      &lt;span class=&quot;kw&quot;&gt;var&lt;/span&gt; results = &lt;span class=&quot;kw&quot;&gt;stdout&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;split&lt;/span&gt;(&lt;span class=&quot;ch&quot;&gt;&amp;#39;\n&amp;#39;&lt;/span&gt;);
-      &lt;span class=&quot;co&quot;&gt;// remove last element (it’s an empty line)&lt;/span&gt;
-      &lt;span class=&quot;kw&quot;&gt;results&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;pop&lt;/span&gt;();
-
-      &lt;span class=&quot;kw&quot;&gt;resp&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;write&lt;/span&gt;(&lt;span class=&quot;ch&quot;&gt;&amp;#39;&amp;lt;h1&amp;gt;Search results&amp;lt;/h1&amp;gt;\n&amp;lt;ul&amp;gt;&amp;#39;&lt;/span&gt;);
-      &lt;span class=&quot;kw&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;kw&quot;&gt;var&lt;/span&gt; i = &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;; i &amp;lt; &lt;span class=&quot;kw&quot;&gt;results&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;length&lt;/span&gt;; i++) {
-        &lt;span class=&quot;kw&quot;&gt;resp&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;write&lt;/span&gt;(&lt;span class=&quot;ch&quot;&gt;&amp;#39;&amp;lt;li&amp;gt;&amp;#39;&lt;/span&gt;);
-        &lt;span class=&quot;kw&quot;&gt;resp&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;write&lt;/span&gt;(results[i]);
-        &lt;span class=&quot;kw&quot;&gt;resp&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;write&lt;/span&gt;(&lt;span class=&quot;ch&quot;&gt;&amp;#39;&amp;lt;/li&amp;gt;&amp;#39;&lt;/span&gt;);
-      }
-      &lt;span class=&quot;kw&quot;&gt;resp&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;end&lt;/span&gt;(&lt;span class=&quot;ch&quot;&gt;&amp;#39;&amp;lt;/ul&amp;gt;&amp;#39;&lt;/span&gt;);
-    });
-  } &lt;span class=&quot;kw&quot;&gt;else&lt;/span&gt; {
-    &lt;span class=&quot;kw&quot;&gt;resp&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;writeHead&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;200&lt;/span&gt;, { &lt;span class=&quot;ch&quot;&gt;&amp;#39;Content-Type&amp;#39;&lt;/span&gt;: &lt;span class=&quot;ch&quot;&gt;&amp;#39;text/html&amp;#39;&lt;/span&gt; });
-    &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;resp&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;end&lt;/span&gt;(&lt;span class=&quot;ch&quot;&gt;&amp;#39;&amp;lt;p&amp;gt;No results&amp;lt;/p&amp;gt;&amp;#39;&lt;/span&gt;);
-  }
-});
-
-&lt;span class=&quot;co&quot;&gt;// listen on port 8080&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;server&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;listen&lt;/span&gt;(&lt;span class=&quot;dv&quot;&gt;8080&lt;/span&gt;, &lt;span class=&quot;kw&quot;&gt;function&lt;/span&gt; () {
-  &lt;span class=&quot;kw&quot;&gt;console&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;log&lt;/span&gt;(&lt;span class=&quot;ch&quot;&gt;&amp;#39;Server running at http://localhost:8080/&amp;#39;&lt;/span&gt;);
-});&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;You may &lt;a href=&quot;https://vorb.de\log\2012\07\file-search.js&quot;&gt;download the source file&lt;/a&gt;. You can start it on the command line with &lt;code&gt;node file-search.js&lt;/code&gt;. Then go to &lt;a href=&quot;http://localhost:8080/?s=test&quot;&gt;localhost:8080&lt;/a&gt; try it. Of course you need to create some HTML files first, if you want to find something.&lt;/p&gt;
-&lt;p&gt;Here’s how the result will look like:&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;img src=&quot;https://vorb.de\log\2012\07\search-results.png&quot; alt=&quot;Screenshot of the search results page&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Screenshot of the search results page&lt;/p&gt;
-&lt;/div&gt;
-
-    </content>
-
-    <category term="english"/>
-
-    <category term="dev"/>
-
-    <category term="nodejs"/>
-
-  </entry>
 
   <entry>
     <title>Gitit</title>
@@ -398,6 +294,61 @@
     <category term="ux"/>
 
     <category term="typography"/>
+
+  </entry>
+
+  <entry>
+    <title>Why are comments not allowed in JSON?</title>
+    <link href="https://vorb.de/log/2013/03/json-comments.html"/>
+    <id>http://vorb.de/log/2013/03/json-comments.html</id>
+    <updated>2013-03-12T23:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>https://vorb.de/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="https://vorb.de/log/2013/03/json.png"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Every markup or data exchange format that I am aware of, supports the definition of comments. There’s only one exception: &lt;a href=&quot;http://json.org/&quot;&gt;JSON&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I am dealing with JSON a lot these days. Recently, many developers prefer JSON over the more complex &lt;a href=&quot;http://www.w3.org/XML/&quot;&gt;XML&lt;/a&gt; that’s been around for a while now. And that’s why it’s common practice to implement &lt;a href=&quot;http://en.wikipedia.org/wiki/Representational_state_transfer&quot;&gt;REST&lt;/a&gt;-APIs in JSON instead of XML. Another common use case for JSON documents is configuration of software systems of all kind. Regularly I feel a need to comment some lines of such JSON documents. Maybe it’s just to clarify my intention or to make some notes for later.&lt;/p&gt;
+&lt;p&gt;If you work with JSON a lot, you will once come to a point where it would be great if you could have comments on some properties, a specific value or the like. Since JSON is a subset from JavaScript, one could think it would allow comments like in this example:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode javascript&quot;&gt;&lt;code class=&quot;sourceCode javascript&quot;&gt;{
+  &lt;span class=&quot;st&quot;&gt;&amp;quot;key&amp;quot;&lt;/span&gt;: &lt;span class=&quot;st&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt; &lt;span class=&quot;co&quot;&gt;// comment&lt;/span&gt;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;But it doesn’t. The &lt;a href=&quot;http://json.org/&quot;&gt;JSON website&lt;/a&gt; doesn’t say much about this circumstance. The &lt;a href=&quot;http://tools.ietf.org/html/rfc4627.html&quot;&gt;corresponding RFC&lt;/a&gt; doesn’t either. Douglas Crockford, who is said to have discovered JSON, gives &lt;a href=&quot;http://youtu.be/-C-JoyNuQJs?t=16m6s&quot;&gt;the answer&lt;/a&gt; in his talk “The JSON Saga”. He states that initially you were allowed to use &lt;code&gt;// comments after a double slash&lt;/code&gt; as well as &lt;code&gt;/* block comments */&lt;/code&gt; in JSON. Later he decided to remove support for comments because of three reasons:&lt;/p&gt;
+&lt;ol style=&quot;list-style-type: decimal&quot;&gt;
+&lt;li&gt;&lt;p&gt;Dangerous practices&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“People were putting instructions to the parser in comments, which was a really bad thing, because that would totally break interoperability, because this whole level of metalanguage wouldn’t be common, which would be outside of the standard.”&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unnecessary complexity&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“[...] And for some of the ports to other languages about half of the complexity of doing the thing was just doing the comments [...]”&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Alignment with &lt;a href=&quot;http://yaml.org/&quot;&gt;YAML&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I don’t really think that these are valid reasons for removing something as quintessential as comments, but at least there are reasons for this decision.&lt;/p&gt;
+&lt;p&gt;There are two possible ways of working around the lack of comments (besides from being frustrated and leaving them out).&lt;/p&gt;
+&lt;ol style=&quot;list-style-type: decimal&quot;&gt;
+&lt;li&gt;&lt;p&gt;You can either agree on a special property that holds a comment for the surrounding object. For example:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode json&quot;&gt;&lt;code class=&quot;sourceCode json&quot;&gt;{
+  &lt;span class=&quot;dt&quot;&gt;&amp;quot;key&amp;quot;&lt;/span&gt;: &lt;span class=&quot;st&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;,
+  &lt;span class=&quot;dt&quot;&gt;&amp;quot;__comment&amp;quot;&lt;/span&gt;: &lt;span class=&quot;st&quot;&gt;&amp;quot;defines a key and a value&amp;quot;&lt;/span&gt;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Or you could use another markup format that supports comments. Examples would be XML, YAML or the newer &lt;a href=&quot;https://github.com/typesafehub/config/blob/master/HOCON.md&quot;&gt;HOCON (Human-Optimized Config Object Notation)&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Personally, I think that YAML is a bloated spec and HOCON is preferably used to configure software systems. Sometimes, bringing XML to client-side web applications can be a real pain, so in-JSON comments often are the only solution.&lt;/p&gt;
+
+    </content>
+
+    <category term="english"/>
+
+    <category term="dev"/>
+
+    <category term="json"/>
+
+    <category term="javascript"/>
 
   </entry>
 
