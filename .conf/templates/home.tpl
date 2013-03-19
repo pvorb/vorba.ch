@@ -41,27 +41,23 @@ function indentHeadings(text) {
     </nav>
     <section id="content" class="digest">
       <article class="intro">
-        <p><strong>Hi, my name is Paul Vorbach.</strong>
-        I live near <strong>Würzburg, Germany</strong>, where I study
-        <strong><a href="http://www.informatik.uni-wuerzburg.de/">Computer Science</a></strong>.
-        <p>I’m interested in <strong>web development</strong> and
-        <strong>web design</strong>. I spend much of my time on
-        <strong>server-side</strong> web development, mainly in
-        <strong><a href="http://nodejs.org/" title="Node.js">JavaScript</a></strong>,
-        <strong><a href="http://scala-lang.org/">Scala</a></strong> and
-        <strong><a href="http://www.oracle.com/technetwork/java/index.html">Java</a></strong>.
+        <p>Hi, my name is <a href="http://paul.vorba.ch/">Paul Vorbach</a>.
+        <p>This is my blog, where I occasionally write about
+        <a href="/log/tag/dev.html">web development</a> in
+        <a href="/log/tag/javascript.html">JavaScript</a> (including
+        <a href="/log/tag/nodejs.html">Node.js</a>),
+        <a href="/log/tag/scala.html">Scala</a> and
+        <a href="/log/tag/java.html">Java</a>.
         I also have worked a lot with PHP and Delphi and ActionScript (Flash) as
-        well as some Python, C, C++, C# and Haskell.</p>
-        <p>This web site contains information on what I do. You can also follow
-        me on <strong><a href="https://github.com/pvorb"><img
-        src="/res/github-icon.png"> Github</a></strong>.</p>
+        well as some <a href="/log/tag/python.html">Python</a>,
+        <a href="/log/tag/c.html">C</a>, <a href="/log/tag/c++.html">C++</a>,
+        <a href="/loc/tag/csharp.html">C#</a> and
+        <a href="/log/tag/haskell.html">Haskell</a>.</p>
+        <p>Most of the articles in the blog are written in
+        <a href="/log/tag/deutsch.html">German</a>, but there are also some
+        <a href="/log/tag/english.html">English articles</a>.</p>
       </article>
       <section class="log">
-        <p>This is my personal <a href="/log/">weblog</a>. Most of the
-        articles in the blog are in <a href="/log/tag/deutsch.html">German</a>,
-        although there may be one or the other
-        <a href="/log/tag/english.html">English article</a>.</p>
-        <p>Recent article:</p>
 <% __docs.forEach(function(doc) { %>
         <article lang="<%= doc.language %>">
           <header>
