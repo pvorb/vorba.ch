@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorb.de: Articles</title>
   <subtitle>vorb opposes recursive backronyms</subtitle>
-  <updated>2013-03-19T00:46:14.067Z</updated>
+  <updated>2013-03-19T00:51:16.304Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -338,7 +338,7 @@
     <title>Die Reichweite von Node.js</title>
     <link href="https://vorb.de/log/2013/03/reichweite-nodejs.html"/>
     <id>http://vorb.de/log/2013/03/reichweite-nodejs.html</id>
-    <updated>2013-03-19T00:45:00.000Z</updated>
+    <updated>2013-03-19T00:50:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
       <uri>https://vorb.de/</uri>
@@ -357,7 +357,7 @@
 &lt;li&gt;Wenn mit der gleichen Geschwindigkeit neue Pakete hinzukommen wie bisher, verdoppelt sich diese Zahl innerhalb des nächsten Jahres.&lt;/li&gt;
 &lt;li&gt;Im Schnitt wird ein Modul pro Monat 1000 Mal heruntergeladen.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Das sind äußerst beeindruckende Zahlen, bedenkt man, dass Node.js erst vier Jahre alt ist und seit rund zwei Jahren so richtig in Fahrt kommt. Vor zwei Jahren habe ich auch mit Node angefangen und seither &lt;a href=&quot;http://npmjs.org/~pvorb&quot;&gt;32 (meist kleinste) Pakete&lt;/a&gt; geschrieben. Das beliebteste der Pakete&lt;sup&gt;&lt;a href=&quot;https://vorb.de/log/2013/03/reichweite-nodejs.html#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; wurde &lt;a href=&quot;http://npm-stat.vorb.de/charts.html?package=clone&quot;&gt;im Februar 15800 mal heruntergeladen&lt;/a&gt;. 44 andere Pakete benutzen das Paket und niemend weiß, wie viele andere Projekte außerhalb von npm noch. Sogar Yahoo hat ein [kleines Testframework geschrieben][yahoo-arrow], das clone einsetzt.&lt;/p&gt;
+&lt;p&gt;Das sind äußerst beeindruckende Zahlen, bedenkt man, dass Node.js erst vier Jahre alt ist und seit rund zwei Jahren so richtig in Fahrt kommt. Vor zwei Jahren habe ich auch mit Node angefangen und seither &lt;a href=&quot;http://npmjs.org/~pvorb&quot;&gt;32 (meist kleinste) Pakete&lt;/a&gt; geschrieben. Das beliebteste der Pakete&lt;sup&gt;&lt;a href=&quot;https://vorb.de/log/2013/03/reichweite-nodejs.html#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; wurde &lt;a href=&quot;http://npm-stat.vorb.de/charts.html?package=clone&quot;&gt;im Februar 15800 mal heruntergeladen&lt;/a&gt;. 44 andere Pakete benutzen das Paket und niemend weiß, wie viele andere Projekte außerhalb von npm noch. Sogar Yahoo hat ein &lt;a href=&quot;https://npmjs.org/package/yahoo-arrow&quot;&gt;kleines Testframework geschrieben&lt;/a&gt;, das clone einsetzt.&lt;/p&gt;
 &lt;p&gt;Dieser Eintrag kommt zu einer Zeit, zu der ich eher Distanz von Node.js nehme. Es hat unglaublich viele Probleme und Schwachstellen, die die Entwicklung dafür zur Hölle machen können. Dabei ist das Haupt-Problem JavaScript, das sich meiner Ansicht nach nicht für größere Projekte eignet. Aber dazu ein ander mal mehr.&lt;/p&gt;
 &lt;p&gt;Trotzdem kann die Entwicklung Spaß machen und die Zahlen sprechen eine eindeutige Sprache. Ich glaube nicht, dass ich ähnliche Download-Zahlen auf einer anderen Plattform erreicht hätte.&lt;/p&gt;
 &lt;p&gt;Ich will damit gar niemanden von Node.js überzeugen, aber für so manches Vorhaben mag es gerade wegen des riesigen Vorrats an Modulen und der aktiven Community genau das Richtige Werkzeug sein.&lt;/p&gt;

@@ -1,5 +1,6 @@
 title: Die Reichweite von Node.js
 created: 2013-03-19T01:45:00+0100
+modified: 2013-03-19T01:50:00+0100
 
 tags: [ deutsch, nodejs ]
 template: post.de.tpl
@@ -52,7 +53,7 @@ wiederverwendet werden können.
 [packages]: http://npmjs.org/~pvorb
 [clone]: http://npmjs.org/package/clone
 [clone-stats]: http://npm-stat.vorb.de/charts.html?package=clone
-[yahoo-arrows]: https://npmjs.org/package/yahoo-arrow
+[yahoo-arrow]: https://npmjs.org/package/yahoo-arrow
 [bread]: /log/tag/bread.html
 
 Dieser Eintrag kommt zu einer Zeit, zu der ich eher Distanz von Node.js nehme.
