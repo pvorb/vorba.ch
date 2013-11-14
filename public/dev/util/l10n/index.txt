@@ -1,6 +1,0 @@
-title: Multilingual
-template: page.en.tpl
-branch: dev
-
-
-  * [v0.0.0](0.0.0/)

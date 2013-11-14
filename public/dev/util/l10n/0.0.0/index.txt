@@ -1,6 +1,0 @@
-title: Mutlilingual
-template: page.en.tpl
-branch: dev
-
-
-  * [API](api/)
