@@ -1,0 +1,29 @@
+title: Blogroll
+modified: 2013-11-15
+
+template: page.en.tpl
+branch: log
+
+
+These are my favorite blogs in alphabetical order:
+
+*   [… ach, nichts.](http://achnichts.cwoehrl.de/)
+*   [Anmut und Demut](http://anmutunddemut.de/)
+*   [Arnalyse](http://www.arnalyse.de/)
+*   [Codecandies](http://codecandies.de/)
+*   [ColdHeat](http://www.coldheat.de/)
+*   [Eudaimonia](http://gedeih-und-verderb.de/)
+*   [Konstantin Weiss](http://konstantinweiss.com/)
+*   [nichts](http://blog.fymmie.de/)
+*   [stromzufuhr](http://stromzufuhr.de/)
+
+My favorite web comics are:
+
+*   [Doghousediaries](http://thedoghousediaries.com/)
+*   [Geek and Poke](http://geek-and-poke.com/)
+*   [xkcd](http://xkcd.com/)
+
+I also irregularly listen to these podcasts:
+
+*   [CRE: Technik, Kultur, Gesellschaft](http://cre.fm/)
+*   [Workingdraft](http://workingdraft.de/)

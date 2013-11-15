@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="/res/milten.feed.xsl"?>
+<?xml-stylesheet type="text/xsl" href="/res/diego.feed.xsl"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
-  <title>vorb.de: Articles</title>
-  <subtitle>vorb opposes recursive backronyms</subtitle>
+  <title>vorba.ch: Articles</title>
+  <subtitle>Paul Vorbach's personal weblog</subtitle>
   <updated><%= (new Date()).toISOString() %></updated>
   <id><%- id %></id>
   <author>
@@ -11,19 +11,22 @@ if (locals.authorLink) { %>
     <uri><%= authorLink %></uri><% } %>
   </author>
   <rights>© 2008-<%- (new Date()).getFullYear() %> Paul Vorbach</rights>
-  <link href="https://vorb.de/log/"/>
-  <link rel="self" href="https://vorb.de/log/feed.xml"/>
+  <link href="http://vorba.ch/"/>
+  <link rel="self" href="http://vorba.ch/feed.xml"/>
   <category term="computer"/>
   <category term="web"/>
   <category term="development"/>
-  <icon>https://vorb.de/favicon.ico</icon>
+  <category term="javascript"/>
+  <category term="scala"/>
+  <category term="akka"/>
+  <icon>http://vorba.ch/favicon.ico</icon>
 <%
 __docs = __docs.reverse();
 __docs.forEach(function(doc) { %>
   <entry>
     <title><%= doc.title %></title>
-    <link href="https://vorb.de/<%= doc._id %>"/>
-    <id>http://vorb.de/<%- doc._id %></id>
+    <link href="http://vorba.ch/<%= doc._id %>"/>
+    <id>http://vorba.ch/<%- doc._id %></id>
     <updated><%= doc.modified.toISOString() %></updated>
     <author>
       <name><%= doc.author %></name><% if (doc.authorEmail) { %>
@@ -41,13 +44,13 @@ __docs.forEach(function(doc) { %>
     teaser.push(doc.teaser.img);
   teaser = teaser.join('/');
 %>
-      &lt;p&gt;&lt;img src="https://vorb.de/<%= teaser %>"&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;img src="http://vorba.ch/<%= teaser %>"&gt;&lt;/p&gt;
 <% } %>
-      <%- esc(doc.__content, { uri: "https://vorb.de/"+doc._id }) %>
+      <%- esc(doc.__content, { uri: "http://vorba.ch/"+doc._id }) %>
     </content>
-<% doc.tags.forEach(function(tag) { %>
+<% if (doc.tags) { doc.tags.forEach(function(tag) { %>
     <category term="<%= tag %>"/>
-<% }); %>
+<% }); } %>
   </entry>
 <% }); %>
 </feed>

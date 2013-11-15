@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Blog | vorba.ch</title>
+    <link rel="stylesheet" href="/res/diego.css">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml"
+      title="Article feed">
+    <meta name="author" content="Paul Vorbach">
+  </head>
+  <body id="top">
+    <nav id="nav">
+      <ol id="path">
+        <li>vorba.ch</li>
+      </ol>
+      <ol id="access">
+        <li><a href="#top" title="To the top" id="back" accesskey="t">↑</a>
+        <li><a href="#nav">Navigation</a>
+        <li><a href="#content">Content</a>
+      </ol>
+      <form id="search" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Suche">
+      </form>
+    </nav>
+    <section id="content" class="digest">
+      <header class="meta">
+        <p><a href="/tag/" class="button">Tags</a> ·
+          <a href="/feed.xml" class="feed button">Article feed</a> ·
+          <a href="/blogroll.html" class="button"%>Blogroll</a></p>
+      </header>
+
+      <article>
+        <header>
+
+          <h1><a href="/2012/git-reset.html">git reset --soft HEAD^</a></h1>
+
+          <figure class="teaser">
+            <a href="/2012/git-reset.html"><img src="/2012/reset.png"></a>
+          </figure>
+
+          <p class="meta">2012-04-17 &ndash; <a href="/2012/git-reset.html#disqus_thread">Comments</a></p>
+        </header>
+        <section>
+          <p>Kurze Notiz an mich, weil ich es so oft brauche: Mit dem Kommando</p>
+<pre><code>git reset --soft HEAD^</code></pre>
+<p>lässt sich der letzte Commit in einem Git-Repository rückgängig machen. Danach kann man den Commit ganz normal bearbeiten und anschließend wieder committen.
+          <p><a href="/2012/git-reset.html">Read on &hellip;</a></p>
+        </section>
+      </article>
+
+      <article>
+        <header>
+
+          <h1><a href="/2012/semantic-weblog.html">Semantic Weblog</a></h1>
+
+          <figure class="teaser">
+            <a href="/2012/semantic-weblog.html"><img src="/2012/green-roof-norway.jpg"></a>
+          </figure>
+
+          <p class="meta">2012-04-17 &ndash; <a href="/2012/semantic-weblog.html#disqus_thread">Comments</a></p>
+        </header>
+        <section>
+          <p>Mit den <a href="/log/tag/">Tag-Seiten</a> kann Bread etwas, das ein wenig in Richtung Semantic Weblog geht.</p>
+<p>Seit heute habe ich dann auch mal angefangen, ein paar Informationen in den Tag-Seiten zu den Themen dieses Blogs zu sammeln. Semantic Web geht eigentlich viel weiter. Ich glaube aber nicht, dass ich die Disziplin für ein formal standardisiertes Dokumentenformat wie <a href="http://de.wikipedia.org/wiki/Web_Ontology_Language">OWL</a> oder <a href="http://de.wikipedia.org/wiki/Resource_Description_Framework">RDF</a> habe. Die Tag-Seiten sollen eher etwas in Richtung von <a href="http://konnexus.net/lexicon/">Konstantins Lexikon</a> werden.
+          <p><a href="/2012/semantic-weblog.html">Read on &hellip;</a></p>
+        </section>
+      </article>
+
+      <article>
+        <header>
+
+          <h1><a href="/2012/nodejs.html">Node.js</a></h1>
+
+          <figure class="teaser">
+            <a href="/2012/nodejs.html"><img src="/2012/net.jpg"></a>
+          </figure>
+
+          <p class="meta">2012-04-13 &ndash; <a href="/2012/nodejs.html#disqus_thread">Comments</a></p>
+        </header>
+        <section>
+          <p>Wie ich feststellen musste, lässt sich <a href="/log/2012/03/bread.html">Bread</a> kaum erklären, ohne ein paar Grundlagen zu Node.js gelegt zu haben. (Achtung: Hier geht’s ans Eingemachte!)</p>
+<blockquote>
+<p>“Node.js is a platform built on <a href="http://code.google.com/p/v8/">Chrome's JavaScript runtime</a> for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.”
+          <p><a href="/2012/nodejs.html">Read on &hellip;</a></p>
+        </section>
+      </article>
+
+      <article>
+        <header>
+
+          <h1><a href="/2012/volltextsuche.html">Volltextsuche mit Node.js</a></h1>
+
+          <figure class="teaser">
+            <a href="/2012/volltextsuche.html"><img src="/2012/hdd-search.jpg"></a>
+          </figure>
+
+          <p class="meta">2012-03-08 &ndash; <a href="/2012/volltextsuche.html#disqus_thread">Comments</a></p>
+        </header>
+        <section>
+          <p>Hier fehlt noch eine Volltextsuche. Das ist aufgrund der Architektur von Bread nicht ganz trivial. Also habe ich mir überlegt, ob es vielleicht für den Moment ausreichen würde, das einfache UNIX-Kommando</p>
+<pre><code>find . -iname &#39;*.html&#39; | xargs grep &#39;suchterm&#39; -sl</code></pre>
+<p>dafür zu benutzen. Das durchsucht dann alle HTML-Dateien nach dem exakten Begriff und gibt eine Liste aus. Diese Liste könnte ich dann einfach so als dynamisch gerendertes HTML ausgeben.
+          <p><a href="/2012/volltextsuche.html">Read on &hellip;</a></p>
+        </section>
+      </article>
+
+      <article>
+        <header>
+
+          <h1><a href="/2012/bread-git.html">Bread und Git</a></h1>
+
+          <figure class="teaser">
+            <a href="/2012/bread-git.html"><img src="/2012/fork.jpg"></a>
+          </figure>
+
+          <p class="meta">2012-03-07 &ndash; <a href="/2012/bread-git.html#disqus_thread">Comments</a></p>
+        </header>
+        <section>
+          <p>Kommen wir zu einem wirklich schönen Teil, den Bread mitbringt. Und zwar veröffentlichen von Beiträgen mit Hilfe von <a href="http://git-scm.com/">Git</a>. Ich sollte vielleicht noch dazu sagen, dass das nicht direkt ein Bestandteil von Bread ist. Aber da man einfach nur Dateien auf den Server packt und keine Datenbank dazu braucht, ist das ziemlich leicht umzusetzen und <em>uuunendlich</em> praktisch.</p>
+<p>So bediene ich meine Website nun schon seit mehreren Wochen immer mal wieder mit kleinen Updates, auch schon vor dem Blog. Wie ich bei der erneuten Lektüre der Heimweh-Artikel feststellen durfte, bin ich gar nicht selbst auf die Idee gekommen, das so zu machen. Das war <a href="http://anmutunddemut.de/2010/05/23/heimweh-20-die-ziele.html#comment-7626">schon 2010 fester Bestandteil von Heimweh</a>.
+          <p><a href="/2012/bread-git.html">Read on &hellip;</a></p>
+        </section>
+      </article>
+
+      <article>
+        <header>
+
+          <h1><a href="/2012/bread.html">Bread</a></h1>
+
+          <figure class="teaser">
+            <a href="/2012/bread.html"><img src="/2012/windmill.jpg"></a>
+          </figure>
+
+          <p class="meta">2012-03-07 &ndash; <a href="/2012/bread.html#disqus_thread">Comments</a></p>
+        </header>
+        <section>
+          <p>In diesem Artikel will ich <a href="https://github.com/pvorb/node-bread">Bread</a> und was dazugehört auf technischer Ebene erläutern.</p>
+<h2 id="statisches-html">Statisches HTML</h2>
+<p>Prinzipiell war ja die Idee von ben_ nicht schlecht, <a href="http://anmutunddemut.de/2010/05/18/the-anmut-of-static-html.html">direkt statische HTML-Dateien zu schreiben</a>. Ich habe das vor zirka einem Jahr schon mit <a href="https://github.com/pvorb/php-yuki">Yuki</a> versucht, aber kaum zwei Wochen durchgehalten. Das Problem war, dass ich zunächst sowohl den Blog-Index als auch den Feed von Hand schreiben musste. Das macht einfach keinen Spaß und ich bewundere ben_ dafür, dass er das über ein Jahr so durchgehalten hat. (Auch wenn bei ihm zumindest der Feed automatisch generiert wurde.)
+          <p><a href="/2012/bread.html">Read on &hellip;</a></p>
+        </section>
+      </article>
+
+      <article>
+        <header>
+
+          <h1><a href="/2012/was-lange-waehrt.html">Was lange währt</a></h1>
+
+          <figure class="teaser">
+            <a href="/2012/was-lange-waehrt.html"><img src="/2012/kosmonaut.jpg"></a>
+          </figure>
+
+          <p class="meta">2012-03-04 &ndash; <a href="/2012/was-lange-waehrt.html#disqus_thread">Comments</a></p>
+        </header>
+        <section>
+          <p>Ein halbes Jahr hat es gedauert. Nun ist es endlich vollbracht: Mein Blog geht ans Netz.</p>
+<p>Irgendwann im August 2011 habe ich damit begonnen, ein <a href="https://github.com/pvorb/node-bread">eigenes Blogsystem für Node.js</a> zu schreiben. Vorher waren schon ein paar Versuche in PHP vorausgegangen.
+          <p><a href="/2012/was-lange-waehrt.html">Read on &hellip;</a></p>
+        </section>
+      </article>
+
+      <article>
+        <header>
+
+          <h1><a href="/2012/node-and-npm-on-debian.html">Recent Node.js and npm versions on Debian 6</a></h1>
+
+          <figure class="teaser">
+            <a href="/2012/node-and-npm-on-debian.html"><img src="/2012/nodejs-npm.png"></a>
+          </figure>
+
+          <p class="meta">2012-02-29 &ndash; <a href="/2012/node-and-npm-on-debian.html#disqus_thread">Comments</a></p>
+        </header>
+        <section>
+          <p>Several months ago, it was somehow a little tricky to install Node.js and npm on Debian systems. Now it has become as easy as it could be with the help of <a href="http://wiki.debian.org/AptPreferences">APT pinning</a>. (Be careful with APT pinning, since it may break your system.)</p>
+<p>Now you can install the latest stable version (v0.6.x) of Node.js with
+          <p><a href="/2012/node-and-npm-on-debian.html">Read on &hellip;</a></p>
+        </section>
+      </article>
+
+      <ul class="pagination">
+
+        <li><a href="/index.html">1</a>
+        <li>…
+
+        <li><a href="/index-2.html" accesskey="p">2</a>
+
+        <li><span>3</span>
+
+        <li><a href="/index-4.html" accesskey="n">4</a>
+
+      </ul>
+    </section>
+    <footer id="about">
+      <p>© 2008-2012 – Paul Vorbach.
+        <a href="http://paul.vorba.ch/">Contact</a>.</p>
+    </footer>
+    <script type="text/javascript">
+      var disqus_shortname = 'vorbach';
+
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+  </body>
+</html>

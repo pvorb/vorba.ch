@@ -1,23 +1,12 @@
-<% var monthNames = {
-  '01/': 'January',
-  '02/': 'February',
-  '03/': 'March',
-  '04/': 'April',
-  '05/': 'May',
-  '06/': 'June',
-  '07/': 'July',
-  '08/': 'August',
-  '09/': 'September',
-  '10/': 'October',
-  '11/': 'November',
-  '12/': 'December'
-};
+<%
+var path = ('/'+__dir).split('/');
+var pathref = '/';
 %><!DOCTYPE html>
 <html lang="en" id="top">
   <head>
     <meta charset="utf-8">
-    <title><%= title %> | <%= siteTitle %></title>
-    <link rel="stylesheet" href="/res/milten.css">
+    <title><%- title %> | <%- siteTitle %></title>
+    <link rel="stylesheet" href="/res/diego.css">
     <link rel="icon" href="/favicon.ico">
     <link rel="alternate" type="application/atom+xml" href="/log/feed.xml"
       title="Article feed">
@@ -25,22 +14,13 @@
       href="/log/comment-feed.xml" title="Comment feed">
     <meta name="author" content="<%= author %>">
   </head>
-  <body>
-    <header id="site">
-      <a href="/" accesskey="h"><%= siteTitle %></a>
-    </header>
+  <body id="top">
     <nav id="nav">
-      <ul id="branches">
-        <li class="active"><a href="/log/" accesskey="l">/log</a>
-        <li><a href="/info/" accesskey="i">/info</a>
-      </ul>
-      <ol id="path"><%
-  var path = ('/'+__dir).split('/');
-  var pathref = '/';
-
+      <ol id="path">
+<%
   for (var i = 0; i < path.length; i++) {
     if (i == 0) {%>
-        <li><a href="<%= pathref %>">vorb.de</a>
+        <li><a href="<%= pathref %>">vorba.ch</a>
 <%  } else if (i < path.length - 1) {%>
         <li><a href="<%= pathref %>"><%- path[i] %></a>
 <%  } else {%>
@@ -55,24 +35,22 @@
         <li><a href="#nav">Navigation</a>
         <li><a href="#content">Content</a>
       </ol>
+      <form id="search" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Search">
+      </form>
     </nav>
-    <section id="content" class="digest">
+    <article id="content" class="digest">
       <header>
         <h1><%- title %></h1>
       </header>
-      <ul>
+      <section>
+        <ul>
 <% __files.forEach(function(file) { %>
-        <li><a href="<%= file %>"><%- monthNames[file]
-                                        ? monthNames[file]
-                                        : file %></a>
+        <li><a href="<%= file %>"><%- file %></a>
 <% }); %>
-      </ul>
-    </section>
-    <aside id="extra">
-      <form id="sf" action="/search.html" method="GET">
-        <input type="search" name="s" accesskey="s" placeholder="Search">
-      </form>
-    </aside>
+        </ul>
+      </section>
+    </article>
     <footer id="about">
       <p>© 2008-<%- (new Date()).getFullYear() %> – <%- siteAuthor %>.
         <a href="/info/contact.html">Contact</a>.</p>

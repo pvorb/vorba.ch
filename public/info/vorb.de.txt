@@ -1,9 +1,0 @@
-title: vorb.de
-template: page.en.tpl
-branch: info
-
-
-The domain _vorb_.de is an abbreviation of my last name, *Vorb*ach, but also
-an recursive backronym. ;)
-
-  > **v**orb **o**pposes **r**ecursive **b**ackronyms

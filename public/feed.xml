@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="/res/diego.feed.xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
+  <title>vorba.ch: Articles</title>
+  <subtitle>Paul Vorbach's personal weblog</subtitle>
+  <updated>2013-11-15T16:53:34.127Z</updated>
+  <id>http://vorb.de/log/feed.xml</id>
+  <author>
+    <name>Paul Vorbach</name>
+  </author>
+  <rights>© 2008-2013 Paul Vorbach</rights>
+  <link href="http://vorba.ch/"/>
+  <link rel="self" href="http://vorba.ch/feed.xml"/>
+  <category term="computer"/>
+  <category term="web"/>
+  <category term="development"/>
+  <category term="javascript"/>
+  <category term="scala"/>
+  <category term="akka"/>
+  <icon>http://vorba.ch/favicon.ico</icon>
+
+  <entry>
+    <title>Opinions</title>
+    <link href="http://vorba.ch/2012/opinions.html"/>
+    <id>http://vorba.ch/2012/opinions.html</id>
+    <updated>2012-08-08T00:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>https://paul.vorba.ch/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorba.ch/2012/talk.jpg"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Die Kommentarfunktion hier läuft überraschend gut. Per JavaScript wird für jeden Artikel ein Request gestartet, der die Kommentare als JSON-Dokument zurückliefert. Dieses wird anschließend geparst und ins HTML eingebaut, sodass die Kommentare angezeigt werden können. Im Prinzip wie bei &lt;a href=&quot;http://disqus.com/&quot;&gt;Disqus&lt;/a&gt; mit dem Unterschied, dass die Kommentare nicht bei einem anderen Dienst landen. Sogar Pingbacks funktionieren.&lt;/p&gt;
+&lt;p&gt;Den Code dazu kann man sich im zugehörigen &lt;a href=&quot;https://github.com/pvorb/node-comments&quot;&gt;Github-Repository&lt;/a&gt; anschauen&lt;sup&gt;&lt;a href=&quot;http://vorba.ch/2012/opinions.html#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;Trotzdem bin ich mit der Kommentarfunktion, wie sie jetzt ist, unzufrieden. Der Grund dafür liegt in der Verwendung der Datenbank. Durch die Verwendung von MongoDB als Datenspeicher liegen die Kommentare zu den Artikeln nicht im Git-Repository des Blogs und werden dadurch auch nicht versioniert. Für Backups muss ich separat sorgen.&lt;/p&gt;
+&lt;p&gt;In den nächsten Tagen werde ich versuchen, ein neues Kommentar-Modul für das Blog zu schreiben, welches die Kommentare in Git versioniert. Der Aufbau ist recht einfach:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sobald ein Nutzer einen Kommentar über das Web-Interface anlegt, wird er in eine Kommentar-Datei zum jeweiligen Artikel geschrieben.&lt;/li&gt;
+&lt;li&gt;Anschließend wird ein &lt;code&gt;git commit&lt;/code&gt; durchgeführt, der die Datei unter Versionskontrolle stellt.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ein Problem stellt sich dabei jedoch:&lt;/p&gt;
+&lt;p&gt;Was geschieht, wenn zufällig zwei Nutzer mehr oder weniger gleichzeitig einen neuen Kommentar abschicken? Ein Kommentar könnte verloren gehen, wenn von zwei Seiten aus versucht wird, die Datei zu verändern.&lt;/p&gt;
+&lt;p&gt;Dazu bräuchte ich wohl eine Warteschlange auf dem Server, die sicherstellt, dass mehrere Kommentare immer korrekt verarbeitet werden. Mal sehen, ob das so gut funktioniert, wie ich mir das vorstelle.&lt;/p&gt;
+&lt;p&gt;Dann will ich mich mal ans Werk machen. Die Entwicklung kann selbstverständlich &lt;a href=&quot;https://github.com/pvorb/node-opinions&quot;&gt;bei Github&lt;/a&gt; verfolgt werden.&lt;/p&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;Der Kitt zwischen dem Node.js-Modul und dem Server-Backend ist &lt;a href=&quot;https://github.com/vorbach/vorb.de/blob/master/.conf/modules/comments.js&quot;&gt;hier&lt;/a&gt; zu finden.&lt;a href=&quot;http://vorba.ch/2012/opinions.html#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="dev"/>
+
+    <category term="nodejs"/>
+
+  </entry>
+
+  <entry>
+    <title>Größe zeigen</title>
+    <link href="http://vorba.ch/2012/groesse-zeigen.html"/>
+    <id>http://vorba.ch/2012/groesse-zeigen.html</id>
+    <updated>2012-12-08T01:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>https://paul.vorba.ch/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorba.ch/2012/font-sizes.png"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Vergangene Woche habe ich den Standard-Schriftgrad in meinem Browser auf 18 Pixel erhöht. Und was soll ich sagen? Viele Websites lassen sich dadurch viel bequemer lesen. Beispielsweise zeigen Wikipedia und Google Schrift mit 100% Schriftgröße an.&lt;/p&gt;
+&lt;p&gt;Ich frage mich, wie man überhaupt auf die Idee kommen kann, etwas anderes als die Default-Schriftgröße für Fließtext zu verwenden. Webdesigner maßen sich oft an, besser zu wissen, welchen Schriftgrad seine Besucher am besten lesen können.&lt;/p&gt;
+&lt;p&gt;Die &lt;em&gt;Information Architects&lt;/em&gt; hingegen empfehlen schon seit 2006, &lt;a href=&quot;http://informationarchitects.net/blog/100e2r/&quot;&gt;die Schriftgröße bei 100% zu belassen&lt;/a&gt;. Seit einem halben Jahr &lt;a href=&quot;http://informationarchitects.net/blog/responsive-typography-the-basics/&quot;&gt;übertreibt man es mit der Schriftgröße jedoch etwas&lt;/a&gt;, wie ich finde.&lt;/p&gt;
+&lt;p&gt;Für alle Seiten, die nicht genügend oder zu viel Größe zeigen, empfehle ich das Chrome-Plugin &lt;a href=&quot;https://github.com/ankit/stylebot&quot;&gt;Stylebot&lt;/a&gt; sowie &lt;a href=&quot;https://addons.mozilla.org/de/firefox/addon/stylish/&quot;&gt;Stylish&lt;/a&gt; für Firefox. Hiermit kann man Eigenarten im CSS für einzelne Websites ändern, die man öfter besucht.&lt;/p&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="ux"/>
+
+    <category term="typography"/>
+
+  </entry>
+
+  <entry>
+    <title>Über Subpixel</title>
+    <link href="http://vorba.ch/2012/subpixel.html"/>
+    <id>http://vorba.ch/2012/subpixel.html</id>
+    <updated>2012-12-08T03:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>https://paul.vorba.ch/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorba.ch/2012/subpixel.png"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Zum Thema Subpixel-Rendering von Fonts auf Rasterbildschirmen ist vor kurzem &lt;a href=&quot;http://www.webkrauts.de/artikel/2012/techniken-zur-schriftglaettung-rasterizer&quot;&gt;ein Artikel&lt;/a&gt; im &lt;a href=&quot;http://www.webkrauts.de/serien/adventskalender/2012&quot;&gt;Webkrauts-Adventskalender&lt;/a&gt; erschienen.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.webkrauts.de/comment/3748#comment-3748&quot;&gt;In einem Kommentar&lt;/a&gt; regt sich ein Leser darüber auf, dass das Beispielbild zur Subpixel-Glättung schlecht gewählt ist. Es wird nicht deutlich, dass die verschiedenen Farben bei üblichen Display-Panels horizontal nebeneinander angeordnet sind und durch diese Anordnung theoretisch die dreifache Auflösung erreicht werden kann.&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://vorba.ch/log/2012/12/raster-subpixel.png&quot; alt=&quot;Subpixel-Beispiel&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Subpixel-Beispiel&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Da es gar nicht so ohne weiteres Möglich ist, einen Screenshot so zu vergrößern, dass die Subpixel sichtbar werden, habe ich ein Programm dafür geschrieben: &lt;a href=&quot;https://github.com/pvorb/subpixel-illustrator&quot;&gt;Subpixel Illustrator&lt;/a&gt;. Damit lässt sich ein Screenshot im PNG-Format öffnen und vergrößern.&lt;/p&gt;
+&lt;p&gt;Der Kern des Programms ist, dank Scala, recht kurz:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode scala&quot;&gt;&lt;code class=&quot;sourceCode scala&quot;&gt;&lt;span class=&quot;kw&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;scaleUp&lt;/span&gt;(input: BufferedImage, factor: Int) = {
+  &lt;span class=&quot;fu&quot;&gt;require&lt;/span&gt;(factor &amp;gt; &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;st&quot;&gt;&amp;quot;factor not greater than one&amp;quot;&lt;/span&gt;)
+  &lt;span class=&quot;fu&quot;&gt;require&lt;/span&gt;(factor % &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt; == &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;,
+    &lt;span class=&quot;st&quot;&gt;&amp;quot;factor not divisible by three&amp;quot;&lt;/span&gt;)
+
+  &lt;span class=&quot;kw&quot;&gt;val&lt;/span&gt; width = input.&lt;span class=&quot;fu&quot;&gt;getWidth&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;val&lt;/span&gt; height = input.&lt;span class=&quot;fu&quot;&gt;getHeight&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;val&lt;/span&gt; step = factor / &lt;span class=&quot;dv&quot;&gt;3&lt;/span&gt;
+
+  &lt;span class=&quot;co&quot;&gt;// Erzeuge leeres Bild mit `factor`-facher Größe&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;val&lt;/span&gt; out = &lt;span class=&quot;kw&quot;&gt;new&lt;/span&gt; BufferedImage(input.&lt;span class=&quot;fu&quot;&gt;getWidth&lt;/span&gt; * factor,
+    input.&lt;span class=&quot;fu&quot;&gt;getHeight&lt;/span&gt; * factor,
+    BufferedImage.&lt;span class=&quot;fu&quot;&gt;TYPE_INT_RGB&lt;/span&gt;)
+
+  &lt;span class=&quot;co&quot;&gt;// Durchlaufe das Bild Zeilenweise, von links nach&lt;/span&gt;
+  &lt;span class=&quot;co&quot;&gt;// rechts&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;for&lt;/span&gt; {
+    _y &amp;lt;- &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt; until height
+    (yMin, yMax) = (_y * factor, (_y + &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) * factor)
+                              &lt;span class=&quot;co&quot;&gt;// Vergrößere Ausschnitt&lt;/span&gt;
+    _x &amp;lt;- &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt; until width
+    (xMin, xMax) = (_x * factor, (_x + &lt;span class=&quot;dv&quot;&gt;1&lt;/span&gt;) * factor)
+                              &lt;span class=&quot;co&quot;&gt;// Vergrößere Ausschnitt&lt;/span&gt;
+    _rgb = input.&lt;span class=&quot;fu&quot;&gt;getRGB&lt;/span&gt;(_x, _y)
+                              &lt;span class=&quot;co&quot;&gt;// Lies RGB-Wert&lt;/span&gt;
+    y &amp;lt;- yMin until yMax
+    x &amp;lt;- xMin until xMax
+    component = {
+      &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (x &amp;lt; xMin + step) _rgb &amp;amp;&amp;amp; &lt;span class=&quot;bn&quot;&gt;0xFF0000&lt;/span&gt;
+                              &lt;span class=&quot;co&quot;&gt;// Maskiere Rotanteil&lt;/span&gt;
+      &lt;span class=&quot;kw&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (xMax - step &amp;lt;= x) _rgb &amp;amp;&amp;amp; &lt;span class=&quot;bn&quot;&gt;0x0000FF&lt;/span&gt;
+                              &lt;span class=&quot;co&quot;&gt;// Maskiere Blauanteil&lt;/span&gt;
+      &lt;span class=&quot;kw&quot;&gt;else&lt;/span&gt; _rgb &amp;amp;&amp;amp; &lt;span class=&quot;bn&quot;&gt;0x00FF00&lt;/span&gt;
+                              &lt;span class=&quot;co&quot;&gt;// Maskiere Grünanteil&lt;/span&gt;
+    }
+  } {
+    out.&lt;span class=&quot;fu&quot;&gt;setRGB&lt;/span&gt;(x, y, component)
+                              &lt;span class=&quot;co&quot;&gt;// Setze neuen Farbwert&lt;/span&gt;
+  }
+
+  out
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://vorba.ch/log/2012/12/raster-subpixel-improved.png&quot; alt=&quot;Das Ergebnis mit 15-facher Vergrößerung&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Das Ergebnis mit 15-facher Vergrößerung&lt;/p&gt;
+&lt;/div&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="ux"/>
+
+    <category term="typography"/>
+
+    <category term="dev"/>
+
+    <category term="scala"/>
+
+  </entry>
+
+  <entry>
+    <title>Binarisierung</title>
+    <link href="http://vorba.ch/2013/binarisierung.html"/>
+    <id>http://vorba.ch/2013/binarisierung.html</id>
+    <updated>2013-01-22T00:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>https://paul.vorba.ch/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorba.ch/2013/binarization.jpg"&gt;&lt;/p&gt;
+
+      &lt;p&gt;In meiner Bachelorarbeit, die den Titel „Erstellung von TrueType-Fonts zu historischen Manuskripten“ trägt, stand ich vor dem Problem, wie Zeichen in gescannten Manuskripten am besten erkannt werden können und wie sie in ein Vektorformat überführt werden können. Dazu hat es sich als hilfreich erwiesen, solche Scans zunächst in eine binarisierte Form zu bringen. Pixelmengen lassen sich sehr einfach gruppieren, wenn es nur schwarze und weiße Pixel gibt.&lt;/p&gt;
+&lt;p&gt;Zunächst einmal kann man sich ohne Mühe einfache Verfahren ausdenken, die für jeden Pixel eines Bildes entscheiden, ob er schwarz oder weiß erscheinen soll. Das einfachste solche Verfahren ist, einen &lt;em&gt;festen Schwellwert&lt;/em&gt; zu verwenden, nach dem das Bild aufgeteilt wird. Ist die Farbe in einem Pixel heller, so wird der Pixel weiß gefärbt, ist der Pixel dunkler, so wird der Pixel schwarz gefärbt.&lt;/p&gt;
+&lt;p&gt;Bei gescannten Dokumenten und besonders historischen Schriften steht man aber vor dem Problem, dass der Kontrast zwischen Schrift und Hintergrund (teilweise vergilbtes Papier oder Pergament) sehr klein werden können. Außerdem können einzelne Bildbereiche heller oder dunkler sein als andere. Deshalb lässt sich die Schrift mit einem festen Schwellwert nur noch sehr schlecht vom Hintergrund trennen.&lt;/p&gt;
+&lt;p&gt;Für solche Fälle existieren &lt;em&gt;adaptive&lt;/em&gt; Verfahren, die jeweils nur die Umgebung um einen Pixel beim Ermitteln eines lokalen Schwellwerts betrachten. Diese Verfahren sind aber wesentlich aufwändiger als einfache Schwellwertverfahren. Leider existieren keine Programme, die &lt;em&gt;out of the box&lt;/em&gt; Bilder adaptiv binarisieren können.&lt;/p&gt;
+&lt;p&gt;Diesen Umstand habe ich mir zum Anlass genommen, ein kleines Scala-Programm zu schreiben, das diesen Zweck erfüllt und mit einer kleinen GUI daherkommt. Zunächst einmal habe ich nur den &lt;a href=&quot;http://www.mediateam.oulu.fi/publications/pdf/24.p&quot;&gt;Binarisierungsalgorithmus nach Sauvola&lt;/a&gt; implementiert. Weitere Verfahren sollen folgen.&lt;/p&gt;
+&lt;p&gt;Zur Installation benötigt man lediglich das &lt;em&gt;Java Runtime Environment (JRE) 6&lt;/em&gt; oder höher. Die &lt;a href=&quot;https://repo.vorb.de/downloads/image-binarization.jnlp&quot;&gt;Installation erfolgt über Java WebStart&lt;/a&gt;. Der Quelltext steht unter einer &lt;a href=&quot;http://vorba.ch/license/mit.html&quot;&gt;MIT-Lizenz&lt;/a&gt; und ist bei &lt;a href=&quot;https://github.com/pvorb/image-binarization&quot;&gt;GitHub&lt;/a&gt; verfügbar.&lt;/p&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="dev"/>
+
+    <category term="scala"/>
+
+    <category term="computer-vision"/>
+
+    <category term="algorithm"/>
+
+  </entry>
+
+  <entry>
+    <title>Flash Of No Content</title>
+    <link href="http://vorba.ch/2013/fonc.html"/>
+    <id>http://vorba.ch/2013/fonc.html</id>
+    <updated>2013-02-07T00:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>https://paul.vorba.ch/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorba.ch/2013/fonc-small.png"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Es ist noch gar nicht so lange her, da klagte man gerne mal über den &lt;em&gt;&lt;a href=&quot;https://www.webkit.org/blog/66/the-fouc-problem/&quot;&gt;Flash of Unstyled Content&lt;/a&gt; (FOUC)&lt;/em&gt;. Das bedeutet, beim erstmaligen Laden einer Webseite wurde der Inhalt für kurze Zeit ohne Formatierungen angezeigt. Vor allem, wenn das Stylsheet ein weiteres Stylesheet über ein &lt;code&gt;@import&lt;/code&gt;-Statement referenziert, war der FOUC zu beobachten. Durch immer schnellere DSL-Verbindungen und Verbesserungen der Darstellung im Browser ist der FOUC heute jedoch kein großes Problem mehr.&lt;/p&gt;
+&lt;p&gt;Heute kann man &lt;a href=&quot;http://superuser.com/questions/547743/why-dont-websites-immediately-display-their-text-these-days&quot;&gt;einen anderen Effekt beobachten&lt;/a&gt;: Wenn eine Webseite Webfonts zur Darstellung von Text verwendet, zeigen Webkit-Browser keinen Text, bis die Font-Datei heruntergeladen, geparst und der Text gerendert wurde.&lt;/p&gt;
+&lt;p&gt;Ich weiß ja nicht, ob dieser &lt;em&gt;Flash of No Content&lt;/em&gt; wirklich besser ist.&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://vorba.ch/2013/fonc.png&quot; alt=&quot;Der Flash of No Content auf PortableApps.com&quot; /&gt;&lt;p class=&quot;caption&quot;&gt;Der &lt;em&gt;Flash of No Content&lt;/em&gt; auf PortableApps.com&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Vielleicht sollte ich mal den Einsatz der &lt;em&gt;Open Sans&lt;/em&gt; für die Überschriften auf dieser Website überdenken…&lt;/p&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="ux"/>
+
+    <category term="typography"/>
+
+  </entry>
+
+  <entry>
+    <title>Why are comments not allowed in JSON?</title>
+    <link href="http://vorba.ch/2013/json-comments.html"/>
+    <id>http://vorba.ch/2013/json-comments.html</id>
+    <updated>2013-03-13T00:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>https://paul.vorba.ch/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorba.ch/2013/json.png"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Every markup or data exchange format that I am aware of, supports the definition of comments. There’s only one exception: &lt;a href=&quot;http://json.org/&quot;&gt;JSON&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I am dealing with JSON a lot these days. Recently, many developers prefer JSON over the more complex &lt;a href=&quot;http://www.w3.org/XML/&quot;&gt;XML&lt;/a&gt; that’s been around for a while now. And that’s why it’s common practice to implement &lt;a href=&quot;http://en.wikipedia.org/wiki/Representational_state_transfer&quot;&gt;REST&lt;/a&gt;-APIs in JSON instead of XML. Another common use case for JSON documents is configuration of all kinds of software systems. Regularly I feel a need to comment some lines of such JSON documents. Maybe it’s just to clarify my intention or to make some notes for later.&lt;/p&gt;
+&lt;p&gt;If you work with JSON a lot, you will once come to a point where it would be great if you could have comments on some properties, a specific value or the like. Since JSON is a subset from JavaScript, one could think it would allow comments like in this example:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode javascript&quot;&gt;&lt;code class=&quot;sourceCode javascript&quot;&gt;{
+  &lt;span class=&quot;st&quot;&gt;&amp;quot;key&amp;quot;&lt;/span&gt;: &lt;span class=&quot;st&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt; &lt;span class=&quot;co&quot;&gt;// comment&lt;/span&gt;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;But it doesn’t. The &lt;a href=&quot;http://json.org/&quot;&gt;JSON website&lt;/a&gt; doesn’t say much about this circumstance. The &lt;a href=&quot;http://tools.ietf.org/html/rfc4627.html&quot;&gt;corresponding RFC&lt;/a&gt; doesn’t either. Douglas Crockford, who is said to have discovered JSON, gives &lt;a href=&quot;http://youtu.be/-C-JoyNuQJs?t=16m6s&quot;&gt;the answer&lt;/a&gt; in his talk “The JSON Saga”. He states that initially you were allowed to use &lt;code&gt;// comments after a double slash&lt;/code&gt; as well as &lt;code&gt;/* block comments */&lt;/code&gt; in JSON. Later he decided to remove support for comments because of three reasons:&lt;/p&gt;
+&lt;ol style=&quot;list-style-type: decimal&quot;&gt;
+&lt;li&gt;&lt;p&gt;Dangerous practices&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“People were putting instructions to the parser in comments, which was a really bad thing, because that would totally break interoperability, because this whole level of metalanguage wouldn’t be common, which would be outside of the standard.”&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Unnecessary complexity&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“[...] And for some of the ports to other languages about half of the complexity of doing the thing was just doing the comments [...]”&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Alignment with &lt;a href=&quot;http://yaml.org/&quot;&gt;YAML&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I don’t really think that these are valid reasons for removing something as quintessential as comments, but at least there are reasons for this decision.&lt;/p&gt;
+&lt;p&gt;There are two possible ways of working around the lack of comments (besides from being frustrated and leaving them out).&lt;/p&gt;
+&lt;ol style=&quot;list-style-type: decimal&quot;&gt;
+&lt;li&gt;&lt;p&gt;You can either agree on a special property that holds a comment for the surrounding object. For example:&lt;/p&gt;
+&lt;pre class=&quot;sourceCode json&quot;&gt;&lt;code class=&quot;sourceCode json&quot;&gt;{
+  &lt;span class=&quot;dt&quot;&gt;&amp;quot;key&amp;quot;&lt;/span&gt;: &lt;span class=&quot;st&quot;&gt;&amp;quot;value&amp;quot;&lt;/span&gt;,
+  &lt;span class=&quot;dt&quot;&gt;&amp;quot;__comment&amp;quot;&lt;/span&gt;: &lt;span class=&quot;st&quot;&gt;&amp;quot;defines a key and a value&amp;quot;&lt;/span&gt;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Or you could use another markup format that supports comments. Examples would be XML, YAML or the newer &lt;a href=&quot;https://github.com/typesafehub/config/blob/master/HOCON.md&quot;&gt;HOCON (Human-Optimized Config Object Notation)&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Personally, I think that YAML is a bloated spec and HOCON is preferably used to configure software systems. Sometimes, bringing XML to client-side web applications can be a real pain, so in-JSON comments often are the only solution.&lt;/p&gt;
+
+    </content>
+
+    <category term="english"/>
+
+    <category term="dev"/>
+
+    <category term="json"/>
+
+    <category term="javascript"/>
+
+  </entry>
+
+  <entry>
+    <title>Einfaches PHP-CMS</title>
+    <link href="http://vorba.ch/2013/einfaches-php-cms.html"/>
+    <id>http://vorba.ch/2013/einfaches-php-cms.html</id>
+    <updated>2013-03-13T23:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>https://paul.vorba.ch/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorba.ch/2013/pen-and-notebook.jpg"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Ich schreibe gerade an einem CMS. In PHP. Ja, richtig gehört: PHP. Wie kommt jemand, der täglich mit Node.js, Scala und noch abgefahreneren Sprachen zu tun hat, ausgerechnet auf PHP? Die Antwort ist ganz einfach. Das ganze soll auf jedem noch so günstigen Webspace laufen und das möglichst ohne Konfiguration. Dazu kommt nur PHP in Frage.&lt;/p&gt;
+&lt;p&gt;Nachdem ich seit 2011 viel mit neuen Sprachen und Plattformen experimentiert habe, tut es ganz gut, mal wieder einfachstes PHP in den Bildschirm zu meißeln.&lt;/p&gt;
+&lt;h2 id=&quot;warum-noch-ein-cms&quot;&gt;Warum &lt;em&gt;noch ein&lt;/em&gt; CMS?&lt;/h2&gt;
+&lt;p&gt;Ich habe mir im Zuge eines kleineren privaten Projekts viele verschiedene Systeme angeschaut. Bei jedem CMS habe ich mir gedacht: Das geht auch einfacher.&lt;/p&gt;
+&lt;p&gt;Mein Use Case ist eine kleine Website mit einer Hand voll Seiten, die von mir vorgefertigt erstellt werden und danach von angemeldeten Benutzern editiert werden können sollen. Also muss ich es halt selbst machen, es sei den jemand nennt mir in den Kommentaren ein CMS, das genau das tut und nicht wesentlich mehr. &lt;em&gt;Daran glaube ich aber nicht.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Hier in ein paar Stichpunkten, was mir so vorschwebt:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Websites bestehen aus HTML. Daher wird es einen einzigen Inhaltstyp geben: HTML-Snippets. Diese werden dann über Templates in einer oder mehreren Seite(n) platziert.&lt;/li&gt;
+&lt;li&gt;Andere Möglichkeiten zur Definition von Inhalten sind nur noch händisch getippelte HTML- oder PHP-Dateien.&lt;/li&gt;
+&lt;li&gt;PHP ist eine Templatesprache. D.h. für Templates wird reines HTML mit eingebettetem PHP verwendet.&lt;/li&gt;
+&lt;li&gt;Es wird keinerlei Rechteverwaltung geben. Nach dem Login darf man alles editieren, was existiert. Meiner Meinung stören aufwendige Rechtesysteme meist nur bei der täglichen Arbeit. Hier geht es definitiv ohne.&lt;/li&gt;
+&lt;li&gt;Das Backend umfasst nur 2 bis 3 Seiten:
+&lt;ol style=&quot;list-style-type: decimal&quot;&gt;
+&lt;li&gt;Eine Editor-Seite, in der man die HTML-Snippets editieren kann&lt;/li&gt;
+&lt;li&gt;Eine Liste der Benutzer mit Funktionen zum Hinzufügen und Entfernen&lt;/li&gt;
+&lt;li&gt;Eventuell noch zusätzlich ein Formular, in dem man die Templates anpassen kann, sollte man keinen FTP-Zugang o.ä. haben&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;li&gt;Die Editor-Seite wird vielleicht einen WYSIWYG-Editor spendiert bekommen, (der sich abstellen lässt), damit auch HTML-unerfahrene Benutzer das CMS benutzen können. Hier habe ich lange überlegt, ob ich vielleicht nicht lieber stattdessen Markdown anbieten soll. Je länger ich überlege, desto schwerer fällt mir die Wahl. Vielleicht bleibe ich doch bei einfachem Markdown mit Vorschau, wie hier in den Kommentaren. Vielleicht kann mir ja jemand mit Erfahrung in diesem Bereich die Entscheidung erleichtern.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Beim Endprodukt kann man dann wohl kaum noch von einem CMS sprechen (denn verwaltet wird ja nicht viel), aber einen anderen Namen habe ich dafür nicht. Website-Editor vielleicht...&lt;/p&gt;
+&lt;p&gt;Die Entwicklung am CMS kann im &lt;a href=&quot;https://github.com/pvorb/chx&quot;&gt;GitHub-Repository&lt;/a&gt; verfolgt werden. Ich habe aber gerade erst damit begonnen, also erwartet noch nicht zu viel.&lt;/p&gt;
+&lt;p&gt;Meinungen und Ratschläge: Immer her damit!&lt;/p&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="dev"/>
+
+    <category term="php"/>
+
+    <category term="cms"/>
+
+  </entry>
+
+  <entry>
+    <title>Die Reichweite von Node.js</title>
+    <link href="http://vorba.ch/2013/reichweite-nodejs.html"/>
+    <id>http://vorba.ch/2013/reichweite-nodejs.html</id>
+    <updated>2013-03-19T01:50:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>https://paul.vorba.ch/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorba.ch/2013/chart.jpg"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Seit letztem Sommer werden in &lt;a href=&quot;http://npmjs.org/&quot;&gt;npm&lt;/a&gt; Download-Statistiken angezeigt. Sieht man sich ein einzelnes Modul an, so werden die Downloads des letzten Tages, der letzten Woche und des letzten Monats angezeigt.&lt;/p&gt;
+&lt;p&gt;Das ist ganz nett, aber nicht immer besonders vielsagend. Da npm seine Daten über eine &lt;a href=&quot;http://couchdb.apache.org/&quot;&gt;CouchDB&lt;/a&gt; bezieht, ist eine ansprechende JSON API gleich mit von der Partie. Da die Daten wohldefiniert vorliegen, habe ich mir schon vor gut einem halben Jahr eine kleine Statistik-Seite gebastelt, die aus den Download-Daten drei Balkendiagramme für tägliche, wöchentliche und monatliche Downloads baut: &lt;a href=&quot;http://npm-stat.vorb.de/&quot;&gt;npm-stat&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Ich möchte aber auf was anderes hinaus:&lt;/p&gt;
+&lt;p&gt;Keine Community entwickelt sich derzeit so schnell, wie die von Node.js. Ein paar Kennzahlen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Im Monat werden insgesamt rund 26 Mio. Pakete heruntergeladen.&lt;/li&gt;
+&lt;li&gt;Es gibt ca. 25000 Pakete im Index. Das sind bereits fast so viele wie im Python Package Index (ca. 29000) und etwa halb so viele wie auf RubyGems (ca. 53000).&lt;/li&gt;
+&lt;li&gt;Wenn mit der gleichen Geschwindigkeit neue Pakete hinzukommen wie bisher, verdoppelt sich diese Zahl innerhalb des nächsten Jahres.&lt;/li&gt;
+&lt;li&gt;Im Schnitt wird ein Modul pro Monat 1000 Mal heruntergeladen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Das sind äußerst beeindruckende Zahlen, bedenkt man, dass Node.js erst vier Jahre alt ist und seit rund zwei Jahren so richtig in Fahrt kommt. Vor zwei Jahren habe ich auch mit Node angefangen und seither &lt;a href=&quot;http://npmjs.org/~pvorb&quot;&gt;32 (meist kleinste) Pakete&lt;/a&gt; geschrieben. Das beliebteste der Pakete&lt;sup&gt;&lt;a href=&quot;http://vorba.ch/2013/reichweite-nodejs.html#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; wurde &lt;a href=&quot;http://npm-stat.vorb.de/charts.html?package=clone&quot;&gt;im Februar 15800 mal heruntergeladen&lt;/a&gt;. 44 andere Pakete benutzen das Paket und niemend weiß, wie viele andere Projekte außerhalb von npm noch. Sogar Yahoo hat ein &lt;a href=&quot;https://npmjs.org/package/yahoo-arrow&quot;&gt;kleines Testframework geschrieben&lt;/a&gt;, das clone einsetzt.&lt;/p&gt;
+&lt;p&gt;Dieser Eintrag kommt zu einer Zeit, zu der ich eher Distanz von Node.js nehme. Es hat unglaublich viele Probleme und Schwachstellen, die die Entwicklung dafür zur Hölle machen können. Dabei ist das Haupt-Problem JavaScript, das sich meiner Ansicht nach nicht für größere Projekte eignet. Aber dazu ein ander mal mehr.&lt;/p&gt;
+&lt;p&gt;Trotzdem kann die Entwicklung Spaß machen und die Zahlen sprechen eine eindeutige Sprache. Ich glaube nicht, dass ich ähnliche Download-Zahlen auf einer anderen Plattform erreicht hätte.&lt;/p&gt;
+&lt;p&gt;Ich will damit gar niemanden von Node.js überzeugen, aber für so manches Vorhaben mag es gerade wegen des riesigen Vorrats an Modulen und der aktiven Community genau das Richtige Werkzeug sein.&lt;/p&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;&lt;a href=&quot;http://npmjs.org/package/clone&quot;&gt;clone&lt;/a&gt; kopiert einen beliebigen Wert, ob &lt;code&gt;Array&lt;/code&gt;, &lt;code&gt;Object&lt;/code&gt;, völlig egal, und das rekursiv mit beliebiger Tiefe. Das ist eigentlich nichts weltbewegendes und wird von einigen JS-Frameworks auch angeboten. Einziger Unterschied ist vermutlich, dass &lt;em&gt;clone&lt;/em&gt; auch sog. &lt;em&gt;circular references&lt;/em&gt; korrekt auflöst und mit kopiert. Ich habe es damals während der Arbeiten an &lt;a href=&quot;http://vorba.ch/log/tag/bread.html&quot;&gt;bread&lt;/a&gt; geschrieben. Ich wollte keinen 500-Pfund-Gorilla à la &lt;em&gt;underscore&lt;/em&gt; oder ähnliches im Projekt haben, weil das meiner Meinung gegen den Ansatz von Node.js geht, alles in kleinen Modulen zu halten, die miteinander verknüpft und wiederverwendet werden können.&lt;a href=&quot;http://vorba.ch/2013/reichweite-nodejs.html#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="nodejs"/>
+
+  </entry>
+
+</feed>

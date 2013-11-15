@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>Binarisierung | vorba.ch</title>
+    <link rel="stylesheet" href="/res/diego.css">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/log/feed.xml"
+      title="Artikel-Feed">
+    <link rel="alternate" type="application/atom+xml"
+      href="/log/comment-feed.xml" title="Kommentar-Feed">
+    <meta name="author" content="Paul Vorbach">
+
+    <meta name="keywords" content="deutsch, dev, scala, computer-vision, algorithm">
+
+  </head>
+  <body id="top">
+    <nav id="nav">
+      <ol id="path">
+        <li><a href="/">vorba.ch</a>
+
+        <li><a href="/2013/">2013</a>
+
+        <li>binarisierung.html
+
+      </ol>
+      <ol id="access">
+        <li><a href="#top" title="Zum Anfang" id="back" accesskey="t">↑</a>
+        <li><a href="#nav">Navigation</a>
+        <li><a href="#content">Inhalt</a>
+        <li><a href="#comments" accesskey="c">Kommentare</a>
+      </ol>
+      <form id="search" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Suche">
+      </form>
+    </nav>
+    <article id="content">
+      <header>
+        <h1>Binarisierung</h1>
+
+        <figure class="teaser">
+          <img src="binarization.jpg">
+        </figure>
+
+        <p class="meta">von <span class="author">Paul Vorbach</span>, <span class="created">22.01.2013</span>
+          &ndash; <a href="http://vorba.ch/2013/binarisierung.html#disqus_thread">Kommentare</a></p>
+      </header>
+      <section>
+        <p>In meiner Bachelorarbeit, die den Titel „Erstellung von TrueType-Fonts zu historischen Manuskripten“ trägt, stand ich vor dem Problem, wie Zeichen in gescannten Manuskripten am besten erkannt werden können und wie sie in ein Vektorformat überführt werden können. Dazu hat es sich als hilfreich erwiesen, solche Scans zunächst in eine binarisierte Form zu bringen. Pixelmengen lassen sich sehr einfach gruppieren, wenn es nur schwarze und weiße Pixel gibt.</p>
+<p>Zunächst einmal kann man sich ohne Mühe einfache Verfahren ausdenken, die für jeden Pixel eines Bildes entscheiden, ob er schwarz oder weiß erscheinen soll. Das einfachste solche Verfahren ist, einen <em>festen Schwellwert</em> zu verwenden, nach dem das Bild aufgeteilt wird. Ist die Farbe in einem Pixel heller, so wird der Pixel weiß gefärbt, ist der Pixel dunkler, so wird der Pixel schwarz gefärbt.</p>
+<p>Bei gescannten Dokumenten und besonders historischen Schriften steht man aber vor dem Problem, dass der Kontrast zwischen Schrift und Hintergrund (teilweise vergilbtes Papier oder Pergament) sehr klein werden können. Außerdem können einzelne Bildbereiche heller oder dunkler sein als andere. Deshalb lässt sich die Schrift mit einem festen Schwellwert nur noch sehr schlecht vom Hintergrund trennen.</p>
+<p>Für solche Fälle existieren <em>adaptive</em> Verfahren, die jeweils nur die Umgebung um einen Pixel beim Ermitteln eines lokalen Schwellwerts betrachten. Diese Verfahren sind aber wesentlich aufwändiger als einfache Schwellwertverfahren. Leider existieren keine Programme, die <em>out of the box</em> Bilder adaptiv binarisieren können.</p>
+<p>Diesen Umstand habe ich mir zum Anlass genommen, ein kleines Scala-Programm zu schreiben, das diesen Zweck erfüllt und mit einer kleinen GUI daherkommt. Zunächst einmal habe ich nur den <a href="http://www.mediateam.oulu.fi/publications/pdf/24.p">Binarisierungsalgorithmus nach Sauvola</a> implementiert. Weitere Verfahren sollen folgen.</p>
+<p>Zur Installation benötigt man lediglich das <em>Java Runtime Environment (JRE) 6</em> oder höher. Die <a href="https://repo.vorb.de/downloads/image-binarization.jnlp">Installation erfolgt über Java WebStart</a>. Der Quelltext steht unter einer <a href="/license/mit.html">MIT-Lizenz</a> und ist bei <a href="https://github.com/pvorb/image-binarization">GitHub</a> verfügbar.</p>
+
+      </section>
+      <footer class="meta">
+        <p>Kategorien:
+
+          <a href="/tag/deutsch.html">deutsch</a> ·
+
+          <a href="/tag/dev.html">dev</a> ·
+
+          <a href="/tag/scala.html">scala</a> ·
+
+          <a href="/tag/computer-vision.html">computer-vision</a> ·
+
+          <a href="/tag/algorithm.html">algorithm</a> 
+
+        </p>
+
+      </footer>
+    </article>
+    <section id="comments">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'vorbach';
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Bitte aktivieren Sie JavaScript, um die Kommentare zu sehen.</noscript>
+    </section>
+    <footer id="about">
+      <p>© 2013 – Paul Vorbach.
+        <a href="/info/contact.html">Kontakt</a>.</p>
+    </footer>
+  </body>
+</html>

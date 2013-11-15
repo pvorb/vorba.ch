@@ -10,10 +10,6 @@
   <body>
     <header id="site"><a href="/"><%- siteTitle %></a></header>
     <nav id="nav">
-      <ul id="branches">
-        <li><a href="/log/">/log</a>
-        <li class="active"><a href="/info/">/info</a>
-      </ul>
       <ol id="path">
         <li>Home
       </ol>
@@ -34,7 +30,7 @@
     </section>
     <footer id="about">
       <p>© 2008-<%- (new Date()).getFullYear() %> – <%= siteAuthor %>.
-        <a href="/info/contact.html">Contact</a>.</p>
+        <a href="http://paul.vorba.ch/">Contact</a>.</p>
     </footer>
   </body>
 </html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Blog | vorba.ch</title>
+    <link rel="stylesheet" href="/res/diego.css">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml"
+      title="Article feed">
+    <meta name="author" content="Paul Vorbach">
+  </head>
+  <body id="top">
+    <nav id="nav">
+      <ol id="path">
+        <li>vorba.ch</li>
+      </ol>
+      <ol id="access">
+        <li><a href="#top" title="To the top" id="back" accesskey="t">↑</a>
+        <li><a href="#nav">Navigation</a>
+        <li><a href="#content">Content</a>
+      </ol>
+      <form id="search" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Suche">
+      </form>
+    </nav>
+    <section id="content" class="digest">
+      <header class="meta">
+        <p><a href="/tag/" class="button">Tags</a> ·
+          <a href="/feed.xml" class="feed button">Article feed</a> ·
+          <a href="/blogroll.html" class="button"%>Blogroll</a></p>
+      </header>
+
+      <article>
+        <header>
+
+          <h1><a href="/2012/https.html">HTTPS</a></h1>
+
+          <figure class="teaser">
+            <a href="/2012/https.html"><img src="/2012/lock.png"></a>
+          </figure>
+
+          <p class="meta">2012-07-23 &ndash; <a href="/2012/https.html#disqus_thread">Comments</a></p>
+        </header>
+        <section>
+          <p>Man sollte wo es geht über verschlüsselte Verbindungen im Netz unterwegs sein. Das macht auch vor dem eigenen Blog nicht halt und so habe ich mir gestern ein paar SSL-Zertifikate erzeugt und diese bei <a href="https://startssl.com/">StartSSL</a> registriert. Das ist nämlich der einzige mir bekannte Anbieter für SSL-Zertifikate, der auch kostenlose Zertifikate anbietet. Anderswo kosten einjährige Zertifikate zwischen 20 und 500 Euro, je nachdem bei wem man bestellt und wie viele Subdomains man gerne schützen möchte. Für eine Firma ist das in der Regel kein Problem, für einen Studenten jedoch schon.</p>
+<p>Prinzipiell ist es auch möglich, seine eigene <a href="http://en.wikipedia.org/wiki/Certificate_authority">Zertifizierungsstelle (CA)</a> <a href="http://workaround.org/certificate-authority">zu eröffnen</a>. Das ist in meinen Augen sogar sicherer als die gängige Methode, sich Zertifikate bei VeriSign &amp; Co. zu besorgen. Schließlich ist keine dritte Instanz vorhanden, die die Möglichkeit hat, verschlüsselte Nachrichten zu entschlüsseln, weil sie die Schlüssel kennt. Leider ist die Mehrheit der Menschen (insbesondere aller Browser-Hersteller) anderer Meinung und so macht eine eigene CA zu viele Probleme mit verschiedenen Browsern.
+          <p><a href="/2012/https.html">Read on &hellip;</a></p>
+        </section>
+      </article>
+
+      <article>
+        <header>
+
+          <h1><a href="/2012/gitit.html">Gitit</a></h1>
+
+          <figure class="teaser">
+            <a href="/2012/gitit.html"><img src="/2012/gitit.png"></a>
+          </figure>
+
+          <p class="meta">2012-07-22 &ndash; <a href="/2012/gitit.html#disqus_thread">Comments</a></p>
+        </header>
+        <section>
+          <p>Vor einiger Zeit (vermutlich im Zusammenhang mit <a href="/log/2012/04/pandoc.html">Pandoc</a>) bin ich über die Wiki-Software <a href="https://github.com/jgm/gitit/">Gitit</a> gestolpert. Gitit ist – genau wie Pandoc – in Haskell geschrieben und verwendet Git zur Versionierung der einzelnen Artikel. Außerdem wird Pandoc zum Übersetzen der Texte verwendet, sodass man zahlreiche Markup-Sprachen wie Markdown oder LaTeX verwenden kann. Der eine oder andere wird das schon von den Github-Wikis kennen.</p>
+<p>Ich hatte schon lange den Wunsch, ein Wiki für persönliche Notizen zu haben. Also habe ich mir heute die Zeit genommen und Gitit <a href="https://wiki.vorb.de/">aufgesetzt</a>. Unter Debian ist das eine Aufgabe von 10 Minuten. Hier habe ich vor, ab und zu mal ein paar Notizen zu dem ein oder anderen Projekt aufzuschreiben oder schon ein paar Gedanken für Artikel aufzuschreiben. Vielleicht wird auch mehr daraus.
+          <p><a href="/2012/gitit.html">Read on &hellip;</a></p>
+        </section>
+      </article>
+
+      <article>
+        <header>
+
+          <h1><a href="/2012/file-search-nodejs.html">File search in Node.js</a></h1>
+
+          <figure class="teaser">
+            <a href="/2012/file-search-nodejs.html"><img src="/2012/magnify.jpg"></a>
+          </figure>
+
+          <p class="meta">2012-07-12 &ndash; <a href="/2012/file-search-nodejs.html#disqus_thread">Comments</a></p>
+        </header>
+        <section>
+          <p>Since the German blog post <a href="/log/2012/03/volltextsuche.html">Volltextsuche</a> is the most clicked on this blog, I’ll explain, how I realised the full-text search of this website with the help of Node.js.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You need to be on a Linux/Unix machine, since the search uses native command line commands like <a href="http://en.wikipedia.org/wiki/Find"><code>find</code></a> and <a href="http://en.wikipedia.org/wiki/Grep"><code>grep</code></a> and you need to have <a href="http://nodejs.org/">Node.js</a> (v0.4.0+) installed. Maybe there is a similar way to do it on Windows, too. I think you could install <a href="http://git-scm.com/download">Git for Windows</a> and add the <code>/bin</code> directory to your system <code>PATH</code> to use the same commands on Windows. If somebody has a better solution (maybe one that works out of the box) he/she may <a href="/log/2012/07/file-search-nodejs.html#comments">leave a comment</a>.
+          <p><a href="/2012/file-search-nodejs.html">Read on &hellip;</a></p>
+        </section>
+      </article>
+
+      <article>
+        <header>
+
+          <h1><a href="/2012/for-loop-behavior.html">For loop behavior in PHP</a></h1>
+
+          <figure class="teaser">
+            <a href="/2012/for-loop-behavior.html"><img src="/2012/rollercoaster.jpg"></a>
+          </figure>
+
+          <p class="meta">2012-07-09 &ndash; <a href="/2012/for-loop-behavior.html#disqus_thread">Comments</a></p>
+        </header>
+        <section>
+          <p>I always asked myself how often a function gets evaluated if you place it in the break condition of a for loop (or a for-each loop). Unfortunately I have always been too lazy to look for an answer – until today.</p>
+<p>Let’s have a look at an implementation in <em>PHP</em>:
+          <p><a href="/2012/for-loop-behavior.html">Read on &hellip;</a></p>
+        </section>
+      </article>
+
+      <article>
+        <header>
+
+          <h1><a href="/2012/suchschlitz-und-benutzbarkeit.html">Suchschlitz und Benutzbarkeit</a></h1>
+
+          <figure class="teaser">
+            <a href="/2012/suchschlitz-und-benutzbarkeit.html"><img src="/2012/typewriter.jpg"></a>
+          </figure>
+
+          <p class="meta">2012-05-06 &ndash; <a href="/2012/suchschlitz-und-benutzbarkeit.html#disqus_thread">Comments</a></p>
+        </header>
+        <section>
+          <p>Die <a href="/log/2012/03/volltextsuche.html">Volltextsuche</a> hat sich jetzt schon zwei Monate bewährt. Also habe ich nun einen Suchschlitz ins Design eingebaut.</p>
+<p>Und wo ich schon dabei war, jedes Template zu ändern, habe ich auch gleich noch ein paar nette Tastenkombinationen eingefügt, die die Seite für Tastatur-Fanatiker (wie mich) einfacher bedienbar machen sollen.
+          <p><a href="/2012/suchschlitz-und-benutzbarkeit.html">Read on &hellip;</a></p>
+        </section>
+      </article>
+
+      <article>
+        <header>
+
+          <h1><a href="/2012/stylesheet-fuer-feeds.html">Stylesheet für Atom-Feeds</a></h1>
+
+          <figure class="teaser">
+            <a href="/2012/stylesheet-fuer-feeds.html"><img src="/2012/milten-xsl.png"></a>
+          </figure>
+
+          <p class="meta">2012-04-30 &ndash; <a href="/2012/stylesheet-fuer-feeds.html#disqus_thread">Comments</a></p>
+        </header>
+        <section>
+          <p>Seit gerade eben hat der <a href="/log/feed.xml">Artikel-Feed</a> hier ein eigenes Stylesheet. Wie das funktioniert kann man bei <a href="http://24ways.org/2006/beautiful-xml-with-xsl">24ways.org</a> nachlesen.</p>
+<p>Für die meisten wird das vermutlich zu viel Aufwand sein. Ich fand jedoch interessant, dass das von den meisten Browsern unterstützt wird. Bei Feeds wird das Stylesheet aber nur in Webkit-Browsern standardmäßig angezeigt. Schade eigentlich.
+          <p><a href="/2012/stylesheet-fuer-feeds.html">Read on &hellip;</a></p>
+        </section>
+      </article>
+
+      <article>
+        <header>
+
+          <h1><a href="/2012/minecraft-dota.html">Minecraft: DOTA</a></h1>
+
+          <figure class="teaser">
+            <a href="/2012/minecraft-dota.html"><img src="/2012/minecraft-dota.png"></a>
+          </figure>
+
+          <p class="meta">2012-04-19 &ndash; <a href="/2012/minecraft-dota.html#disqus_thread">Comments</a></p>
+        </header>
+        <section>
+          <p>War ja nur eine Frage der Zeit:</p>
+<iframe width="520" height="320" src="https://www.youtube.com/embed/xY5XpjmpR78"
+  frameborder="0" allowfullscreen></iframe>
+
+<p><a href="http://www.minecraftforum.net/topic/1161133-minecraft-dota/">Das</a> könnte spaßig werden.
+          <p><a href="/2012/minecraft-dota.html">Read on &hellip;</a></p>
+        </section>
+      </article>
+
+      <article>
+        <header>
+
+          <h1><a href="/2012/pandoc.html">Pandoc</a></h1>
+
+          <figure class="teaser">
+            <a href="/2012/pandoc.html"><img src="/2012/pinned-docs.jpg"></a>
+          </figure>
+
+          <p class="meta">2012-04-19 &ndash; <a href="/2012/pandoc.html#disqus_thread">Comments</a></p>
+        </header>
+        <section>
+          <p><a href="http://johnmacfarlane.net/pandoc/">Pandoc</a> ist ein Haskell-Programm zur Konvertierung von Dokumenten für die Konsole. Damit lassen sich verschiedene Markup-Sprachen in andere Markup-Sprachen oder Dokumentformate umwandeln.</p>
+<p>Vorrangig unterstützt Pandoc als Eingabe-Format das allseits beliebte Markdown. Daraus lassen sich dann beispielsweise HTML- oder LaTeX-Dokumente erzeugen, genauso leicht aber auch PDF- oder Word-Dokumente und sogar E-books im EPUB-Format.
+          <p><a href="/2012/pandoc.html">Read on &hellip;</a></p>
+        </section>
+      </article>
+
+      <ul class="pagination">
+
+        <li><a href="/index.html" accesskey="p">1</a>
+
+        <li><span>2</span>
+
+        <li><a href="/index-3.html" accesskey="n">3</a>
+
+        <li>…
+        <li><a href="/index-4.html">4</a>
+
+      </ul>
+    </section>
+    <footer id="about">
+      <p>© 2008-2012 – Paul Vorbach.
+        <a href="http://paul.vorba.ch/">Contact</a>.</p>
+    </footer>
+    <script type="text/javascript">
+      var disqus_shortname = 'vorbach';
+
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+      }());
+    </script>
+  </body>
+</html>

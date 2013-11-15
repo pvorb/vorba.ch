@@ -93,7 +93,18 @@ if (locals.tags)
 <% } %>
       </footer>
     </article>
-    <section id="comments"></section>
+    <section id="comments">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'vorbach';
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </section>
     <aside id="extra">
       <form id="sf" action="/search.html" method="GET">
         <input type="search" name="s" accesskey="s" placeholder="Search">
@@ -103,6 +114,5 @@ if (locals.tags)
       <p>© <%= created.getFullYear() %> – <%= author %>.
         <a href="/info/contact.html">Contact</a>.</p>
     </footer>
-    <script src="/res/comments.en.min.js"></script>
   </body>
 </html>

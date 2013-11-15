@@ -19,21 +19,12 @@
 
   "indexes": [
     {
-      "type": "homepage",
-      "title": "Home",
-      "pattern": "^log/\\d{4}/\\d{2}/.+$",
-      "path": "index.html",
-      "template": "home.tpl",
-      "limit": 1,
-      "sort": [["created", "desc"]]
-    },
-    {
       "type": "blog index",
       "title": "Blog",
-      "pattern": "^log/\\d{4}/\\d{2}/.+$",
+      "pattern": "^\\d{4}/.+$",
       "path": {
-        "first": "log/index.html",
-        "pattern": "log/index-{{page}}.html"
+        "first": "index.html",
+        "pattern": "index-{{page}}.html"
       },
       "template": "index.tpl",
       "limit": 8,
@@ -41,14 +32,14 @@
     },
     {
       "type": "blog feed",
-      "title": "vorb.de",
-      "pattern": "^log/\\d{4}/\\d{2}/.+$",
-      "path": "log/feed.xml",
+      "title": "vorba.ch",
+      "pattern": "^\\d{4}/.+$",
+      "path": "feed.xml",
       "template": "article-feed.tpl",
       "limit": 8,
       "sort": [["created", "desc"]],
       "properties": {
-        "title": "vorb.de",
+        "title": "vorba.ch",
         "subtitle": "web, development and other things",
         "id": "http://vorb.de/log/feed.xml"
       }
@@ -56,7 +47,7 @@
   ],
 
   "tags": {
-    "directory": "log/tag",
+    "directory": "tag",
     "template": "tag.tpl",
     "sort": [["created", "desc"]],
     "index": {
@@ -68,21 +59,8 @@
   "autoindex": [
     {
       "path": "index.html",
-      "pattern": "^log/\\d{4}$",
+      "pattern": "^\\d{4}$",
       "template": "year.tpl",
-      "directory": {
-        "filter": "^$",
-        "match": "\\d{2}"
-      },
-      "file": {
-        "filter": "^$",
-        "match": "^$"
-      }
-    },
-    {
-      "path": "index.html",
-      "pattern": "^log/\\d{4}/\\d{2}$",
-      "template": "month.tpl",
       "directory": {
         "filter": "^$",
         "match": "^$"

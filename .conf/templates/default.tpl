@@ -1,3 +1,4 @@
+<% var date = new Date() %>
 <!DOCTYPE html>
 <html>
   <head>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de" id="top">
+  <head>
+    <meta charset="utf-8">
+    <title>Bread und Git | vorba.ch</title>
+    <link rel="stylesheet" href="/res/milten.css">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml"
+      title="Artikel-Feed">
+    <meta name="author" content="Paul Vorbach">
+
+    <meta name="keywords" content="deutsch, bread, git">
+
+  </head>
+  <body>
+    <header id="site">
+      <a href="/" accesskey="h">vorba.ch</a>
+    </header>
+    <nav id="nav">
+      <ol id="path">
+        <li><a href="/">vorba.ch</a>
+
+        <li><a href="/2012/">2012</a>
+
+        <li>bread-git.html
+
+      </ol>
+      <ol id="access">
+        <li><a href="#top" title="Zum Anfang" id="back" accesskey="t">↑</a>
+        <li><a href="#nav">Navigation</a>
+        <li><a href="#content">Inhalt</a>
+        <li><a href="#comments" accesskey="c">Kommentare</a>
+      </ol>
+    </nav>
+    <article id="content">
+      <header>
+        <h1>Bread und Git</h1>
+        <p class="meta">von <span class="author">Paul Vorbach</span>, <span class="created">07.03.2012</span></p>
+
+        <figure class="teaser">
+          <img src="fork.jpg">
+        </figure>
+
+      </header>
+      <section>
+        <p>Kommen wir zu einem wirklich schönen Teil, den Bread mitbringt. Und zwar veröffentlichen von Beiträgen mit Hilfe von <a href="http://git-scm.com/">Git</a>. Ich sollte vielleicht noch dazu sagen, dass das nicht direkt ein Bestandteil von Bread ist. Aber da man einfach nur Dateien auf den Server packt und keine Datenbank dazu braucht, ist das ziemlich leicht umzusetzen und <em>uuunendlich</em> praktisch.</p>
+<p>So bediene ich meine Website nun schon seit mehreren Wochen immer mal wieder mit kleinen Updates, auch schon vor dem Blog. Wie ich bei der erneuten Lektüre der Heimweh-Artikel feststellen durfte, bin ich gar nicht selbst auf die Idee gekommen, das so zu machen. Das war <a href="http://anmutunddemut.de/2010/05/23/heimweh-20-die-ziele.html#comment-7626">schon 2010 fester Bestandteil von Heimweh</a>.</p>
+<p>Das tut meiner Freude über dieses Feature aber keinen Abbruch.</p>
+<p>Folgender Arbeitsablauf ergibt sich beim Erstellen eines Artikels:</p>
+<pre><code>// In das richtige Verzeichnis wechseln oder bei Bedarf
+// vorher anlegen:
+$ cd public/log/YYYY/MM
+
+$ cp $POST_DE_TPL neuer-artikel.txt
+// wobei $POST_DE_TPL auf eine Textdatei mit dem
+// grundlegenden Aufbau
+// verweist
+
+// Schreiben, was das Zeug hält
+$ vim neuer-artikel.txt
+
+// Teaser-Bild suchen, auf die richtige Größe bringen
+// und im Verzeichnis ablegen
+$ bread
+
+// Alle Dateien aus dem Verzeichnis public/ hinzufügen
+$ git add ../../..
+$ git commit
+$ git push web</code></pre>
+<p>Und fertig. Also eigentlich kaum Aufwand.</p>
+
+      </section>
+      <footer class="meta">
+        <p>Kategorien:
+
+          <a href="/log/tag/deutsch.html">deutsch</a> ·
+
+          <a href="/log/tag/bread.html">bread</a> ·
+
+          <a href="/log/tag/git.html">git</a> 
+
+        </p>
+
+      </footer>
+    </article>
+    <section id="comments">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'vorbach';
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Bitte aktivieren Sie JavaScript, um die Kommentare zu sehen.</noscript>
+    </section>
+    <aside id="extra">
+      <form id="sf" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Suche">
+      </form>
+    </aside>
+    <footer id="about">
+      <p>© 2012 – Paul Vorbach.
+        <a href="http://paul.vorba.ch/">Kontakt</a>.</p>
+    </footer>
+  </body>
+</html>

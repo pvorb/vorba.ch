@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" id="top">
+<html id="top">
   <head>
     <meta charset="utf-8">
     <title>Search<%= locals.query ? ': '+query : ''
       %> | Paul Vorbach</title>
-    <link rel="stylesheet" href="/res/milten.css">
+    <link rel="stylesheet" href="/res/diego.css">
     <link rel="icon" href="/favicon.ico">
     <meta name="author" content="Paul Vorbach">
   </head>
   <body>
-    <header id="site">
-      <a href="/">Paul Vorbach</a>
-    </header>
     <nav id="nav">
-      <ul id="branches">
-        <li><a href="/log/">/log</a>
-        <li><a href="/info/">/info</a>
-      </ul>
       <ol id="path"><%
   var path = '/search.html';
   path = path.split('/');
@@ -24,7 +17,7 @@
 
   for (var i = 0; i < path.length; i++) {
     if (i == 0) {%>
-        <li><a href="<%= pathref %>">vorb.de</a>
+        <li><a href="<%= pathref %>">vorba.ch</a>
 <%  } else if (i < path.length - 1) {%>
         <li><a href="<%= pathref %>"><%- path[i] %></a>
 <%  } else {%>
@@ -49,11 +42,11 @@
         </figure>
 <% } %>
       </header>
-      <form id="search" action="/search.html" method="get">
-        <input type="text" name="s"<%- locals.query ? ' value="'+query+'"' : ''
-          %>> <input type="submit" value="Search">
-      </form>
       <section>
+        <form id="search" action="/search.html" method="get">
+          <input type="text" name="s"<%- locals.query ? ' value="'+query+'"' : ''
+            %>> <input type="submit" value="Search">
+        </form>
 <% if (locals.results) { %>
         <ul>
 <% locals.results.forEach(function (result) {
@@ -66,7 +59,7 @@
     </article>
     <footer id="about">
       <p>© 2008-<%= (new Date()).getFullYear() %> – Paul Vorbach.
-        <a href="/info/contact.html">Contact</a>.</p>
+        <a href="http://paul.vorba.ch/">Contact</a>.</p>
     </footer>
   </body>
 </html>

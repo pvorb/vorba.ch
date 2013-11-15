@@ -1,14 +1,14 @@
 <%
-function pad(n) { return (n<10)?'0'+n:n; }
+function pad(n) { return (n<10) ? '0' + n : n; }
 function getDate(d) {
   return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
 }
 %><!DOCTYPE html>
-<html lang="en" id="top">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title><%= title %> | <%= siteTitle %></title>
-    <link rel="stylesheet" href="/res/milten.css">
+    <link rel="stylesheet" href="/res/diego.css">
     <link rel="icon" href="/favicon.ico">
     <meta name="author" content="<%= author %>">
 <%
@@ -19,17 +19,8 @@ if (locals.tags) {
 }
 %>
   </head>
-  <body>
-    <header id="site">
-      <a href="/" accesskey="h"><%= siteTitle %></a>
-    </header>
+  <body id="top">
     <nav id="nav">
-      <ul id="branches">
-        <li<%- locals.branch == 'log' ? ' class="active"' : ''
-          %>><a href="/log/" accesskey="l">/log</a>
-        <li<%- locals.branch == 'info' ? ' class="active"' : ''
-          %>><a href="/info/" accesskey="i">/info</a>
-      </ul>
       <ol id="path"><%
   var path = _id.replace(/\/index\.html$/, '');
   path = path.split('/');
@@ -37,7 +28,7 @@ if (locals.tags) {
 
   for (var i = 0; i < path.length; i++) {
     if (i == 0) {%>
-        <li><a href="<%= pathref %>">vorb.de</a>
+        <li><a href="<%= pathref %>">vorba.ch</a>
 <%  } else if (i < path.length - 1) {%>
         <li><a href="<%= pathref %>"><%- path[i] %></a>
 <%  } else {%>
@@ -52,6 +43,9 @@ if (locals.tags) {
         <li><a href="#nav">Navigation</a>
         <li><a href="#content">Content</a>
       </ol>
+      <form id="search" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Search">
+      </form>
     </nav>
     <article id="content">
       <header>
@@ -71,11 +65,6 @@ if (locals.tags) {
       </footer>
 <% } %>
     </article>
-    <aside id="extra">
-      <form id="sf" action="/search.html" method="GET">
-        <input type="search" name="s" accesskey="s" placeholder="Search">
-      </form>
-    </aside>
     <footer id="about">
       <p>© 2008-<%= (new Date()).getFullYear() %> – <%= siteAuthor %>.
         <a href="/info/contact.html">Contact</a>.</p>

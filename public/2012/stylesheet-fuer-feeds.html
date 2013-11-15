@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de" id="top">
+  <head>
+    <meta charset="utf-8">
+    <title>Stylesheet für Atom-Feeds | vorba.ch</title>
+    <link rel="stylesheet" href="/res/milten.css">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml"
+      title="Artikel-Feed">
+    <meta name="author" content="Paul Vorbach">
+
+    <meta name="keywords" content="deutsch, dev, xml, xsl">
+
+  </head>
+  <body>
+    <header id="site">
+      <a href="/" accesskey="h">vorba.ch</a>
+    </header>
+    <nav id="nav">
+      <ol id="path">
+        <li><a href="/">vorba.ch</a>
+
+        <li><a href="/2012/">2012</a>
+
+        <li>stylesheet-fuer-feeds.html
+
+      </ol>
+      <ol id="access">
+        <li><a href="#top" title="Zum Anfang" id="back" accesskey="t">↑</a>
+        <li><a href="#nav">Navigation</a>
+        <li><a href="#content">Inhalt</a>
+        <li><a href="#comments" accesskey="c">Kommentare</a>
+      </ol>
+    </nav>
+    <article id="content">
+      <header>
+        <h1>Stylesheet für Atom-Feeds</h1>
+        <p class="meta">von <span class="author">Paul Vorbach</span>, <span class="created">30.04.2012</span></p>
+
+        <figure class="teaser">
+          <img src="milten-xsl.png">
+        </figure>
+
+      </header>
+      <section>
+        <p>Seit gerade eben hat der <a href="/log/feed.xml">Artikel-Feed</a> hier ein eigenes Stylesheet. Wie das funktioniert kann man bei <a href="http://24ways.org/2006/beautiful-xml-with-xsl">24ways.org</a> nachlesen.</p>
+<p>Für die meisten wird das vermutlich zu viel Aufwand sein. Ich fand jedoch interessant, dass das von den meisten Browsern unterstützt wird. Bei Feeds wird das Stylesheet aber nur in Webkit-Browsern standardmäßig angezeigt. Schade eigentlich.</p>
+<p>Also hab ich das mal ausprobiert. Hier das <a href="/res/milten.feed.xsl">vorläufige XSL-Stylesheet</a>:</p>
+<pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;utf-8&quot;<span class="kw">?&gt;</span>
+<span class="kw">&lt;xsl:stylesheet</span><span class="ot"> version=</span><span class="st">&quot;1.0&quot;</span>
+<span class="ot">    xmlns:xsl=</span><span class="st">&quot;http://www.w3.org/1999/XSL/Transform&quot;</span>
+<span class="ot">    xmlns:atom=</span><span class="st">&quot;http://www.w3.org/2005/Atom&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;xsl:output</span><span class="ot"> method=</span><span class="st">&quot;html&quot;</span><span class="ot"> encoding=</span><span class="st">&quot;utf-8&quot;</span><span class="kw">/&gt;</span>
+  <span class="kw">&lt;xsl:template</span><span class="ot"> match=</span><span class="st">&quot;/&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;xsl:apply-templates</span><span class="ot"> select=</span><span class="st">&quot;/atom:feed&quot;</span><span class="kw">/&gt;</span>
+  <span class="kw">&lt;/xsl:template&gt;</span>
+  <span class="kw">&lt;xsl:template</span><span class="ot"> match=</span><span class="st">&quot;/atom:feed&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;html&gt;</span>
+      <span class="kw">&lt;head&gt;</span>
+        <span class="kw">&lt;title&gt;&lt;xsl:value-of</span><span class="ot"> select=</span><span class="st">&quot;atom:title&quot;</span><span class="kw">/&gt;</span> (Feed)<span class="kw">&lt;/title&gt;</span>
+        <span class="kw">&lt;link</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href=</span><span class="st">&quot;/res/milten.css&quot;</span><span class="kw">/&gt;</span>
+      <span class="kw">&lt;/head&gt;</span>
+      <span class="kw">&lt;body&gt;</span>
+        <span class="kw">&lt;header</span><span class="ot"> id=</span><span class="st">&quot;site&quot;</span><span class="kw">&gt;</span>
+          <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;/&quot;</span><span class="kw">&gt;&lt;xsl:value-of</span><span class="ot"> select=</span><span class="st">&quot;atom:author&quot;</span><span class="kw">/&gt;&lt;/a&gt;</span>
+        <span class="kw">&lt;/header&gt;</span>
+        <span class="kw">&lt;nav</span><span class="ot"> id=</span><span class="st">&quot;nav&quot;</span><span class="kw">&gt;</span>
+          <span class="kw">&lt;ul</span><span class="ot"> id=</span><span class="st">&quot;branches&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;li</span><span class="ot"> class=</span><span class="st">&quot;active&quot;</span><span class="kw">&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;/log/&quot;</span><span class="kw">&gt;</span>Blog<span class="kw">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;/info/&quot;</span><span class="kw">&gt;</span>Info<span class="kw">&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="kw">&lt;/ul&gt;</span>
+          <span class="kw">&lt;ol</span><span class="ot"> id=</span><span class="st">&quot;path&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;/&quot;</span><span class="kw">&gt;</span>vorb.de<span class="kw">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;/log/&quot;</span><span class="kw">&gt;</span>log<span class="kw">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="kw">&lt;li&gt;</span>feed.xml<span class="kw">&lt;/li&gt;</span>
+          <span class="kw">&lt;/ol&gt;</span>
+          <span class="kw">&lt;ol</span><span class="ot"> id=</span><span class="st">&quot;access&quot;</span><span class="kw">&gt;</span>
+            <span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#top&quot;</span><span class="ot"> title=</span><span class="st">&quot;To the top&quot;</span><span class="ot"> id=</span><span class="st">&quot;back&quot;</span><span class="kw">&gt;↑&lt;/</span><span class="er">a</span><span class="kw">&gt;&lt;/li&gt;</span>
+            <span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#nav&quot;</span><span class="kw">&gt;</span>Navigation<span class="kw">&lt;/a&gt;&lt;/li&gt;</span>
+            <span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;#content&quot;</span><span class="kw">&gt;</span>Content<span class="kw">&lt;/a&gt;&lt;/li&gt;</span>
+          <span class="kw">&lt;/ol&gt;</span>
+        <span class="kw">&lt;/nav&gt;</span>
+        <span class="kw">&lt;section</span><span class="ot"> id=</span><span class="st">&quot;content&quot;</span><span class="ot"> class=</span><span class="st">&quot;digest&quot;</span><span class="kw">&gt;</span>
+          <span class="kw">&lt;h1&gt;</span>Article Feed<span class="kw">&lt;/h1&gt;</span>
+          <span class="kw">&lt;form&gt;</span>
+            Add the following link to your favorite feed reader:
+            <span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;text&quot;</span>
+<span class="ot">              size=</span><span class="st">&quot;{string-length(atom:link[attribute::rel=&#39;self&#39;]/@href)}&quot;</span>
+<span class="ot">              value=</span><span class="st">&quot;{atom:link[attribute::rel=&#39;self&#39;]/@href}&quot;</span>
+<span class="ot">              onclick=</span><span class="st">&quot;select()&quot;</span><span class="kw">/&gt;</span>
+          <span class="kw">&lt;/form&gt;</span>
+          <span class="kw">&lt;xsl:apply-templates</span><span class="ot"> select=</span><span class="st">&quot;atom:entry&quot;</span><span class="kw">/&gt;</span>
+        <span class="kw">&lt;/section&gt;</span>
+        <span class="kw">&lt;footer</span><span class="ot"> id=</span><span class="st">&quot;about&quot;</span><span class="kw">&gt;</span>
+          <span class="kw">&lt;p&gt;</span>© 2012 – Paul Vorbach.
+            <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;/info/contact.html&quot;</span><span class="kw">&gt;</span>Contact<span class="kw">&lt;/a&gt;</span>.<span class="kw">&lt;/p&gt;</span>
+        <span class="kw">&lt;/footer&gt;</span>
+      <span class="kw">&lt;/body&gt;</span>
+    <span class="kw">&lt;/html&gt;</span>
+  <span class="kw">&lt;/xsl:template&gt;</span>
+  <span class="kw">&lt;xsl:template</span><span class="ot"> match=</span><span class="st">&quot;atom:entry&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;article&gt;</span>
+      <span class="kw">&lt;header&gt;</span>
+        <span class="kw">&lt;h2&gt;</span>
+          <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;{atom:link/@href}&quot;</span><span class="kw">&gt;&lt;xsl:value-of</span><span class="ot"> select=</span><span class="st">&quot;atom:title&quot;</span><span class="kw">/&gt;&lt;/a&gt;</span>
+        <span class="kw">&lt;/h2&gt;</span>
+        <span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;meta&quot;</span><span class="kw">&gt;</span>
+          <span class="kw">&lt;xsl:value-of</span><span class="ot"> select=</span><span class="st">&quot;substring-before(atom:updated,&#39;T&#39;)&quot;</span><span class="kw">/&gt;</span>
+        <span class="kw">&lt;/p&gt;</span>
+      <span class="kw">&lt;/header&gt;</span>
+      <span class="kw">&lt;xsl:value-of</span><span class="ot"> select=</span><span class="st">&quot;atom:content&quot;</span><span class="ot"> disable-output-escaping=</span><span class="st">&quot;yes&quot;</span><span class="kw">/&gt;</span>
+      <span class="kw">&lt;footer</span><span class="ot"> class=</span><span class="st">&quot;meta&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;p&gt;</span>Author: <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;{atom:author/atom:uri}&quot;</span><span class="kw">&gt;&lt;xsl:value-of</span>
+<span class="ot">              select=</span><span class="st">&quot;atom:author/atom:name&quot;</span><span class="kw">/&gt;&lt;/a&gt;&lt;/p&gt;</span>
+        <span class="kw">&lt;xsl:if</span><span class="ot"> test=</span><span class="st">&quot;atom:category&quot;</span><span class="kw">&gt;</span>
+         <span class="kw">&lt;p&gt;</span>Tags:<span class="kw">&lt;/p&gt;</span>
+         <span class="kw">&lt;ul</span><span class="ot"> class=</span><span class="st">&quot;tags&quot;</span><span class="kw">&gt;&lt;xsl:apply-templates</span><span class="ot"> select=</span><span class="st">&quot;atom:category&quot;</span><span class="kw">/&gt;&lt;/ul&gt;</span>
+        <span class="kw">&lt;/xsl:if&gt;</span>
+      <span class="kw">&lt;/footer&gt;</span>
+    <span class="kw">&lt;/article&gt;</span>
+  <span class="kw">&lt;/xsl:template&gt;</span>
+  <span class="kw">&lt;xsl:template</span><span class="ot"> match=</span><span class="st">&quot;atom:category&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;li&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;http://vorb.de/log/tag/{@term}.html&quot;</span><span class="kw">&gt;&lt;xsl:value-of</span>
+<span class="ot">      select=</span><span class="st">&quot;@term&quot;</span><span class="kw">/&gt;&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="kw">&lt;/xsl:template&gt;</span>
+<span class="kw">&lt;/xsl:stylesheet&gt;</span></code></pre>
+
+      </section>
+      <footer class="meta">
+        <p>Kategorien:
+
+          <a href="/log/tag/deutsch.html">deutsch</a> ·
+
+          <a href="/log/tag/dev.html">dev</a> ·
+
+          <a href="/log/tag/xml.html">xml</a> ·
+
+          <a href="/log/tag/xsl.html">xsl</a> 
+
+        </p>
+
+      </footer>
+    </article>
+    <section id="comments">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'vorbach';
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Bitte aktivieren Sie JavaScript, um die Kommentare zu sehen.</noscript>
+    </section>
+    <aside id="extra">
+      <form id="sf" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Suche">
+      </form>
+    </aside>
+    <footer id="about">
+      <p>© 2012 – Paul Vorbach.
+        <a href="http://paul.vorba.ch/">Kontakt</a>.</p>
+    </footer>
+  </body>
+</html>

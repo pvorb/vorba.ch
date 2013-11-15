@@ -10,11 +10,8 @@ function getDate(d) {
     <title><%= title %> | <%= siteTitle %></title>
     <link rel="stylesheet" href="/res/milten.css">
     <link rel="icon" href="/favicon.ico">
-    <link rel="alternate" type="application/atom+xml" href="/log/feed.xml"
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml"
       title="Artikel-Feed">
-    <link rel="alternate" type="application/atom+xml"
-      href="/log/comment-feed.xml" title="Kommentar-Feed">
-    <link rel="pingback" href="http://vorb.de/log/pingback">
     <meta name="author" content="<%= author %>">
 <%
 if (locals.tags) {
@@ -29,10 +26,6 @@ if (locals.tags) {
       <a href="/" accesskey="h"><%= siteTitle %></a>
     </header>
     <nav id="nav">
-      <ul id="branches">
-        <li class="active"><a href="/log/" accesskey="l">/log</a>
-        <li><a href="/info/" accesskey="i">/info</a>
-      </ul>
       <ol id="path"><%
   var path = _id.split('/');
   var pathref = '';
@@ -40,7 +33,7 @@ if (locals.tags) {
   for (var i = 0; i < path.length; i++) {
     pathref += path[i] + '/';
     if (i == 0) {%>
-        <li><a href="<%= pathref %>">vorb.de</a>
+        <li><a href="<%= pathref %>">vorba.ch</a>
 <%  } else if (i < path.length - 1) {%>
         <li><a href="<%= pathref %>"><%- path[i] %></a>
 <%  } else {%>
@@ -93,7 +86,18 @@ if (locals.tags)
 <% } %>
       </footer>
     </article>
-    <section id="comments"></section>
+    <section id="comments">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'vorbach';
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Bitte aktivieren Sie JavaScript, um die Kommentare zu sehen.</noscript>
+    </section>
     <aside id="extra">
       <form id="sf" action="/search.html" method="GET">
         <input type="search" name="s" accesskey="s" placeholder="Suche">
@@ -101,8 +105,7 @@ if (locals.tags)
     </aside>
     <footer id="about">
       <p>© <%= created.getFullYear() %> – <%= author %>.
-        <a href="/info/contact.html">Kontakt</a>.</p>
+        <a href="http://paul.vorba.ch/">Kontakt</a>.</p>
     </footer>
-    <script src="/res/comments.de.min.js"></script>
   </body>
 </html>

@@ -1,0 +1,14 @@
+title: Contact
+
+branch: info
+template: page.en.tpl
+
+
+Paul Vorbach
+
+<address>
+  E-Mail: <paul@vorb.de> – [(PGP Public key)](/public.asc)
+</address>
+
+If you need my postal address or any further information the [DENIC can help
+you](http://www.denic.de/webwhois/?domain=vorb.de).
