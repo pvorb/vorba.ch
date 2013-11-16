@@ -60,13 +60,11 @@ if (locals.tags) {
         </figure>
 <% } %>
       </header>
-<% if (locals.__content) { %>
       <section>
+<% if (locals.__content) { %>
         <%- __content %>
-      </section>
 <% } %>
 <% if (__docs.length > 0) { %>
-      <section>
         <ul>
 <% __docs.forEach(function (doc) { %>
           <li><%- getDate(doc.created) %>, <a href="/<%= doc._id %>"><%-
