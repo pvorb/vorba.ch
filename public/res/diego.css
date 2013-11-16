@@ -131,6 +131,7 @@ pre code {
   visibility: hidden;
 }
 #search {
+  display: none;
   position: absolute;
   top: 0;
   left: 566px;
