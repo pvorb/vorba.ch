@@ -7,7 +7,7 @@
   },
 
   "directories": {
-    "input": "public",
+    "input": "in",
     "output": "public",
     "templates": ".conf/templates",
     "tags": ".conf/tags"
