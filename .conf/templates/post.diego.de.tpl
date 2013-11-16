@@ -103,7 +103,7 @@ if (locals.tags)
     </section>
     <footer id="about">
       <p>© <%= created.getFullYear() %> – <%= author %>.
-        <a href="/info/contact.html">Kontakt</a>.</p>
+        <a href="http://paul.vorba.ch/">Kontakt</a>.</p>
     </footer>
   </body>
 </html>
