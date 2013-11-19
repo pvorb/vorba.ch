@@ -35,7 +35,7 @@ if (locals.tags) {
     if (i == 0) {%>
         <li><a href="<%= pathref %>">vorba.ch</a>
 <%  } else if (i < path.length - 1) {%>
-        <li><a href="<%= pathref %>"><%- path[i] %></a>
+        <li><a href="/archive.html#yr-<%= path[i] %>"><%- path[i] %></a>
 <%  } else {%>
         <li><%- path[i] %>
 <%  }
@@ -72,7 +72,7 @@ if (locals.tags) {
 if (locals.tags)
   for (var i = 0, len = tags.length; i < len; i++) { var tag = locals.tags[i];
 %>
-          <a href="/log/tag/<%= tag %>.html"><%= tag %></a> <%= (i == len - 1) ?
+          <a href="/tag/<%= tag %>.html"><%= tag %></a> <%= (i == len - 1) ?
             '' : '·' %>
 <%
   }

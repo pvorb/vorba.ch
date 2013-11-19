@@ -10,11 +10,8 @@ function getDate(d) {
     <title><%= title %> | <%= siteTitle %></title>
     <link rel="stylesheet" href="/res/milten.css">
     <link rel="icon" href="/favicon.ico">
-    <link rel="alternate" type="application/atom+xml" href="/log/feed.xml"
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml"
       title="Article feed">
-    <link rel="alternate" type="application/atom+xml"
-      href="/log/comment-feed.xml" title="Comment feed">
-    <link rel="pingback" href="http://vorb.de/log/pingback">
     <meta name="author" content="<%= author %>">
 <%
 if (locals.tags) {
@@ -25,14 +22,7 @@ if (locals.tags) {
 %>
   </head>
   <body>
-    <header id="site">
-      <a href="/" accesskey="h"><%= siteTitle %></a>
-    </header>
     <nav id="nav">
-      <ul id="branches">
-        <li class="active"><a href="/log/" accesskey="l">/log</a>
-        <li><a href="/info/" accesskey="i">/info</a>
-      </ul>
       <ol id="path"><%
   var path = _id.split('/');
   var pathref = '';
@@ -40,9 +30,9 @@ if (locals.tags) {
   for (var i = 0; i < path.length; i++) {
     pathref += path[i] + '/';
     if (i == 0) {%>
-        <li><a href="<%= pathref %>">vorb.de</a>
+        <li><a href="<%= pathref %>">vorba.ch</a>
 <%  } else if (i < path.length - 1) {%>
-        <li><a href="<%= pathref %>"><%- path[i] %></a>
+        <li><a href="/archive.html#yr-<%= path[i] %>"><%- path[i] %></a>
 <%  } else {%>
         <li><%- path[i] %>
 <%  }
@@ -79,7 +69,7 @@ if (locals.tags) {
 if (locals.tags)
   for (var i = 0, len = tags.length; i < len; i++) { var tag = locals.tags[i];
 %>
-          <a href="/log/tag/<%= tag %>.html"><%= tag %></a> <%= (i == len - 1) ?
+          <a href="/tag/<%= tag %>.html"><%= tag %></a> <%= (i == len - 1) ?
             '' : '·' %>
 <%
   }
@@ -112,7 +102,7 @@ if (locals.tags)
     </aside>
     <footer id="about">
       <p>© <%= created.getFullYear() %> – <%= author %>.
-        <a href="/info/contact.html">Contact</a>.</p>
+        <a href="http://paul.vorba.ch">Contact</a>.</p>
     </footer>
   </body>
 </html>

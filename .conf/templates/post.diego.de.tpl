@@ -10,10 +10,8 @@ function getDate(d) {
     <title><%= title %> | <%= siteTitle %></title>
     <link rel="stylesheet" href="/res/diego.css">
     <link rel="icon" href="/favicon.ico">
-    <link rel="alternate" type="application/atom+xml" href="/log/feed.xml"
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml"
       title="Artikel-Feed">
-    <link rel="alternate" type="application/atom+xml"
-      href="/log/comment-feed.xml" title="Kommentar-Feed">
     <meta name="author" content="<%= author %>">
 <%
 if (locals.tags) {
@@ -34,7 +32,7 @@ if (locals.tags) {
     if (i == 0) {%>
         <li><a href="<%= pathref %>">vorba.ch</a>
 <%  } else if (i < path.length - 1) {%>
-        <li><a href="<%= pathref %>"><%- path[i] %></a>
+        <li><a href="/archive.html#yr-<%= path[i] %>"><%- path[i] %></a>
 <%  } else {%>
         <li><%- path[i] %>
 <%  }
@@ -64,7 +62,7 @@ if (locals.tags) {
 <% } %>
         <p class="meta">von <span class="author"><%- author
           %></span>, <span class="created"><%- getDate(created) %></span>
-          &ndash; <a href="http://vorba.ch<%= _id %>#disqus_thread">Kommentare</a></p>
+          &ndash; <a href="#comments">Kommentare</a></p>
       </header>
       <section>
         <%- __content %>
