@@ -61,15 +61,5 @@ __docs.forEach(function(doc) {
       <p>© 2008-<%= __docs[0].created.getFullYear() %> – <%= siteAuthor %>.
         <a href="http://paul.vorba.ch/">Contact</a>.</p>
     </footer>
-    <script type="text/javascript">
-      var disqus_shortname = 'vorbach';
-
-      (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-      }());
-    </script>
   </body>
 </html>
