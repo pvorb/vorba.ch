@@ -6,11 +6,12 @@ template: post.diego.de.tpl
 teaser: pen-and-notebook.jpg
 
 
-Ich schreibe gerade an einem CMS. In PHP.
+Ich schreibe gerade ein CMS. In PHP.
+
 Ja, richtig gehört: PHP. Wie kommt jemand, der täglich mit Node.js, Scala und
 noch abgefahreneren Sprachen zu tun hat, ausgerechnet auf PHP? Die Antwort ist
 ganz einfach. Das ganze soll auf jedem noch so günstigen Webspace laufen und das
-möglichst ohne Konfiguration. Dazu kommt nur PHP in Frage.
+möglichst ohne Konfiguration. Dafür kommt nur PHP in Frage.
 
 Nachdem ich seit 2011 viel mit neuen Sprachen und Plattformen experimentiert
 habe, tut es ganz gut, mal wieder einfachstes PHP in den Bildschirm zu meißeln.

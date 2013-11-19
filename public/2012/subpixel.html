@@ -48,8 +48,8 @@
 <div class="figure">
 <img src="/log/2012/12/raster-subpixel.png" alt="Subpixel-Beispiel" /><p class="caption">Subpixel-Beispiel</p>
 </div>
-<p>Da es gar nicht so ohne weiteres Möglich ist, einen Screenshot so zu vergrößern, dass die Subpixel sichtbar werden, habe ich ein Programm dafür geschrieben: <a href="https://github.com/pvorb/subpixel-illustrator">Subpixel Illustrator</a>. Damit lässt sich ein Screenshot im PNG-Format öffnen und vergrößern.</p>
-<p>Der Kern des Programms ist, dank Scala, recht kurz:</p>
+<p>Da es gar nicht so ohne weiteres möglich ist, einen Screenshot so zu vergrößern, dass die Subpixel sichtbar werden, habe ich ein Programm dafür geschrieben: <a href="https://github.com/pvorb/subpixel-illustrator">Subpixel Illustrator</a>. Damit lässt sich ein Screenshot im PNG-Format öffnen und vergrößern.</p>
+<p>Der Kern des Programms ist – dank Scala – recht kurz:</p>
 <pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> <span class="fu">scaleUp</span>(input: BufferedImage, factor: Int) = {
   <span class="fu">require</span>(factor &gt; <span class="dv">1</span>, <span class="st">&quot;factor not greater than one&quot;</span>)
   <span class="fu">require</span>(factor % <span class="dv">3</span> == <span class="dv">0</span>,

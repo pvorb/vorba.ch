@@ -8,7 +8,7 @@ template: post.de.tpl
 teaser: windmill.jpg
 
 
-In diesem Artikel will ich [Bread][] und was dazugehört auf technischer Ebene
+In diesem Artikel will ich [Bread] und was dazugehört auf technischer Ebene
 erläutern.
 
 [bread]: https://github.com/pvorb/node-bread
@@ -17,7 +17,7 @@ erläutern.
 
 Prinzipiell war ja die Idee von ben\_ nicht schlecht, [direkt statische
 HTML-Dateien zu schreiben][static-html].
-Ich habe das vor zirka einem Jahr schon mit [Yuki][] versucht, aber kaum zwei
+Ich habe das vor zirka einem Jahr schon mit [Yuki] versucht, aber kaum zwei
 Wochen durchgehalten. Das Problem war, dass ich zunächst sowohl den Blog-Index
 als auch den Feed von Hand schreiben musste. Das macht einfach keinen Spaß und
 ich bewundere ben\_ dafür, dass er das über ein Jahr so durchgehalten hat. (Auch
@@ -63,11 +63,11 @@ Ich habe Bread für [Node.js][nodejs] geschrieben. Das hat mehrere Gründe:
 Da es sich anbietet, JavaScript-Programme modular zu schreiben, besteht Bread
 selbst aus einigen kleineren Modulen:
 
-  * Zunächst sei einmal [Dive][] genannt. Dive macht nichts anderes, als eine
+  * Zunächst sei einmal [Dive] genannt. Dive macht nichts anderes, als eine
     Ordnerstruktur zu durchlaufen und für jede Datei, die eine bestimmte
     Dateiendung hat, eine Aktion auszuführen.
 
-  * Darauf baut [Bake][] auf. Bake definiert die von Dive ausgeführte Aktion so:
+  * Darauf baut [Bake] auf. Bake definiert die von Dive ausgeführte Aktion so:
 
     > „Wenn die Dateiendung `.txt` ist, wandle den Text in HTML um und schreibe
     > das Ergebnis in die zugehörige HTML-Datei.“
@@ -178,8 +178,8 @@ Editor der Wahl:
   ~ Web-Editoren sind Mist. Viel komfortabler lassen sich Texte mit den Tools
     schreiben, die man bei sich auf dem Rechner laufen lassen kann.
 
-    Da mir leider der [iAwriter][] wegen mangelnder Unterstützung für Windows
-    noch verwehrt bleibt, kommt aktuell [Vim][] zum Einsatz. Damit und mit der
+    Da mir leider der [iAwriter] wegen mangelnder Unterstützung für Windows
+    noch verwehrt bleibt, kommt aktuell [Vim] zum Einsatz. Damit und mit der
     Kommandozeile lässt sich sehr komfortabel und schnell arbeiten.
 
 [vim]: http://vim.org/
@@ -221,14 +221,12 @@ Ein paar Sachen habe ich vorerst noch nicht beschrieben:
 
 Das soll aber nicht lange so bleiben. Wer nicht warten kann, kann sich auch
 gerne das [Repository zu dieser Website][vorb-repo] auf Github anschauen.
-Leider musste ich das in eine eigene _„Organization“_ auslagern, weil ich nicht
-mit dem 300 MB-Limit ausgekommen bin. ;)
 
-[vorb-repo]: https://github.com/vorbach/vorb.de
+[vorb-repo]: https://github.com/pvorb/vorba.ch
 
 ## Standing on the shoulders of giants
 
-Wie der [Blogracer][] steht auch Bread auf den Schultern von Giganten. Ich
+Wie der [Blogracer] steht auch Bread auf den Schultern von Giganten. Ich
 möchte mich bei [ben\_][aud], [Konstantin][konnexus] und [Maurice][fym]
 sowie allen Kommentatoren auf den jeweiligen Blogs bedanken, die einige
 wertvolle Gedanken zu diesem Thema zusammengetragen haben.
@@ -237,7 +235,7 @@ Wer sich für die Hintergründe interessiert, wird unter anderem hier fündig:
 
   * [On my way to heimweh][heimweh]
   * [Blogracer][blogracer-topic]
-  * [Nihil][]
+  * [Nihil]
 
 [aud]: http://anmutunddemut.de/
 [konnexus]: http://konnexus.net/
