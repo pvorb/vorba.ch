@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorba.ch: Articles</title>
   <subtitle>Paul Vorbach's personal weblog</subtitle>
-  <updated>2013-11-16T01:12:22.377Z</updated>
+  <updated>2013-11-19T01:08:29.686Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -26,7 +26,7 @@
     <updated>2012-08-08T00:00:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
-      <uri>https://paul.vorba.ch/</uri>
+      <uri>http://paul.vorba.ch/</uri>
     </author>
     <content type="html">
 
@@ -68,7 +68,7 @@
     <updated>2012-12-08T01:00:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
-      <uri>https://paul.vorba.ch/</uri>
+      <uri>http://paul.vorba.ch/</uri>
     </author>
     <content type="html">
 
@@ -96,7 +96,7 @@
     <updated>2012-12-08T03:00:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
-      <uri>https://paul.vorba.ch/</uri>
+      <uri>http://paul.vorba.ch/</uri>
     </author>
     <content type="html">
 
@@ -176,7 +176,7 @@
     <updated>2013-01-22T00:00:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
-      <uri>https://paul.vorba.ch/</uri>
+      <uri>http://paul.vorba.ch/</uri>
     </author>
     <content type="html">
 
@@ -210,7 +210,7 @@
     <updated>2013-02-07T00:00:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
-      <uri>https://paul.vorba.ch/</uri>
+      <uri>http://paul.vorba.ch/</uri>
     </author>
     <content type="html">
 
@@ -241,7 +241,7 @@
     <updated>2013-03-13T00:00:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
-      <uri>https://paul.vorba.ch/</uri>
+      <uri>http://paul.vorba.ch/</uri>
     </author>
     <content type="html">
 
@@ -296,7 +296,7 @@
     <updated>2013-03-13T23:00:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
-      <uri>https://paul.vorba.ch/</uri>
+      <uri>http://paul.vorba.ch/</uri>
     </author>
     <content type="html">
 
@@ -344,7 +344,7 @@
     <updated>2013-03-19T01:50:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
-      <uri>https://paul.vorba.ch/</uri>
+      <uri>http://paul.vorba.ch/</uri>
     </author>
     <content type="html">
 

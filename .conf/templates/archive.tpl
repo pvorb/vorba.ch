@@ -1,18 +1,35 @@
-<!DOCTYPE html>
+<%
+function pad(n) { return n < 10 ? '0' + n : n; }
+function getDate(d) {
+  return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+}
+
+var byYear = {};
+var years = [];
+__docs.forEach(function(doc) {
+  var year = doc.created.getFullYear();
+  if (typeof byYear[year] == 'undefined') {
+    byYear[year] = [];
+    years.push(year);
+  }
+
+  byYear[year].push(doc);
+});
+%><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Blog | vorba.ch</title>
+    <title>Archiv | <%= siteTitle %></title>
     <link rel="stylesheet" href="/res/diego.css">
     <link rel="icon" href="/favicon.ico">
     <link rel="alternate" type="application/atom+xml" href="/feed.xml"
       title="Article feed">
-    <meta name="author" content="Paul Vorbach">
+    <meta name="author" content="<%= author %>">
   </head>
   <body id="top">
     <nav id="nav">
       <ol id="path">
-        <li>vorba.ch</li>
+        <li><a href="/">vorba.ch</a></li>
       </ol>
       <ol id="access">
         <li><a href="#top" title="To the top" id="back" accesskey="t">↑</a>
@@ -23,46 +40,24 @@
         <input type="search" name="s" accesskey="s" placeholder="Suche">
       </form>
     </nav>
-    <section id="content" class="digest">
-      <header class="meta">
-        <p>
-          <a href="/archive.html" class="button">Archive</a> ·
-          <a href="/tag/" class="button">Tags</a> ·
-          <a href="/feed.xml" class="feed button">Article feed</a> ·
-          <a href="/blogroll.html" class="button"%>Blogroll</a></p>
+    <article id="content" class="digest">
+      <header>
+        <h1>Archive</h1>
       </header>
-
-      <article>
-        <header>
-
-          <h1><a href="/2012/beginning.html">At the beginning</a></h1>
-
-          <figure class="teaser">
-            <a href="/2012/beginning.html"><img src="/2012/sunrise.jpg"></a>
-          </figure>
-
-          <p class="meta">2012-02-28 &ndash; <a href="/2012/beginning.html#disqus_thread">Comments</a></p>
-        </header>
-        <section>
-          <p>.</p>
-
-          <p><a href="/2012/beginning.html">Read on &hellip;</a></p>
-        </section>
-      </article>
-
-      <ul class="pagination">
-
-        <li><a href="/index.html">1</a>
-        <li>…
-
-        <li><a href="/index-3.html" accesskey="p">3</a>
-
-        <li><span>4</span>
-
-      </ul>
+      <section>
+<% years.forEach(function(year) { %>
+        <h2 id="yr-<%= year %>"><%= year %></h1>
+        <ul>
+<% byYear[year].forEach(function(doc) { %>
+          <li><%- getDate(doc.created) %>, <a href="/<%= doc._id %>"><%-
+            doc.title %></a></li>
+<% }); %>
+        </ul>
+<% }); %>
+      </section>
     </section>
     <footer id="about">
-      <p>© 2008-2012 – Paul Vorbach.
+      <p>© 2008-<%= __docs[0].created.getFullYear() %> – <%= siteAuthor %>.
         <a href="http://paul.vorba.ch/">Contact</a>.</p>
     </footer>
     <script type="text/javascript">

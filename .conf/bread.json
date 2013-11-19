@@ -31,6 +31,15 @@
       "sort": [["created", "desc"]]
     },
     {
+      "type": "archive",
+      "title": "Archive",
+      "pattern": "^\\d{4}/.+$",
+      "path": "archive.html",
+      "template": "archive.tpl",
+      "limit": 99999999,
+      "sort": [["created", "desc"]]
+    },
+    {
       "type": "blog feed",
       "title": "vorba.ch",
       "pattern": "^\\d{4}/.+$",
