@@ -34,6 +34,7 @@ function getDate(d) {
           <a href="/archive.html" class="button">Archive</a> ·
           <a href="/tag/" class="button">Tags</a> ·
           <a href="/feed.xml" class="feed button">Article feed</a> ·
+          <a href="/comment-feed.xml" class="feed button">Comment feed</a> ·
           <a href="/blogroll.html" class="button"%>Blogroll</a></p>
       </header>
 <% __docs.forEach(function(doc) { %>
