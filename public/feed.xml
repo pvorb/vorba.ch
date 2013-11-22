@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorba.ch: Articles</title>
   <subtitle>Paul Vorbach's personal weblog</subtitle>
-  <updated>2013-11-19T10:37:58.940Z</updated>
+  <updated>2013-11-22T01:17:28.731Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -18,48 +18,6 @@
   <category term="scala"/>
   <category term="akka"/>
   <icon>http://vorba.ch/favicon.ico</icon>
-
-  <entry>
-    <title>Opinions</title>
-    <link href="http://vorba.ch/2012/opinions.html"/>
-    <id>http://vorba.ch/2012/opinions.html</id>
-    <updated>2012-08-08T00:00:00.000Z</updated>
-    <author>
-      <name>Paul Vorbach</name>
-      <uri>http://paul.vorba.ch/</uri>
-    </author>
-    <content type="html">
-
-      &lt;p&gt;&lt;img src="http://vorba.ch/2012/talk.jpg"&gt;&lt;/p&gt;
-
-      &lt;p&gt;Die Kommentarfunktion hier läuft überraschend gut. Per JavaScript wird für jeden Artikel ein Request gestartet, der die Kommentare als JSON-Dokument zurückliefert. Dieses wird anschließend geparst und ins HTML eingebaut, sodass die Kommentare angezeigt werden können. Im Prinzip wie bei &lt;a href=&quot;http://disqus.com/&quot;&gt;Disqus&lt;/a&gt; mit dem Unterschied, dass die Kommentare nicht bei einem anderen Dienst landen. Sogar Pingbacks funktionieren.&lt;/p&gt;
-&lt;p&gt;Den Code dazu kann man sich im zugehörigen &lt;a href=&quot;https://github.com/pvorb/node-comments&quot;&gt;Github-Repository&lt;/a&gt; anschauen&lt;sup&gt;&lt;a href=&quot;http://vorba.ch/2012/opinions.html#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-&lt;p&gt;Trotzdem bin ich mit der Kommentarfunktion, wie sie jetzt ist, unzufrieden. Der Grund dafür liegt in der Verwendung der Datenbank. Durch die Verwendung von MongoDB als Datenspeicher liegen die Kommentare zu den Artikeln nicht im Git-Repository des Blogs und werden dadurch auch nicht versioniert. Für Backups muss ich separat sorgen.&lt;/p&gt;
-&lt;p&gt;In den nächsten Tagen werde ich versuchen, ein neues Kommentar-Modul für das Blog zu schreiben, welches die Kommentare in Git versioniert. Der Aufbau ist recht einfach:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Sobald ein Nutzer einen Kommentar über das Web-Interface anlegt, wird er in eine Kommentar-Datei zum jeweiligen Artikel geschrieben.&lt;/li&gt;
-&lt;li&gt;Anschließend wird ein &lt;code&gt;git commit&lt;/code&gt; durchgeführt, der die Datei unter Versionskontrolle stellt.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Ein Problem stellt sich dabei jedoch:&lt;/p&gt;
-&lt;p&gt;Was geschieht, wenn zufällig zwei Nutzer mehr oder weniger gleichzeitig einen neuen Kommentar abschicken? Ein Kommentar könnte verloren gehen, wenn von zwei Seiten aus versucht wird, die Datei zu verändern.&lt;/p&gt;
-&lt;p&gt;Dazu bräuchte ich wohl eine Warteschlange auf dem Server, die sicherstellt, dass mehrere Kommentare immer korrekt verarbeitet werden. Mal sehen, ob das so gut funktioniert, wie ich mir das vorstelle.&lt;/p&gt;
-&lt;p&gt;Dann will ich mich mal ans Werk machen. Die Entwicklung kann selbstverständlich &lt;a href=&quot;https://github.com/pvorb/node-opinions&quot;&gt;bei Github&lt;/a&gt; verfolgt werden.&lt;/p&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr /&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;Der Kitt zwischen dem Node.js-Modul und dem Server-Backend ist &lt;a href=&quot;https://github.com/vorbach/vorb.de/blob/master/.conf/modules/comments.js&quot;&gt;hier&lt;/a&gt; zu finden.&lt;a href=&quot;http://vorba.ch/2012/opinions.html#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;
-
-    </content>
-
-    <category term="deutsch"/>
-
-    <category term="dev"/>
-
-    <category term="nodejs"/>
-
-  </entry>
 
   <entry>
     <title>Größe zeigen</title>
@@ -377,6 +335,33 @@
     <category term="deutsch"/>
 
     <category term="nodejs"/>
+
+  </entry>
+
+  <entry>
+    <title>Umzug</title>
+    <link href="http://vorba.ch/2013/umzug.html"/>
+    <id>http://vorba.ch/2013/umzug.html</id>
+    <updated>2013-11-22T00:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>http://paul.vorba.ch/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorba.ch/2013/station.jpg"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Vergleichsweise still ist dieses Blog in den letzten Tagen von &lt;em&gt;vorb.de&lt;/em&gt; auf die (nicht mehr ganz so) neue Domain &lt;em&gt;vorba.ch&lt;/em&gt; umgezogen. Damit einher gehen Änderungen am Stylesheet (Artikel vor 2013 sehen weiterhin „alt aus“) sowie an der URL-Struktur: Dadurch, dass hier so selten etwas geschrieben wird, gibt es nun keine Unterverzeichnisse für einzelne Monate mehr. Das Verzeichnis &lt;code&gt;log&lt;/code&gt; ist ebenfalls weggefallen – es war schlicht überflüssig. Zudem habe ich die Kommentare auf Disqus umgezogen. Ich hoffe, daran stört sich niemand allzu sehr.&lt;/p&gt;
+&lt;p&gt;Das einzige Feature, welches noch fehlt, ist die alte Suchfunktion. Dafür soll bald eine bessere Variante auf &lt;a href=&quot;http://lucene.apache.org/solr/&quot;&gt;Solr&lt;/a&gt;-Basis kommen.&lt;/p&gt;
+&lt;p&gt;Zukünftig soll hier auch wieder mehr passieren. Mal sehen, ob ich das einhalten kann.&lt;/p&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="weblog"/>
+
+    <category term="css"/>
 
   </entry>
 

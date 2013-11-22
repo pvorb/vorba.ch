@@ -160,6 +160,7 @@ article#content > footer {
   margin-right: 260px;
   padding-top: 1em;
   padding-bottom: 1em;
+  clear: both;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
