@@ -45,7 +45,7 @@
       "pattern": "^\\d{4}/.+$",
       "path": "feed.xml",
       "template": "article-feed.tpl",
-      "limit": 8,
+      "limit": 10,
       "sort": [["created", "desc"]],
       "properties": {
         "title": "vorba.ch",

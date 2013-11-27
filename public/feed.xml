@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorba.ch: Articles</title>
   <subtitle>Paul Vorbach's personal weblog</subtitle>
-  <updated>2013-11-22T01:31:36.562Z</updated>
+  <updated>2013-11-27T21:26:34.471Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -18,6 +18,48 @@
   <category term="scala"/>
   <category term="akka"/>
   <icon>http://vorba.ch/favicon.ico</icon>
+
+  <entry>
+    <title>Opinions</title>
+    <link href="http://vorba.ch/2012/opinions.html"/>
+    <id>http://vorba.ch/2012/opinions.html</id>
+    <updated>2012-08-08T00:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>http://paul.vorba.ch/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorba.ch/2012/talk.jpg"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Die Kommentarfunktion hier läuft überraschend gut. Per JavaScript wird für jeden Artikel ein Request gestartet, der die Kommentare als JSON-Dokument zurückliefert. Dieses wird anschließend geparst und ins HTML eingebaut, sodass die Kommentare angezeigt werden können. Im Prinzip wie bei &lt;a href=&quot;http://disqus.com/&quot;&gt;Disqus&lt;/a&gt; mit dem Unterschied, dass die Kommentare nicht bei einem anderen Dienst landen. Sogar Pingbacks funktionieren.&lt;/p&gt;
+&lt;p&gt;Den Code dazu kann man sich im zugehörigen &lt;a href=&quot;https://github.com/pvorb/node-comments&quot;&gt;Github-Repository&lt;/a&gt; anschauen&lt;sup&gt;&lt;a href=&quot;http://vorba.ch/2012/opinions.html#fn1&quot; class=&quot;footnoteRef&quot; id=&quot;fnref1&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;Trotzdem bin ich mit der Kommentarfunktion, wie sie jetzt ist, unzufrieden. Der Grund dafür liegt in der Verwendung der Datenbank. Durch die Verwendung von MongoDB als Datenspeicher liegen die Kommentare zu den Artikeln nicht im Git-Repository des Blogs und werden dadurch auch nicht versioniert. Für Backups muss ich separat sorgen.&lt;/p&gt;
+&lt;p&gt;In den nächsten Tagen werde ich versuchen, ein neues Kommentar-Modul für das Blog zu schreiben, welches die Kommentare in Git versioniert. Der Aufbau ist recht einfach:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sobald ein Nutzer einen Kommentar über das Web-Interface anlegt, wird er in eine Kommentar-Datei zum jeweiligen Artikel geschrieben.&lt;/li&gt;
+&lt;li&gt;Anschließend wird ein &lt;code&gt;git commit&lt;/code&gt; durchgeführt, der die Datei unter Versionskontrolle stellt.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ein Problem stellt sich dabei jedoch:&lt;/p&gt;
+&lt;p&gt;Was geschieht, wenn zufällig zwei Nutzer mehr oder weniger gleichzeitig einen neuen Kommentar abschicken? Ein Kommentar könnte verloren gehen, wenn von zwei Seiten aus versucht wird, die Datei zu verändern.&lt;/p&gt;
+&lt;p&gt;Dazu bräuchte ich wohl eine Warteschlange auf dem Server, die sicherstellt, dass mehrere Kommentare immer korrekt verarbeitet werden. Mal sehen, ob das so gut funktioniert, wie ich mir das vorstelle.&lt;/p&gt;
+&lt;p&gt;Dann will ich mich mal ans Werk machen. Die Entwicklung kann selbstverständlich &lt;a href=&quot;https://github.com/pvorb/node-opinions&quot;&gt;bei Github&lt;/a&gt; verfolgt werden.&lt;/p&gt;
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&quot;fn1&quot;&gt;&lt;p&gt;Der Kitt zwischen dem Node.js-Modul und dem Server-Backend ist &lt;a href=&quot;https://github.com/vorbach/vorb.de/blob/master/.conf/modules/comments.js&quot;&gt;hier&lt;/a&gt; zu finden.&lt;a href=&quot;http://vorba.ch/2012/opinions.html#fnref1&quot;&gt;↩&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="dev"/>
+
+    <category term="nodejs"/>
+
+  </entry>
 
   <entry>
     <title>Größe zeigen</title>
@@ -362,6 +404,98 @@
     <category term="weblog"/>
 
     <category term="css"/>
+
+  </entry>
+
+  <entry>
+    <title>Scala</title>
+    <link href="http://vorba.ch/2013/scala.html"/>
+    <id>http://vorba.ch/2013/scala.html</id>
+    <updated>2013-11-27T00:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>http://paul.vorba.ch/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorba.ch/2013/scala.jpg"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Ich bin seit rund zwei Jahren ein großer Fan der Programmiersprache Scala. Ich schreibe hier mal ein paar Stichpunkte auf, warum es sich lohnt, die Sprache näher zu betrachten.&lt;/p&gt;
+&lt;h2 id=&quot;funktional-und-objektorientiert&quot;&gt;Funktional &lt;em&gt;und&lt;/em&gt; objektorientiert&lt;/h2&gt;
+&lt;p&gt;Fast jeder Prozessor, der heute verkauft wird, hat mehr als einen Core. Sogar der Prozessor in meinem Smartphone hat zwei Kerne. Wer schon einmal versucht hat, mit Sprachen wie C++ oder Java ein Programm zu schreiben, das mehrere Kerne zum Schwitzen bringt, wird auch schon einmal eine &lt;a href=&quot;https://de.wikipedia.org/wiki/Race_Condition&quot;&gt;Race Condition&lt;/a&gt; oder einen &lt;a href=&quot;https://de.wikipedia.org/wiki/Deadlock&quot;&gt;Deadlock&lt;/a&gt; erlebt haben.&lt;/p&gt;
+&lt;p&gt;Dagegen gibt es natürlich &lt;a href=&quot;https://de.wikipedia.org/wiki/Lock&quot;&gt;Mittel&lt;/a&gt; und &lt;a href=&quot;https://de.wikipedia.org/wiki/Volatile_(Informatik)&quot;&gt;Wege&lt;/a&gt;, die aber die Entwicklung von nebenläufigem Code ziemlich anstrengend machen können.&lt;/p&gt;
+&lt;p&gt;Einfacher geht es über funktionale Programmierung. Hier sind Funktionen in der Regel frei von Seiteneffekten. Dadurch ist die Reihenfolge egal, in der Funktionen aufgerufen werden. Außerdem gibt es in den meisten funktionalen Sprachen keine Variablen. Was einmal einen Wert hatte, behält diesen Wert auch. Damit können Objekte von jeder Stelle aus referenziert werden, ohne dass man etwas kaputt machen kann. Die Objekte können sich ja nicht ändern. Weil es aber nicht immer einfach ist, Algorithmen ohne Variablen zu schreiben, bringt Scala diese trotzdem mit und lässt dem Programmierer die Wahl, was er nutzen möchte.&lt;/p&gt;
+&lt;p&gt;An vielen Programmiersprachen stört mich jedoch, dass sie keine Objektorientierung mitbringen. Hier spielt Scala seine Stärken aus. Klassen und Vererbung sind mit an Bord, was sehr beim Strukturieren eines Programms hilft.&lt;/p&gt;
+&lt;h2 id=&quot;syntax&quot;&gt;Syntax&lt;/h2&gt;
+&lt;aside class=&quot;before&quot;&gt;
+&lt;pre class=&quot;sourceCode scala&quot;&gt;&lt;code class=&quot;sourceCode scala&quot;&gt;&lt;span class=&quot;kw&quot;&gt;val&lt;/span&gt; id = &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;val&lt;/span&gt; name = &lt;span class=&quot;st&quot;&gt;&amp;quot;pvorb&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p class=&quot;caption&quot;&gt;
+Einfache Wertzuweisungen
+&lt;/p&gt;
+&lt;/aside&gt;
+
+&lt;aside class=&quot;after&quot;&gt;
+&lt;pre class=&quot;sourceCode scala&quot;&gt;&lt;code class=&quot;sourceCode scala&quot;&gt;&lt;span class=&quot;kw&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;halloWelt&lt;/span&gt;(msg: String =
+    &lt;span class=&quot;st&quot;&gt;&amp;quot;Hallo, Welt!&amp;quot;&lt;/span&gt;) = {
+  &lt;span class=&quot;fu&quot;&gt;println&lt;/span&gt;(msg)
+}
+
+&lt;span class=&quot;fu&quot;&gt;halloWelt&lt;/span&gt;()
+  &lt;span class=&quot;co&quot;&gt;// =&amp;gt; &amp;quot;Hallo, Welt!&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p class=&quot;caption&quot;&gt;
+Funktionsdefinition mit Default-Parameter
+&lt;/p&gt;
+&lt;/aside&gt;
+
+&lt;p&gt;Scala hat im Vergleich zu anderen statisch typisierten Sprachen eine sehr angenehme Syntax. Wer sich schon immer daran gestört hat, in Java jede noch so kleine Hilfsvariable mit einem Typ versehen zu müssen, wird den Wert der Typinferenz in Scala lieben. Bei einer Zuweisung wird einfach geschaut, welchen Typ der Wert hat, der zugewiesen wird.&lt;/p&gt;
+&lt;p&gt;Weitere Konzepte wie beispielsweise &lt;a href=&quot;http://docs.scala-lang.org/tutorials/tour/case-classes.html&quot;&gt;Case Classes&lt;/a&gt; und &lt;a href=&quot;http://docs.scala-lang.org/tutorials/tour/pattern-matching.html&quot;&gt;Pattern Matching&lt;/a&gt; helfen dabei, verständlicheren Code zu schreiben – Scala-Kenntnisse vorausgesetzt.&lt;/p&gt;
+&lt;h2 id=&quot;asynchroner-code-durch-futures&quot;&gt;Asynchroner Code durch Futures&lt;/h2&gt;
+&lt;p&gt;In Scala lässt sich sehr einfach asynchroner Code schreiben. Darauf will ich gar nicht so genau eingehen, da es den Rahmen hier sprengen würde. Das folgende Beispiel spricht für sich.&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;pre class=&quot;sourceCode scala&quot;&gt;&lt;code class=&quot;sourceCode scala&quot;&gt;&lt;span class=&quot;kw&quot;&gt;val&lt;/span&gt; f = Future {
+  &lt;span class=&quot;co&quot;&gt;// Hier könnte eine lange Berechnung, eine Datenbankabfrage&lt;/span&gt;
+  &lt;span class=&quot;co&quot;&gt;// oder ein HTTP-Request stehen&lt;/span&gt;
+}
+
+f.&lt;span class=&quot;fu&quot;&gt;onComplete&lt;/span&gt; {
+  &lt;span class=&quot;kw&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;Success&lt;/span&gt;(result) =&amp;gt;
+    &lt;span class=&quot;co&quot;&gt;// Hier etwas mit dem Ergebnis anstellen&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;Failure&lt;/span&gt;(err) =&amp;gt;
+    &lt;span class=&quot;co&quot;&gt;// Hier den Fehler behandeln&lt;/span&gt;
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p class=&quot;caption&quot;&gt;
+Futures in Scala
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Wer sich genauer dafür interessiert, dem empfehle ich den kostenlosen Online-Kurs &lt;a href=&quot;https://www.coursera.org/course/reactive&quot;&gt;„Principles of Reactive Programming“&lt;/a&gt; auf Coursera. Wichtig ist, dass man die Callback-Hölle von JavaScript/Node.js sehr leicht vermeiden kann und dass Scalas Futures auch parallel ausgeführt werden können.&lt;/p&gt;
+&lt;h2 id=&quot;jvm&quot;&gt;JVM&lt;/h2&gt;
+&lt;p&gt;Ja, richtig gelesen. Ein großer Vorteil von Scala ist, dass es auf der Java-VM läuft. In einer Zeit in der die Java-VM eher durch Sicherheitslücken auf sich aufmerksam macht, mag das seltsam klingen. Außerhalb des Browsers handelt es sich trotzdem um ein großartiges Stück Software. Und: Das &lt;a href=&quot;http://konstantinweiss.com/article/android-fuer-die-welt&quot;&gt;wichtigste Betriebssystem der näheren Zukunft&lt;/a&gt;, Android, setzt auf &lt;a href=&quot;https://de.wikipedia.org/wiki/Dalvik_Virtual_Machine&quot;&gt;eine Java-VM&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Außerdem lässt sich jede Java-Bibliothek verwenden. Auch Scala-Programme können aus Java heraus aufgerufen werden. Praktisch.&lt;/p&gt;
+&lt;h2 id=&quot;nachteile&quot;&gt;Nachteile&lt;/h2&gt;
+&lt;p&gt;Der größte Nachteil von Scala ist die hohe Einstiegshürde und die lange Lernkurve. Bis man die Sprache voll verstanden hat und einsetzen kann. Allerdings kann man sehr schnell mit einem kleineren Funktionsumfang produktiv werden. Dann hat man eine Alternative zu Java zur Hand, die einem einiges an Schreibarbeit abnimmt.&lt;/p&gt;
+&lt;p&gt;Außerdem kann einen die schiere Fülle an Möglichkeiten manchmal in den Wahnsinn treiben. Jedes Problem lässt sich auf unzählige Arten lösen und man kann unendlich viel Zeit damit verbringen, Code noch eleganter zu formulieren.&lt;/p&gt;
+&lt;p&gt;Natürlich gibt es noch weitere Nachteile, aber die Fallen mir jetzt natürlich nicht ein ;). Ich hoffe, ich habe jemanden neugierig machen können.&lt;/p&gt;
+&lt;h2 id=&quot;material&quot;&gt;Material&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Martin Odersky, Lex Spoon, Bill Venners: &lt;a href=&quot;http://www.artima.com/shop/programming_in_scala_2ed&quot;&gt;Programming in Scala&lt;/a&gt;. Artima, 2008, ISBN 978-0-9815316-0-1&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.coursera.org/course/progfun&quot;&gt;Functional Programming Principles in Scala&lt;/a&gt;. Coursera Online-Kurs&lt;/li&gt;
+&lt;/ul&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="scala"/>
+
+    <category term="dev"/>
+
+    <category term="lang"/>
+
+    <category term="fp"/>
+
+    <category term="jvm"/>
 
   </entry>
 
