@@ -68,6 +68,18 @@ pre, figure {
   overflow: auto;
 }
 
+figure {
+  margin: 0;
+}
+
+figure, .figure, aside {
+  .caption {
+    color: #333;
+    font-style: italic;
+    margin: .2em 0 2em;
+  }
+}
+
 a.feed {
   .icon-button;
   background-image: url('/res/feed.png');
@@ -230,6 +242,10 @@ article#content > footer {
   float: left;
   padding: 0 @col-div .5em 0;
   text-align: right;
+
+  pre {
+    text-align: left;
+  }
 }
 
 #content header .meta {

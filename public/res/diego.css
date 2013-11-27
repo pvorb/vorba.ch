@@ -38,6 +38,16 @@ pre,
 figure {
   overflow: auto;
 }
+figure {
+  margin: 0;
+}
+figure .caption,
+.figure .caption,
+aside .caption {
+  color: #333;
+  font-style: italic;
+  margin: .2em 0 2em;
+}
 a.feed {
   background: #ffffff none no-repeat 5px center;
   border: 1px solid #bbbbbb;
@@ -188,6 +198,9 @@ article#content > footer {
   float: left;
   padding: 0 20px 0.5em 0;
   text-align: right;
+}
+#content aside.before pre {
+  text-align: left;
 }
 #content header .meta {
   color: #888;
