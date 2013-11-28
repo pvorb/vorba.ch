@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorba.ch: Articles</title>
   <subtitle>Paul Vorbach's personal weblog</subtitle>
-  <updated>2013-11-27T21:26:34.471Z</updated>
+  <updated>2013-11-28T09:19:58.809Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -411,7 +411,7 @@
     <title>Scala</title>
     <link href="http://vorba.ch/2013/scala.html"/>
     <id>http://vorba.ch/2013/scala.html</id>
-    <updated>2013-11-27T00:00:00.000Z</updated>
+    <updated>2013-11-28T10:15:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
       <uri>http://paul.vorba.ch/</uri>
@@ -420,7 +420,7 @@
 
       &lt;p&gt;&lt;img src="http://vorba.ch/2013/scala.jpg"&gt;&lt;/p&gt;
 
-      &lt;p&gt;Ich bin seit rund zwei Jahren ein großer Fan der Programmiersprache Scala. Ich schreibe hier mal ein paar Stichpunkte auf, warum es sich lohnt, die Sprache näher zu betrachten.&lt;/p&gt;
+      &lt;p&gt;Ich bin seit rund zwei Jahren ein großer Fan der Programmiersprache &lt;a href=&quot;http://www.scala-lang.org/&quot;&gt;Scala&lt;/a&gt;. Ich schreibe hier mal ein paar Stichpunkte auf, warum es sich lohnt, die Sprache näher zu betrachten.&lt;/p&gt;
 &lt;h2 id=&quot;funktional-und-objektorientiert&quot;&gt;Funktional &lt;em&gt;und&lt;/em&gt; objektorientiert&lt;/h2&gt;
 &lt;p&gt;Fast jeder Prozessor, der heute verkauft wird, hat mehr als einen Core. Sogar der Prozessor in meinem Smartphone hat zwei Kerne. Wer schon einmal versucht hat, mit Sprachen wie C++ oder Java ein Programm zu schreiben, das mehrere Kerne zum Schwitzen bringt, wird auch schon einmal eine &lt;a href=&quot;https://de.wikipedia.org/wiki/Race_Condition&quot;&gt;Race Condition&lt;/a&gt; oder einen &lt;a href=&quot;https://de.wikipedia.org/wiki/Deadlock&quot;&gt;Deadlock&lt;/a&gt; erlebt haben.&lt;/p&gt;
 &lt;p&gt;Dagegen gibt es natürlich &lt;a href=&quot;https://de.wikipedia.org/wiki/Lock&quot;&gt;Mittel&lt;/a&gt; und &lt;a href=&quot;https://de.wikipedia.org/wiki/Volatile_(Informatik)&quot;&gt;Wege&lt;/a&gt;, die aber die Entwicklung von nebenläufigem Code ziemlich anstrengend machen können.&lt;/p&gt;

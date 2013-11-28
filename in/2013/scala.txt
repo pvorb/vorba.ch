@@ -1,14 +1,17 @@
 title: Scala
 created: 2013-11-27
+modified: 2013-11-28T10:15:00+0100
 
 tags: [ deutsch, scala, dev, lang, fp, jvm ]
 template: post.diego.de.tpl
 teaser: scala.jpg
 
 
-Ich bin seit rund zwei Jahren ein großer Fan der Programmiersprache Scala. Ich
+Ich bin seit rund zwei Jahren ein großer Fan der Programmiersprache [Scala]. Ich
 schreibe hier mal ein paar Stichpunkte auf, warum es sich lohnt, die Sprache
 näher zu betrachten.
+
+[Scala]: http://www.scala-lang.org/
 
 
 Funktional *und* objektorientiert
@@ -35,6 +38,11 @@ diese trotzdem mit und lässt dem Programmierer die Wahl, was er nutzen möchte.
 An vielen Programmiersprachen stört mich jedoch, dass sie keine
 Objektorientierung mitbringen. Hier spielt Scala seine Stärken aus. Klassen und
 Vererbung sind mit an Bord, was sehr beim Strukturieren eines Programms hilft.
+
+[Race Condition]: https://de.wikipedia.org/wiki/Race_Condition
+[Deadlock]: https://de.wikipedia.org/wiki/Deadlock
+[Locks]: https://de.wikipedia.org/wiki/Lock
+[Volatile]: https://de.wikipedia.org/wiki/Volatile_(Informatik)
 
 
 Syntax
@@ -72,6 +80,9 @@ Typ der Wert hat, der zugewiesen wird.
 Weitere Konzepte wie beispielsweise [Case Classes] und [Pattern Matching] helfen
 dabei, verständlicheren Code zu schreiben -- Scala-Kenntnisse vorausgesetzt.
 
+[Case Classes]: http://docs.scala-lang.org/tutorials/tour/case-classes.html
+[Pattern Matching]: http://docs.scala-lang.org/tutorials/tour/pattern-matching.html
+
 
 Asynchroner Code durch Futures
 ------------------------------
@@ -104,6 +115,8 @@ Coursera. Wichtig ist, dass man die Callback-Hölle von JavaScript/Node.js sehr
 leicht vermeiden kann und dass Scalas Futures auch parallel ausgeführt werden
 können.
 
+[Coursera]: https://www.coursera.org/course/reactive
+
 
 JVM
 ---
@@ -117,6 +130,9 @@ Java-VM][Dalvik].
 
 Außerdem lässt sich jede Java-Bibliothek verwenden. Auch Scala-Programme können
 aus Java heraus aufgerufen werden. Praktisch.
+
+[Android]: http://konstantinweiss.com/article/android-fuer-die-welt
+[Dalvik]: https://de.wikipedia.org/wiki/Dalvik_Virtual_Machine
 
 
 Nachteile
@@ -143,15 +159,5 @@ Material
     Artima, 2008, ISBN 978-0-9815316-0-1
   * [Functional Programming Principles in Scala][ProgFun]. Coursera Online-Kurs
 
-
-[Race Condition]: https://de.wikipedia.org/wiki/Race_Condition
-[Deadlock]: https://de.wikipedia.org/wiki/Deadlock
-[Locks]: https://de.wikipedia.org/wiki/Lock
-[Volatile]: https://de.wikipedia.org/wiki/Volatile_(Informatik)
-[Case Classes]: http://docs.scala-lang.org/tutorials/tour/case-classes.html
-[Pattern Matching]: http://docs.scala-lang.org/tutorials/tour/pattern-matching.html
-[Coursera]: https://www.coursera.org/course/reactive
-[Android]: http://konstantinweiss.com/article/android-fuer-die-welt
-[Dalvik]: https://de.wikipedia.org/wiki/Dalvik_Virtual_Machine
 [Programming in Scala]: http://www.artima.com/shop/programming_in_scala_2ed
 [ProgFun]: https://www.coursera.org/course/progfun
