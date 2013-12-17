@@ -19,11 +19,13 @@ __docs.forEach(function(doc) {
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Archiv | <%= siteTitle %></title>
+    <title>Archive | <%= siteTitle %></title>
     <link rel="stylesheet" href="/res/diego.css">
     <link rel="icon" href="/favicon.ico">
     <link rel="alternate" type="application/atom+xml" href="/feed.xml"
       title="Article feed">
+    <link rel="alternate" type="application/atom+xml" href="/comment-feed.xml"
+      title="Comment feed">
     <meta name="author" content="<%= author %>">
   </head>
   <body id="top">

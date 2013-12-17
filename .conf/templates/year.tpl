@@ -8,10 +8,10 @@ var pathref = '/';
     <title><%- title %> | <%- siteTitle %></title>
     <link rel="stylesheet" href="/res/diego.css">
     <link rel="icon" href="/favicon.ico">
-    <link rel="alternate" type="application/atom+xml" href="/log/feed.xml"
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml"
       title="Article feed">
     <link rel="alternate" type="application/atom+xml"
-      href="/log/comment-feed.xml" title="Comment feed">
+      href="/comment-feed.xml" title="Comment feed">
     <meta name="author" content="<%= author %>">
   </head>
   <body id="top">

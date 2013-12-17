@@ -11,7 +11,9 @@ function getDate(d) {
     <link rel="stylesheet" href="/res/diego.css">
     <link rel="icon" href="/favicon.ico">
     <link rel="alternate" type="application/atom+xml" href="/feed.xml"
-      title="Artikel-Feed">
+      title="Article feed">
+    <link rel="alternate" type="application/atom+xml" href="/comment-feed.xml"
+      title="Comment feed">
     <meta name="author" content="<%= author %>">
 <%
 if (locals.tags) {
