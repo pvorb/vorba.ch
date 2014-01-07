@@ -62,9 +62,9 @@ if (locals.tags) {
             %><img src="<%= teaser.img %>"><% } %>
         </figure>
 <% } %>
-        <p class="meta">von <span class="author"><%- author
+        <p class="meta">by <span class="author"><%- author
           %></span>, <span class="created"><%- getDate(created) %></span>
-          &ndash; <a href="#comments">Kommentare</a></p>
+          &ndash; <a href="#comments">Comments</a></p>
       </header>
       <section>
         <%- __content %>
