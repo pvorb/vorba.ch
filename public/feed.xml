@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorba.ch: Articles</title>
   <subtitle>Paul Vorbach's personal weblog</subtitle>
-  <updated>2014-01-07T18:54:52.188Z</updated>
+  <updated>2014-01-08T07:25:46.169Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -461,7 +461,7 @@ Futures in Scala
     <title>Book review: “Haskell Financial Data Modeling and Predictive Analytics”</title>
     <link href="http://vorba.ch/2014/review-haskell-financial-data-modeling.html"/>
     <id>http://vorba.ch/2014/review-haskell-financial-data-modeling.html</id>
-    <updated>2014-01-07T00:00:00.000Z</updated>
+    <updated>2014-01-08T00:00:00.000Z</updated>
     <author>
       <name>Paul Vorbach</name>
       <uri>http://paul.vorba.ch/</uri>
@@ -481,13 +481,12 @@ Futures in Scala
 &lt;p&gt;However the introduction was ideal for me as I haven’t programmed much Haskell since “Learn You a Haskell”. You’ll also be confronted with the first major shortcomings of the book: Almost every code example isn’t part of the book itself, but is only available as part of a ZIP archive that can be downloaded along with the e-book. This might be acceptable when you are reading the book with a normal PC. When you are reading the book with an e-book reader, you can’t access the code examples. Too bad.&lt;/p&gt;
 &lt;p&gt;During my read I learned the most by studying the code examples, since the explanations often don’t go much into detail. It’s hard to follow the author’s chain of thought even when you have the examples at hand.&lt;/p&gt;
 &lt;p&gt;The next chapter, “Getting your Hands Dirty”, starts by explaining (file) I/O and parsing in Haskell. It introduces the Attoparsec library which can handle CSV files in a type-safe manner. Additionally, the concept of managing data by using an object relational mapper is introduced and shown by examples.&lt;/p&gt;
-&lt;p&gt;The following chapter is all about “measuring tick intervals”. It provides solutions for maximum likelihood estimation as well as other models for several financial processes and the secant root finding algorithm.&lt;/p&gt;
-&lt;p&gt;Towards the end of the chapter, &lt;a href=&quot;http://www.cse.chalmers.se/~rjmh/QuickCheck/&quot;&gt;QuickCheck&lt;/a&gt; is introduced, which is a great library for testing Haskell programs &lt;em&gt;automagically&lt;/em&gt;. In QuickCheck, a programmer can define properties that a function must satisfy and QuickCheck randomly generates cases the function will be tested on. This is a great addition to conventional unit testing. I also found &lt;a href=&quot;http://scalacheck.org/&quot;&gt;ScalaCheck&lt;/a&gt;, the Scala version of QuickCheck, very helpful for writing Scala test cases.&lt;/p&gt;
+&lt;p&gt;The following chapter is all about “measuring tick intervals”. It provides solutions for maximum likelihood estimation as well as other models for several financial processes and the secant root finding algorithm. Towards the end of the chapter, &lt;a href=&quot;http://www.cse.chalmers.se/~rjmh/QuickCheck/&quot;&gt;QuickCheck&lt;/a&gt; is introduced, which is a great library for testing Haskell programs &lt;em&gt;automagically&lt;/em&gt;. In QuickCheck, a programmer can define properties that a function must satisfy and QuickCheck randomly generates cases the function will be tested on. This is a great addition to conventional unit testing. I also found &lt;a href=&quot;http://scalacheck.org/&quot;&gt;ScalaCheck&lt;/a&gt;, the Scala version of QuickCheck, very helpful for writing Scala test cases.&lt;/p&gt;
 &lt;p&gt;I had a hard time reading chapter 4 and 5, since they are diving deep into financial mathematics. That’s why I can hardly give a rating of the quality of these chapters.&lt;/p&gt;
-&lt;p&gt;One interesting part can be found in chapter 5. Here, parallel computations are introduces and shown by example.&lt;/p&gt;
+&lt;p&gt;One interesting part can be found in chapter 5. Here, parallel computations are introduced and shown by example.&lt;/p&gt;
 &lt;p&gt;Chapter 6 – the last one – gives an introduction to Cabal, the Haskell build system. It can be used to build a project, manage dependencies, run tests and more. So this is pretty much like Maven/Gradle/SBT for Java and Scala or NPM for Node.js. It’s an interesting way to round up the book with a chapter about Cabal – I would have expected it at the beginning – but it’s important to know Cabal if you want to get started with Haskell.&lt;/p&gt;
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;The book is not for programmers who don’t have anything to do with financial programming. Wow, who could think of that?! But it seems to be a neat introduction to financial programming in Haskell, although I would recommend to read a general introduction to Haskell first. I would have found it better if the author explained his code in more detail, but that’s just my opinion.&lt;/p&gt;
+&lt;p&gt;I would have found it better if the author had explained his code in more detail, but that’s just my opinion. The book is not for programmers who don’t have anything to do with financial programming. Wow, who could think of that?! But it seems to be a neat introduction to financial programming in Haskell, if you are willing to learn the language.&lt;/p&gt;
 &lt;h2 id=&quot;links&quot;&gt;Links&lt;/h2&gt;
 &lt;ol style=&quot;list-style-type: decimal&quot;&gt;
 &lt;li&gt;Pavel Ryzhov: &lt;a href=&quot;http://www.packtpub.com/haskell-financial-data-modeling-and-predictive-analytics/book?utm_source=Paul%20Vorbach&quot;&gt;“Haskell Financial Data Modeling and Predictive Analytics”&lt;/a&gt;, Packt Publishing, 2013.&lt;/li&gt;
