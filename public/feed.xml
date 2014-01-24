@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorba.ch: Articles</title>
   <subtitle>Paul Vorbach's personal weblog</subtitle>
-  <updated>2014-01-08T07:25:46.169Z</updated>
+  <updated>2014-01-24T00:53:00.961Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -18,34 +18,6 @@
   <category term="scala"/>
   <category term="akka"/>
   <icon>http://vorba.ch/favicon.ico</icon>
-
-  <entry>
-    <title>Größe zeigen</title>
-    <link href="http://vorba.ch/2012/groesse-zeigen.html"/>
-    <id>http://vorba.ch/2012/groesse-zeigen.html</id>
-    <updated>2012-12-08T01:00:00.000Z</updated>
-    <author>
-      <name>Paul Vorbach</name>
-      <uri>http://paul.vorba.ch/</uri>
-    </author>
-    <content type="html">
-
-      &lt;p&gt;&lt;img src="http://vorba.ch/2012/font-sizes.png"&gt;&lt;/p&gt;
-
-      &lt;p&gt;Vergangene Woche habe ich den Standard-Schriftgrad in meinem Browser auf 18 Pixel erhöht. Und was soll ich sagen? Viele Websites lassen sich dadurch viel bequemer lesen. Beispielsweise zeigen Wikipedia und Google Schrift mit 100% Schriftgröße an.&lt;/p&gt;
-&lt;p&gt;Ich frage mich, wie man überhaupt auf die Idee kommen kann, etwas anderes als die Default-Schriftgröße für Fließtext zu verwenden. Webdesigner maßen sich oft an, besser zu wissen, welchen Schriftgrad seine Besucher am besten lesen können.&lt;/p&gt;
-&lt;p&gt;Die &lt;em&gt;Information Architects&lt;/em&gt; hingegen empfehlen schon seit 2006, &lt;a href=&quot;http://informationarchitects.net/blog/100e2r/&quot;&gt;die Schriftgröße bei 100% zu belassen&lt;/a&gt;. Seit einem halben Jahr &lt;a href=&quot;http://informationarchitects.net/blog/responsive-typography-the-basics/&quot;&gt;übertreibt man es mit der Schriftgröße jedoch etwas&lt;/a&gt;, wie ich finde.&lt;/p&gt;
-&lt;p&gt;Für alle Seiten, die nicht genügend oder zu viel Größe zeigen, empfehle ich das Chrome-Plugin &lt;a href=&quot;https://github.com/ankit/stylebot&quot;&gt;Stylebot&lt;/a&gt; sowie &lt;a href=&quot;https://addons.mozilla.org/de/firefox/addon/stylish/&quot;&gt;Stylish&lt;/a&gt; für Firefox. Hiermit kann man Eigenarten im CSS für einzelne Websites ändern, die man öfter besucht.&lt;/p&gt;
-
-    </content>
-
-    <category term="deutsch"/>
-
-    <category term="ux"/>
-
-    <category term="typography"/>
-
-  </entry>
 
   <entry>
     <title>Über Subpixel</title>
@@ -503,6 +475,32 @@ Futures in Scala
     <category term="lang"/>
 
     <category term="fp"/>
+
+  </entry>
+
+  <entry>
+    <title>1.000.000</title>
+    <link href="http://vorba.ch/2014/1M.html"/>
+    <id>http://vorba.ch/2014/1M.html</id>
+    <updated>2014-01-24T00:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>http://paul.vorba.ch/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorba.ch/2014/cactus.jpg"&gt;&lt;/p&gt;
+
+      &lt;p&gt;in Worten: Eine Million Mal. So oft wurden meine Node-Module seit 2012 &lt;a href=&quot;http://npm-stat.vorba.ch/charts.html?author=pvorb&quot;&gt;insgesamt heruntergeladen&lt;/a&gt;. Ich finde die Zahl ganz schön beeindruckend.&lt;/p&gt;
+&lt;p&gt;Vor nicht ganz einem Jahr habe ich mich noch über &lt;a href=&quot;http://vorba.ch/2013/reichweite-nodejs.html&quot;&gt;15000 Downloads in einem Monat&lt;/a&gt; gefreut. Es läuft…&lt;/p&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="dev"/>
+
+    <category term="nodejs"/>
 
   </entry>
 
