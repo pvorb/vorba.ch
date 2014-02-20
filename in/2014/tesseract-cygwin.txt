@@ -112,3 +112,5 @@ tesseract -l eng input.tif output
 ~~~
 
 This will create a `output.txt` file with the OCR results.
+
+If something is not working for you, leave a comment.

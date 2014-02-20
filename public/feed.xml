@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorba.ch: Articles</title>
   <subtitle>Paul Vorbach's personal weblog</subtitle>
-  <updated>2014-02-20T11:29:46.377Z</updated>
+  <updated>2014-02-20T11:39:57.641Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -487,6 +487,7 @@ make clean&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;p&gt;All training files have to be in &lt;code&gt;/usr/local/share/tessdata&lt;/code&gt;. Download a language data archive file from Tesseracts &lt;a href=&quot;https://code.google.com/p/tesseract-ocr/downloads/list&quot;&gt;downloads page&lt;/a&gt;, extract it and move its contents to &lt;code&gt;/usr/local/share/tessdata&lt;/code&gt;. You can also &lt;a href=&quot;https://code.google.com/p/tesseract-ocr/wiki/TrainingTesseract3&quot;&gt;train your own language data&lt;/a&gt;. Then you’ll be able to run Tesseract.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;tesseract -l eng input.tif output&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This will create a &lt;code&gt;output.txt&lt;/code&gt; file with the OCR results.&lt;/p&gt;
+&lt;p&gt;If something is not working for you, leave a comment.&lt;/p&gt;
 
     </content>
 
