@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>How to build Tesseract on Cygwin | vorba.ch</title>
+    <link rel="stylesheet" href="/res/diego.css">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml"
+      title="Article feed">
+    <link rel="alternate" type="application/atom+xml" href="/comment-feed.xml"
+      title="Comment feed">
+    <meta name="author" content="Paul Vorbach">
+
+    <meta name="keywords" content="english, howto, tesseract, ocr, c++, cygwin">
+
+  </head>
+  <body id="top">
+    <nav id="nav">
+      <ol id="path">
+        <li><a href="/">vorba.ch</a>
+
+        <li><a href="/archive.html#2014">2014</a>
+
+        <li>tesseract-cygwin.html
+
+      </ol>
+      <ol id="access">
+        <li><a href="#top" title="To the top" id="back" accesskey="t">↑</a>
+        <li><a href="#nav">Navigation</a>
+        <li><a href="#content">Content</a>
+        <li><a href="#comments" accesskey="c">Comments</a>
+      </ol>
+      <form id="search" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Search">
+      </form>
+    </nav>
+    <article id="content">
+      <header>
+        <h1>How to build Tesseract on Cygwin</h1>
+
+        <figure class="teaser">
+          <img src="build.jpg">
+        </figure>
+
+        <p class="meta">by <span class="author">Paul Vorbach</span>, <span class="created">2014-02-20</span>
+          &ndash; <a href="#comments">Comments</a></p>
+      </header>
+      <section>
+        <p><a href="https://code.google.com/p/tesseract-ocr/">Tesseract</a> is the most accurate and most adaptable open source OCR engine I know of.</p>
+<p>For my master thesis, I needed to be able to change the inner workings of Tesseract. That’s why I had to compile it.</p>
+<p><a href="http://www.cygwin.com/">Cygwin</a> is a set of GNU tools for Microsoft Windows which gives you a POSIX environment on Windows.</p>
+<p>Here, I’ll document how to build Tesseract on Cygwin, because that is easier than building on MinGW or in Visual Studio and it is not documented on the <a href="https://code.google.com/p/tesseract-ocr/wiki/Compiling">Compiling</a> wiki page.</p>
+<h2 id="installing-cygwin">Installing Cygwin</h2>
+<ol style="list-style-type: decimal">
+<li>Download Cygwin from the <a href="http://cygwin.com/install.html">download page</a> (both 32-bit and 64-bit versions will work).</li>
+<li>Run the installer.</li>
+<li>Use <code>C:\Cygwin</code> or <code>C:\Cygwin64</code> as root directory.</li>
+<li>When you are asked to select the desired packages, set <em>Base</em>, <em>Devel</em> and <em>Graphics</em> to <em>Install</em>. You can <em>Skip</em> at least <em>Publishing</em>, <em>Gnome</em> and <em>KDE</em>, probably even more, in order to save time during installation. Leave all other packages at <em>Default</em>.</li>
+<li>Continue the installation process until you are done.</li>
+</ol>
+<h2 id="installing-leptonica">Installing Leptonica</h2>
+<p>In order to build tesseract, we need to build <a href="http://www.leptonica.org/">Leptonica</a> first.</p>
+<ol style="list-style-type: decimal">
+<li>Open a Cygwin Terminal.</li>
+<li><p>Create a directory, where you can build the library.</p>
+<pre><code>mkdir -p /opt/src &amp;&amp; cd /opt/src</code></pre></li>
+<li><p>Get the source.</p>
+<pre><code>wget http://www.leptonica.org/source/leptonica-1.70.tar.gz</code></pre>
+<p>Or use the latest source package from Leptonica’s <a href="http://www.leptonica.org/download.html">downloads page</a>. Extract it.</p>
+<pre><code>tar -xvf leptonica-1.70.tar.gz
+cd leptonica-1.70</code></pre></li>
+<li><p>Since <code>giflib</code> is not available in Cygwin, we have to configure it accordingly.</p>
+<pre><code>./configure --without-giflib</code></pre></li>
+<li><p>Build and install it.</p>
+<pre><code>make
+make install
+make clean</code></pre></li>
+</ol>
+<h2 id="installing-tesseract">Installing Tesseract</h2>
+<ol style="list-style-type: decimal">
+<li><p>Go to <code>/opt/src</code>.</p>
+<pre><code>cd /opt/src</code></pre></li>
+<li><p>Download Tesseract’s latest source distribution <a href="https://code.google.com/p/tesseract-ocr/downloads/list">from here</a>.</p>
+<pre><code>wget https://code.google.com/p/tesseract-ocr/downloads/detail?name=tesseract-ocr-3.02.02.tar.gz
+tar -xvf tesseract-ocr-3.02.02.tar.gz
+cd tesseract-ocr</code></pre></li>
+<li><p>Configure it.</p>
+<pre><code>./autogen.sh
+./configure LDFLAGS=-L/usr/local/lib</code></pre></li>
+<li><p>Build and install it.</p>
+<pre><code>make
+make install
+make clean</code></pre></li>
+</ol>
+<h2 id="verification">Verification</h2>
+<p>All training files have to be in <code>/usr/local/share/tessdata</code>. Download a language data archive file from Tesseracts <a href="https://code.google.com/p/tesseract-ocr/downloads/list">downloads page</a>, extract it and move its contents to <code>/usr/local/share/tessdata</code>. You can also <a href="https://code.google.com/p/tesseract-ocr/wiki/TrainingTesseract3">train your own language data</a>. Then you’ll be able to run Tesseract.</p>
+<pre><code>tesseract -l eng input.tif output</code></pre>
+<p>This will create a <code>output.txt</code> file with the OCR results.</p>
+
+      </section>
+      <footer class="meta">
+        <p>Tags:
+
+          <a href="/tag/english.html">english</a> ·
+
+          <a href="/tag/howto.html">howto</a> ·
+
+          <a href="/tag/tesseract.html">tesseract</a> ·
+
+          <a href="/tag/ocr.html">ocr</a> ·
+
+          <a href="/tag/c++.html">c++</a> ·
+
+          <a href="/tag/cygwin.html">cygwin</a> 
+
+        </p>
+
+      </footer>
+    </article>
+    <section id="comments">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'vorbach';
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </section>
+    <footer id="about">
+      <p>© 2014 – Paul Vorbach.
+        <a href="http://paul.vorba.ch/">Contact</a>.</p>
+    </footer>
+  </body>
+</html>

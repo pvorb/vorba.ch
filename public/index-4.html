@@ -38,6 +38,25 @@
       <article>
         <header>
 
+          <h1><a href="/2012/volltextsuche.html">Volltextsuche mit Node.js</a></h1>
+
+          <figure class="teaser">
+            <a href="/2012/volltextsuche.html"><img src="/2012/hdd-search.jpg"></a>
+          </figure>
+
+          <p class="meta">2012-03-08 &ndash; <a href="/2012/volltextsuche.html#disqus_thread">Comments</a></p>
+        </header>
+        <section>
+          <p>Hier fehlt noch eine Volltextsuche. Das ist aufgrund der Architektur von Bread nicht ganz trivial. Also habe ich mir überlegt, ob es vielleicht für den Moment ausreichen würde, das einfache UNIX-Kommando</p>
+<pre><code>find . -iname &#39;*.html&#39; | xargs grep &#39;suchterm&#39; -sl</code></pre>
+<p>dafür zu benutzen. Das durchsucht dann alle HTML-Dateien nach dem exakten Begriff und gibt eine Liste aus. Diese Liste könnte ich dann einfach so als dynamisch gerendertes HTML ausgeben.
+          <p><a href="/2012/volltextsuche.html">Read on &hellip;</a></p>
+        </section>
+      </article>
+
+      <article>
+        <header>
+
           <h1><a href="/2012/bread-git.html">Bread und Git</a></h1>
 
           <figure class="teaser">

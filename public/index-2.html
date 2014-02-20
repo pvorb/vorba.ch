@@ -38,6 +38,24 @@
       <article>
         <header>
 
+          <h1><a href="/2013/fonc.html">Flash Of No Content</a></h1>
+
+          <figure class="teaser">
+            <a href="/2013/fonc.html"><img src="/2013/fonc-small.png"></a>
+          </figure>
+
+          <p class="meta">2013-02-07 &ndash; <a href="/2013/fonc.html#disqus_thread">Comments</a></p>
+        </header>
+        <section>
+          <p>Es ist noch gar nicht so lange her, da klagte man gerne mal über den <em><a href="https://www.webkit.org/blog/66/the-fouc-problem/">Flash of Unstyled Content</a> (FOUC)</em>. Das bedeutet, beim erstmaligen Laden einer Webseite wurde der Inhalt für kurze Zeit ohne Formatierungen angezeigt. Vor allem, wenn das Stylsheet ein weiteres Stylesheet über ein <code>@import</code>-Statement referenziert, war der FOUC zu beobachten. Durch immer schnellere DSL-Verbindungen und Verbesserungen der Darstellung im Browser ist der FOUC heute jedoch kein großes Problem mehr.</p>
+<p>Heute kann man <a href="http://superuser.com/questions/547743/why-dont-websites-immediately-display-their-text-these-days">einen anderen Effekt beobachten</a>: Wenn eine Webseite Webfonts zur Darstellung von Text verwendet, zeigen Webkit-Browser keinen Text, bis die Font-Datei heruntergeladen, geparst und der Text gerendert wurde.
+          <p><a href="/2013/fonc.html">Read on &hellip;</a></p>
+        </section>
+      </article>
+
+      <article>
+        <header>
+
           <h1><a href="/2013/binarisierung.html">Binarisierung</a></h1>
 
           <figure class="teaser">
@@ -159,24 +177,6 @@
 <h2 id="prerequisites">Prerequisites</h2>
 <p>You need to be on a Linux/Unix machine, since the search uses native command line commands like <a href="http://en.wikipedia.org/wiki/Find"><code>find</code></a> and <a href="http://en.wikipedia.org/wiki/Grep"><code>grep</code></a> and you need to have <a href="http://nodejs.org/">Node.js</a> (v0.4.0+) installed. Maybe there is a similar way to do it on Windows, too. I think you could install <a href="http://git-scm.com/download">Git for Windows</a> and add the <code>/bin</code> directory to your system <code>PATH</code> to use the same commands on Windows. If somebody has a better solution (maybe one that works out of the box) he/she may <a href="/log/2012/07/file-search-nodejs.html#comments">leave a comment</a>.
           <p><a href="/2012/file-search-nodejs.html">Read on &hellip;</a></p>
-        </section>
-      </article>
-
-      <article>
-        <header>
-
-          <h1><a href="/2012/for-loop-behavior.html">For loop behavior in PHP</a></h1>
-
-          <figure class="teaser">
-            <a href="/2012/for-loop-behavior.html"><img src="/2012/rollercoaster.jpg"></a>
-          </figure>
-
-          <p class="meta">2012-07-09 &ndash; <a href="/2012/for-loop-behavior.html#disqus_thread">Comments</a></p>
-        </header>
-        <section>
-          <p>I always asked myself how often a function gets evaluated if you place it in the break condition of a for loop (or a for-each loop). Unfortunately I have always been too lazy to look for an answer – until today.</p>
-<p>Let’s have a look at an implementation in <em>PHP</em>:
-          <p><a href="/2012/for-loop-behavior.html">Read on &hellip;</a></p>
         </section>
       </article>
 
