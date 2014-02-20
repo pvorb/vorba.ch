@@ -79,7 +79,7 @@ In order to build tesseract, we need to build
     here](https://code.google.com/p/tesseract-ocr/downloads/list).
 
     ~~~
-    wget https://code.google.com/p/tesseract-ocr/downloads/detail?name=tesseract-ocr-3.02.02.tar.gz
+    wget https://tesseract-ocr.googlecode.com/files/tesseract-ocr-3.02.02.tar.gz
     tar -xvf tesseract-ocr-3.02.02.tar.gz
     cd tesseract-ocr
     ~~~
