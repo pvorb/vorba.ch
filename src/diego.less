@@ -23,6 +23,13 @@
   hyphens: @val;
 }
 
+.box-sizing(@val) {
+  -webkit-box-sizing: @val;
+  -moz-box-sizing: @val;
+  -ms-box-sizing: @val;
+  box-sizing: @val;
+}
+
 .icon-button {
   background: #fff none no-repeat 5px center;
   border: 1px solid @border-color;
@@ -134,7 +141,7 @@ html {
 }
 
 #nav {
-  box-sizing: border-box;
+  .box-sizing(border-box);
   width: @overall-width;
   padding: 0 (@aside-col-width + @col-div);
 }
@@ -145,7 +152,7 @@ html {
 }
 
 #comments, #about {
-  box-sizing: border-box;
+  .box-sizing(border-box);
   width: @overall-width;
   padding: 0 (@aside-col-width + @col-div);
   margin-top: 3em;
