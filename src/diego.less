@@ -5,7 +5,7 @@
 @bg-color: #eee;
 @border-color: #bbb;
 
-@main-col-width: 520px;
+@overall-width: 68em;
 @aside-col-width: 240px;
 @ext-aside-col-width: 320px;
 @col-div: 20px;
@@ -46,6 +46,7 @@ body {
   padding: 5em 0;
   margin: 0;
 
+  font-size: 14pt;
   font-family: Georgia, serif;
   line-height: 1.5;
 }
@@ -124,33 +125,38 @@ pre code {
 }
 
 /* Positioning and Dimensions */
+html {
+}
+
 #nav, #content, #comments, #about {
   margin: 0 auto;
   position: relative;
 }
 
 #nav {
-  width: @main-col-width + 2 * @logo-space;
+  box-sizing: border-box;
+  width: @overall-width;
+  padding: 0 (@aside-col-width + @col-div);
 }
 
 #content {
   margin-top: 2em;
-  width: @main-col-width + 2 * (@aside-col-width + @col-div);
+  width: @overall-width;
 }
 
 #comments, #about {
-  width: @main-col-width;
+  box-sizing: border-box;
+  width: @overall-width;
+  padding: 0 (@aside-col-width + @col-div);
   margin-top: 3em;
 }
 
 #path {
   margin: 0;
-  padding: 0 @logo-space 0 @logo-space;
+  padding: 0 @logo-space;
 
   list-style: none;
   text-indent: -@logo-space;
-
-  width: @main-col-width;
 
   li {
     display: inline;
@@ -178,7 +184,7 @@ pre code {
   display: none;
   position: absolute;
   top: 0;
-  left: @logo-space + @main-col-width + @col-div;
+  left: @overall-width - @col-div;
   width: @aside-col-width;
 
   input {
@@ -263,9 +269,8 @@ article#content > footer {
 }
 
 .footnotes hr {
-  margin-top: 2em;
+  margin: 2em auto 0 0;
   width: 200px;
-  margin-right: @main-col-width - 200px;
 }
 
 footer.meta {

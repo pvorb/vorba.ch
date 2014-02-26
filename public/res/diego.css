@@ -16,6 +16,7 @@ body {
   border-top: 5px solid #aa0000;
   padding: 5em 0;
   margin: 0;
+  font-size: 14pt;
   font-family: Georgia, serif;
   line-height: 1.5;
 }
@@ -105,23 +106,26 @@ pre code {
   position: relative;
 }
 #nav {
-  width: 572px;
+  box-sizing: border-box;
+  width: 68em;
+  padding: 0 260px;
 }
 #content {
   margin-top: 2em;
-  width: 1040px;
+  width: 68em;
 }
 #comments,
 #about {
-  width: 520px;
+  box-sizing: border-box;
+  width: 68em;
+  padding: 0 260px;
   margin-top: 3em;
 }
 #path {
   margin: 0;
-  padding: 0 26px 0 26px;
+  padding: 0 26px;
   list-style: none;
   text-indent: -26px;
-  width: 520px;
 }
 #path li {
   display: inline;
@@ -144,7 +148,7 @@ pre code {
   display: none;
   position: absolute;
   top: 0;
-  left: 566px;
+  left: 48em;
   width: 240px;
 }
 #search input {
@@ -214,9 +218,8 @@ article#content > footer {
   margin: 0!important;
 }
 .footnotes hr {
-  margin-top: 2em;
+  margin: 2em auto 0 0;
   width: 200px;
-  margin-right: 320px;
 }
 footer.meta {
   background: #eeeeee;
