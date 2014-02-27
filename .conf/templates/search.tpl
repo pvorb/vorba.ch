@@ -5,6 +5,7 @@
     <title>Search<%= locals.query ? ': '+query : ''
       %> | Paul Vorbach</title>
     <link rel="stylesheet" href="/res/diego.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="icon" href="/favicon.ico">
     <meta name="author" content="Paul Vorbach">
   </head>

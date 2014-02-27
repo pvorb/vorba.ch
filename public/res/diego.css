@@ -16,7 +16,7 @@ body {
   border-top: 5px solid #aa0000;
   padding: 5em 0;
   margin: 0;
-  font-size: 14pt;
+  font-size: 18px;
   font-family: Georgia, serif;
   line-height: 1.5;
 }
@@ -294,6 +294,53 @@ code .co {
 }
 code .fu {
   font-style: italic;
+}
+@media screen and (max-width: 1280px) {
+  body {
+    font-size: 16px;
+  }
+  #access {
+    display: none;
+  }
+}
+@media screen and (max-width: 1080px) {
+  body {
+    padding-top: 1em;
+    font-size: 100%;
+  }
+  #content {
+    width: auto;
+    margin-top: 1em;
+  }
+  #nav,
+  #comments,
+  #about {
+    width: auto;
+    padding: 0 8px;
+  }
+  #path {
+    padding: 0;
+    text-indent: 0;
+  }
+  #content section > *,
+  #content > article > header > *,
+  article#content > header > *,
+  #content > header > *,
+  #content.digest > .meta,
+  #content > .pagination,
+  #content > article > footer,
+  article#content > footer {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+}
+@media screen and (max-width: 640px) {
+  #content header .teaser {
+    float: none;
+    margin: 0 8px !important;
+    padding: 0;
+    line-height: inherit;
+  }
 }
 /* print */
 @media print {

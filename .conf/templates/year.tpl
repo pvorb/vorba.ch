@@ -7,6 +7,7 @@ var pathref = '/';
     <meta charset="utf-8">
     <title><%- title %> | <%- siteTitle %></title>
     <link rel="stylesheet" href="/res/diego.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="icon" href="/favicon.ico">
     <link rel="alternate" type="application/atom+xml" href="/feed.xml"
       title="Article feed">
