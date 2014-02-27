@@ -341,6 +341,14 @@ code .fu {
     padding: 0;
     line-height: inherit;
   }
+  #content aside,
+  #content aside.before,
+  #content aside.after {
+    float: none;
+    margin: 0 8px !important;
+    padding: 0;
+    width: auto;
+  }
 }
 /* print */
 @media print {
