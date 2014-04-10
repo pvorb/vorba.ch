@@ -1,5 +1,4 @@
 title: English
-teaser: english.png
 
 
 These are the English articles:
