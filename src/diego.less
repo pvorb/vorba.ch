@@ -344,22 +344,23 @@ a:active {
   color: #f00;
 }
 
-.meta .author, .meta .created, .meta .modified {
+.meta span {
   color: #555;
-
-  &:before {
-    font-family: FontAwesome;
-    font-size: 14px;
-    margin-right: .3em;
-  }
 }
 
-.meta .author:before {
-  content: '\f007'; // fa-user
+.meta .created:before, .meta .modified:before, .digest article p.meta:before,
+.meta a[href^='#comments']:before, article p a[href$='#disqus_thread']:before {
+  font-family: FontAwesome;
+  font-size: 14px;
+  margin-right: .3em;
 }
 
 .meta .created:before, .meta .modified:before {
   content: '\f073'; // fa-calendar
+}
+
+.digest article p.meta:before {
+  content: '\f073'; // fa-tags
 }
 
 .meta a[href^='#comments'], article p a[href$='#disqus_thread'] {
@@ -368,17 +369,7 @@ a:active {
 
   &:before {
     content: '\f086'; // fa-comments
-    font-family: FontAwesome;
-    font-size: 14px;
-    padding-right: .3em;
   }
-}
-
-.digest article p.meta:before {
-  font-family: FontAwesome;
-  content: '\f073'; // fa-tags
-  font-size: 14px;
-  padding-right: .3em;
 }
 
 footer.meta p:first-child:before {

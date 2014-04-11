@@ -279,23 +279,23 @@ a:hover {
 a:active {
   color: #f00;
 }
-.meta .author,
-.meta .created,
-.meta .modified {
+.meta span {
   color: #555;
 }
-.meta .author:before,
 .meta .created:before,
-.meta .modified:before {
+.meta .modified:before,
+.digest article p.meta:before,
+.meta a[href^='#comments']:before,
+article p a[href$='#disqus_thread']:before {
   font-family: FontAwesome;
   font-size: 14px;
   margin-right: .3em;
 }
-.meta .author:before {
-  content: '\f007';
-}
 .meta .created:before,
 .meta .modified:before {
+  content: '\f073';
+}
+.digest article p.meta:before {
   content: '\f073';
 }
 .meta a[href^='#comments'],
@@ -306,15 +306,6 @@ article p a[href$='#disqus_thread'] {
 .meta a[href^='#comments']:before,
 article p a[href$='#disqus_thread']:before {
   content: '\f086';
-  font-family: FontAwesome;
-  font-size: 14px;
-  padding-right: .3em;
-}
-.digest article p.meta:before {
-  font-family: FontAwesome;
-  content: '\f073';
-  font-size: 14px;
-  padding-right: .3em;
 }
 footer.meta p:first-child:before {
   font-family: FontAwesome;
