@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>FontAwesome-Dateigröße reduzieren | vorba.ch</title>
+    <link rel="stylesheet" href="/res/diego.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml"
+      title="Artikel-Feed">
+    <link rel="alternate" type="application/atom+xml" href="/comment-feed.xml"
+      title="Kommentar-Feed">
+    <meta name="author" content="Paul Vorbach">
+
+    <meta name="keywords" content="deutsch, css, @font-face, fontawesome, fontforge">
+
+  </head>
+  <body id="top">
+    <nav id="nav">
+      <ol id="path">
+        <li><a href="/">vorba.ch</a>
+
+        <li><a href="/archive.html#2014">2014</a>
+
+        <li>fontawesome-dateigroesse-reduzieren.html
+
+      </ol>
+      <ol id="access">
+        <li><a href="#top" title="Zum Anfang" id="back" accesskey="t">↑</a>
+        <li><a href="#nav">Navigation</a>
+        <li><a href="#content">Inhalt</a>
+        <li><a href="#comments" accesskey="c">Kommentare</a>
+      </ol>
+      <form id="search" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Suche">
+      </form>
+    </nav>
+    <article id="content">
+      <header>
+        <h1>FontAwesome-Dateigröße reduzieren</h1>
+
+        <figure class="teaser">
+          <img src="fontawesome.png">
+        </figure>
+
+        <p class="meta">von <span class="author">Paul Vorbach</span>, <span class="created">11.04.2014</span>
+          &ndash; <a href="#comments">Kommentare</a></p>
+      </header>
+      <section>
+        <p>Seit heute habe ich hier ein paar Pictogramme von <a href="http://fontawesome.io/">FontAwesome</a> im Einsatz. Mich hat aber die initiale Download-Größe von rund 29 kByte für das WOFF-File gestört. Die anderen Dateien bewegen sich ebenfalls in diesem Rahmen, werden aber in den meisten Browsern nicht gebraucht. Wer braucht schon ein Arsenal von 369 Icons (Tendenz steigend) für sein Nullachtfünfzehn-Blog?</p>
+<p>Also habe ich <a href="http://fontforge.org">FontForge</a> angeworfen und alle Icons entfernt, die ich nicht benötige. Übrig geblieben sind ganze drei Icons. Mit FontForge lassen sich außerdem die wichtigen Dateiformate exportieren – mit Außnahme von <em>Embedded Open-Type</em>. Hierfür habe ich kurzerhand den <a href="http://everythingfonts.com/otf-to-eot">OTF-zu-EOT-Konverter</a> verwendet.</p>
+<p>Ergebnis ist eine WOFF-Datei von 2,14 kByte. Das sind nur noch 7,6 Prozent der ursprünglichen Dateigröße. Ich kann also jedem empfehlen, der FontAwesome im Einsatz hat und nur einen Bruchteil der angebotenen Icons verwendet, die Dateigröße zu reduzieren. Der Aufwand ist vergleichsweise gering.</p>
+
+      </section>
+      <footer class="meta">
+        <p>Kategorien:
+
+          <a href="/tag/deutsch.html">deutsch</a> ·
+
+          <a href="/tag/css.html">css</a> ·
+
+          <a href="/tag/@font-face.html">@font-face</a> ·
+
+          <a href="/tag/fontawesome.html">fontawesome</a> ·
+
+          <a href="/tag/fontforge.html">fontforge</a> 
+
+        </p>
+
+      </footer>
+    </article>
+    <section id="comments">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'vorbach';
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Bitte aktivieren Sie JavaScript, um die Kommentare zu sehen.</noscript>
+    </section>
+    <footer id="about">
+      <p>© 2014 – Paul Vorbach.
+        <a href="http://paul.vorba.ch/">Kontakt</a>.</p>
+    </footer>
+  </body>
+</html>
