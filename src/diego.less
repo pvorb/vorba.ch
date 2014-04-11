@@ -46,6 +46,17 @@
   border-radius: @radius;
 }
 
+@font-face {
+  font-family: FontAwesome;
+  src: url('/res/fontawesome-4.0.eot');
+  src: url('/res/fontawesome-4.0.eot') format('embedded-opentype'),
+       url('/res/fontawesome-4.0.woff') format('woff'),
+       url('/res/fontawesome-4.0.ttf') format('truetype'),
+       url('/res/fontawesome-webfont.svg#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   border-top: 5px solid @darkred;
   padding: 5em 0;
@@ -333,8 +344,48 @@ a:active {
   color: #f00;
 }
 
-.meta, span {
+.meta .author, .meta .created, .meta .modified {
   color: #555;
+
+  &:before {
+    font-family: FontAwesome;
+    font-size: 14px;
+    margin-right: .3em;
+  }
+}
+
+.meta .author:before {
+  content: '\f007'; // fa-user
+}
+
+.meta .created:before, .meta .modified:before {
+  content: '\f073'; // fa-calendar
+}
+
+.meta a[href^='#comments'], article p a[href$='#disqus_thread'] {
+  text-decoration: none;
+  width: 0;
+
+  &:before {
+    content: '\f086'; // fa-comments
+    font-family: FontAwesome;
+    font-size: 14px;
+    padding-right: .3em;
+  }
+}
+
+.digest article p.meta:before {
+  font-family: FontAwesome;
+  content: '\f073'; // fa-tags
+  font-size: 14px;
+  padding-right: .3em;
+}
+
+footer.meta p:first-child:before {
+  font-family: FontAwesome;
+  content: '\f02c'; // fa-tags
+  font-size: 14px;
+  padding-right: .3em;
 }
 
 /* source code */
