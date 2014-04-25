@@ -47,7 +47,7 @@ var pathref = '/';
       <section>
         <ul>
 <% __files.forEach(function(file) { %>
-        <li><a href="<%= file %>"><%- file %></a>
+          <li><a href="<%= file %>"><%- file %></a>
 <% }); %>
         </ul>
       </section>

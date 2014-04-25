@@ -27,10 +27,10 @@ if (locals.tags) {
   path = path.split('/');
   var pathref = '/';
 
-  for (var i = 0; i < path.length; i++) {
+  for (var i = 0; i < path.length - 1; i++) {
     if (i == 0) {%>
         <li><a href="<%= pathref %>">vorb.de</a>
-<%  } else if (i < path.length - 1) {%>
+<%  } else if (i == 1) {%>
         <li><a href="<%= pathref %>"><%- path[i] %></a>
 <%  } else {%>
         <li><%- path[i] %>

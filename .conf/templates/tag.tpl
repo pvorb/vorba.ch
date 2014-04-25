@@ -30,11 +30,11 @@ if (locals.tags) {
   var path = ('/tag/'+file).split('/');
   var pathref = '';
 
-  for (var i = 0; i < path.length; i++) {
+  for (var i = 0; i < path.length - 1; i++) {
     pathref += path[i] + '/';
     if (i == 0) {%>
         <li><a href="<%= pathref %>">vorba.ch</a>
-<%  } else if (i < path.length - 1) {%>
+<%  } else if (i == 1) {%>
         <li><a href="<%= pathref %>"><%- path[i] %></a>
 <%  } else {%>
         <li><%- path[i] %>

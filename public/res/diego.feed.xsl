@@ -16,7 +16,6 @@
         <nav id="nav">
           <ol id="path">
             <li><a href="/">vorba.ch</a></li>
-            <li>feed.xml</li>
           </ol>
           <ol id="access">
             <li><a href="#top" title="To the top" id="back"

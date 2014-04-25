@@ -145,9 +145,6 @@ pre code {
 #path li::after {
   content: ' / ';
 }
-#path li:last-child::after {
-  content: '';
-}
 #path li:first-child {
   background: url('/favicon.ico') center left no-repeat;
   padding-left: 26px;

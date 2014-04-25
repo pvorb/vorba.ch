@@ -33,7 +33,6 @@ __docs.forEach(function(doc) {
     <nav id="nav">
       <ol id="path">
         <li><a href="/">vorba.ch</a></li>
-        <li>archive.html</li>
       </ol>
       <ol id="access">
         <li><a href="#top" title="To the top" id="back" accesskey="t">↑</a>
