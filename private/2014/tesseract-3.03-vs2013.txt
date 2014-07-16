@@ -1,9 +1,18 @@
 title: How to build Tesseract 3.03 with Visual Studio 2013
 created: 2014-04-10
+modified: 2014-07-16
 teaser: build2.jpg
 template: post.diego.en.tpl
 tags: [ english, howto, tesseract, ocr, c++, c, cygwin, visual-studio ]
 
+
+***
+
+This article has been translated to [Korean].
+
+[Korean]: http://blog.naver.com/killkimno/220062688967
+
+***
 
 [Previously](tesseract-cygwin.html) I wrote about how to compile Tesseract OCR
 using Cygwin. While this is nice if you want to compile Tesseract for your own

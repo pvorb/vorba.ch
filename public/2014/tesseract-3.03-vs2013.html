@@ -45,7 +45,10 @@
           &ndash; <a href="#comments">Comments</a></p>
       </header>
       <section>
-        <p><a href="tesseract-cygwin.html">Previously</a> I wrote about how to compile Tesseract OCR using Cygwin. While this is nice if you want to compile Tesseract for your own system where you can install Cygwin on your own, compiling with Visual Studio is better if you intend to distribute the compiled package so users don’t have to install Cygwin.</p>
+        <hr />
+<p>This article has been translated to <a href="http://blog.naver.com/killkimno/220062688967">Korean</a>.</p>
+<hr />
+<p><a href="tesseract-cygwin.html">Previously</a> I wrote about how to compile Tesseract OCR using Cygwin. While this is nice if you want to compile Tesseract for your own system where you can install Cygwin on your own, compiling with Visual Studio is better if you intend to distribute the compiled package so users don’t have to install Cygwin.</p>
 <p>Compiling Tesseract 3.02.02 with Visual C++ 2008 (Express) is <a href="http://tesseract-ocr.googlecode.com/svn/trunk/vs2008/doc/setup.html">covered by the documentation</a> whereas compiling Tesseract 3.03 isn’t covered at all, though.</p>
 <p>Unfortunately newer versions of Tesseract also require a new version of <a href="http://www.leptonica.org/">Leptonica</a>, a C library for image processing and image analysis applications, which in turn requires new versions of zlib, libpng, libtiff, libjpeg and giflib. Tesseract provides pre-compiled versions of Leptonica, which prevents you from having to collect and set up projects for all of these libraries in Visual Studio, which can be a tedious task.</p>
 <p>Yesterday I found a project on GitHub that includes a Visual Studio solution file for all dependencies required to compile Tesseract 3.03: <a href="https://github.com/charlesw/tesseract-vs2012">charlesw/tesseract-vs2012</a>. While following the build instructions there, I stumpled over several build errors, which I could easily resolve by removing a definition. The necessary change is in <a href="https://github.com/pvorb/tesseract-vs2013">my fork</a> of the repository mentioned above.</p>
