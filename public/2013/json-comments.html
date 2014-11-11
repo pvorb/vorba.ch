@@ -67,10 +67,10 @@
 <p>There are two possible ways of working around the lack of comments (besides from being frustrated and leaving them out).</p>
 <ol style="list-style-type: decimal">
 <li><p>You can either agree on a special property that holds a comment for the surrounding object. For example:</p>
-<pre class="sourceCode json"><code class="sourceCode json">{
-  <span class="dt">&quot;key&quot;</span>: <span class="st">&quot;value&quot;</span>,
-  <span class="dt">&quot;__comment&quot;</span>: <span class="st">&quot;defines a key and a value&quot;</span>
-}</code></pre></li>
+<pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+  <span class="dt">&quot;key&quot;</span><span class="fu">:</span> <span class="st">&quot;value&quot;</span><span class="fu">,</span>
+  <span class="dt">&quot;__comment&quot;</span><span class="fu">:</span> <span class="st">&quot;defines a key and a value&quot;</span>
+<span class="fu">}</span></code></pre></li>
 <li><p>Or you could use another markup format that supports comments. Examples would be XML, YAML or the newer <a href="https://github.com/typesafehub/config/blob/master/HOCON.md">HOCON (Human-Optimized Config Object Notation)</a>.</p></li>
 </ol>
 <p>Personally, I think that YAML is a bloated spec and HOCON is preferably used to configure software systems. Sometimes, bringing XML to client-side web applications can be a real pain, so in-JSON comments often are the only solution.</p>
@@ -92,15 +92,8 @@
       </footer>
     </article>
     <section id="comments">
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        var disqus_shortname = 'vorbach';
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
+      <section id="isso-thread"></section>
+      <script data-isso-lang="de" src="//comments.vorba.ch/js/embed.min.js"></script>
       <noscript>Bitte aktivieren Sie JavaScript, um die Kommentare zu sehen.</noscript>
     </section>
     <footer id="about">

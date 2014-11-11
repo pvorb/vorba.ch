@@ -47,7 +47,7 @@
       </header>
       <section>
         <p>Die Kommentarfunktion hier läuft überraschend gut. Per JavaScript wird für jeden Artikel ein Request gestartet, der die Kommentare als JSON-Dokument zurückliefert. Dieses wird anschließend geparst und ins HTML eingebaut, sodass die Kommentare angezeigt werden können. Im Prinzip wie bei <a href="http://disqus.com/">Disqus</a> mit dem Unterschied, dass die Kommentare nicht bei einem anderen Dienst landen. Sogar Pingbacks funktionieren.</p>
-<p>Den Code dazu kann man sich im zugehörigen <a href="https://github.com/pvorb/node-comments">Github-Repository</a> anschauen<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup>.</p>
+<p>Den Code dazu kann man sich im zugehörigen <a href="https://github.com/pvorb/node-comments">Github-Repository</a> anschauen<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
 <p>Trotzdem bin ich mit der Kommentarfunktion, wie sie jetzt ist, unzufrieden. Der Grund dafür liegt in der Verwendung der Datenbank. Durch die Verwendung von MongoDB als Datenspeicher liegen die Kommentare zu den Artikeln nicht im Git-Repository des Blogs und werden dadurch auch nicht versioniert. Für Backups muss ich separat sorgen.</p>
 <p>In den nächsten Tagen werde ich versuchen, ein neues Kommentar-Modul für das Blog zu schreiben, welches die Kommentare in Git versioniert. Der Aufbau ist recht einfach:</p>
 <ul>
@@ -80,15 +80,8 @@
       </footer>
     </article>
     <section id="comments">
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        var disqus_shortname = 'vorbach';
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
+      <section id="isso-thread"></section>
+      <script data-isso-lang="de" src="//comments.vorba.ch/js/embed.min.js"></script>
       <noscript>Bitte aktivieren Sie JavaScript, um die Kommentare zu sehen.</noscript>
     </section>
     <aside id="extra">

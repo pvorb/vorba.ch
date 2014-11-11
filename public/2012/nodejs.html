@@ -71,7 +71,7 @@
       + port + <span class="st">&#39;/&quot;.&#39;</span>);
 });</code></pre>
 <p>Speichert man diese Zeilen Code in eine Datei namens <code>server.js</code> und startet diese über die Kommandozeile mit <code>node server.js</code>, so erhält man die Ausgabe <code>Server running at &quot;http://localhost:8080/&quot;.</code> auf der Konsole. Ruft man nun im Browser die angegebene Adresse auf, so bekommt man „Hallo Welt!“ angezeigt.</p>
-<p>Das Server-Objekt aus dem Beispiel wartet auf eingehende HTTP-Verbindungen und führt jeweils die Funktion <code>handle</code> aus. Diese bekommt über den Parameter <code>req</code> (Request) die Informationen über den Request mitgeteilt.<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup> Das Objekt <code>resp</code> (Response) ermöglicht dann das Antworten auf den Request mit den Methoden <code>writeHead</code>, <code>write</code> und <code>end</code> (u.a.).<sup><a href="#fn2" class="footnoteRef" id="fnref2">2</a></sup></p>
+<p>Das Server-Objekt aus dem Beispiel wartet auf eingehende HTTP-Verbindungen und führt jeweils die Funktion <code>handle</code> aus. Diese bekommt über den Parameter <code>req</code> (Request) die Informationen über den Request mitgeteilt.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> Das Objekt <code>resp</code> (Response) ermöglicht dann das Antworten auf den Request mit den Methoden <code>writeHead</code>, <code>write</code> und <code>end</code> (u.a.).<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
 <p>Das gleiche Programm lässt sich in PHP viel kürzer schreiben:</p>
 <pre class="sourceCode PHP"><code class="sourceCode php"><span class="kw">&lt;?php</span>
 <span class="fu">echo</span> <span class="st">&#39;Hallo Welt!&#39;</span><span class="ot">;</span>
@@ -91,10 +91,10 @@
     <span class="ot">client</span>.<span class="fu">end</span>();
   }
 );</code></pre>
-<p>Dies steht im Gegensatz zu Apache/PHP, wo für jeden eingehenden Request ein neuer Thread erzeugt wird. Threads sind für diesen Zweck jedoch vergleichsweise ineffizient.<sup><a href="#fn3" class="footnoteRef" id="fnref3">3</a></sup> So kann PHP auf schwächeren Rechnern schon bei 10 bis 100 gleichzeitigen Zugriffen ins Straucheln kommen, während Node.js weit über 10.000 gleichzeigige Verbindungen abarbeiten kann.</p>
+<p>Dies steht im Gegensatz zu Apache/PHP, wo für jeden eingehenden Request ein neuer Thread erzeugt wird. Threads sind für diesen Zweck jedoch vergleichsweise ineffizient.<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> So kann PHP auf schwächeren Rechnern schon bei 10 bis 100 gleichzeitigen Zugriffen ins Straucheln kommen, während Node.js weit über 10.000 gleichzeigige Verbindungen abarbeiten kann.</p>
 <p>Für Python gibt es mit <a href="http://twistedmatrix.com/">Twisted</a>, für Ruby mit <a href="http://rubyeventmachine.com/">Event Machine</a> ähnliche Ansätze zur Programmierung schnellerer Webserver. Der Vorteil von Node liegt aber darin, dass JavaScript genau für Event-basierte Programmierung konzipiert wurde. Oberflächen (bzw. Benutzer, die diese bedienen) verhalten sich genauso, wie Netzwerke oder Festplatten: Man weiß nie, wann eine Aktion ausgeführt wird.</p>
 <p>Daher lässt sich in JavaScript sehr einfach und natürlich Event-basiert programmieren.</p>
-<p>Durch die Events lassen sich viele Dinge mehr oder weniger parallelisieren. Das trifft aber nur auf „ausgelagerte“ Aktionen zu. Man kann beispielsweise gleichzeitig mehrere Datenbankabfragen laufen lassen und eine Datei auslesen. Das Programm wird jedoch niemals mitten im Ablauf unterbrochen. Somit können keine <a href="http://de.wikipedia.org/wiki/Race_Condition">Race Conditions</a> entstehen. Das macht die Programmierung wesentlich leichter überschaubar als mit Threads.<sup><a href="#fn4" class="footnoteRef" id="fnref4">4</a></sup> Der Zustand der Objekte bleibt immer gewahrt.</p>
+<p>Durch die Events lassen sich viele Dinge mehr oder weniger parallelisieren. Das trifft aber nur auf „ausgelagerte“ Aktionen zu. Man kann beispielsweise gleichzeitig mehrere Datenbankabfragen laufen lassen und eine Datei auslesen. Das Programm wird jedoch niemals mitten im Ablauf unterbrochen. Somit können keine <a href="http://de.wikipedia.org/wiki/Race_Condition">Race Conditions</a> entstehen. Das macht die Programmierung wesentlich leichter überschaubar als mit Threads.<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> Der Zustand der Objekte bleibt immer gewahrt.</p>
 <p>Wenn man den Programmablauf selbst parallelisieren möchte, muss man Teile des Programms als eigene Prozesse starten und dann mit Nachrichten (über <a href="http://en.wikipedia.org/wiki/Unix_domain_socket">Unix-Domain-Sockets</a> oder <a href="http://de.wikipedia.org/wiki/Transmission_Control_Protocol">TCP-Verbindungen</a>) synchron halten, ähnlich wie es im <a href="http://en.wikipedia.org/wiki/Actor_model">Aktor-Modell</a> beschrieben wird. Das kann bei sehr rechenintensiven Programmen nötig werden. Meist reicht es aber, wenn lediglich asynchrone I/O verwendet wird. In Node lässt sich das Aktor-Modell umsetzen, ist aber nicht in die Plattform integriert wie beispielsweise in Erlang.</p>
 <h3 id="paketsystem">Paketsystem</h3>
 <p>Ich schrieb ja bereits, dass man mit JavaScript <a href="/log/2012/03/bread.html#umsetzung">sehr modularen Code schreiben kann</a>. Das erkläre ich mal am Beispiel von <a href="https://github.com/pvorb/node-dive">dive</a>.</p>
@@ -130,7 +130,7 @@
 
 exports = dive;</code></pre>
 <p>Mit <a href="http://search.npmjs.org/">Node Package Manager (npm)</a> existiert außerdem ein Verzeichnis solcher Pakete. Über ein einfaches <code>npm install paketname</code> lassen sich diese installieren und im Code dann, wie oben schon gesehen, über <code>var paketname = require('paketname');</code> einbinden.</p>
-<p>Solch ein Paketsystem ist aber nichts neues, das gibt es für viele Programmierumgebungen.<sup><a href="#fn5" class="footnoteRef" id="fnref5">5</a></sup> Mit momentan über 8000 Paketen hat das Verzeichnis in nur knapp anderthalb Jahren eine stolze Größe erreicht.</p>
+<p>Solch ein Paketsystem ist aber nichts neues, das gibt es für viele Programmierumgebungen.<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> Mit momentan über 8000 Paketen hat das Verzeichnis in nur knapp anderthalb Jahren eine stolze Größe erreicht.</p>
 <h3 id="wiederverwendbarkeit">Wiederverwendbarkeit</h3>
 <p>Der große Vorteil von JavaScript als serverseitiger Scriptsprache liegt in der Wiederverwendbarkeit der Pakete. Sie lassen sich sowohl in Node als auch im Browser verwenden. Über <a href="http://ender.no.de/">Ender</a> lassen sich diese dann auch einfach zu Bibliotheken so zusammenstellen, wie man es gerade braucht. So könnte man zum Beispiel den Code, der Nutzereingaben validiert, sowohl auf dem Server als auch im Browser benutzen.</p>
 <h2 id="nachteile">Nachteile</h2>
@@ -179,15 +179,8 @@ exports = dive;</code></pre>
       </footer>
     </article>
     <section id="comments">
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        var disqus_shortname = 'vorbach';
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
+      <section id="isso-thread"></section>
+      <script data-isso-lang="de" src="//comments.vorba.ch/js/embed.min.js"></script>
       <noscript>Bitte aktivieren Sie JavaScript, um die Kommentare zu sehen.</noscript>
     </section>
     <aside id="extra">
