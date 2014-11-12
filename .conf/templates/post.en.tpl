@@ -87,7 +87,7 @@ if (locals.tags)
       </footer>
     </article>
     <section id="comments">
-      <section id="isso-thread"></section>
+      <section id="isso-thread" data-title="<%= title %>"></section>
       <script data-isso-lang="en" src="//comments.vorba.ch/js/embed.min.js"></script>
       <noscript>Please enable JavaScript to view the comments.</noscript>
     </section>
