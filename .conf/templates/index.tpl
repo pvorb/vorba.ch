@@ -60,7 +60,7 @@ doc.__content = lines.join('</p>');
             <a href="/<%= doc._id %>"><img src="/<%= teaser %>"></a>
           </figure>
 <% } %>
-          <p class="meta"><%- getDate(doc.created) %> &ndash; <a href="/<%= doc._id %>#disqus_thread">Comments</a></p>
+          <p class="meta"><%- getDate(doc.created) %> &ndash; <a href="/<%= doc._id %>#comments" data-isso-id="/<%= doc._id %>">Comments</a></p>
         </header>
         <section>
           <%- doc.__content %>
@@ -94,15 +94,6 @@ if (__pagination.last) { %>
       <p>© 2008-<%= __docs[0].created.getFullYear() %> – <%= siteAuthor %>.
         <a href="http://paul.vorba.ch/">Contact</a>.</p>
     </footer>
-    <script type="text/javascript">
-      var disqus_shortname = 'vorbach';
-
-      (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-      }());
-    </script>
+    <script data-isso-lang="en" src="//comments.vorba.ch/js/count.min.js"></script>
   </body>
 </html>
