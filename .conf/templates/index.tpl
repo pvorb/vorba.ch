@@ -60,7 +60,7 @@ doc.__content = lines.join('</p>');
             <a href="/<%= doc._id %>"><img src="/<%= teaser %>"></a>
           </figure>
 <% } %>
-          <p class="meta"><%- getDate(doc.created) %> &ndash; <a href="/<%= doc._id %>#comments" data-isso-id="/<%= doc._id %>">Comments</a></p>
+          <p class="meta"><%- getDate(doc.created) %> &ndash; <a href="/<%= doc._id %>#isso-thread">Comments</a></p>
         </header>
         <section>
           <%- doc.__content %>
