@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <title>isso | vorba.ch</title>
+    <link rel="stylesheet" href="/res/diego.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml"
+      title="Artikel-Feed">
+    <link rel="alternate" type="application/atom+xml" href="/comment-feed.xml"
+      title="Kommentar-Feed">
+    <meta name="author" content="Paul Vorbach">
+
+    <meta name="keywords" content="deutsch, application, python">
+
+  </head>
+  <body id="top">
+    <nav id="nav">
+      <ol id="path">
+        <li><a href="/">vorba.ch</a>
+
+        <li><a href="/archive.html#2014">2014</a>
+
+      </ol>
+      <ol id="access">
+        <li><a href="#top" title="Zum Anfang" id="back" accesskey="t">↑</a>
+        <li><a href="#nav">Navigation</a>
+        <li><a href="#content">Inhalt</a>
+        <li><a href="#comments" accesskey="c">Kommentare</a>
+      </ol>
+      <form id="search" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Suche">
+      </form>
+    </nav>
+    <article id="content">
+      <header>
+        <h1>isso</h1>
+
+        <figure class="teaser">
+          <img src="isso.png">
+        </figure>
+
+        <p class="meta">von <span class="author">Paul Vorbach</span>, <span class="created">13.11.2014</span>
+          &ndash; <a href="#comments">Kommentare</a></p>
+      </header>
+      <section>
+        <p>Okay. Disqus nervt. Darum habe ich mir <a href="https://news.ycombinator.com/item?id=6818416">Ersatz gesucht</a> und <em><a href="http://posativ.org/isso/">isso</a></em> entdeckt.</p>
+<p><em>isso</em> („ich schrei sonst“) ist ein kleines Python-Programm, das Disqus ersetzen soll. Es wird lokal aufgesetzt und kann, wenn es einmal läuft, ähnlich wie Disqus per JavaScript in jede HTML-Seite eingebunden werden.</p>
+<p>Der Funktionsumfang lässt sich sehen:</p>
+<ul>
+<li>Einfaches Einbinden per <code>&lt;script&gt;</code>-Tag</li>
+<li>Kommentarzähler für jeden Artikel</li>
+<li>Auszeichnung per Markdown</li>
+<li>Name, E-Mail-Adresse und Website sind optional.</li>
+<li>Optionale Moderation neuer Kommentare per Mail</li>
+<li>Mehrsprachigkeit</li>
+<li>Kommentare lassen sich nachträglich bearbeiten und löschen.</li>
+</ul>
+<p>Als Datenbank kommt SQLite zum Einsatz.</p>
+<blockquote>
+<p>„Because comments are not Big Data.“</p>
+</blockquote>
+<p>Eine separate Einrichtung der Datenbankanbindung entfällt damit. Außerdem liegen die Kommentare allesamt in einer einfachen Datei, die jederzeit und ohne Probleme gesichert und ersetzt werden kann.</p>
+<p>Das alles klingt ziemlich vielversprechend. Ein paar Dinge fehlen jedoch, die Disqus konnte:</p>
+<ul>
+<li>Es gibt keine Möglichkeit, sich per E-Mail über neue Kommentare benachrichtigen zu lassen.</li>
+<li>Einen Feed gibt es ebenfalls nicht.</li>
+<li>Gravatare gibt es nicht, dafür aber generierte Avatare, durch die sich die Kommentatoren auf einen Blick unterscheiden lassen – immerhin.</li>
+</ul>
+<p>Die Einrichtung ging leider auf meinem Debian 7 nicht ganz so problemlos, wie die Dokumentation es mir weismachen wollte. Letztlich lag das jedoch weniger an <em>isso</em> selbst, sondern daran, dass ich mich in der Welt der Python-Webserver nur wenig auskenne. Außerdem funktionierte der Import aus Disqus <a href="https://github.com/posativ/isso/issues/135">nicht ohne weiteres</a>. Nun läuft aber alles rund, soweit ich das sehe, und darf ausprobiert werden. ;-)</p>
+
+      </section>
+      <footer class="meta">
+        <p>Kategorien:
+
+          <a href="/tag/deutsch.html">deutsch</a> ·
+
+          <a href="/tag/application.html">application</a> ·
+
+          <a href="/tag/python.html">python</a> 
+
+        </p>
+
+      </footer>
+    </article>
+    <section id="comments">
+      <section id="isso-thread" data-title="isso"></section>
+      <script data-isso-lang="de" src="//comments.vorba.ch/js/embed.min.js"></script>
+      <noscript>Bitte aktivieren Sie JavaScript, um die Kommentare zu sehen.</noscript>
+    </section>
+    <footer id="about">
+      <p>© 2014 – Paul Vorbach.
+        <a href="http://paul.vorba.ch/">Kontakt</a>.</p>
+    </footer>
+  </body>
+</html>

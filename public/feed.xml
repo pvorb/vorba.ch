@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorba.ch: Articles</title>
   <subtitle>Paul Vorbach's personal weblog</subtitle>
-  <updated>2014-11-12T00:00:17.413Z</updated>
+  <updated>2014-11-13T00:34:46.911Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -18,55 +18,6 @@
   <category term="scala"/>
   <category term="akka"/>
   <icon>http://vorba.ch/favicon.ico</icon>
-
-  <entry>
-    <title>Einfaches PHP-CMS</title>
-    <link href="http://vorba.ch/2013/einfaches-php-cms.html"/>
-    <id>http://vorba.ch/2013/einfaches-php-cms.html</id>
-    <updated>2013-03-13T23:00:00.000Z</updated>
-    <author>
-      <name>Paul Vorbach</name>
-      <uri>http://paul.vorba.ch/</uri>
-    </author>
-    <content type="html">
-
-      &lt;p&gt;&lt;img src="http://vorba.ch/2013/pen-and-notebook.jpg"&gt;&lt;/p&gt;
-
-      &lt;p&gt;Ich schreibe gerade ein CMS. In PHP.&lt;/p&gt;
-&lt;p&gt;Ja, richtig gehört: PHP. Wie kommt jemand, der täglich mit Node.js, Scala und noch abgefahreneren Sprachen zu tun hat, ausgerechnet auf PHP? Die Antwort ist ganz einfach. Das ganze soll auf jedem noch so günstigen Webspace laufen und das möglichst ohne Konfiguration. Dafür kommt nur PHP in Frage.&lt;/p&gt;
-&lt;p&gt;Nachdem ich seit 2011 viel mit neuen Sprachen und Plattformen experimentiert habe, tut es ganz gut, mal wieder einfachstes PHP in den Bildschirm zu meißeln.&lt;/p&gt;
-&lt;h2 id=&quot;warum-noch-ein-cms&quot;&gt;Warum &lt;em&gt;noch ein&lt;/em&gt; CMS?&lt;/h2&gt;
-&lt;p&gt;Ich habe mir im Zuge eines kleineren privaten Projekts viele verschiedene Systeme angeschaut. Bei jedem CMS habe ich mir gedacht: Das geht auch einfacher.&lt;/p&gt;
-&lt;p&gt;Mein Use Case ist eine kleine Website mit einer Hand voll Seiten, die von mir vorgefertigt erstellt werden und danach von angemeldeten Benutzern editiert werden können sollen. Also muss ich es halt selbst machen, es sei den jemand nennt mir in den Kommentaren ein CMS, das genau das tut und nicht wesentlich mehr. &lt;em&gt;Daran glaube ich aber nicht.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Hier in ein paar Stichpunkten, was mir so vorschwebt:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Websites bestehen aus HTML. Daher wird es einen einzigen Inhaltstyp geben: HTML-Snippets. Diese werden dann über Templates in einer oder mehreren Seite(n) platziert.&lt;/li&gt;
-&lt;li&gt;Andere Möglichkeiten zur Definition von Inhalten sind nur noch händisch getippelte HTML- oder PHP-Dateien.&lt;/li&gt;
-&lt;li&gt;PHP ist eine Templatesprache. D.h. für Templates wird reines HTML mit eingebettetem PHP verwendet.&lt;/li&gt;
-&lt;li&gt;Es wird keinerlei Rechteverwaltung geben. Nach dem Login darf man alles editieren, was existiert. Meiner Meinung stören aufwendige Rechtesysteme meist nur bei der täglichen Arbeit. Hier geht es definitiv ohne.&lt;/li&gt;
-&lt;li&gt;Das Backend umfasst nur 2 bis 3 Seiten:
-&lt;ol style=&quot;list-style-type: decimal&quot;&gt;
-&lt;li&gt;Eine Editor-Seite, in der man die HTML-Snippets editieren kann&lt;/li&gt;
-&lt;li&gt;Eine Liste der Benutzer mit Funktionen zum Hinzufügen und Entfernen&lt;/li&gt;
-&lt;li&gt;Eventuell noch zusätzlich ein Formular, in dem man die Templates anpassen kann, sollte man keinen FTP-Zugang o.ä. haben&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;li&gt;Die Editor-Seite wird vielleicht einen WYSIWYG-Editor spendiert bekommen, (der sich abstellen lässt), damit auch HTML-unerfahrene Benutzer das CMS benutzen können. Hier habe ich lange überlegt, ob ich vielleicht nicht lieber stattdessen Markdown anbieten soll. Je länger ich überlege, desto schwerer fällt mir die Wahl. Vielleicht bleibe ich doch bei einfachem Markdown mit Vorschau, wie hier in den Kommentaren. Vielleicht kann mir ja jemand mit Erfahrung in diesem Bereich die Entscheidung erleichtern.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Beim Endprodukt kann man dann wohl kaum noch von einem CMS sprechen (denn verwaltet wird ja nicht viel), aber einen anderen Namen habe ich dafür nicht. Website-Editor vielleicht…&lt;/p&gt;
-&lt;p&gt;Die Entwicklung am CMS kann im &lt;a href=&quot;https://github.com/pvorb/chx&quot;&gt;GitHub-Repository&lt;/a&gt; verfolgt werden. Ich habe aber gerade erst damit begonnen, also erwartet noch nicht zu viel.&lt;/p&gt;
-&lt;p&gt;Meinungen und Ratschläge: Immer her damit!&lt;/p&gt;
-
-    </content>
-
-    <category term="deutsch"/>
-
-    <category term="dev"/>
-
-    <category term="php"/>
-
-    <category term="cms"/>
-
-  </entry>
 
   <entry>
     <title>Die Reichweite von Node.js</title>
@@ -520,6 +471,54 @@ make clean&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
     <category term="fontawesome"/>
 
     <category term="fontforge"/>
+
+  </entry>
+
+  <entry>
+    <title>isso</title>
+    <link href="http://vorba.ch/2014/isso.html"/>
+    <id>http://vorba.ch/2014/isso.html</id>
+    <updated>2014-11-13T00:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>http://paul.vorba.ch/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorba.ch/2014/isso.png"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Okay. Disqus nervt. Darum habe ich mir &lt;a href=&quot;https://news.ycombinator.com/item?id=6818416&quot;&gt;Ersatz gesucht&lt;/a&gt; und &lt;em&gt;&lt;a href=&quot;http://posativ.org/isso/&quot;&gt;isso&lt;/a&gt;&lt;/em&gt; entdeckt.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;isso&lt;/em&gt; („ich schrei sonst“) ist ein kleines Python-Programm, das Disqus ersetzen soll. Es wird lokal aufgesetzt und kann, wenn es einmal läuft, ähnlich wie Disqus per JavaScript in jede HTML-Seite eingebunden werden.&lt;/p&gt;
+&lt;p&gt;Der Funktionsumfang lässt sich sehen:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Einfaches Einbinden per &lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt;-Tag&lt;/li&gt;
+&lt;li&gt;Kommentarzähler für jeden Artikel&lt;/li&gt;
+&lt;li&gt;Auszeichnung per Markdown&lt;/li&gt;
+&lt;li&gt;Name, E-Mail-Adresse und Website sind optional.&lt;/li&gt;
+&lt;li&gt;Optionale Moderation neuer Kommentare per Mail&lt;/li&gt;
+&lt;li&gt;Mehrsprachigkeit&lt;/li&gt;
+&lt;li&gt;Kommentare lassen sich nachträglich bearbeiten und löschen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Als Datenbank kommt SQLite zum Einsatz.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;„Because comments are not Big Data.“&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Eine separate Einrichtung der Datenbankanbindung entfällt damit. Außerdem liegen die Kommentare allesamt in einer einfachen Datei, die jederzeit und ohne Probleme gesichert und ersetzt werden kann.&lt;/p&gt;
+&lt;p&gt;Das alles klingt ziemlich vielversprechend. Ein paar Dinge fehlen jedoch, die Disqus konnte:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Es gibt keine Möglichkeit, sich per E-Mail über neue Kommentare benachrichtigen zu lassen.&lt;/li&gt;
+&lt;li&gt;Einen Feed gibt es ebenfalls nicht.&lt;/li&gt;
+&lt;li&gt;Gravatare gibt es nicht, dafür aber generierte Avatare, durch die sich die Kommentatoren auf einen Blick unterscheiden lassen – immerhin.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Die Einrichtung ging leider auf meinem Debian 7 nicht ganz so problemlos, wie die Dokumentation es mir weismachen wollte. Letztlich lag das jedoch weniger an &lt;em&gt;isso&lt;/em&gt; selbst, sondern daran, dass ich mich in der Welt der Python-Webserver nur wenig auskenne. Außerdem funktionierte der Import aus Disqus &lt;a href=&quot;https://github.com/posativ/isso/issues/135&quot;&gt;nicht ohne weiteres&lt;/a&gt;. Nun läuft aber alles rund, soweit ich das sehe, und darf ausprobiert werden. ;-)&lt;/p&gt;
+
+    </content>
+
+    <category term="deutsch"/>
+
+    <category term="application"/>
+
+    <category term="python"/>
 
   </entry>
 
