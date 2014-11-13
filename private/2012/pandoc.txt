@@ -1,6 +1,6 @@
 title: Pandoc
 created: 2012-04-18T22:00:00+0200
-tags: [ deutsch, pandoc, haskell, markdown, html, tex, pdf, ms-word, e-book, epub, bread ]
+tags: [ deutsch, application, pandoc, haskell, markdown, html, tex, pdf, ms-word, e-book, epub, bread ]
 template: post.de.tpl
 
 teaser:
