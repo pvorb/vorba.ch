@@ -1,0 +1,51 @@
+title: isso
+created: 2014-11-13
+
+tags: [ deutsch, application, python ]
+template: post.diego.de.tpl
+teaser: isso.png
+
+
+Okay. Disqus nervt. Darum habe ich mir [Ersatz gesucht][hn] und _[isso]_
+entdeckt.
+
+[isso]: http://posativ.org/isso/
+[hn]: https://news.ycombinator.com/item?id=6818416
+
+_isso_ („ich schrei sonst“) ist ein kleines Python-Programm, das Disqus ersetzen
+soll. Es wird lokal aufgesetzt und kann, wenn es einmal läuft, ähnlich wie
+Disqus per JavaScript in jede HTML-Seite eingebunden werden.
+
+Der Funktionsumfang lässt sich sehen:
+
+  - Einfaches Einbinden per `<script>`-Tag
+  - Kommentarzähler für jeden Artikel
+  - Auszeichnung per Markdown
+  - Name, E-Mail-Adresse und Website sind optional.
+  - Optionale Moderation neuer Kommentare per Mail
+  - Mehrsprachigkeit
+  - Kommentare lassen sich nachträglich bearbeiten und löschen.
+
+Als Datenbank kommt SQLite zum Einsatz.
+
+> „Because comments are not Big Data.“
+
+Eine separate Einrichtung der Datenbankanbindung entfällt damit. Außerdem liegen
+die Kommentare allesamt in einer einfachen Datei, die jederzeit und ohne
+Probleme gesichert und ersetzt werden kann.
+
+Das alles klingt ziemlich vielversprechend. Ein paar Dinge fehlen jedoch, die
+Disqus konnte:
+
+  - Es gibt keine Möglichkeit, sich per E-Mail über neue Kommentare
+    benachrichtigen zu lassen.
+  - Einen Feed gibt es ebenfalls nicht.
+  - Gravatare gibt es nicht, dafür aber generierte Avatare, durch die sich die
+    Kommentatoren auf einen Blick unterscheiden lassen -- immerhin.
+
+Die Einrichtung ging leider auf meinem Debian 7 nicht ganz so problemlos, wie
+die Dokumentation es mir weismachen wollte. Letztlich lag das jedoch weniger an
+_isso_ selbst, sondern daran, dass ich mich in der Welt der Python-Webserver nur
+wenig auskenne. Außerdem funktionierte der Import aus Disqus [nicht ohne
+weiteres](https://github.com/posativ/isso/issues/135). Nun läuft aber alles
+rund, soweit ich das sehe, und darf ausprobiert werden. ;-)
