@@ -2,7 +2,7 @@ title: Why are comments not allowed in JSON?
 created: 2013-03-13
 
 tags: [ english, dev, json, javascript ]
-template: post.diego.de.tpl
+template: post.diego.en.tpl
 teaser: json.png
 
 
