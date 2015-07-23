@@ -53,32 +53,30 @@
 <p>An vielen Programmiersprachen stört mich jedoch, dass sie keine Objektorientierung mitbringen. Hier spielt Scala seine Stärken aus. Klassen und Vererbung sind mit an Bord, was sehr beim Strukturieren eines Programms hilft.</p>
 <h2 id="syntax">Syntax</h2>
 <aside class="before">
-<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">val</span> id = <span class="dv">5</span>
-<span class="kw">val</span> name = <span class="st">&quot;pvorb&quot;</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">val</span> id = <span class="dv">5</span>
+<span class="kw">val</span> name = <span class="st">&quot;pvorb&quot;</span></code></pre></div>
 <p class="caption">
 Einfache Wertzuweisungen
 </p>
 </aside>
-
 <aside class="after">
-<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> <span class="fu">halloWelt</span>(msg: String =
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">def</span> <span class="fu">halloWelt</span>(msg: String =
     <span class="st">&quot;Hallo, Welt!&quot;</span>) = {
   <span class="fu">println</span>(msg)
 }
 
 <span class="fu">halloWelt</span>()
-  <span class="co">// =&gt; &quot;Hallo, Welt!&quot;</span></code></pre>
+  <span class="co">// =&gt; &quot;Hallo, Welt!&quot;</span></code></pre></div>
 <p class="caption">
 Funktionsdefinition mit Default-Parameter
 </p>
 </aside>
-
 <p>Scala hat im Vergleich zu anderen statisch typisierten Sprachen eine sehr angenehme Syntax. Wer sich schon immer daran gestört hat, in Java jede noch so kleine Hilfsvariable mit einem Typ versehen zu müssen, wird den Wert der Typinferenz in Scala lieben. Bei einer Zuweisung wird einfach geschaut, welchen Typ der Wert hat, der zugewiesen wird.</p>
 <p>Weitere Konzepte wie beispielsweise <a href="http://docs.scala-lang.org/tutorials/tour/case-classes.html">Case Classes</a> und <a href="http://docs.scala-lang.org/tutorials/tour/pattern-matching.html">Pattern Matching</a> helfen dabei, verständlicheren Code zu schreiben – Scala-Kenntnisse vorausgesetzt.</p>
 <h2 id="asynchroner-code-durch-futures">Asynchroner Code durch Futures</h2>
 <p>In Scala lässt sich sehr einfach asynchroner Code schreiben. Darauf will ich gar nicht so genau eingehen, da es den Rahmen hier sprengen würde. Das folgende Beispiel spricht für sich.</p>
 <div class="figure">
-<pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">val</span> f = Future {
+<div class="sourceCode"><pre class="sourceCode scala"><code class="sourceCode scala"><span class="kw">val</span> f = Future {
   <span class="co">// Hier könnte eine lange Berechnung, eine Datenbankabfrage</span>
   <span class="co">// oder ein HTTP-Request stehen</span>
 }
@@ -88,7 +86,7 @@ f.<span class="fu">onComplete</span> {
     <span class="co">// Hier etwas mit dem Ergebnis anstellen</span>
   <span class="kw">case</span> <span class="fu">Failure</span>(err) =&gt;
     <span class="co">// Hier den Fehler behandeln</span>
-}</code></pre>
+}</code></pre></div>
 <p class="caption">
 Futures in Scala
 </p>

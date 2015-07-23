@@ -52,76 +52,77 @@
 <p><em>But how would you search for the contents of a file?</em></p>
 <p>This is quite a bit more difficult to find out. There’s another command, <code>grep</code>, that allows you to filter lines from <code>stdin</code> or from the contents of a given file.</p>
 <p>Usually, Unix shells allow you to use the pipe character <code>|</code> to combine commands. This way, you can use <code>find</code> to first find all files of a specific type and the to filter out all the files that contain a specific search string, as follows:</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">find</span> . -name <span class="st">&#39;*.html&#39;</span> <span class="kw">|</span> <span class="kw">xargs</span> grep <span class="st">&#39;example&#39;</span></code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">find</span> . -name <span class="st">&#39;*.html&#39;</span> <span class="kw">|</span> <span class="kw">xargs</span> grep <span class="st">&#39;example&#39;</span></code></pre></div>
 <p>The command <code>xargs</code> makes sure, that the results of find are used as arguments for grep, so that it reads the contents of each file. As a result, the command returns a line seperated list of HTML files, that contain the string “example”.</p>
 <p>To improve results and prevent errors, the command can still be improved.</p>
-<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">find</span> . -iname <span class="st">&#39;*.html&#39;</span> <span class="kw">|</span> <span class="kw">xargs</span> grep <span class="st">&#39;example&#39;</span> -isl</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">find</span> . -iname <span class="st">&#39;*.html&#39;</span> <span class="kw">|</span> <span class="kw">xargs</span> grep <span class="st">&#39;example&#39;</span> -isl</code></pre></div>
 <p>This way, it doesn’t matter if file names are upper- or lowercase and the text search is also case insensitive. Binary content is ignored and warnings will be suppressed.</p>
 <h2 id="the-basic-code">The basic code</h2>
 <p>Let’s have a look at the required JavaScript code.</p>
 <p>What you need to write is a simple HTTP server, that parses the query part of the URL from a HTTP GET request. The search module only takes one parameter, <code>s</code>, like in <code>http://vorb.de/search.html?s=example</code>. This website (vorb.de) uses a small REST framework of mine, <a href="https://github.com/pvorb/node-api">api</a>, which enables me to register modules for different URLs, but I’ll only show how to do it without any framework. This way you can adapt the solution to your framework of choice (<a href="http://expressjs.com/">express</a>, <a href="http://flatironjs.org/">flatiron</a>, <a href="https://github.com/joyent/node/wiki/Modules#wiki-web-frameworks-full">etc.</a>).</p>
 <p>You need to load several packages during start-up:</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> http = <span class="fu">require</span>(<span class="st">&#39;http&#39;</span>);
-<span class="kw">var</span> url = <span class="fu">require</span>(<span class="st">&#39;url&#39;</span>);
-<span class="kw">var</span> exec = <span class="fu">require</span>(<span class="st">&#39;child_process&#39;</span>).<span class="fu">exec</span>;</code></pre>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> http <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;http&#39;</span>)<span class="op">;</span>
+<span class="kw">var</span> url <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;url&#39;</span>)<span class="op">;</span>
+<span class="kw">var</span> exec <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;child_process&#39;</span>).<span class="at">exec</span><span class="op">;</span></code></pre></div>
 <p>After that, define some other values:</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// timeout in ms for a single search</span>
-<span class="kw">var</span> timeout = <span class="dv">10000</span>;
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">// timeout in ms for a single search</span>
+<span class="kw">var</span> timeout <span class="op">=</span> <span class="dv">10000</span><span class="op">;</span>
 <span class="co">// specify the root directory, where the search will begin</span>
-<span class="kw">var</span> root = <span class="ot">process</span>.<span class="fu">cwd</span>();</code></pre>
+<span class="kw">var</span> root <span class="op">=</span> <span class="va">process</span>.<span class="at">cwd</span>()<span class="op">;</span></code></pre></div>
 <p>Now you can write the server code:</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> server = <span class="ot">http</span>.<span class="fu">createServer</span>(<span class="kw">function</span> (req, resp) {
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> server <span class="op">=</span> <span class="va">http</span>.<span class="at">createServer</span>(<span class="kw">function</span> (req<span class="op">,</span> resp) <span class="op">{</span>
   <span class="co">// parse the request url</span>
   <span class="co">// the query is everything after the &#39;?&#39;</span>
   <span class="co">// the second param says that the query shall be evaluated</span>
-  <span class="kw">var</span> query = <span class="ot">url</span>.<span class="fu">parse</span>(<span class="ot">req</span>.<span class="fu">url</span>, <span class="kw">true</span>).<span class="fu">query</span>;
+  <span class="kw">var</span> query <span class="op">=</span> <span class="va">url</span>.<span class="at">parse</span>(<span class="va">req</span>.<span class="at">url</span><span class="op">,</span> <span class="kw">true</span>).<span class="at">query</span><span class="op">;</span>
 
   <span class="co">// ensure both are != null or &#39;&#39;</span>
-  <span class="kw">if</span> (query &amp;&amp; <span class="ot">query</span>.<span class="fu">s</span>) {
+  <span class="cf">if</span> (query <span class="op">&amp;&amp;</span> <span class="va">query</span>.<span class="at">s</span>) <span class="op">{</span>
     <span class="co">// replace single with double quotes</span>
-    <span class="ot">query</span>.<span class="fu">s</span> = <span class="ot">query</span>.<span class="ot">s</span>.<span class="fu">replace</span>(<span class="st">&quot;&#39;&quot;</span>, <span class="st">&#39;&quot;&#39;</span>);
+    <span class="va">query</span>.<span class="at">s</span> <span class="op">=</span> <span class="va">query</span>.<span class="va">s</span>.<span class="at">replace</span>(<span class="st">&quot;&#39;&quot;</span><span class="op">,</span> <span class="st">&#39;&quot;&#39;</span>)<span class="op">;</span>
 
     <span class="co">// run the search</span>
-    <span class="fu">exec</span>(<span class="st">&quot;find . -iname &#39;*html&#39; | xargs grep &#39;&quot;</span>+<span class="ot">query</span>.<span class="fu">s</span>+
-        <span class="st">&quot;&#39; -isl&quot;</span>, {
-          <span class="dt">timeout</span>: timeout,
-          <span class="dt">cwd</span>: root
-        }, <span class="kw">function</span> (err, stdout, stdin) {
+    <span class="at">exec</span>(<span class="st">&quot;find . -iname &#39;*html&#39; | xargs grep &#39;&quot;</span><span class="op">+</span><span class="va">query</span>.<span class="at">s</span><span class="op">+</span>
+        <span class="st">&quot;&#39; -isl&quot;</span><span class="op">,</span> <span class="op">{</span>
+          <span class="dt">timeout</span><span class="op">:</span> timeout<span class="op">,</span>
+          <span class="dt">cwd</span><span class="op">:</span> root
+        <span class="op">},</span> <span class="kw">function</span> (err<span class="op">,</span> stdout<span class="op">,</span> stdin) <span class="op">{</span>
 
-      <span class="ot">resp</span>.<span class="fu">writeHead</span>(<span class="dv">200</span>, { <span class="st">&#39;Content-Type&#39;</span>: <span class="st">&#39;text/html&#39;</span> });
+      <span class="va">resp</span>.<span class="at">writeHead</span>(<span class="dv">200</span><span class="op">,</span> <span class="op">{</span> <span class="st">&#39;Content-Type&#39;</span><span class="op">:</span> <span class="st">&#39;text/html&#39;</span> <span class="op">}</span>)<span class="op">;</span>
 
-      <span class="kw">if</span> (err) {
-        <span class="ot">resp</span>.<span class="fu">end</span>(<span class="st">&#39;&lt;p&gt;Error on search&lt;/p&gt;&#39;</span>);
-        <span class="ot">console</span>.<span class="fu">log</span>(err);
-      }
+      <span class="cf">if</span> (err) <span class="op">{</span>
+        <span class="va">resp</span>.<span class="at">end</span>(<span class="st">&#39;&lt;p&gt;Error on search&lt;/p&gt;&#39;</span>)<span class="op">;</span>
+        <span class="va">console</span>.<span class="at">log</span>(err)<span class="op">;</span>
+      <span class="op">}</span>
 
       <span class="co">// split the results</span>
-      <span class="kw">var</span> results = <span class="ot">stdout</span>.<span class="fu">split</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>);
+      <span class="kw">var</span> results <span class="op">=</span> <span class="va">stdout</span>.<span class="at">split</span>(<span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>)<span class="op">;</span>
       <span class="co">// remove last element (it’s an empty line)</span>
-      <span class="ot">results</span>.<span class="fu">pop</span>();
+      <span class="va">results</span>.<span class="at">pop</span>()<span class="op">;</span>
 
-      <span class="ot">resp</span>.<span class="fu">write</span>(<span class="st">&#39;&lt;h1&gt;Search results&lt;/h1&gt;</span><span class="ch">\n</span><span class="st">&lt;ul&gt;&#39;</span>);
-      <span class="kw">for</span> (<span class="kw">var</span> i = <span class="dv">0</span>; i &lt; <span class="ot">results</span>.<span class="fu">length</span>; i++) {
-        <span class="ot">resp</span>.<span class="fu">write</span>(<span class="st">&#39;&lt;li&gt;&#39;</span>);
-        <span class="ot">resp</span>.<span class="fu">write</span>(results[i]);
-        <span class="ot">resp</span>.<span class="fu">write</span>(<span class="st">&#39;&lt;/li&gt;&#39;</span>);
-      }
-      <span class="ot">resp</span>.<span class="fu">end</span>(<span class="st">&#39;&lt;/ul&gt;&#39;</span>);
-    });
-  } <span class="kw">else</span> {
-    <span class="ot">resp</span>.<span class="fu">writeHead</span>(<span class="dv">200</span>, { <span class="st">&#39;Content-Type&#39;</span>: <span class="st">&#39;text/html&#39;</span> });
-    <span class="kw">return</span> <span class="ot">resp</span>.<span class="fu">end</span>(<span class="st">&#39;&lt;p&gt;No results&lt;/p&gt;&#39;</span>);
-  }
-});
+      <span class="va">resp</span>.<span class="at">write</span>(<span class="st">&#39;&lt;h1&gt;Search results&lt;/h1&gt;</span><span class="sc">\n</span><span class="st">&lt;ul&gt;&#39;</span>)<span class="op">;</span>
+      <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="va">results</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span>
+        <span class="va">resp</span>.<span class="at">write</span>(<span class="st">&#39;&lt;li&gt;&#39;</span>)<span class="op">;</span>
+        <span class="va">resp</span>.<span class="at">write</span>(results[i])<span class="op">;</span>
+        <span class="va">resp</span>.<span class="at">write</span>(<span class="st">&#39;&lt;/li&gt;&#39;</span>)<span class="op">;</span>
+      <span class="op">}</span>
+      <span class="va">resp</span>.<span class="at">end</span>(<span class="st">&#39;&lt;/ul&gt;&#39;</span>)<span class="op">;</span>
+    <span class="op">}</span>)<span class="op">;</span>
+  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span>
+    <span class="va">resp</span>.<span class="at">writeHead</span>(<span class="dv">200</span><span class="op">,</span> <span class="op">{</span> <span class="st">&#39;Content-Type&#39;</span><span class="op">:</span> <span class="st">&#39;text/html&#39;</span> <span class="op">}</span>)<span class="op">;</span>
+    <span class="cf">return</span> <span class="va">resp</span>.<span class="at">end</span>(<span class="st">&#39;&lt;p&gt;No results&lt;/p&gt;&#39;</span>)<span class="op">;</span>
+  <span class="op">}</span>
+<span class="op">}</span>)<span class="op">;</span>
 
 <span class="co">// listen on port 8080</span>
-<span class="ot">server</span>.<span class="fu">listen</span>(<span class="dv">8080</span>, <span class="kw">function</span> () {
-  <span class="ot">console</span>.<span class="fu">log</span>(<span class="st">&#39;Server running at http://localhost:8080/&#39;</span>);
-});</code></pre>
+<span class="va">server</span>.<span class="at">listen</span>(<span class="dv">8080</span><span class="op">,</span> <span class="kw">function</span> () <span class="op">{</span>
+  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;Server running at http://localhost:8080/&#39;</span>)<span class="op">;</span>
+<span class="op">}</span>)<span class="op">;</span></code></pre></div>
 <p>You may <a href="file-search.js">download the source file</a>. You can start it on the command line with <code>node file-search.js</code>. Then go to <a href="http://localhost:8080/?s=test">localhost:8080</a> try it. Of course you need to create some HTML files first, if you want to find something.</p>
 <p>Here’s how the result will look like:</p>
 <div class="figure">
-<img src="search-results.png" alt="Screenshot of the search results page" /><p class="caption">Screenshot of the search results page</p>
+<img src="search-results.png" alt="Screenshot of the search results page" />
+<p class="caption">Screenshot of the search results page</p>
 </div>
 
       </section>

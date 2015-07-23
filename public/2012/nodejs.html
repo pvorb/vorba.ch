@@ -58,39 +58,39 @@
 <h2 id="unterschiede-zu-anderen-plattformen">Unterschiede zu anderen Plattformen</h2>
 <p>Ein großer Unterschied zwischen Node und PHP ist, dass PHP entweder über FastCGI oder direkt als Apache-Modul immer einen einzelnen Request von einem einzelnen Browser vorgesetzt bekommt, den man dann nach Belieben verarbeiten und beantworten kann.</p>
 <p>Da Node.js nicht immer HTTP-Requests beantwortet, muss man sich einen solchen Webserver selbst schreiben. Dafür gibt es aber die nötigen Bibliotheken, die diese Aufgabe erheblich vereinfachen.</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> http = <span class="fu">require</span>(<span class="st">&#39;http&#39;</span>);
-<span class="kw">var</span> address = <span class="st">&#39;localhost&#39;</span>;
-<span class="kw">var</span> port = <span class="dv">8080</span>;
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> http <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;http&#39;</span>)<span class="op">;</span>
+<span class="kw">var</span> address <span class="op">=</span> <span class="st">&#39;localhost&#39;</span><span class="op">;</span>
+<span class="kw">var</span> port <span class="op">=</span> <span class="dv">8080</span><span class="op">;</span>
 
-<span class="kw">var</span> server = <span class="ot">http</span>.<span class="fu">createServer</span>(<span class="kw">function</span> <span class="fu">handle</span>(req, resp) {
-  <span class="ot">response</span>.<span class="fu">end</span>(<span class="st">&#39;Hallo Welt!&#39;</span>);
-});
+<span class="kw">var</span> server <span class="op">=</span> <span class="va">http</span>.<span class="at">createServer</span>(<span class="kw">function</span> <span class="at">handle</span>(req<span class="op">,</span> resp) <span class="op">{</span>
+  <span class="va">response</span>.<span class="at">end</span>(<span class="st">&#39;Hallo Welt!&#39;</span>)<span class="op">;</span>
+<span class="op">}</span>)<span class="op">;</span>
 
-<span class="ot">server</span>.<span class="fu">listen</span>(port, address, <span class="kw">function</span> () {
-  <span class="ot">console</span>.<span class="fu">log</span>(<span class="st">&#39;Server running at &quot;http://&#39;</span> + address + <span class="st">&#39;:&#39;</span>
-      + port + <span class="st">&#39;/&quot;.&#39;</span>);
-});</code></pre>
+<span class="va">server</span>.<span class="at">listen</span>(port<span class="op">,</span> address<span class="op">,</span> <span class="kw">function</span> () <span class="op">{</span>
+  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;Server running at &quot;http://&#39;</span> <span class="op">+</span> address <span class="op">+</span> <span class="st">&#39;:&#39;</span>
+      <span class="op">+</span> port <span class="op">+</span> <span class="st">&#39;/&quot;.&#39;</span>)<span class="op">;</span>
+<span class="op">}</span>)<span class="op">;</span></code></pre></div>
 <p>Speichert man diese Zeilen Code in eine Datei namens <code>server.js</code> und startet diese über die Kommandozeile mit <code>node server.js</code>, so erhält man die Ausgabe <code>Server running at &quot;http://localhost:8080/&quot;.</code> auf der Konsole. Ruft man nun im Browser die angegebene Adresse auf, so bekommt man „Hallo Welt!“ angezeigt.</p>
 <p>Das Server-Objekt aus dem Beispiel wartet auf eingehende HTTP-Verbindungen und führt jeweils die Funktion <code>handle</code> aus. Diese bekommt über den Parameter <code>req</code> (Request) die Informationen über den Request mitgeteilt.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> Das Objekt <code>resp</code> (Response) ermöglicht dann das Antworten auf den Request mit den Methoden <code>writeHead</code>, <code>write</code> und <code>end</code> (u.a.).<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
 <p>Das gleiche Programm lässt sich in PHP viel kürzer schreiben:</p>
-<pre class="sourceCode PHP"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
 <span class="fu">echo</span> <span class="st">&#39;Hallo Welt!&#39;</span><span class="ot">;</span>
-<span class="kw">?&gt;</span></code></pre>
+<span class="kw">?&gt;</span></code></pre></div>
 <p>Alles, was innerhalb der Funktion <code>handle</code> steht, kann in der Regel auch mit PHP bewerkstelligt werden.</p>
 <h2 id="vorteile">Vorteile</h2>
 <h3 id="asynchronizität">Asynchronizität</h3>
 <p>(Furchtbares Wort.) Ein weiterer wichtiger Unterschied zu herkömmlichen Umgebungen ist die besondere Behandlung von Festplatten-, Datenbank- und Netzwerkzugriffen. Während PHP bei einer Datenbankabfrage (oder Festplattenzugriff oder Netzwerkrequest) solange nichts tut, bis die Datenbank (die Festplatte, das Netzwerk) entweder das Ergebnis oder einen Fehler liefert, blockieren solche „langsamen“ Operationen in Node den Programmablauf nicht. Das heißt, eine Datenbank-Query wird losgeschickt und eine Funktion registriert, die das Resultat verarbeitet. Anstatt zu warten, läuft das Programm danach jedoch weiter und der Callback erfolgt erst, wenn das Ergebnis da ist. Wo mehrere Zustände erreicht werden können, werden auch teilweise Event-Objekte und entsprechende Funktionen eingesetzt.</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ot">client</span>.<span class="fu">query</span>(
-  <span class="st">&#39;SELECT * FROM table&#39;</span>,
-  <span class="kw">function</span> <span class="fu">selected</span>(err, results, fields) {
-    <span class="kw">if</span> (err)
-      <span class="kw">throw</span> err;
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">client</span>.<span class="at">query</span>(
+  <span class="st">&#39;SELECT * FROM table&#39;</span><span class="op">,</span>
+  <span class="kw">function</span> <span class="at">selected</span>(err<span class="op">,</span> results<span class="op">,</span> fields) <span class="op">{</span>
+    <span class="cf">if</span> (err)
+      <span class="cf">throw</span> err<span class="op">;</span>
 
-    <span class="ot">console</span>.<span class="fu">log</span>(results);
-    <span class="ot">console</span>.<span class="fu">log</span>(fields);
-    <span class="ot">client</span>.<span class="fu">end</span>();
-  }
-);</code></pre>
+    <span class="va">console</span>.<span class="at">log</span>(results)<span class="op">;</span>
+    <span class="va">console</span>.<span class="at">log</span>(fields)<span class="op">;</span>
+    <span class="va">client</span>.<span class="at">end</span>()<span class="op">;</span>
+  <span class="op">}</span>
+)<span class="op">;</span></code></pre></div>
 <p>Dies steht im Gegensatz zu Apache/PHP, wo für jeden eingehenden Request ein neuer Thread erzeugt wird. Threads sind für diesen Zweck jedoch vergleichsweise ineffizient.<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> So kann PHP auf schwächeren Rechnern schon bei 10 bis 100 gleichzeitigen Zugriffen ins Straucheln kommen, während Node.js weit über 10.000 gleichzeigige Verbindungen abarbeiten kann.</p>
 <p>Für Python gibt es mit <a href="http://twistedmatrix.com/">Twisted</a>, für Ruby mit <a href="http://rubyeventmachine.com/">Event Machine</a> ähnliche Ansätze zur Programmierung schnellerer Webserver. Der Vorteil von Node liegt aber darin, dass JavaScript genau für Event-basierte Programmierung konzipiert wurde. Oberflächen (bzw. Benutzer, die diese bedienen) verhalten sich genauso, wie Netzwerke oder Festplatten: Man weiß nie, wann eine Aktion ausgeführt wird.</p>
 <p>Daher lässt sich in JavaScript sehr einfach und natürlich Event-basiert programmieren.</p>
@@ -98,37 +98,37 @@
 <p>Wenn man den Programmablauf selbst parallelisieren möchte, muss man Teile des Programms als eigene Prozesse starten und dann mit Nachrichten (über <a href="http://en.wikipedia.org/wiki/Unix_domain_socket">Unix-Domain-Sockets</a> oder <a href="http://de.wikipedia.org/wiki/Transmission_Control_Protocol">TCP-Verbindungen</a>) synchron halten, ähnlich wie es im <a href="http://en.wikipedia.org/wiki/Actor_model">Aktor-Modell</a> beschrieben wird. Das kann bei sehr rechenintensiven Programmen nötig werden. Meist reicht es aber, wenn lediglich asynchrone I/O verwendet wird. In Node lässt sich das Aktor-Modell umsetzen, ist aber nicht in die Plattform integriert wie beispielsweise in Erlang.</p>
 <h3 id="paketsystem">Paketsystem</h3>
 <p>Ich schrieb ja bereits, dass man mit JavaScript <a href="/log/2012/03/bread.html#umsetzung">sehr modularen Code schreiben kann</a>. Das erkläre ich mal am Beispiel von <a href="https://github.com/pvorb/node-dive">dive</a>.</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> dive = <span class="fu">require</span>(<span class="st">&#39;dive&#39;</span>);
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> dive <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;dive&#39;</span>)<span class="op">;</span>
 
-<span class="fu">dive</span>(<span class="st">&#39;/some/directory&#39;</span>, <span class="kw">function</span> <span class="fu">action</span>(path) {
+<span class="at">dive</span>(<span class="st">&#39;/some/directory&#39;</span><span class="op">,</span> <span class="kw">function</span> <span class="at">action</span>(path) <span class="op">{</span>
   <span class="co">// wird für jede Datei aufgerufen</span>
-}, <span class="kw">function</span> <span class="fu">complete</span>() {
+<span class="op">},</span> <span class="kw">function</span> <span class="at">complete</span>() <span class="op">{</span>
   <span class="co">// wird aufgerufen nachdem alle Dateien durchlaufen wurden</span>
-});</code></pre>
+<span class="op">}</span>)<span class="op">;</span></code></pre></div>
 <p>Dive nimmt einen String mit einem absoluten Ordnerpfad entgegen, „taucht“ in dieses Verzeichnis ein und durchläuft alle Unterverzeichnisse und Dateien rekursiv. Für jede Datei wird dann der Callback <code>action</code> ausgeführt. Nachdem alle Dateien durchlaufen wurden, wird <code>complete</code> ausgeführt. That’s it. Mehr kann es nicht, ist aber trotzdem für viele Zwecke einsetzbar, weil man ja ganze Funktionen übergeben kann. Diese können dann ihrerseits beispielsweise nach dem Dateinamen filtern und so kann die Funktionalität verfeinert werden.</p>
 <p>Node.js verwendet das <a href="http://wiki.commonjs.org/wiki/Packages/1.0">CommonJS</a>-Modulsystem und erlaubt es dadurch, solchen Code unkompliziert in Pakete zu verpacken. Für ein Paket benötigt man nur zwei Dateien. Eine Datei namens <code>package.json</code> sowie das eigentliche Programm.</p>
 <p>Die Datei <code>package.json</code> enthält Informationen über das Paket.</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript">{
-  <span class="st">&quot;name&quot;</span>: <span class="st">&quot;dive&quot;</span>,
-  <span class="st">&quot;description&quot;</span>: <span class="st">&quot;walk through directory trees and apply an action to every file&quot;</span>,
-  <span class="st">&quot;tags&quot;</span>: [ <span class="st">&quot;recursive&quot;</span>, <span class="st">&quot;file walking&quot;</span>, <span class="st">&quot;directories&quot;</span>, <span class="st">&quot;async&quot;</span> ],
-  <span class="st">&quot;author&quot;</span>: <span class="st">&quot;Paul Vorbach &lt;paul@vorb.de&gt; (http://vorb.de)&quot;</span>,
-  <span class="st">&quot;version&quot;</span>: <span class="st">&quot;0.2.0&quot;</span>,
-  <span class="st">&quot;main&quot;</span>: <span class="st">&quot;./dive.js&quot;</span>,
-  <span class="st">&quot;repository&quot;</span>: {
-    <span class="st">&quot;type&quot;</span>: <span class="st">&quot;git&quot;</span>,
-    <span class="st">&quot;url&quot;</span>: <span class="st">&quot;git://github.com/pvorb/node-dive.git&quot;</span>
-  },
-  <span class="st">&quot;dependencies&quot;</span>: {
-    <span class="st">&quot;append&quot;</span>: <span class="st">&quot;&gt;=0.1.1&quot;</span>
-  }
-}</code></pre>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="op">{</span>
+  <span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;dive&quot;</span><span class="op">,</span>
+  <span class="st">&quot;description&quot;</span><span class="op">:</span> <span class="st">&quot;walk through directory trees and apply an action to every file&quot;</span><span class="op">,</span>
+  <span class="st">&quot;tags&quot;</span><span class="op">:</span> [ <span class="st">&quot;recursive&quot;</span><span class="op">,</span> <span class="st">&quot;file walking&quot;</span><span class="op">,</span> <span class="st">&quot;directories&quot;</span><span class="op">,</span> <span class="st">&quot;async&quot;</span> ]<span class="op">,</span>
+  <span class="st">&quot;author&quot;</span><span class="op">:</span> <span class="st">&quot;Paul Vorbach &lt;paul@vorb.de&gt; (http://vorb.de)&quot;</span><span class="op">,</span>
+  <span class="st">&quot;version&quot;</span><span class="op">:</span> <span class="st">&quot;0.2.0&quot;</span><span class="op">,</span>
+  <span class="st">&quot;main&quot;</span><span class="op">:</span> <span class="st">&quot;./dive.js&quot;</span><span class="op">,</span>
+  <span class="st">&quot;repository&quot;</span><span class="op">:</span> <span class="op">{</span>
+    <span class="st">&quot;type&quot;</span><span class="op">:</span> <span class="st">&quot;git&quot;</span><span class="op">,</span>
+    <span class="st">&quot;url&quot;</span><span class="op">:</span> <span class="st">&quot;git://github.com/pvorb/node-dive.git&quot;</span>
+  <span class="op">},</span>
+  <span class="st">&quot;dependencies&quot;</span><span class="op">:</span> <span class="op">{</span>
+    <span class="st">&quot;append&quot;</span><span class="op">:</span> <span class="st">&quot;&gt;=0.1.1&quot;</span>
+  <span class="op">}</span>
+<span class="op">}</span></code></pre></div>
 <p>Im Quelltext kann man dann beliebige Teile des Codes „exportieren“. Sprich: Man kann der Variable <code>exports</code> dann alle möglichen Werte zuweisen. Im Beispiel oben wurde einfach eine Funktion exportiert. Das sieht im Quelltext so aus:</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">function</span> <span class="fu">dive</span>(dir, action, complete) {
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">dive</span>(dir<span class="op">,</span> action<span class="op">,</span> complete) <span class="op">{</span>
   <span class="co">// ...</span>
-}
+<span class="op">}</span>
 
-exports = dive;</code></pre>
+exports <span class="op">=</span> dive<span class="op">;</span></code></pre></div>
 <p>Mit <a href="http://search.npmjs.org/">Node Package Manager (npm)</a> existiert außerdem ein Verzeichnis solcher Pakete. Über ein einfaches <code>npm install paketname</code> lassen sich diese installieren und im Code dann, wie oben schon gesehen, über <code>var paketname = require('paketname');</code> einbinden.</p>
 <p>Solch ein Paketsystem ist aber nichts neues, das gibt es für viele Programmierumgebungen.<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> Mit momentan über 8000 Paketen hat das Verzeichnis in nur knapp anderthalb Jahren eine stolze Größe erreicht.</p>
 <h3 id="wiederverwendbarkeit">Wiederverwendbarkeit</h3>

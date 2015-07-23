@@ -45,7 +45,7 @@
       <section>
         <p>I always asked myself how often a function gets evaluated if you place it in the break condition of a for loop (or a for-each loop). Unfortunately I have always been too lazy to look for an answer – until today.</p>
 <p>Let’s have a look at an implementation in <em>PHP</em>:</p>
-<pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
 
 <span class="kw">function</span> times<span class="ot">()</span> {
   <span class="fu">echo</span> <span class="st">&quot;evaluation</span><span class="kw">\n</span><span class="st">&quot;</span><span class="ot">;</span> <span class="co">// report evaluation</span>
@@ -67,7 +67,7 @@
 
 <span class="kw">foreach</span> <span class="ot">(</span><span class="fu">set</span><span class="ot">()</span> <span class="kw">as</span> <span class="kw">$i</span><span class="ot">)</span> {
   <span class="fu">echo</span> <span class="kw">$i</span> . <span class="st">&quot;</span><span class="kw">\n</span><span class="st">&quot;</span><span class="ot">;</span>
-}</code></pre>
+}</code></pre></div>
 <p>This will print</p>
 <pre><code># for loop:
 
@@ -93,11 +93,11 @@ evaluation
 4</code></pre>
 <p>As we can see, PHP evaluates the break condition of a <em>for loop</em> at each iteration, whereas in a <em>foreach loop</em>, the set of values over which the loop iterates, only gets evaluated once.</p>
 <p>So, if you use a function with an expensive calculation as a break condition in a for loop, just store that value in a temporary variable. E.g.:</p>
-<pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+<div class="sourceCode"><pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
 
 <span class="kw">for</span> <span class="ot">(</span><span class="kw">$i</span> = <span class="dv">0</span><span class="ot">,</span> <span class="kw">$times</span> = times<span class="ot">();</span> <span class="kw">$i</span> &lt; <span class="kw">$times</span><span class="ot">;</span> <span class="kw">$i</span>++<span class="ot">)</span> {
   <span class="co">// ...</span>
-}</code></pre>
+}</code></pre></div>
 
       </section>
       <footer class="meta">

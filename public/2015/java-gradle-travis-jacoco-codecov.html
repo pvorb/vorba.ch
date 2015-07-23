@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>How to set up a Java project using Gradle, Travis, JaCoCo and Codecov | vorba.ch</title>
+    <link rel="stylesheet" href="/res/diego.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml"
+      title="Article feed">
+    <link rel="alternate" type="application/atom+xml" href="/comment-feed.xml"
+      title="Comment feed">
+    <meta name="author" content="Paul Vorbach">
+
+    <meta name="keywords" content="english, howto, java, code-coverage">
+
+  </head>
+  <body id="top">
+    <nav id="nav">
+      <ol id="path">
+        <li><a href="/">vorba.ch</a>
+
+        <li><a href="/archive.html#2015">2015</a>
+
+      </ol>
+      <ol id="access">
+        <li><a href="#top" title="To the top" id="back" accesskey="t">↑</a>
+        <li><a href="#nav">Navigation</a>
+        <li><a href="#content">Content</a>
+        <li><a href="#comments" accesskey="c">Comments</a>
+      </ol>
+      <form id="search" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Search">
+      </form>
+    </nav>
+    <article id="content">
+      <header>
+        <h1>How to set up a Java project using Gradle, Travis, JaCoCo and Codecov</h1>
+
+        <figure class="teaser">
+          <img src="roof.jpg">
+        </figure>
+
+        <p class="meta">by <span class="author">Paul Vorbach</span>, <span class="created">2015-07-23</span>
+          &ndash; <a href="#comments">Comments</a></p>
+      </header>
+      <section>
+        <p>The code coverage of a project’s test suite can be a useful measure for finding out about the quality of the project. There are several tools for Java that can calculate the code coverage, for example <a href="http://www.sonarqube.org/">SonarQube</a> and <a href="http://www.eclemma.org/jacoco/">JaCoCo</a>.</p>
+<p>During my recent work on <a href="https://github.com/pvorb/property-providers">property-providers</a>, I found out how to give users a quick overview of the test coverage of the code using <a href="https://codecov.io/">Codecov</a>. It is not well documented for projects that don’t use Maven, so here I present the complete setup that brings the code coverage badge to the GitHub page of the project.</p>
+<h2 id="gradle">Gradle</h2>
+<p>The project uses Gradle instead of Maven. Here’s its <code>build.gradle</code>. It configures JaCoCo reports. XML reports are disabled by default but those are needed in order to work with Codecov, so enable them. Also the <code>check</code> task, which is run by Travis, needs to depend on <code>jacocoTestReport</code>.</p>
+<pre class="groovy"><code>apply plugin: &#39;java&#39;
+apply plugin: &#39;jacoco&#39;
+
+version = &#39;0.0.1&#39;
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // project dependencies
+    // ...
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
+
+check.dependsOn jacocoTestReport</code></pre>
+<h2 id="travis-ci">Travis-CI</h2>
+<p><a href="https://travis-ci.org/">Travis</a> is a hosted continuous integration service. You can sign up with a GitHub account. It’s free for open source projects.</p>
+<p>This is what the Travis <code>.travis.yml</code> configuration file looks like. Whenever a build succeeds, the last line uploads the JaCoCo report to Codecov.</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">language:</span> java
+<span class="fu">jdk:</span>
+  <span class="kw">-</span> oraclejdk8
+<span class="fu">after_success:</span>
+  <span class="kw">-</span> <span class="fu">bash &lt;(curl -s https:</span>//codecov.io/bash)</code></pre></div>
+<h2 id="codecov">Codecov</h2>
+<p>In order to use Codecov, you need to sign up first. It is straight forward for Github users: just <a href="https://codecov.io/login/github">sign up with GitHub</a> and then add the repository that you wish to monitor. The service, like Travis, is free for open source projects.</p>
+<h2 id="readme">Readme</h2>
+<p>Finally, I added this markdown snippet to my <code>README.md</code> file in order to show the coverage badge. I used the badge from <a href="http://shields.io/">shields.io</a> instead of Codecov’s own badge, because it gives better consistency with other badges.</p>
+<div class="sourceCode"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="ot">[![Code Coverage](https://img.shields.io/codecov/c/github/pvorb/property-providers/develop.svg)</span>](https://codecov.io/github/pvorb/property-providers?branch=develop)</code></pre></div>
+<p>That’s all! I hope this article may help you on your way to set up code coverage monitoring for your Java project.</p>
+
+      </section>
+      <footer class="meta">
+        <p>Tags:
+
+          <a href="/tag/english.html">english</a> ·
+
+          <a href="/tag/howto.html">howto</a> ·
+
+          <a href="/tag/java.html">java</a> ·
+
+          <a href="/tag/code-coverage.html">code-coverage</a> 
+
+        </p>
+
+      </footer>
+    </article>
+    <section id="comments">
+      <section id="isso-thread" data-title="How to set up a Java project using Gradle, Travis, JaCoCo and Codecov"></section>
+      <script data-isso-lang="en" src="//comments.vorba.ch/js/embed.min.js"></script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </section>
+    <footer id="about">
+      <p>© 2015 – Paul Vorbach.
+        <a href="http://paul.vorba.ch/">Contact</a>.</p>
+    </footer>
+  </body>
+</html>
