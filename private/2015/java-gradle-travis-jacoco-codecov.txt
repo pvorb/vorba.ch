@@ -1,4 +1,4 @@
-title: How to set up a Java project using Gradle, Travis, JaCoCo and Codecov
+title: How to Set Up Code Coverage for a Java Project using Gradle, Travis, JaCoCo and Codecov
 created: 2015-07-23
 teaser: roof.jpg
 template: post.diego.en.tpl

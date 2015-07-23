@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorba.ch: Articles</title>
   <subtitle>Paul Vorbach's personal weblog</subtitle>
-  <updated>2015-07-23T00:01:20.073Z</updated>
+  <updated>2015-07-23T00:09:56.488Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -479,7 +479,7 @@ make clean&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
   </entry>
 
   <entry>
-    <title>How to set up a Java project using Gradle, Travis, JaCoCo and Codecov</title>
+    <title>How to Set Up Code Coverage for a Java Project using Gradle, Travis, JaCoCo and Codecov</title>
     <link href="http://vorba.ch/2015/java-gradle-travis-jacoco-codecov.html"/>
     <id>http://vorba.ch/2015/java-gradle-travis-jacoco-codecov.html</id>
     <updated>2015-07-23T00:00:00.000Z</updated>
