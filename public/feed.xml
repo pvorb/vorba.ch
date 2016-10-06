@@ -3,12 +3,12 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorba.ch: Articles</title>
   <subtitle>Paul Vorbach's personal weblog</subtitle>
-  <updated>2015-07-23T00:09:56.488Z</updated>
+  <updated>2016-10-06T22:42:35.598Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
   </author>
-  <rights>© 2008-2015 Paul Vorbach</rights>
+  <rights>© 2008-2016 Paul Vorbach</rights>
   <link href="http://vorba.ch/"/>
   <link rel="self" href="http://vorba.ch/feed.xml"/>
   <category term="computer"/>
@@ -18,33 +18,6 @@
   <category term="scala"/>
   <category term="akka"/>
   <icon>http://vorba.ch/favicon.ico</icon>
-
-  <entry>
-    <title>Umzug</title>
-    <link href="http://vorba.ch/2013/umzug.html"/>
-    <id>http://vorba.ch/2013/umzug.html</id>
-    <updated>2013-11-22T00:00:00.000Z</updated>
-    <author>
-      <name>Paul Vorbach</name>
-      <uri>http://paul.vorba.ch/</uri>
-    </author>
-    <content type="html">
-
-      &lt;p&gt;&lt;img src="http://vorba.ch/2013/station.jpg"&gt;&lt;/p&gt;
-
-      &lt;p&gt;Vergleichsweise still ist dieses Blog in den letzten Tagen von &lt;em&gt;vorb.de&lt;/em&gt; auf die (nicht mehr ganz so) neue Domain &lt;em&gt;vorba.ch&lt;/em&gt; umgezogen. Damit einher gehen Änderungen am Stylesheet (Artikel vor 2013 sehen weiterhin „alt aus“) sowie an der URL-Struktur: Dadurch, dass hier so selten etwas geschrieben wird, gibt es nun keine Unterverzeichnisse für einzelne Monate mehr. Das Verzeichnis &lt;code&gt;log&lt;/code&gt; ist ebenfalls weggefallen – es war schlicht überflüssig. Zudem habe ich die Kommentare auf Disqus umgezogen. Ich hoffe, daran stört sich niemand allzu sehr.&lt;/p&gt;
-&lt;p&gt;Das einzige Feature, welches noch fehlt, ist die alte Suchfunktion. Dafür soll bald eine bessere Variante auf &lt;a href=&quot;http://lucene.apache.org/solr/&quot;&gt;Solr&lt;/a&gt;-Basis kommen.&lt;/p&gt;
-&lt;p&gt;Zukünftig soll hier auch wieder mehr passieren. Mal sehen, ob ich das einhalten kann.&lt;/p&gt;
-
-    </content>
-
-    <category term="deutsch"/>
-
-    <category term="weblog"/>
-
-    <category term="css"/>
-
-  </entry>
 
   <entry>
     <title>Scala</title>
@@ -543,6 +516,76 @@ check.dependsOn jacocoTestReport&lt;/code&gt;&lt;/pre&gt;
     <category term="java"/>
 
     <category term="code-coverage"/>
+
+  </entry>
+
+  <entry>
+    <title>Fast Front End Development Cycle with Spring Boot</title>
+    <link href="http://vorba.ch/2016/fast-spring-boot-development-cycle.html"/>
+    <id>http://vorba.ch/2016/fast-spring-boot-development-cycle.html</id>
+    <updated>2016-10-07T00:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>http://paul.vorba.ch/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorba.ch/2016/train.jpg"&gt;&lt;/p&gt;
+
+      &lt;p&gt;&lt;a href=&quot;https://projects.spring.io/spring-boot/&quot;&gt;Spring Boot&lt;/a&gt; makes developing microservices a breeze. It’s easy to get to speed without the need for much configuration. However, it can be quite annoying to compile and restart the program every time you change a component. To overcome this drawback, the Spring Boot documentation includes a how-to guide about configuring &lt;a href=&quot;https://docs.spring.io/spring-boot/docs/1.3.8.RELEASE/reference/html/howto-hotswapping.html&quot;&gt;hot swapping&lt;/a&gt; such as static web resources, templates and Java classes while the server keeps running. A big part of the solution is to use &lt;a href=&quot;https://docs.spring.io/spring-boot/docs/1.3.8.RELEASE/reference/html/using-boot-devtools.html&quot;&gt;the developer tools&lt;/a&gt;, which provide some helpful settings that improve the overall development experience.&lt;/p&gt;
+&lt;p&gt;When it comes to front end development, it can be quite annoying to have to manually hit “Make Project” every time a file changes. Especially when running a separate build tool for front end components like Webpack even IntelliJ’s setting “Make project automatically” won’t always update the generated resources on the server in time.&lt;/p&gt;
+&lt;p&gt;What I wanted to have instead was to be able to just refresh the browser and see the exact same static resources as in the IDE. As it shows, this is possible with Spring Boot and Maven. The described method has been tested with Spring Boot 1.3.8.RELEASE and IntelliJ IDEA 2016.2.4.&lt;/p&gt;
+&lt;p&gt;In my &lt;code&gt;pom.xml&lt;/code&gt; file I have configured the &lt;code&gt;spring-boot-starter-parent&lt;/code&gt; artifact as the parent of my project, so I don’t need to specify Spring Boot-managed dependency versions on my own. You may also want to explicitly specify dependency and plugin versions instead.&lt;/p&gt;
+&lt;p&gt;While not required, it makes sense to add a dependency on &lt;code&gt;spring-boot-devtools&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode xml&quot;&gt;&lt;code class=&quot;sourceCode xml&quot;&gt;&lt;span class=&quot;kw&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&quot;kw&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-devtools&lt;span class=&quot;kw&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;optional&amp;gt;&lt;/span&gt;true&lt;span class=&quot;kw&quot;&gt;&amp;lt;/optional&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+&lt;p&gt;Key to the solution is to keep static resources in &lt;code&gt;src/main/webapp&lt;/code&gt; instead of &lt;code&gt;src/main/resources/static&lt;/code&gt;. You may already know this directory from typical WAR-packaged applications. Then, you’ll also need to configure &lt;code&gt;maven-resources-plugin&lt;/code&gt; to copy files under &lt;code&gt;src/main/webapp&lt;/code&gt; directly to &lt;code&gt;target/classes/public&lt;/code&gt; or &lt;code&gt;target/classes/static&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode xml&quot;&gt;&lt;code class=&quot;sourceCode xml&quot;&gt;&lt;span class=&quot;kw&quot;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;co&quot;&gt;&amp;lt;!-- ... --&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven-resources-plugin&lt;span class=&quot;kw&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;3.0.1&lt;span class=&quot;kw&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;executions&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;kw&quot;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;kw&quot;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;copy-resources&lt;span class=&quot;kw&quot;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;kw&quot;&gt;&amp;lt;phase&amp;gt;&lt;/span&gt;generate-resources&lt;span class=&quot;kw&quot;&gt;&amp;lt;/phase&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;kw&quot;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;copy-resources&lt;span class=&quot;kw&quot;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;kw&quot;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;kw&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;outputDirectory&amp;gt;&lt;/span&gt;${basedir}/target/classes/public&lt;span class=&quot;kw&quot;&gt;&amp;lt;/outputDirectory&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;resources&amp;gt;&lt;/span&gt;
+                            &lt;span class=&quot;kw&quot;&gt;&amp;lt;resource&amp;gt;&lt;/span&gt;
+                                &lt;span class=&quot;kw&quot;&gt;&amp;lt;directory&amp;gt;&lt;/span&gt;src/main/webapp&lt;span class=&quot;kw&quot;&gt;&amp;lt;/directory&amp;gt;&lt;/span&gt;
+                                &lt;span class=&quot;kw&quot;&gt;&amp;lt;filtering&amp;gt;&lt;/span&gt;false&lt;span class=&quot;kw&quot;&gt;&amp;lt;/filtering&amp;gt;&lt;/span&gt;
+                            &lt;span class=&quot;kw&quot;&gt;&amp;lt;/resource&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/resources&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;kw&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;kw&quot;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;/executions&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;&amp;lt;/build&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This way a running instance of Spring Boot can always serve the most recent version of a file. Hitting refresh in the browser will show it immediately.&lt;/p&gt;
+&lt;p&gt;You can find the &lt;a href=&quot;https://github.com/pvorb/platon/blob/913647edbaf69d309df75f1b871ff922a5b23aca/pom.xml&quot;&gt;complete POM file on GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;P.S.:&lt;/em&gt; If you run a front end build tool like Webpack with &lt;code&gt;--watch&lt;/code&gt;, changing a file will not always trigger a rebuild of affected bundles, when you use IntelliJ for editing. This is caused by a feature called “safe write” which you can turn off in the settings under “Appearance &amp;amp; Behavior” → “System Settings”.&lt;/p&gt;
+
+    </content>
+
+    <category term="english"/>
+
+    <category term="howto"/>
+
+    <category term="java"/>
+
+    <category term="spring-boot"/>
+
+    <category term="maven"/>
 
   </entry>
 

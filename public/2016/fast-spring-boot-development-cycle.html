@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Fast Front End Development Cycle with Spring Boot | vorba.ch</title>
+    <link rel="stylesheet" href="/res/diego.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml"
+      title="Article feed">
+    <link rel="alternate" type="application/atom+xml" href="/comment-feed.xml"
+      title="Comment feed">
+    <meta name="author" content="Paul Vorbach">
+
+    <meta name="keywords" content="english, howto, java, spring-boot, maven">
+
+  </head>
+  <body id="top">
+    <nav id="nav">
+      <ol id="path">
+        <li><a href="/">vorba.ch</a>
+
+        <li><a href="/archive.html#2016">2016</a>
+
+      </ol>
+      <ol id="access">
+        <li><a href="#top" title="To the top" id="back" accesskey="t">↑</a>
+        <li><a href="#nav">Navigation</a>
+        <li><a href="#content">Content</a>
+        <li><a href="#comments" accesskey="c">Comments</a>
+      </ol>
+      <form id="search" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Search">
+      </form>
+    </nav>
+    <article id="content">
+      <header>
+        <h1>Fast Front End Development Cycle with Spring Boot</h1>
+
+        <figure class="teaser">
+          <img src="train.jpg">
+        </figure>
+
+        <p class="meta">by <span class="author">Paul Vorbach</span>, <span class="created">2016-10-07</span>
+          &ndash; <a href="#comments">Comments</a></p>
+      </header>
+      <section>
+        <p><a href="https://projects.spring.io/spring-boot/">Spring Boot</a> makes developing microservices a breeze. It’s easy to get to speed without the need for much configuration. However, it can be quite annoying to compile and restart the program every time you change a component. To overcome this drawback, the Spring Boot documentation includes a how-to guide about configuring <a href="https://docs.spring.io/spring-boot/docs/1.3.8.RELEASE/reference/html/howto-hotswapping.html">hot swapping</a> such as static web resources, templates and Java classes while the server keeps running. A big part of the solution is to use <a href="https://docs.spring.io/spring-boot/docs/1.3.8.RELEASE/reference/html/using-boot-devtools.html">the developer tools</a>, which provide some helpful settings that improve the overall development experience.</p>
+<p>When it comes to front end development, it can be quite annoying to have to manually hit “Make Project” every time a file changes. Especially when running a separate build tool for front end components like Webpack even IntelliJ’s setting “Make project automatically” won’t always update the generated resources on the server in time.</p>
+<p>What I wanted to have instead was to be able to just refresh the browser and see the exact same static resources as in the IDE. As it shows, this is possible with Spring Boot and Maven. The described method has been tested with Spring Boot 1.3.8.RELEASE and IntelliJ IDEA 2016.2.4.</p>
+<p>In my <code>pom.xml</code> file I have configured the <code>spring-boot-starter-parent</code> artifact as the parent of my project, so I don’t need to specify Spring Boot-managed dependency versions on my own. You may also want to explicitly specify dependency and plugin versions instead.</p>
+<p>While not required, it makes sense to add a dependency on <code>spring-boot-devtools</code>:</p>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;dependency&gt;</span>
+    <span class="kw">&lt;groupId&gt;</span>org.springframework.boot<span class="kw">&lt;/groupId&gt;</span>
+    <span class="kw">&lt;artifactId&gt;</span>spring-boot-devtools<span class="kw">&lt;/artifactId&gt;</span>
+    <span class="kw">&lt;optional&gt;</span>true<span class="kw">&lt;/optional&gt;</span>
+<span class="kw">&lt;/dependency&gt;</span></code></pre></div>
+<h2 id="solution">Solution</h2>
+<p>Key to the solution is to keep static resources in <code>src/main/webapp</code> instead of <code>src/main/resources/static</code>. You may already know this directory from typical WAR-packaged applications. Then, you’ll also need to configure <code>maven-resources-plugin</code> to copy files under <code>src/main/webapp</code> directly to <code>target/classes/public</code> or <code>target/classes/static</code>:</p>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;build&gt;</span>
+    <span class="kw">&lt;plugins&gt;</span>
+        <span class="co">&lt;!-- ... --&gt;</span>
+        <span class="kw">&lt;plugin&gt;</span>
+            <span class="kw">&lt;artifactId&gt;</span>maven-resources-plugin<span class="kw">&lt;/artifactId&gt;</span>
+            <span class="kw">&lt;version&gt;</span>3.0.1<span class="kw">&lt;/version&gt;</span>
+            <span class="kw">&lt;executions&gt;</span>
+                <span class="kw">&lt;execution&gt;</span>
+                    <span class="kw">&lt;id&gt;</span>copy-resources<span class="kw">&lt;/id&gt;</span>
+                    <span class="kw">&lt;phase&gt;</span>generate-resources<span class="kw">&lt;/phase&gt;</span>
+                    <span class="kw">&lt;goals&gt;</span>
+                        <span class="kw">&lt;goal&gt;</span>copy-resources<span class="kw">&lt;/goal&gt;</span>
+                    <span class="kw">&lt;/goals&gt;</span>
+                    <span class="kw">&lt;configuration&gt;</span>
+                        <span class="kw">&lt;outputDirectory&gt;</span>${basedir}/target/classes/public<span class="kw">&lt;/outputDirectory&gt;</span>
+                        <span class="kw">&lt;resources&gt;</span>
+                            <span class="kw">&lt;resource&gt;</span>
+                                <span class="kw">&lt;directory&gt;</span>src/main/webapp<span class="kw">&lt;/directory&gt;</span>
+                                <span class="kw">&lt;filtering&gt;</span>false<span class="kw">&lt;/filtering&gt;</span>
+                            <span class="kw">&lt;/resource&gt;</span>
+                        <span class="kw">&lt;/resources&gt;</span>
+                    <span class="kw">&lt;/configuration&gt;</span>
+                <span class="kw">&lt;/execution&gt;</span>
+            <span class="kw">&lt;/executions&gt;</span>
+        <span class="kw">&lt;/plugin&gt;</span>
+    <span class="kw">&lt;/plugins&gt;</span>
+<span class="kw">&lt;/build&gt;</span></code></pre></div>
+<p>This way a running instance of Spring Boot can always serve the most recent version of a file. Hitting refresh in the browser will show it immediately.</p>
+<p>You can find the <a href="https://github.com/pvorb/platon/blob/913647edbaf69d309df75f1b871ff922a5b23aca/pom.xml">complete POM file on GitHub</a>.</p>
+<p><em>P.S.:</em> If you run a front end build tool like Webpack with <code>--watch</code>, changing a file will not always trigger a rebuild of affected bundles, when you use IntelliJ for editing. This is caused by a feature called “safe write” which you can turn off in the settings under “Appearance &amp; Behavior” → “System Settings”.</p>
+
+      </section>
+      <footer class="meta">
+        <p>Tags:
+
+          <a href="/tag/english.html">english</a> ·
+
+          <a href="/tag/howto.html">howto</a> ·
+
+          <a href="/tag/java.html">java</a> ·
+
+          <a href="/tag/spring-boot.html">spring-boot</a> ·
+
+          <a href="/tag/maven.html">maven</a> 
+
+        </p>
+
+        <p>Teaser image by <a href="https://www.flickr.com/photos/dbnunley/8431588976/">Donnie Nunley</a>. License: <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>.</p>
+
+      </footer>
+    </article>
+    <section id="comments">
+      <section id="isso-thread" data-title="Fast Front End Development Cycle with Spring Boot"></section>
+      <script data-isso-lang="en" src="//comments.vorba.ch/js/embed.min.js"></script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </section>
+    <footer id="about">
+      <p>© 2016 – Paul Vorbach.
+        <a href="http://paul.vorba.ch/">Contact</a>.</p>
+    </footer>
+  </body>
+</html>
