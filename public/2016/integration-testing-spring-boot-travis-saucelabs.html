@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Automating Integration Testing of Spring Boot Applications on Travis CI and Sauce Labs | vorba.ch</title>
+    <link rel="stylesheet" href="/res/diego.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml"
+      title="Article feed">
+    <link rel="alternate" type="application/atom+xml" href="/comment-feed.xml"
+      title="Comment feed">
+    <meta name="author" content="Paul Vorbach">
+
+    <meta name="keywords" content="english, howto, java, spring-boot, maven, testing">
+
+  </head>
+  <body id="top">
+    <nav id="nav">
+      <ol id="path">
+        <li><a href="/">vorba.ch</a>
+
+        <li><a href="/archive.html#2016">2016</a>
+
+      </ol>
+      <ol id="access">
+        <li><a href="#top" title="To the top" id="back" accesskey="t">↑</a>
+        <li><a href="#nav">Navigation</a>
+        <li><a href="#content">Content</a>
+        <li><a href="#comments" accesskey="c">Comments</a>
+      </ol>
+      <form id="search" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Search">
+      </form>
+    </nav>
+    <article id="content">
+      <header>
+        <h1>Automating Integration Testing of Spring Boot Applications on Travis CI and Sauce Labs</h1>
+
+        <figure class="teaser">
+          <img src="flowers.jpg">
+        </figure>
+
+        <p class="meta">by <span class="author">Paul Vorbach</span>, <span class="created">2016-12-01</span>
+          &ndash; <a href="#comments">Comments</a></p>
+      </header>
+      <section>
+        <p>Writing Unit Tests often is not enough to make sure your software is working correctly. In order to make sure your components are <em>integrated</em> correctly, writing automated <em>Integration Tests</em> will help you accomplish that goal. Unfortunately, setting up a project for automated integration testing is not straight forward. In this article I’ll show how to set up a Spring Boot web application with Maven that automatically runs on Travis CI and connects to Selenium WebDrivers running on Sauce Labs for testing with real browsers. This is done step-by-step so hopefully it will be easy for you to follow along and set up integration tests for your own Spring Boot project.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>You’re going to need accounts on <a href="https://github.com/">GitHub</a>, <a href="https://travis-ci.org/">Travis CI</a> and <a href="https://saucelabs.com/">Sauce Labs</a> to follow the instructions in this article. All of these services are entirely free for open source projects.</p>
+<h2 id="local-setup">Local setup</h2>
+<p>In order to help with development and testing the setup, we’re first going to set up the environment locally. Let’s start with this simple <code>pom.xml</code>:</p>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;project</span><span class="ot"> xmlns=</span><span class="st">&quot;http://maven.apache.org/POM/4.0.0&quot;</span>
+<span class="ot">        xmlns:xsi=</span><span class="st">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+<span class="ot">        xsi:schemaLocation=</span><span class="st">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;modelVersion&gt;</span>4.0.0<span class="kw">&lt;/modelVersion&gt;</span>
+
+    <span class="kw">&lt;groupId&gt;</span>org.example<span class="kw">&lt;/groupId&gt;</span>
+    <span class="kw">&lt;artifactId&gt;</span>webapp<span class="kw">&lt;/artifactId&gt;</span>
+    <span class="kw">&lt;version&gt;</span>0.1.0-SNAPSHOT<span class="kw">&lt;/version&gt;</span>
+    <span class="kw">&lt;packaging&gt;</span>jar<span class="kw">&lt;/packaging&gt;</span>
+
+    <span class="kw">&lt;parent&gt;</span>
+        <span class="kw">&lt;groupId&gt;</span>org.springframework.boot<span class="kw">&lt;/groupId&gt;</span>
+        <span class="kw">&lt;artifactId&gt;</span>spring-boot-starter-parent<span class="kw">&lt;/artifactId&gt;</span>
+        <span class="kw">&lt;version&gt;</span>1.4.2.RELEASE<span class="kw">&lt;/version&gt;</span>
+    <span class="kw">&lt;/parent&gt;</span>
+
+    <span class="kw">&lt;properties&gt;</span>
+        <span class="kw">&lt;java.version&gt;</span>1.8<span class="kw">&lt;/java.version&gt;</span>
+        <span class="kw">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="kw">&lt;/project.build.sourceEncoding&gt;</span>
+
+        <span class="kw">&lt;selenium.version&gt;</span>2.53.1<span class="kw">&lt;/selenium.version&gt;</span>
+    <span class="kw">&lt;/properties&gt;</span>
+
+    <span class="kw">&lt;dependencies&gt;</span>
+        <span class="kw">&lt;dependency&gt;</span>
+            <span class="kw">&lt;groupId&gt;</span>org.springframework.boot<span class="kw">&lt;/groupId&gt;</span>
+            <span class="kw">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="kw">&lt;/artifactId&gt;</span>
+        <span class="kw">&lt;/dependency&gt;</span>
+        <span class="kw">&lt;dependency&gt;</span>
+            <span class="kw">&lt;groupId&gt;</span>org.springframework.boot<span class="kw">&lt;/groupId&gt;</span>
+            <span class="kw">&lt;artifactId&gt;</span>spring-boot-starter-test<span class="kw">&lt;/artifactId&gt;</span>
+            <span class="kw">&lt;scope&gt;</span>test<span class="kw">&lt;/scope&gt;</span>
+        <span class="kw">&lt;/dependency&gt;</span>
+        <span class="kw">&lt;dependency&gt;</span>
+            <span class="kw">&lt;groupId&gt;</span>org.seleniumhq.selenium<span class="kw">&lt;/groupId&gt;</span>
+            <span class="kw">&lt;artifactId&gt;</span>selenium-remote-driver<span class="kw">&lt;/artifactId&gt;</span>
+            <span class="kw">&lt;version&gt;</span>${selenium.version}<span class="kw">&lt;/version&gt;</span>
+            <span class="kw">&lt;scope&gt;</span>test<span class="kw">&lt;/scope&gt;</span>
+        <span class="kw">&lt;/dependency&gt;</span>
+        <span class="kw">&lt;dependency&gt;</span>
+            <span class="kw">&lt;groupId&gt;</span>org.seleniumhq.selenium<span class="kw">&lt;/groupId&gt;</span>
+            <span class="kw">&lt;artifactId&gt;</span>selenium-support<span class="kw">&lt;/artifactId&gt;</span>
+            <span class="kw">&lt;version&gt;</span>${selenium.version}<span class="kw">&lt;/version&gt;</span>
+            <span class="kw">&lt;scope&gt;</span>test<span class="kw">&lt;/scope&gt;</span>
+        <span class="kw">&lt;/dependency&gt;</span>
+    <span class="kw">&lt;/dependencies&gt;</span>
+
+    <span class="kw">&lt;build&gt;</span>
+        <span class="kw">&lt;plugins&gt;</span>
+            <span class="kw">&lt;plugin&gt;</span>
+                <span class="kw">&lt;groupId&gt;</span>org.springframework.boot<span class="kw">&lt;/groupId&gt;</span>
+                <span class="kw">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span class="kw">&lt;/artifactId&gt;</span>
+            <span class="kw">&lt;/plugin&gt;</span>
+        <span class="kw">&lt;/plugins&gt;</span>
+    <span class="kw">&lt;/build&gt;</span>
+<span class="kw">&lt;/project&gt;</span></code></pre></div>
+<p>This is the main application class (<code>src/main/java/org/example/webapp/WebApp.java</code>):</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">package org.example.webapp;</span>
+
+<span class="kw">import org.springframework.boot.SpringApplication;</span>
+<span class="kw">import org.springframework.boot.autoconfigure.SpringBootApplication;</span>
+
+<span class="fu">@SpringBootApplication</span>
+<span class="kw">public</span> <span class="kw">class</span> WebApp {
+
+    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(String<span class="kw">... </span>args) {
+        SpringApplication.<span class="fu">run</span>(WebApp.<span class="fu">class</span>, args);
+    }
+
+}</code></pre></div>
+<p>And there’s also an HTML file we want to navigate our WebDriver to (<code>src/main/resources/static/index.html</code>):</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p</span><span class="ot"> class=</span><span class="st">&quot;working&quot;</span><span class="kw">&gt;</span>It works!<span class="kw">&lt;/p&gt;</span></code></pre></div>
+<h2 id="simple-integration-test">Simple integration test</h2>
+<p>In order to be able to inject a Selenium WebDriver into the test classes, we add a Spring configuration class (<code>src/test/java/org/example/webapp/integration/ITConfig.java</code>):</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">package org.example.webapp.integration;</span>
+
+<span class="kw">import org.openqa.selenium.WebDriver;</span>
+<span class="kw">import org.openqa.selenium.remote.DesiredCapabilities;</span>
+<span class="kw">import org.openqa.selenium.remote.RemoteWebDriver;</span>
+<span class="kw">import org.springframework.beans.factory.annotation.Autowired;</span>
+<span class="kw">import org.springframework.context.annotation.Bean;</span>
+<span class="kw">import org.springframework.context.annotation.Configuration;</span>
+<span class="kw">import org.springframework.core.env.Environment;</span>
+
+<span class="kw">import java.net.MalformedURLException;</span>
+<span class="kw">import java.net.URL;</span>
+
+<span class="fu">@Configuration</span>
+<span class="kw">public</span> <span class="kw">class</span> ITConfig {
+
+    <span class="fu">@Autowired</span>
+    <span class="kw">private</span> Environment env;
+
+    <span class="fu">@Bean</span>
+    <span class="kw">public</span> WebDriver <span class="fu">webDriver</span>() <span class="kw">throws</span> MalformedURLException {
+        <span class="kw">return</span> <span class="kw">new</span> <span class="fu">RemoteWebDriver</span>(<span class="fu">getRemoteUrl</span>(), <span class="fu">getDesiredCapabilities</span>());
+    }
+
+    <span class="kw">private</span> DesiredCapabilities <span class="fu">getDesiredCapabilities</span>() {
+        <span class="kw">return</span> DesiredCapabilities.<span class="fu">firefox</span>();
+    }
+
+    <span class="kw">private</span> URL <span class="fu">getRemoteUrl</span>() <span class="kw">throws</span> MalformedURLException {
+        <span class="kw">return</span> <span class="kw">new</span> URL(<span class="st">&quot;http://localhost:4445/wd/hub&quot;</span>);
+    }
+}</code></pre></div>
+<p>Here’s a very basic integration test (<code>src/test/java/org/example/webapp/integration/IndexTest.java</code>):</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">package org.example.webapp.integration;</span>
+
+<span class="kw">import org.junit.Assert;</span>
+<span class="kw">import org.junit.Test;</span>
+<span class="kw">import org.junit.runner.RunWith;</span>
+<span class="kw">import org.openqa.selenium.By;</span>
+<span class="kw">import org.openqa.selenium.WebDriver;</span>
+<span class="kw">import org.openqa.selenium.WebElement;</span>
+<span class="kw">import org.springframework.beans.factory.annotation.Autowired;</span>
+<span class="kw">import org.springframework.test.context.ContextConfiguration;</span>
+<span class="kw">import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;</span>
+
+<span class="kw">import static org.hamcrest.Matchers.equalTo;</span>
+<span class="kw">import static org.hamcrest.Matchers.is;</span>
+
+<span class="fu">@RunWith</span>(SpringJUnit4ClassRunner.<span class="fu">class</span>)
+<span class="fu">@ContextConfiguration</span>(classes = ITConfig.<span class="fu">class</span>)
+<span class="kw">public</span> <span class="kw">class</span> IndexTest {
+
+    <span class="fu">@Autowired</span>
+    <span class="kw">private</span> WebDriver webDriver;
+
+    <span class="fu">@Test</span>
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">visitIndexPage</span>() <span class="kw">throws</span> Exception {
+
+        webDriver.<span class="fu">get</span>(<span class="st">&quot;http://localhost:8080/&quot;</span>);
+        WebElement working = webDriver.<span class="fu">findElement</span>(By.<span class="fu">id</span>(<span class="st">&quot;working&quot;</span>));
+
+        Assert.<span class="fu">assertThat</span>(working.<span class="fu">getText</span>(), <span class="fu">is</span>(<span class="fu">equalTo</span>(<span class="st">&quot;It works!&quot;</span>)));
+    }
+}</code></pre></div>
+<p>That’s everything you need for the integration test itself. In order to run it locally, you’ll have to download the Selenium standalone server (get <code>selenium-server-standalone-2.53.1.jar</code> from <a href="http://selenium-release.storage.googleapis.com/index.html?path=2.53/">here</a>) as well as the <a href="https://github.com/mozilla/geckodriver/releases">geckodriver for your platform</a>. Then put both the geckodriver binary and the selenium jar in a directory anywhere on your computer and run selenium from a command prompt:</p>
+<pre><code>java -jar selenium-server-standalone-2.53.1.jar -port 4445</code></pre>
+<p>From a separate command prompt, you can now run</p>
+<pre><code>mvn spring-boot:run</code></pre>
+<p>to start the application and</p>
+<pre><code>mvn test</code></pre>
+<p>in a third command prompt. Hopefully, you’ll see your test start Firefox after a while an it navigating to <code>http://localhost:8080/</code>.</p>
+<h2 id="automating-the-configuration">Automating the configuration</h2>
+<p>The next step on our way is to be able to start our web app and the integration tests in a single command. This can be achieved using the <a href="https://maven.apache.org/surefire/maven-failsafe-plugin/">maven-failsafe-plugin</a>. Alter the <code>build</code> definition in your <code>pom.xml</code> to the following:</p>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml">    <span class="kw">&lt;build&gt;</span>
+        <span class="kw">&lt;plugins&gt;</span>
+            <span class="kw">&lt;plugin&gt;</span>
+                <span class="kw">&lt;groupId&gt;</span>org.springframework.boot<span class="kw">&lt;/groupId&gt;</span>
+                <span class="kw">&lt;artifactId&gt;</span>spring-boot-maven-plugin<span class="kw">&lt;/artifactId&gt;</span>
+                <span class="kw">&lt;executions&gt;</span>
+                    <span class="kw">&lt;execution&gt;</span>
+                        <span class="kw">&lt;id&gt;</span>pre-integration-test<span class="kw">&lt;/id&gt;</span>
+                        <span class="kw">&lt;goals&gt;</span>
+                            <span class="kw">&lt;goal&gt;</span>start<span class="kw">&lt;/goal&gt;</span>
+                        <span class="kw">&lt;/goals&gt;</span>
+                        <span class="kw">&lt;configuration&gt;</span>
+                            <span class="kw">&lt;arguments&gt;</span>--server.port=${server.port}<span class="kw">&lt;/arguments&gt;</span>
+                        <span class="kw">&lt;/configuration&gt;</span>
+                    <span class="kw">&lt;/execution&gt;</span>
+                    <span class="kw">&lt;execution&gt;</span>
+                        <span class="kw">&lt;id&gt;</span>post-integration-test<span class="kw">&lt;/id&gt;</span>
+                        <span class="kw">&lt;goals&gt;</span>
+                            <span class="kw">&lt;goal&gt;</span>stop<span class="kw">&lt;/goal&gt;</span>
+                        <span class="kw">&lt;/goals&gt;</span>
+                    <span class="kw">&lt;/execution&gt;</span>
+                <span class="kw">&lt;/executions&gt;</span>
+            <span class="kw">&lt;/plugin&gt;</span>
+            <span class="kw">&lt;plugin&gt;</span>
+                <span class="kw">&lt;groupId&gt;</span>org.codehaus.mojo<span class="kw">&lt;/groupId&gt;</span>
+                <span class="kw">&lt;artifactId&gt;</span>build-helper-maven-plugin<span class="kw">&lt;/artifactId&gt;</span>
+                <span class="kw">&lt;version&gt;</span>1.12<span class="kw">&lt;/version&gt;</span>
+                <span class="kw">&lt;executions&gt;</span>
+                    <span class="kw">&lt;execution&gt;</span>
+                        <span class="kw">&lt;id&gt;</span>reserve-container-port<span class="kw">&lt;/id&gt;</span>
+                        <span class="kw">&lt;goals&gt;</span>
+                            <span class="kw">&lt;goal&gt;</span>reserve-network-port<span class="kw">&lt;/goal&gt;</span>
+                        <span class="kw">&lt;/goals&gt;</span>
+                        <span class="kw">&lt;phase&gt;</span>process-resources<span class="kw">&lt;/phase&gt;</span>
+                        <span class="kw">&lt;configuration&gt;</span>
+                            <span class="kw">&lt;portNames&gt;</span>
+                                <span class="kw">&lt;portName&gt;</span>server.port<span class="kw">&lt;/portName&gt;</span>
+                            <span class="kw">&lt;/portNames&gt;</span>
+                        <span class="kw">&lt;/configuration&gt;</span>
+                    <span class="kw">&lt;/execution&gt;</span>
+                <span class="kw">&lt;/executions&gt;</span>
+            <span class="kw">&lt;/plugin&gt;</span>
+            <span class="kw">&lt;plugin&gt;</span>
+                <span class="kw">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="kw">&lt;/groupId&gt;</span>
+                <span class="kw">&lt;artifactId&gt;</span>maven-failsafe-plugin<span class="kw">&lt;/artifactId&gt;</span>
+                <span class="kw">&lt;version&gt;</span>2.18.1<span class="kw">&lt;/version&gt;</span>
+                <span class="kw">&lt;configuration&gt;</span>
+                    <span class="kw">&lt;systemPropertyVariables&gt;</span>
+                        <span class="kw">&lt;server.port&gt;</span>${server.port}<span class="kw">&lt;/server.port&gt;</span>
+                        <span class="kw">&lt;selenium.version&gt;</span>${selenium.version}<span class="kw">&lt;/selenium.version&gt;</span>
+                    <span class="kw">&lt;/systemPropertyVariables&gt;</span>
+                <span class="kw">&lt;/configuration&gt;</span>
+            <span class="kw">&lt;/plugin&gt;</span>
+        <span class="kw">&lt;/plugins&gt;</span>
+    <span class="kw">&lt;/build&gt;</span></code></pre></div>
+<p>Failsafe adds several integration-test phases to the Maven lifecycle. We added an execution to the spring-boot-maven-plugin that starts the app before integration tests are run. The build-helper-maven-plugin is used to reserve a free port, so it won’t have port collisions if port 8080 is already in use.</p>
+<p>Failsafe automatically detects integration tests by their name. All classes under <code>src/test/java</code> that end with <code>IT</code> will be executed by Failsafe instead of Surefire. Therefore we must rename the class <code>IndexTest</code> to <code>IndexIT</code>. Also we need to dynamically set the port of the requested URL in the test. Here’s how the test looks after these changes:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="fu">@RunWith</span>(SpringJUnit4ClassRunner.<span class="fu">class</span>)
+<span class="fu">@ContextConfiguration</span>(classes = ITConfig.<span class="fu">class</span>)
+<span class="kw">public</span> <span class="kw">class</span> IndexIT {
+
+    <span class="fu">@Autowired</span>
+    <span class="kw">private</span> WebDriver webDriver;
+
+    <span class="fu">@Value</span>(<span class="st">&quot;${server.port}&quot;</span>)
+    <span class="kw">private</span> <span class="dt">int</span> serverPort;
+
+    <span class="fu">@Test</span>
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">visitIndexPage</span>() <span class="kw">throws</span> Exception {
+
+        webDriver.<span class="fu">get</span>(String<span class="fu">.format</span>(<span class="st">&quot;http://localhost:</span><span class="ch">%d</span><span class="st">/&quot;</span>, serverPort));
+        WebElement working = webDriver.<span class="fu">findElement</span>(By.<span class="fu">id</span>(<span class="st">&quot;working&quot;</span>));
+
+        Assert.<span class="fu">assertThat</span>(working.<span class="fu">getText</span>(), <span class="fu">is</span>(<span class="fu">equalTo</span>(<span class="st">&quot;It works!&quot;</span>)));
+    }
+}</code></pre></div>
+<p>Now you should be able to run the integration tests with the following command:</p>
+<pre><code>mvn verify</code></pre>
+<h2 id="testing-continuously">Testing continuously</h2>
+<p>Since programmers are lazy and soon won’t want to run these time consuming tests on their own machines, it’s time to configure a CI server to do it for you. Travis CI is a solution that integrates well into GitHub and also has support to run Selenium tests via Sauce Labs.</p>
+<p>First you need to enable the GitHub project in your Travis profile. This should only be one click:</p>
+<div class="figure">
+<img src="travis-config.png" alt="Travis project activation" />
+<p class="caption">Travis project activation</p>
+</div>
+<p>Then you need to set up your project on Sauce Labs. I won’t cover this here, but once your project is set up, you will see your access key in your account settings. This access key is needed to verify the Travis CI server that runs your tests is allowed to control a Sauce Labs WebDriver. This key shouldn’t become publicy visible, so it makes sense to encrypt it. This can be done by using the Travis CLI tool (<a href="https://github.com/travis-ci/travis.rb#installation">installation instructions</a>).</p>
+<p>Encryption is done with the following command:</p>
+<pre><code>travis encrypt &quot;SAUCE_ACCESS_KEY=your-access-key&quot;</code></pre>
+<p>This returns a string that you need for the file <code>.travis.yml</code>:</p>
+<div class="sourceCode"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">language:</span> java
+
+<span class="fu">jdk:</span>
+  <span class="kw">-</span> oraclejdk8
+
+<span class="fu">addons:</span>
+  <span class="fu">sauce_connect:</span>
+    <span class="fu">username:</span> your-user-name
+  <span class="fu">jwt:</span>
+    <span class="fu">secure:</span> your-encrypted-access-key
+
+<span class="fu">script:</span>
+  mvn verify -B</code></pre></div>
+<p>Replace <code>your-user-name</code> with the name of your Sauce Labs account and <code>your-encrypted-access-key</code> with the encrypted access key string. Additionally, Sauce Labs user name and access key need to be set as environment variables in the settings of your project as <code>SAUCE_USERNAME</code> and <code>SAUCE_ACCESS_KEY</code> (unencrypted).</p>
+<p>When this is done, our <code>ITConfig</code> needs to be modified slightly to provide the <code>RemoteWebDriver</code> with a URL that contains the information of the Sauce Labs account:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="fu">@Configuration</span>
+<span class="kw">public</span> <span class="kw">class</span> ITConfig {
+
+    <span class="fu">@Autowired</span>
+    <span class="kw">private</span> Environment env;
+
+    <span class="fu">@Bean</span>
+    <span class="kw">public</span> WebDriver <span class="fu">webDriver</span>() <span class="kw">throws</span> MalformedURLException {
+        <span class="kw">return</span> <span class="kw">new</span> <span class="fu">RemoteWebDriver</span>(<span class="fu">getRemoteUrl</span>(), <span class="fu">getDesiredCapabilities</span>());
+    }
+
+    <span class="kw">private</span> DesiredCapabilities <span class="fu">getDesiredCapabilities</span>() {
+
+        <span class="dt">final</span> DesiredCapabilities capabilities = DesiredCapabilities.<span class="fu">firefox</span>();
+        <span class="kw">if</span> (<span class="fu">useSauceLabs</span>()) {
+            capabilities.<span class="fu">setCapability</span>(<span class="st">&quot;tunnel-identifier&quot;</span>, env.<span class="fu">getProperty</span>(<span class="st">&quot;TRAVIS_JOB_NUMBER&quot;</span>));
+            capabilities.<span class="fu">setCapability</span>(<span class="st">&quot;seleniumVersion&quot;</span>, env.<span class="fu">getProperty</span>(<span class="st">&quot;selenium.version&quot;</span>));
+        }
+
+        <span class="kw">return</span> capabilities;
+    }
+
+    <span class="kw">private</span> <span class="dt">boolean</span> <span class="fu">useSauceLabs</span>() {
+        <span class="kw">return</span> env.<span class="fu">getProperty</span>(<span class="st">&quot;SAUCE_USERNAME&quot;</span>) != <span class="kw">null</span>;
+    }
+
+    <span class="kw">private</span> URL <span class="fu">getRemoteUrl</span>() <span class="kw">throws</span> MalformedURLException {
+        <span class="kw">if</span> (<span class="fu">useSauceLabs</span>()) {
+            <span class="kw">return</span> <span class="kw">new</span> URL(String<span class="fu">.format</span>(<span class="st">&quot;http://</span><span class="ch">%s</span><span class="st">:</span><span class="ch">%s</span><span class="st">@localhost:4445/wd/hub&quot;</span>,
+                    env.<span class="fu">getProperty</span>(<span class="st">&quot;SAUCE_USERNAME&quot;</span>), env.<span class="fu">getProperty</span>(<span class="st">&quot;SAUCE_ACCESS_KEY&quot;</span>)));
+        } <span class="kw">else</span> {
+            <span class="kw">return</span> <span class="kw">new</span> URL(<span class="st">&quot;http://localhost:4445/wd/hub&quot;</span>);
+        }
+    }
+}</code></pre></div>
+<p>Push these changes to GitHub and you’re done! You can watch your tests run on Travis and even watch the browser in your Sauce Lab account.</p>
+<div class="figure">
+<img src="it-works.png" alt="It works!" />
+<p class="caption">It works!</p>
+</div>
+<p>The complete sources of this sample project are <a href="https://github.com/pvorb/spring-boot-integration-test-example">available on GitHub</a>.</p>
+<p>Happy testing!</p>
+
+      </section>
+      <footer class="meta">
+        <p>Tags:
+
+          <a href="/tag/english.html">english</a> ·
+
+          <a href="/tag/howto.html">howto</a> ·
+
+          <a href="/tag/java.html">java</a> ·
+
+          <a href="/tag/spring-boot.html">spring-boot</a> ·
+
+          <a href="/tag/maven.html">maven</a> ·
+
+          <a href="/tag/testing.html">testing</a> 
+
+        </p>
+
+        <p>Teaser image by <a href="https://www.flickr.com/photos/jvancisephotos/13926392039/">j van cise photos</a>. License: <a href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a>.</p>
+
+      </footer>
+    </article>
+    <section id="comments">
+      <section id="isso-thread" data-title="Automating Integration Testing of Spring Boot Applications on Travis CI and Sauce Labs"></section>
+      <script data-isso-lang="en" src="//comments.vorba.ch/js/embed.min.js"></script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </section>
+    <footer id="about">
+      <p>© 2016 – Paul Vorbach.
+        <a href="http://paul.vorba.ch/">Contact</a>.</p>
+    </footer>
+  </body>
+</html>

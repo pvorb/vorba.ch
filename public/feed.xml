@@ -3,7 +3,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorba.ch: Articles</title>
   <subtitle>Paul Vorbach's personal weblog</subtitle>
-  <updated>2016-10-06T22:42:35.598Z</updated>
+  <updated>2016-12-01T00:31:13.477Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
@@ -18,95 +18,6 @@
   <category term="scala"/>
   <category term="akka"/>
   <icon>http://vorba.ch/favicon.ico</icon>
-
-  <entry>
-    <title>Scala</title>
-    <link href="http://vorba.ch/2013/scala.html"/>
-    <id>http://vorba.ch/2013/scala.html</id>
-    <updated>2013-11-28T10:15:00.000Z</updated>
-    <author>
-      <name>Paul Vorbach</name>
-      <uri>http://paul.vorba.ch/</uri>
-    </author>
-    <content type="html">
-
-      &lt;p&gt;&lt;img src="http://vorba.ch/2013/scala.jpg"&gt;&lt;/p&gt;
-
-      &lt;p&gt;Ich bin seit rund zwei Jahren ein großer Fan der Programmiersprache &lt;a href=&quot;http://www.scala-lang.org/&quot;&gt;Scala&lt;/a&gt;. Ich schreibe hier mal ein paar Stichpunkte auf, warum es sich lohnt, die Sprache näher zu betrachten.&lt;/p&gt;
-&lt;h2 id=&quot;funktional-und-objektorientiert&quot;&gt;Funktional &lt;em&gt;und&lt;/em&gt; objektorientiert&lt;/h2&gt;
-&lt;p&gt;Fast jeder Prozessor, der heute verkauft wird, hat mehr als einen Core. Sogar der Prozessor in meinem Smartphone hat zwei Kerne. Wer schon einmal versucht hat, mit Sprachen wie C++ oder Java ein Programm zu schreiben, das mehrere Kerne zum Schwitzen bringt, wird auch schon einmal eine &lt;a href=&quot;https://de.wikipedia.org/wiki/Race_Condition&quot;&gt;Race Condition&lt;/a&gt; oder einen &lt;a href=&quot;https://de.wikipedia.org/wiki/Deadlock&quot;&gt;Deadlock&lt;/a&gt; erlebt haben.&lt;/p&gt;
-&lt;p&gt;Dagegen gibt es natürlich &lt;a href=&quot;https://de.wikipedia.org/wiki/Lock&quot;&gt;Mittel&lt;/a&gt; und &lt;a href=&quot;https://de.wikipedia.org/wiki/Volatile_(Informatik)&quot;&gt;Wege&lt;/a&gt;, die aber die Entwicklung von nebenläufigem Code ziemlich anstrengend machen können.&lt;/p&gt;
-&lt;p&gt;Einfacher geht es über funktionale Programmierung. Hier sind Funktionen in der Regel frei von Seiteneffekten. Dadurch ist die Reihenfolge egal, in der Funktionen aufgerufen werden. Außerdem gibt es in den meisten funktionalen Sprachen keine Variablen. Was einmal einen Wert hatte, behält diesen Wert auch. Damit können Objekte von jeder Stelle aus referenziert werden, ohne dass man etwas kaputt machen kann. Die Objekte können sich ja nicht ändern. Weil es aber nicht immer einfach ist, Algorithmen ohne Variablen zu schreiben, bringt Scala diese trotzdem mit und lässt dem Programmierer die Wahl, was er nutzen möchte.&lt;/p&gt;
-&lt;p&gt;An vielen Programmiersprachen stört mich jedoch, dass sie keine Objektorientierung mitbringen. Hier spielt Scala seine Stärken aus. Klassen und Vererbung sind mit an Bord, was sehr beim Strukturieren eines Programms hilft.&lt;/p&gt;
-&lt;h2 id=&quot;syntax&quot;&gt;Syntax&lt;/h2&gt;
-&lt;aside class=&quot;before&quot;&gt;
-&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode scala&quot;&gt;&lt;code class=&quot;sourceCode scala&quot;&gt;&lt;span class=&quot;kw&quot;&gt;val&lt;/span&gt; id = &lt;span class=&quot;dv&quot;&gt;5&lt;/span&gt;
-&lt;span class=&quot;kw&quot;&gt;val&lt;/span&gt; name = &lt;span class=&quot;st&quot;&gt;&amp;quot;pvorb&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p class=&quot;caption&quot;&gt;
-Einfache Wertzuweisungen
-&lt;/p&gt;
-&lt;/aside&gt;
-&lt;aside class=&quot;after&quot;&gt;
-&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode scala&quot;&gt;&lt;code class=&quot;sourceCode scala&quot;&gt;&lt;span class=&quot;kw&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;halloWelt&lt;/span&gt;(msg: String =
-    &lt;span class=&quot;st&quot;&gt;&amp;quot;Hallo, Welt!&amp;quot;&lt;/span&gt;) = {
-  &lt;span class=&quot;fu&quot;&gt;println&lt;/span&gt;(msg)
-}
-
-&lt;span class=&quot;fu&quot;&gt;halloWelt&lt;/span&gt;()
-  &lt;span class=&quot;co&quot;&gt;// =&amp;gt; &amp;quot;Hallo, Welt!&amp;quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p class=&quot;caption&quot;&gt;
-Funktionsdefinition mit Default-Parameter
-&lt;/p&gt;
-&lt;/aside&gt;
-&lt;p&gt;Scala hat im Vergleich zu anderen statisch typisierten Sprachen eine sehr angenehme Syntax. Wer sich schon immer daran gestört hat, in Java jede noch so kleine Hilfsvariable mit einem Typ versehen zu müssen, wird den Wert der Typinferenz in Scala lieben. Bei einer Zuweisung wird einfach geschaut, welchen Typ der Wert hat, der zugewiesen wird.&lt;/p&gt;
-&lt;p&gt;Weitere Konzepte wie beispielsweise &lt;a href=&quot;http://docs.scala-lang.org/tutorials/tour/case-classes.html&quot;&gt;Case Classes&lt;/a&gt; und &lt;a href=&quot;http://docs.scala-lang.org/tutorials/tour/pattern-matching.html&quot;&gt;Pattern Matching&lt;/a&gt; helfen dabei, verständlicheren Code zu schreiben – Scala-Kenntnisse vorausgesetzt.&lt;/p&gt;
-&lt;h2 id=&quot;asynchroner-code-durch-futures&quot;&gt;Asynchroner Code durch Futures&lt;/h2&gt;
-&lt;p&gt;In Scala lässt sich sehr einfach asynchroner Code schreiben. Darauf will ich gar nicht so genau eingehen, da es den Rahmen hier sprengen würde. Das folgende Beispiel spricht für sich.&lt;/p&gt;
-&lt;div class=&quot;figure&quot;&gt;
-&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode scala&quot;&gt;&lt;code class=&quot;sourceCode scala&quot;&gt;&lt;span class=&quot;kw&quot;&gt;val&lt;/span&gt; f = Future {
-  &lt;span class=&quot;co&quot;&gt;// Hier könnte eine lange Berechnung, eine Datenbankabfrage&lt;/span&gt;
-  &lt;span class=&quot;co&quot;&gt;// oder ein HTTP-Request stehen&lt;/span&gt;
-}
-
-f.&lt;span class=&quot;fu&quot;&gt;onComplete&lt;/span&gt; {
-  &lt;span class=&quot;kw&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;Success&lt;/span&gt;(result) =&amp;gt;
-    &lt;span class=&quot;co&quot;&gt;// Hier etwas mit dem Ergebnis anstellen&lt;/span&gt;
-  &lt;span class=&quot;kw&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;Failure&lt;/span&gt;(err) =&amp;gt;
-    &lt;span class=&quot;co&quot;&gt;// Hier den Fehler behandeln&lt;/span&gt;
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p class=&quot;caption&quot;&gt;
-Futures in Scala
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Wer sich genauer dafür interessiert, dem empfehle ich den kostenlosen Online-Kurs &lt;a href=&quot;https://www.coursera.org/course/reactive&quot;&gt;„Principles of Reactive Programming“&lt;/a&gt; auf Coursera. Wichtig ist, dass man die Callback-Hölle von JavaScript/Node.js sehr leicht vermeiden kann und dass Scalas Futures auch parallel ausgeführt werden können.&lt;/p&gt;
-&lt;h2 id=&quot;jvm&quot;&gt;JVM&lt;/h2&gt;
-&lt;p&gt;Ja, richtig gelesen. Ein großer Vorteil von Scala ist, dass es auf der Java-VM läuft. In einer Zeit in der die Java-VM eher durch Sicherheitslücken auf sich aufmerksam macht, mag das seltsam klingen. Außerhalb des Browsers handelt es sich trotzdem um ein großartiges Stück Software. Und: Das &lt;a href=&quot;http://konstantinweiss.com/article/android-fuer-die-welt&quot;&gt;wichtigste Betriebssystem der näheren Zukunft&lt;/a&gt;, Android, setzt auf &lt;a href=&quot;https://de.wikipedia.org/wiki/Dalvik_Virtual_Machine&quot;&gt;eine Java-VM&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Außerdem lässt sich jede Java-Bibliothek verwenden. Auch Scala-Programme können aus Java heraus aufgerufen werden. Praktisch.&lt;/p&gt;
-&lt;h2 id=&quot;nachteile&quot;&gt;Nachteile&lt;/h2&gt;
-&lt;p&gt;Der größte Nachteil von Scala ist die hohe Einstiegshürde und die lange Lernkurve. Bis man die Sprache voll verstanden hat und einsetzen kann. Allerdings kann man sehr schnell mit einem kleineren Funktionsumfang produktiv werden. Dann hat man eine Alternative zu Java zur Hand, die einem einiges an Schreibarbeit abnimmt.&lt;/p&gt;
-&lt;p&gt;Außerdem kann einen die schiere Fülle an Möglichkeiten manchmal in den Wahnsinn treiben. Jedes Problem lässt sich auf unzählige Arten lösen und man kann unendlich viel Zeit damit verbringen, Code noch eleganter zu formulieren.&lt;/p&gt;
-&lt;p&gt;Natürlich gibt es noch weitere Nachteile, aber die Fallen mir jetzt natürlich nicht ein ;). Ich hoffe, ich habe jemanden neugierig machen können.&lt;/p&gt;
-&lt;h2 id=&quot;material&quot;&gt;Material&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Martin Odersky, Lex Spoon, Bill Venners: &lt;a href=&quot;http://www.artima.com/shop/programming_in_scala_2ed&quot;&gt;Programming in Scala&lt;/a&gt;. Artima, 2008, ISBN 978-0-9815316-0-1&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.coursera.org/course/progfun&quot;&gt;Functional Programming Principles in Scala&lt;/a&gt;. Coursera Online-Kurs&lt;/li&gt;
-&lt;/ul&gt;
-
-    </content>
-
-    <category term="deutsch"/>
-
-    <category term="scala"/>
-
-    <category term="dev"/>
-
-    <category term="lang"/>
-
-    <category term="fp"/>
-
-    <category term="jvm"/>
-
-  </entry>
 
   <entry>
     <title>Book review: “Haskell Financial Data Modeling and Predictive Analytics”</title>
@@ -586,6 +497,334 @@ check.dependsOn jacocoTestReport&lt;/code&gt;&lt;/pre&gt;
     <category term="spring-boot"/>
 
     <category term="maven"/>
+
+  </entry>
+
+  <entry>
+    <title>Automating Integration Testing of Spring Boot Applications on Travis CI and Sauce Labs</title>
+    <link href="http://vorba.ch/2016/integration-testing-spring-boot-travis-saucelabs.html"/>
+    <id>http://vorba.ch/2016/integration-testing-spring-boot-travis-saucelabs.html</id>
+    <updated>2016-12-01T00:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>http://paul.vorba.ch/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorba.ch/2016/flowers.jpg"&gt;&lt;/p&gt;
+
+      &lt;p&gt;Writing Unit Tests often is not enough to make sure your software is working correctly. In order to make sure your components are &lt;em&gt;integrated&lt;/em&gt; correctly, writing automated &lt;em&gt;Integration Tests&lt;/em&gt; will help you accomplish that goal. Unfortunately, setting up a project for automated integration testing is not straight forward. In this article I’ll show how to set up a Spring Boot web application with Maven that automatically runs on Travis CI and connects to Selenium WebDrivers running on Sauce Labs for testing with real browsers. This is done step-by-step so hopefully it will be easy for you to follow along and set up integration tests for your own Spring Boot project.&lt;/p&gt;
+&lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;You’re going to need accounts on &lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt;, &lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis CI&lt;/a&gt; and &lt;a href=&quot;https://saucelabs.com/&quot;&gt;Sauce Labs&lt;/a&gt; to follow the instructions in this article. All of these services are entirely free for open source projects.&lt;/p&gt;
+&lt;h2 id=&quot;local-setup&quot;&gt;Local setup&lt;/h2&gt;
+&lt;p&gt;In order to help with development and testing the setup, we’re first going to set up the environment locally. Let’s start with this simple &lt;code&gt;pom.xml&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode xml&quot;&gt;&lt;code class=&quot;sourceCode xml&quot;&gt;&lt;span class=&quot;kw&quot;&gt;&amp;lt;project&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; xmlns=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;ot&quot;&gt;        xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;ot&quot;&gt;        xsi:schemaLocation=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;modelVersion&amp;gt;&lt;/span&gt;4.0.0&lt;span class=&quot;kw&quot;&gt;&amp;lt;/modelVersion&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.example&lt;span class=&quot;kw&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;webapp&lt;span class=&quot;kw&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;0.1.0-SNAPSHOT&lt;span class=&quot;kw&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;packaging&amp;gt;&lt;/span&gt;jar&lt;span class=&quot;kw&quot;&gt;&amp;lt;/packaging&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;parent&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&quot;kw&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter-parent&lt;span class=&quot;kw&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.4.2.RELEASE&lt;span class=&quot;kw&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;/parent&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;properties&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;java.version&amp;gt;&lt;/span&gt;1.8&lt;span class=&quot;kw&quot;&gt;&amp;lt;/java.version&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;project.build.sourceEncoding&amp;gt;&lt;/span&gt;UTF-8&lt;span class=&quot;kw&quot;&gt;&amp;lt;/project.build.sourceEncoding&amp;gt;&lt;/span&gt;
+
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;selenium.version&amp;gt;&lt;/span&gt;2.53.1&lt;span class=&quot;kw&quot;&gt;&amp;lt;/selenium.version&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;/properties&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;dependencies&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&quot;kw&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter-web&lt;span class=&quot;kw&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&quot;kw&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-starter-test&lt;span class=&quot;kw&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;scope&amp;gt;&lt;/span&gt;test&lt;span class=&quot;kw&quot;&gt;&amp;lt;/scope&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.seleniumhq.selenium&lt;span class=&quot;kw&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;selenium-remote-driver&lt;span class=&quot;kw&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${selenium.version}&lt;span class=&quot;kw&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;scope&amp;gt;&lt;/span&gt;test&lt;span class=&quot;kw&quot;&gt;&amp;lt;/scope&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.seleniumhq.selenium&lt;span class=&quot;kw&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;selenium-support&lt;span class=&quot;kw&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${selenium.version}&lt;span class=&quot;kw&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;scope&amp;gt;&lt;/span&gt;test&lt;span class=&quot;kw&quot;&gt;&amp;lt;/scope&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;/dependencies&amp;gt;&lt;/span&gt;
+
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;kw&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&quot;kw&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;kw&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-maven-plugin&lt;span class=&quot;kw&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;/build&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;&amp;lt;/project&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is the main application class (&lt;code&gt;src/main/java/org/example/webapp/WebApp.java&lt;/code&gt;):&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode java&quot;&gt;&lt;code class=&quot;sourceCode java&quot;&gt;&lt;span class=&quot;kw&quot;&gt;package org.example.webapp;&lt;/span&gt;
+
+&lt;span class=&quot;kw&quot;&gt;import org.springframework.boot.SpringApplication;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;import org.springframework.boot.autoconfigure.SpringBootApplication;&lt;/span&gt;
+
+&lt;span class=&quot;fu&quot;&gt;@SpringBootApplication&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;class&lt;/span&gt; WebApp {
+
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;main&lt;/span&gt;(String&lt;span class=&quot;kw&quot;&gt;... &lt;/span&gt;args) {
+        SpringApplication.&lt;span class=&quot;fu&quot;&gt;run&lt;/span&gt;(WebApp.&lt;span class=&quot;fu&quot;&gt;class&lt;/span&gt;, args);
+    }
+
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And there’s also an HTML file we want to navigate our WebDriver to (&lt;code&gt;src/main/resources/static/index.html&lt;/code&gt;):&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode html&quot;&gt;&lt;code class=&quot;sourceCode html&quot;&gt;&lt;span class=&quot;kw&quot;&gt;&amp;lt;p&lt;/span&gt;&lt;span class=&quot;ot&quot;&gt; class=&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;&amp;quot;working&amp;quot;&lt;/span&gt;&lt;span class=&quot;kw&quot;&gt;&amp;gt;&lt;/span&gt;It works!&lt;span class=&quot;kw&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;simple-integration-test&quot;&gt;Simple integration test&lt;/h2&gt;
+&lt;p&gt;In order to be able to inject a Selenium WebDriver into the test classes, we add a Spring configuration class (&lt;code&gt;src/test/java/org/example/webapp/integration/ITConfig.java&lt;/code&gt;):&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode java&quot;&gt;&lt;code class=&quot;sourceCode java&quot;&gt;&lt;span class=&quot;kw&quot;&gt;package org.example.webapp.integration;&lt;/span&gt;
+
+&lt;span class=&quot;kw&quot;&gt;import org.openqa.selenium.WebDriver;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;import org.openqa.selenium.remote.DesiredCapabilities;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;import org.openqa.selenium.remote.RemoteWebDriver;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;import org.springframework.beans.factory.annotation.Autowired;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;import org.springframework.context.annotation.Bean;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;import org.springframework.context.annotation.Configuration;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;import org.springframework.core.env.Environment;&lt;/span&gt;
+
+&lt;span class=&quot;kw&quot;&gt;import java.net.MalformedURLException;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;import java.net.URL;&lt;/span&gt;
+
+&lt;span class=&quot;fu&quot;&gt;@Configuration&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;class&lt;/span&gt; ITConfig {
+
+    &lt;span class=&quot;fu&quot;&gt;@Autowired&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; Environment env;
+
+    &lt;span class=&quot;fu&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; WebDriver &lt;span class=&quot;fu&quot;&gt;webDriver&lt;/span&gt;() &lt;span class=&quot;kw&quot;&gt;throws&lt;/span&gt; MalformedURLException {
+        &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;RemoteWebDriver&lt;/span&gt;(&lt;span class=&quot;fu&quot;&gt;getRemoteUrl&lt;/span&gt;(), &lt;span class=&quot;fu&quot;&gt;getDesiredCapabilities&lt;/span&gt;());
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; DesiredCapabilities &lt;span class=&quot;fu&quot;&gt;getDesiredCapabilities&lt;/span&gt;() {
+        &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; DesiredCapabilities.&lt;span class=&quot;fu&quot;&gt;firefox&lt;/span&gt;();
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; URL &lt;span class=&quot;fu&quot;&gt;getRemoteUrl&lt;/span&gt;() &lt;span class=&quot;kw&quot;&gt;throws&lt;/span&gt; MalformedURLException {
+        &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;new&lt;/span&gt; URL(&lt;span class=&quot;st&quot;&gt;&amp;quot;http://localhost:4445/wd/hub&amp;quot;&lt;/span&gt;);
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here’s a very basic integration test (&lt;code&gt;src/test/java/org/example/webapp/integration/IndexTest.java&lt;/code&gt;):&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode java&quot;&gt;&lt;code class=&quot;sourceCode java&quot;&gt;&lt;span class=&quot;kw&quot;&gt;package org.example.webapp.integration;&lt;/span&gt;
+
+&lt;span class=&quot;kw&quot;&gt;import org.junit.Assert;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;import org.junit.Test;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;import org.junit.runner.RunWith;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;import org.openqa.selenium.By;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;import org.openqa.selenium.WebDriver;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;import org.openqa.selenium.WebElement;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;import org.springframework.beans.factory.annotation.Autowired;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;import org.springframework.test.context.ContextConfiguration;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;&lt;/span&gt;
+
+&lt;span class=&quot;kw&quot;&gt;import static org.hamcrest.Matchers.equalTo;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;import static org.hamcrest.Matchers.is;&lt;/span&gt;
+
+&lt;span class=&quot;fu&quot;&gt;@RunWith&lt;/span&gt;(SpringJUnit4ClassRunner.&lt;span class=&quot;fu&quot;&gt;class&lt;/span&gt;)
+&lt;span class=&quot;fu&quot;&gt;@ContextConfiguration&lt;/span&gt;(classes = ITConfig.&lt;span class=&quot;fu&quot;&gt;class&lt;/span&gt;)
+&lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;class&lt;/span&gt; IndexTest {
+
+    &lt;span class=&quot;fu&quot;&gt;@Autowired&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; WebDriver webDriver;
+
+    &lt;span class=&quot;fu&quot;&gt;@Test&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;visitIndexPage&lt;/span&gt;() &lt;span class=&quot;kw&quot;&gt;throws&lt;/span&gt; Exception {
+
+        webDriver.&lt;span class=&quot;fu&quot;&gt;get&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;http://localhost:8080/&amp;quot;&lt;/span&gt;);
+        WebElement working = webDriver.&lt;span class=&quot;fu&quot;&gt;findElement&lt;/span&gt;(By.&lt;span class=&quot;fu&quot;&gt;id&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;working&amp;quot;&lt;/span&gt;));
+
+        Assert.&lt;span class=&quot;fu&quot;&gt;assertThat&lt;/span&gt;(working.&lt;span class=&quot;fu&quot;&gt;getText&lt;/span&gt;(), &lt;span class=&quot;fu&quot;&gt;is&lt;/span&gt;(&lt;span class=&quot;fu&quot;&gt;equalTo&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;It works!&amp;quot;&lt;/span&gt;)));
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;That’s everything you need for the integration test itself. In order to run it locally, you’ll have to download the Selenium standalone server (get &lt;code&gt;selenium-server-standalone-2.53.1.jar&lt;/code&gt; from &lt;a href=&quot;http://selenium-release.storage.googleapis.com/index.html?path=2.53/&quot;&gt;here&lt;/a&gt;) as well as the &lt;a href=&quot;https://github.com/mozilla/geckodriver/releases&quot;&gt;geckodriver for your platform&lt;/a&gt;. Then put both the geckodriver binary and the selenium jar in a directory anywhere on your computer and run selenium from a command prompt:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;java -jar selenium-server-standalone-2.53.1.jar -port 4445&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;From a separate command prompt, you can now run&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mvn spring-boot:run&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;to start the application and&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mvn test&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;in a third command prompt. Hopefully, you’ll see your test start Firefox after a while an it navigating to &lt;code&gt;http://localhost:8080/&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;automating-the-configuration&quot;&gt;Automating the configuration&lt;/h2&gt;
+&lt;p&gt;The next step on our way is to be able to start our web app and the integration tests in a single command. This can be achieved using the &lt;a href=&quot;https://maven.apache.org/surefire/maven-failsafe-plugin/&quot;&gt;maven-failsafe-plugin&lt;/a&gt;. Alter the &lt;code&gt;build&lt;/code&gt; definition in your &lt;code&gt;pom.xml&lt;/code&gt; to the following:&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode xml&quot;&gt;&lt;code class=&quot;sourceCode xml&quot;&gt;    &lt;span class=&quot;kw&quot;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;plugins&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;kw&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework.boot&lt;span class=&quot;kw&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;kw&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-boot-maven-plugin&lt;span class=&quot;kw&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;kw&quot;&gt;&amp;lt;executions&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;kw&quot;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;pre-integration-test&lt;span class=&quot;kw&quot;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
+                            &lt;span class=&quot;kw&quot;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;start&lt;span class=&quot;kw&quot;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+                            &lt;span class=&quot;kw&quot;&gt;&amp;lt;arguments&amp;gt;&lt;/span&gt;--server.port=${server.port}&lt;span class=&quot;kw&quot;&gt;&amp;lt;/arguments&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;kw&quot;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;kw&quot;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;post-integration-test&lt;span class=&quot;kw&quot;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
+                            &lt;span class=&quot;kw&quot;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;stop&lt;span class=&quot;kw&quot;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;kw&quot;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;kw&quot;&gt;&amp;lt;/executions&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;kw&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.codehaus.mojo&lt;span class=&quot;kw&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;kw&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;build-helper-maven-plugin&lt;span class=&quot;kw&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;kw&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.12&lt;span class=&quot;kw&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;kw&quot;&gt;&amp;lt;executions&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;kw&quot;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;reserve-container-port&lt;span class=&quot;kw&quot;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
+                            &lt;span class=&quot;kw&quot;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;reserve-network-port&lt;span class=&quot;kw&quot;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;phase&amp;gt;&lt;/span&gt;process-resources&lt;span class=&quot;kw&quot;&gt;&amp;lt;/phase&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+                            &lt;span class=&quot;kw&quot;&gt;&amp;lt;portNames&amp;gt;&lt;/span&gt;
+                                &lt;span class=&quot;kw&quot;&gt;&amp;lt;portName&amp;gt;&lt;/span&gt;server.port&lt;span class=&quot;kw&quot;&gt;&amp;lt;/portName&amp;gt;&lt;/span&gt;
+                            &lt;span class=&quot;kw&quot;&gt;&amp;lt;/portNames&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;kw&quot;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;kw&quot;&gt;&amp;lt;/executions&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;kw&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.apache.maven.plugins&lt;span class=&quot;kw&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;kw&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;maven-failsafe-plugin&lt;span class=&quot;kw&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;kw&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;2.18.1&lt;span class=&quot;kw&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;kw&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;kw&quot;&gt;&amp;lt;systemPropertyVariables&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;server.port&amp;gt;&lt;/span&gt;${server.port}&lt;span class=&quot;kw&quot;&gt;&amp;lt;/server.port&amp;gt;&lt;/span&gt;
+                        &lt;span class=&quot;kw&quot;&gt;&amp;lt;selenium.version&amp;gt;&lt;/span&gt;${selenium.version}&lt;span class=&quot;kw&quot;&gt;&amp;lt;/selenium.version&amp;gt;&lt;/span&gt;
+                    &lt;span class=&quot;kw&quot;&gt;&amp;lt;/systemPropertyVariables&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;kw&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;kw&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;kw&quot;&gt;&amp;lt;/plugins&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;/build&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Failsafe adds several integration-test phases to the Maven lifecycle. We added an execution to the spring-boot-maven-plugin that starts the app before integration tests are run. The build-helper-maven-plugin is used to reserve a free port, so it won’t have port collisions if port 8080 is already in use.&lt;/p&gt;
+&lt;p&gt;Failsafe automatically detects integration tests by their name. All classes under &lt;code&gt;src/test/java&lt;/code&gt; that end with &lt;code&gt;IT&lt;/code&gt; will be executed by Failsafe instead of Surefire. Therefore we must rename the class &lt;code&gt;IndexTest&lt;/code&gt; to &lt;code&gt;IndexIT&lt;/code&gt;. Also we need to dynamically set the port of the requested URL in the test. Here’s how the test looks after these changes:&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode java&quot;&gt;&lt;code class=&quot;sourceCode java&quot;&gt;&lt;span class=&quot;fu&quot;&gt;@RunWith&lt;/span&gt;(SpringJUnit4ClassRunner.&lt;span class=&quot;fu&quot;&gt;class&lt;/span&gt;)
+&lt;span class=&quot;fu&quot;&gt;@ContextConfiguration&lt;/span&gt;(classes = ITConfig.&lt;span class=&quot;fu&quot;&gt;class&lt;/span&gt;)
+&lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;class&lt;/span&gt; IndexIT {
+
+    &lt;span class=&quot;fu&quot;&gt;@Autowired&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; WebDriver webDriver;
+
+    &lt;span class=&quot;fu&quot;&gt;@Value&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;${server.port}&amp;quot;&lt;/span&gt;)
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; serverPort;
+
+    &lt;span class=&quot;fu&quot;&gt;@Test&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;visitIndexPage&lt;/span&gt;() &lt;span class=&quot;kw&quot;&gt;throws&lt;/span&gt; Exception {
+
+        webDriver.&lt;span class=&quot;fu&quot;&gt;get&lt;/span&gt;(String&lt;span class=&quot;fu&quot;&gt;.format&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;http://localhost:&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;%d&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;/&amp;quot;&lt;/span&gt;, serverPort));
+        WebElement working = webDriver.&lt;span class=&quot;fu&quot;&gt;findElement&lt;/span&gt;(By.&lt;span class=&quot;fu&quot;&gt;id&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;working&amp;quot;&lt;/span&gt;));
+
+        Assert.&lt;span class=&quot;fu&quot;&gt;assertThat&lt;/span&gt;(working.&lt;span class=&quot;fu&quot;&gt;getText&lt;/span&gt;(), &lt;span class=&quot;fu&quot;&gt;is&lt;/span&gt;(&lt;span class=&quot;fu&quot;&gt;equalTo&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;It works!&amp;quot;&lt;/span&gt;)));
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now you should be able to run the integration tests with the following command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mvn verify&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&quot;testing-continuously&quot;&gt;Testing continuously&lt;/h2&gt;
+&lt;p&gt;Since programmers are lazy and soon won’t want to run these time consuming tests on their own machines, it’s time to configure a CI server to do it for you. Travis CI is a solution that integrates well into GitHub and also has support to run Selenium tests via Sauce Labs.&lt;/p&gt;
+&lt;p&gt;First you need to enable the GitHub project in your Travis profile. This should only be one click:&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://vorba.ch\2016\travis-config.png&quot; alt=&quot;Travis project activation&quot; /&gt;
+&lt;p class=&quot;caption&quot;&gt;Travis project activation&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Then you need to set up your project on Sauce Labs. I won’t cover this here, but once your project is set up, you will see your access key in your account settings. This access key is needed to verify the Travis CI server that runs your tests is allowed to control a Sauce Labs WebDriver. This key shouldn’t become publicy visible, so it makes sense to encrypt it. This can be done by using the Travis CLI tool (&lt;a href=&quot;https://github.com/travis-ci/travis.rb#installation&quot;&gt;installation instructions&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Encryption is done with the following command:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;travis encrypt &amp;quot;SAUCE_ACCESS_KEY=your-access-key&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This returns a string that you need for the file &lt;code&gt;.travis.yml&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode yaml&quot;&gt;&lt;code class=&quot;sourceCode yaml&quot;&gt;&lt;span class=&quot;fu&quot;&gt;language:&lt;/span&gt; java
+
+&lt;span class=&quot;fu&quot;&gt;jdk:&lt;/span&gt;
+  &lt;span class=&quot;kw&quot;&gt;-&lt;/span&gt; oraclejdk8
+
+&lt;span class=&quot;fu&quot;&gt;addons:&lt;/span&gt;
+  &lt;span class=&quot;fu&quot;&gt;sauce_connect:&lt;/span&gt;
+    &lt;span class=&quot;fu&quot;&gt;username:&lt;/span&gt; your-user-name
+  &lt;span class=&quot;fu&quot;&gt;jwt:&lt;/span&gt;
+    &lt;span class=&quot;fu&quot;&gt;secure:&lt;/span&gt; your-encrypted-access-key
+
+&lt;span class=&quot;fu&quot;&gt;script:&lt;/span&gt;
+  mvn verify -B&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Replace &lt;code&gt;your-user-name&lt;/code&gt; with the name of your Sauce Labs account and &lt;code&gt;your-encrypted-access-key&lt;/code&gt; with the encrypted access key string. Additionally, Sauce Labs user name and access key need to be set as environment variables in the settings of your project as &lt;code&gt;SAUCE_USERNAME&lt;/code&gt; and &lt;code&gt;SAUCE_ACCESS_KEY&lt;/code&gt; (unencrypted).&lt;/p&gt;
+&lt;p&gt;When this is done, our &lt;code&gt;ITConfig&lt;/code&gt; needs to be modified slightly to provide the &lt;code&gt;RemoteWebDriver&lt;/code&gt; with a URL that contains the information of the Sauce Labs account:&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode java&quot;&gt;&lt;code class=&quot;sourceCode java&quot;&gt;&lt;span class=&quot;fu&quot;&gt;@Configuration&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;class&lt;/span&gt; ITConfig {
+
+    &lt;span class=&quot;fu&quot;&gt;@Autowired&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; Environment env;
+
+    &lt;span class=&quot;fu&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; WebDriver &lt;span class=&quot;fu&quot;&gt;webDriver&lt;/span&gt;() &lt;span class=&quot;kw&quot;&gt;throws&lt;/span&gt; MalformedURLException {
+        &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;RemoteWebDriver&lt;/span&gt;(&lt;span class=&quot;fu&quot;&gt;getRemoteUrl&lt;/span&gt;(), &lt;span class=&quot;fu&quot;&gt;getDesiredCapabilities&lt;/span&gt;());
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; DesiredCapabilities &lt;span class=&quot;fu&quot;&gt;getDesiredCapabilities&lt;/span&gt;() {
+
+        &lt;span class=&quot;dt&quot;&gt;final&lt;/span&gt; DesiredCapabilities capabilities = DesiredCapabilities.&lt;span class=&quot;fu&quot;&gt;firefox&lt;/span&gt;();
+        &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;fu&quot;&gt;useSauceLabs&lt;/span&gt;()) {
+            capabilities.&lt;span class=&quot;fu&quot;&gt;setCapability&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;tunnel-identifier&amp;quot;&lt;/span&gt;, env.&lt;span class=&quot;fu&quot;&gt;getProperty&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;TRAVIS_JOB_NUMBER&amp;quot;&lt;/span&gt;));
+            capabilities.&lt;span class=&quot;fu&quot;&gt;setCapability&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;seleniumVersion&amp;quot;&lt;/span&gt;, env.&lt;span class=&quot;fu&quot;&gt;getProperty&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;selenium.version&amp;quot;&lt;/span&gt;));
+        }
+
+        &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; capabilities;
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;useSauceLabs&lt;/span&gt;() {
+        &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; env.&lt;span class=&quot;fu&quot;&gt;getProperty&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;SAUCE_USERNAME&amp;quot;&lt;/span&gt;) != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt;;
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; URL &lt;span class=&quot;fu&quot;&gt;getRemoteUrl&lt;/span&gt;() &lt;span class=&quot;kw&quot;&gt;throws&lt;/span&gt; MalformedURLException {
+        &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;fu&quot;&gt;useSauceLabs&lt;/span&gt;()) {
+            &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;new&lt;/span&gt; URL(String&lt;span class=&quot;fu&quot;&gt;.format&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;http://&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;%s&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;ch&quot;&gt;%s&lt;/span&gt;&lt;span class=&quot;st&quot;&gt;@localhost:4445/wd/hub&amp;quot;&lt;/span&gt;,
+                    env.&lt;span class=&quot;fu&quot;&gt;getProperty&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;SAUCE_USERNAME&amp;quot;&lt;/span&gt;), env.&lt;span class=&quot;fu&quot;&gt;getProperty&lt;/span&gt;(&lt;span class=&quot;st&quot;&gt;&amp;quot;SAUCE_ACCESS_KEY&amp;quot;&lt;/span&gt;)));
+        } &lt;span class=&quot;kw&quot;&gt;else&lt;/span&gt; {
+            &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;new&lt;/span&gt; URL(&lt;span class=&quot;st&quot;&gt;&amp;quot;http://localhost:4445/wd/hub&amp;quot;&lt;/span&gt;);
+        }
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Push these changes to GitHub and you’re done! You can watch your tests run on Travis and even watch the browser in your Sauce Lab account.&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://vorba.ch\2016\it-works.png&quot; alt=&quot;It works!&quot; /&gt;
+&lt;p class=&quot;caption&quot;&gt;It works!&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The complete sources of this sample project are &lt;a href=&quot;https://github.com/pvorb/spring-boot-integration-test-example&quot;&gt;available on GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Happy testing!&lt;/p&gt;
+
+    </content>
+
+    <category term="english"/>
+
+    <category term="howto"/>
+
+    <category term="java"/>
+
+    <category term="spring-boot"/>
+
+    <category term="maven"/>
+
+    <category term="testing"/>
 
   </entry>
 
