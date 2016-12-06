@@ -29,9 +29,9 @@ if (locals.tags) {
     <meta name="twitter:description" content="Read the article on <%= siteTitle %>">
 <% if (locals.teaser) {
     if (typeof teaser == 'string') { %>
-    <meta name="twitter:image" content="<%= teaser %>">
+    <meta name="twitter:image" content="https://vorba.ch<%= _id.split('/').slice(0, _id.split('/').length - 1).join('/') + '/' + teaser %>">
 <% } else if (typeof teaser == 'object') { %>
-    <meta name="twitter:image" content="<%= teaser.img %>">
+    <meta name="twitter:image" content="https://vorba.ch<%= _id.split('/').slice(0, _id.split('/').length - 1).join('/') + '/' + teaser.img %>">
 <% }
 } %>
   </head>
