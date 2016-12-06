@@ -23,6 +23,17 @@ if (locals.tags) {
 <%
 }
 %>
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@pvorb">
+    <meta name="twitter:title" content="<%= title %>">
+    <meta name="twitter:description" content="Read the article on <%= siteTitle %>">
+<% if (locals.teaser) {
+    if (typeof teaser == 'string') { %>
+    <meta name="twitter:image" content="<%= teaser %>">
+<% } else if (typeof teaser == 'object') { %>
+    <meta name="twitter:image" content="<%= teaser.img %>">
+<% }
+} %>
   </head>
   <body id="top">
     <nav id="nav">
