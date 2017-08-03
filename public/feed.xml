@@ -3,12 +3,12 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>vorba.ch: Articles</title>
   <subtitle>Paul Vorbach's personal weblog</subtitle>
-  <updated>2016-12-06T19:54:47.325Z</updated>
+  <updated>2017-08-03T17:23:19.762Z</updated>
   <id>http://vorb.de/log/feed.xml</id>
   <author>
     <name>Paul Vorbach</name>
   </author>
-  <rights>© 2008-2016 Paul Vorbach</rights>
+  <rights>© 2008-2017 Paul Vorbach</rights>
   <link href="http://vorba.ch/"/>
   <link rel="self" href="http://vorba.ch/feed.xml"/>
   <category term="computer"/>
@@ -18,55 +18,6 @@
   <category term="scala"/>
   <category term="akka"/>
   <icon>http://vorba.ch/favicon.ico</icon>
-
-  <entry>
-    <title>Book review: “Haskell Financial Data Modeling and Predictive Analytics”</title>
-    <link href="http://vorba.ch/2014/review-haskell-financial-data-modeling.html"/>
-    <id>http://vorba.ch/2014/review-haskell-financial-data-modeling.html</id>
-    <updated>2014-01-08T00:00:00.000Z</updated>
-    <author>
-      <name>Paul Vorbach</name>
-      <uri>http://paul.vorba.ch/</uri>
-    </author>
-    <content type="html">
-
-      &lt;p&gt;&lt;img src="http://vorba.ch/2014/haze.jpg"&gt;&lt;/p&gt;
-
-      &lt;p&gt;A few weeks ago, I’ve been asked to review the book “Haskell Financial Data Modeling and Predictive Analytics” by Pavel Ryzhov. I never got such a request before, so I thought “Hey, why not have a look at it”. So I accepted to write a review of the book, once I read it.&lt;/p&gt;
-&lt;h2 id=&quot;financial-data-modeling&quot;&gt;Financial Data Modeling?&lt;/h2&gt;
-&lt;p&gt;You might ask what I have to do with financial data modeling. Well, I don’t know either but it’s never too late to explore new fields… ;-)&lt;/p&gt;
-&lt;h2 id=&quot;the-haskell-platform&quot;&gt;The Haskell Platform&lt;/h2&gt;
-&lt;p&gt;Haskell is a functional programming language, that has been around &lt;a href=&quot;http://vorba.ch/tag/lang.html#programming-languages&quot;&gt;for more than 20 years&lt;/a&gt;. And as functional programming languages are being &lt;a href=&quot;http://vorba.ch/2013/scala.html&quot;&gt;hyped everywhere&lt;/a&gt; these days, learning another one can’t be wrong.&lt;/p&gt;
-&lt;p&gt;I already had a look at Haskell in August and September 2012 when I started reading the free introductory book &lt;a href=&quot;http://learnyouahaskell.com/&quot;&gt;“Learn You a Haskell for Great Good!”&lt;/a&gt; by Miran Lipovača, which I really enjoyed. It’s a brilliant introduction to Haskell and its style is really fun to read. But this review is not about Miran’s book…&lt;/p&gt;
-&lt;h2 id=&quot;the-book&quot;&gt;The Book&lt;/h2&gt;
-&lt;p&gt;After a short chapter on how to setup all necessary tools on various platforms (which tends to focus on Mac OS X), the author introduces the most important principles of Haskell without going too much into detail. If you haven’t seen any Haskell before, the introduction to the language might be a little too short. Probably enough for a financial programmer who wants to get productive.&lt;/p&gt;
-&lt;p&gt;However the introduction was ideal for me as I haven’t programmed much Haskell since “Learn You a Haskell”. You’ll also be confronted with the first major shortcomings of the book: Almost every code example isn’t part of the book itself, but is only available as part of a ZIP archive that can be downloaded along with the e-book. This might be acceptable when you are reading the book with a normal PC. When you are reading the book with an e-book reader, you can’t access the code examples. Too bad.&lt;/p&gt;
-&lt;p&gt;During my read I learned the most by studying the code examples, since the explanations often don’t go much into detail. It’s hard to follow the author’s chain of thought even when you have the examples at hand.&lt;/p&gt;
-&lt;p&gt;The next chapter, “Getting your Hands Dirty”, starts by explaining (file) I/O and parsing in Haskell. It introduces the Attoparsec library which can handle CSV files in a type-safe manner. Additionally, the concept of managing data by using an object relational mapper is introduced and shown by examples.&lt;/p&gt;
-&lt;p&gt;The following chapter is all about “measuring tick intervals”. It provides solutions for maximum likelihood estimation as well as other models for several financial processes and the secant root finding algorithm. Towards the end of the chapter, &lt;a href=&quot;http://www.cse.chalmers.se/~rjmh/QuickCheck/&quot;&gt;QuickCheck&lt;/a&gt; is introduced, which is a great library for testing Haskell programs &lt;em&gt;automagically&lt;/em&gt;. In QuickCheck, a programmer can define properties that a function must satisfy and QuickCheck randomly generates cases the function will be tested on. This is a great addition to conventional unit testing. I also found &lt;a href=&quot;http://scalacheck.org/&quot;&gt;ScalaCheck&lt;/a&gt;, the Scala version of QuickCheck, very helpful for writing Scala test cases.&lt;/p&gt;
-&lt;p&gt;I had a hard time reading chapter 4 and 5, since they are diving deep into financial mathematics. That’s why I can hardly give a rating of the quality of these chapters.&lt;/p&gt;
-&lt;p&gt;One interesting part can be found in chapter 5. Here, parallel computations are introduced and shown by example.&lt;/p&gt;
-&lt;p&gt;Chapter 6 – the last one – gives an introduction to Cabal, the Haskell build system. It can be used to build a project, manage dependencies, run tests and more. So this is pretty much like Maven/Gradle/SBT for Java and Scala or NPM for Node.js. It’s an interesting way to round up the book with a chapter about Cabal – I would have expected it at the beginning – but it’s important to know Cabal if you want to get started with Haskell.&lt;/p&gt;
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;I would have found it better if the author had explained his code in more detail, but that’s just my opinion. The book is not for programmers who don’t have anything to do with financial programming. Wow, who could think of that?! But it seems to be a neat introduction to financial programming in Haskell, if you are willing to learn the language.&lt;/p&gt;
-&lt;h2 id=&quot;links&quot;&gt;Links&lt;/h2&gt;
-&lt;ol style=&quot;list-style-type: decimal&quot;&gt;
-&lt;li&gt;Pavel Ryzhov: &lt;a href=&quot;http://www.packtpub.com/haskell-financial-data-modeling-and-predictive-analytics/book?utm_source=Paul%20Vorbach&quot;&gt;“Haskell Financial Data Modeling and Predictive Analytics”&lt;/a&gt;, Packt Publishing, 2013.&lt;/li&gt;
-&lt;/ol&gt;
-
-    </content>
-
-    <category term="english"/>
-
-    <category term="haskell"/>
-
-    <category term="dev"/>
-
-    <category term="lang"/>
-
-    <category term="fp"/>
-
-  </entry>
 
   <entry>
     <title>1.000.000</title>
@@ -825,6 +776,202 @@ check.dependsOn jacocoTestReport&lt;/code&gt;&lt;/pre&gt;
     <category term="maven"/>
 
     <category term="testing"/>
+
+  </entry>
+
+  <entry>
+    <title>An Introduction to Project Lombok</title>
+    <link href="http://vorba.ch/2017/lombok.html"/>
+    <id>http://vorba.ch/2017/lombok.html</id>
+    <updated>2017-08-03T00:00:00.000Z</updated>
+    <author>
+      <name>Paul Vorbach</name>
+      <uri>http://paul.vorba.ch/</uri>
+    </author>
+    <content type="html">
+
+      &lt;p&gt;&lt;img src="http://vorba.ch/2017/lombok.jpg"&gt;&lt;/p&gt;
+
+      &lt;p&gt;The following map shows the island Lombok’s location in south east Asia. You already know its major neighbor in the west, the one with Indonesia’s capital, Jakarta, on it. Right, that’s &lt;em&gt;Java&lt;/em&gt;.&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://vorba.ch/2017/lombok-map.png&quot;&gt;
+&lt;p class=&quot;caption&quot;&gt;
+Lombok on a map of Indonesia and Malaysia
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;But this article is not about islands or geography. It’s is about &lt;a href=&quot;https://projectlombok.org/&quot;&gt;Project Lombok&lt;/a&gt;, a plugin to the Java compiler, that allows to automatically generate bytecode for much of the boilerplate that is required when writing Java code.&lt;/p&gt;
+&lt;p&gt;Here’s a typical Java POJO:&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode java&quot;&gt;&lt;code class=&quot;sourceCode java&quot;&gt;&lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;class&lt;/span&gt; Movie {
+
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; Long id;
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; String title;
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; String subtitle;
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; String genre;
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; String director;
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; LocalDate firstRelease;
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; List&amp;lt;Actor&amp;gt; actors;
+
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; Long &lt;span class=&quot;fu&quot;&gt;getId&lt;/span&gt;() {
+        &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; id;
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;setId&lt;/span&gt;(Long id) {
+        &lt;span class=&quot;kw&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;id&lt;/span&gt; = id;
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; String &lt;span class=&quot;fu&quot;&gt;getTitle&lt;/span&gt;() {
+        &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; title;
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;setTitle&lt;/span&gt;(String title) {
+        &lt;span class=&quot;kw&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;title&lt;/span&gt; = title;
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; String &lt;span class=&quot;fu&quot;&gt;getSubtitle&lt;/span&gt;() {
+        &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; subtitle;
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;setSubtitle&lt;/span&gt;(String subtitle) {
+        &lt;span class=&quot;kw&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;subtitle&lt;/span&gt; = subtitle;
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; String &lt;span class=&quot;fu&quot;&gt;getGenre&lt;/span&gt;() {
+        &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; genre;
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;setGenre&lt;/span&gt;(String genre) {
+        &lt;span class=&quot;kw&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;genre&lt;/span&gt; = genre;
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; String &lt;span class=&quot;fu&quot;&gt;getDirector&lt;/span&gt;() {
+        &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; director;
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;setDirector&lt;/span&gt;(String director) {
+        &lt;span class=&quot;kw&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;director&lt;/span&gt; = director;
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; LocalDate &lt;span class=&quot;fu&quot;&gt;getFirstRelease&lt;/span&gt;() {
+        &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; firstRelease;
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;setFirstRelease&lt;/span&gt;(LocalDate firstRelease) {
+        &lt;span class=&quot;kw&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;firstRelease&lt;/span&gt; = firstRelease;
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; List&amp;lt;Actor&amp;gt; &lt;span class=&quot;fu&quot;&gt;getActors&lt;/span&gt;() {
+        &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; actors;
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;setActors&lt;/span&gt;(List&amp;lt;Actor&amp;gt; actors) {
+        &lt;span class=&quot;kw&quot;&gt;this&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;actors&lt;/span&gt; = actors;
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;equals&lt;/span&gt;(Object object) {
+        &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;kw&quot;&gt;this&lt;/span&gt; == object) {
+            &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;true&lt;/span&gt;;
+        }
+        &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (object == &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt; || &lt;span class=&quot;fu&quot;&gt;getClass&lt;/span&gt;() != object.&lt;span class=&quot;fu&quot;&gt;getClass&lt;/span&gt;()) {
+            &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;false&lt;/span&gt;;
+        }
+        &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (!&lt;span class=&quot;kw&quot;&gt;super&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;equals&lt;/span&gt;(object)) {
+            &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;false&lt;/span&gt;;
+        }
+
+        &lt;span class=&quot;dt&quot;&gt;final&lt;/span&gt; Movie movie = (Movie) object;
+
+        &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (id != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt; ? !id.&lt;span class=&quot;fu&quot;&gt;equals&lt;/span&gt;(movie.&lt;span class=&quot;fu&quot;&gt;id&lt;/span&gt;) : movie.&lt;span class=&quot;fu&quot;&gt;id&lt;/span&gt; != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt;) {
+            &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;false&lt;/span&gt;;
+        }
+        &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (title != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt; ? !title.&lt;span class=&quot;fu&quot;&gt;equals&lt;/span&gt;(movie.&lt;span class=&quot;fu&quot;&gt;title&lt;/span&gt;) : movie.&lt;span class=&quot;fu&quot;&gt;title&lt;/span&gt; != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt;) {
+            &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;false&lt;/span&gt;;
+        }
+        &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (genre != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt; ? !genre.&lt;span class=&quot;fu&quot;&gt;equals&lt;/span&gt;(movie.&lt;span class=&quot;fu&quot;&gt;genre&lt;/span&gt;) : movie.&lt;span class=&quot;fu&quot;&gt;genre&lt;/span&gt; != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt;) {
+            &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;false&lt;/span&gt;;
+        }
+        &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (director != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt; ? !director.&lt;span class=&quot;fu&quot;&gt;equals&lt;/span&gt;(movie.&lt;span class=&quot;fu&quot;&gt;director&lt;/span&gt;) : movie.&lt;span class=&quot;fu&quot;&gt;director&lt;/span&gt; != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt;) {
+            &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;false&lt;/span&gt;;
+        }
+        &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (firstRelease != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt; ? !firstRelease.&lt;span class=&quot;fu&quot;&gt;equals&lt;/span&gt;(movie.&lt;span class=&quot;fu&quot;&gt;firstRelease&lt;/span&gt;) : movie.&lt;span class=&quot;fu&quot;&gt;firstRelease&lt;/span&gt; != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt;) {
+            &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;false&lt;/span&gt;;
+        }
+        &lt;span class=&quot;kw&quot;&gt;if&lt;/span&gt; (actors != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt; ? !actors.&lt;span class=&quot;fu&quot;&gt;equals&lt;/span&gt;(movie.&lt;span class=&quot;fu&quot;&gt;actors&lt;/span&gt;) : movie.&lt;span class=&quot;fu&quot;&gt;actors&lt;/span&gt; != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt;) {
+            &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;false&lt;/span&gt;;
+        }
+
+        &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;true&lt;/span&gt;;
+    }
+
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;fu&quot;&gt;hashCode&lt;/span&gt;() {
+        &lt;span class=&quot;dt&quot;&gt;int&lt;/span&gt; result = &lt;span class=&quot;kw&quot;&gt;super&lt;/span&gt;.&lt;span class=&quot;fu&quot;&gt;hashCode&lt;/span&gt;();
+        result = &lt;span class=&quot;dv&quot;&gt;31&lt;/span&gt; * result + (id != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt; ? id.&lt;span class=&quot;fu&quot;&gt;hashCode&lt;/span&gt;() : &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;);
+        result = &lt;span class=&quot;dv&quot;&gt;31&lt;/span&gt; * result + (title != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt; ? title.&lt;span class=&quot;fu&quot;&gt;hashCode&lt;/span&gt;() : &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;);
+        result = &lt;span class=&quot;dv&quot;&gt;31&lt;/span&gt; * result + (subtitle != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt; ? subtitle.&lt;span class=&quot;fu&quot;&gt;hashCode&lt;/span&gt;() : &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;);
+        result = &lt;span class=&quot;dv&quot;&gt;31&lt;/span&gt; * result + (genre != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt; ? genre.&lt;span class=&quot;fu&quot;&gt;hashCode&lt;/span&gt;() : &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;);
+        result = &lt;span class=&quot;dv&quot;&gt;31&lt;/span&gt; * result + (director != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt; ? director.&lt;span class=&quot;fu&quot;&gt;hashCode&lt;/span&gt;() : &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;);
+        result = &lt;span class=&quot;dv&quot;&gt;31&lt;/span&gt; * result + (firstRelease != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt; ? firstRelease.&lt;span class=&quot;fu&quot;&gt;hashCode&lt;/span&gt;() : &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;);
+        result = &lt;span class=&quot;dv&quot;&gt;31&lt;/span&gt; * result + (actors != &lt;span class=&quot;kw&quot;&gt;null&lt;/span&gt; ? actors.&lt;span class=&quot;fu&quot;&gt;hashCode&lt;/span&gt;() : &lt;span class=&quot;dv&quot;&gt;0&lt;/span&gt;);
+        &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; result;
+    }
+
+    &lt;span class=&quot;fu&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; String &lt;span class=&quot;fu&quot;&gt;toString&lt;/span&gt;() {
+        &lt;span class=&quot;kw&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;st&quot;&gt;&amp;quot;Movie{&amp;quot;&lt;/span&gt; +
+                &lt;span class=&quot;st&quot;&gt;&amp;quot;id=&amp;quot;&lt;/span&gt; + id +
+                &lt;span class=&quot;st&quot;&gt;&amp;quot;, title=&amp;#39;&amp;quot;&lt;/span&gt; + title + &lt;span class=&quot;ch&quot;&gt;&amp;#39;\&amp;#39;&amp;#39;&lt;/span&gt; +
+                &lt;span class=&quot;st&quot;&gt;&amp;quot;, subtitle=&amp;#39;&amp;quot;&lt;/span&gt; + subtitle + &lt;span class=&quot;ch&quot;&gt;&amp;#39;\&amp;#39;&amp;#39;&lt;/span&gt; +
+                &lt;span class=&quot;st&quot;&gt;&amp;quot;, genre=&amp;#39;&amp;quot;&lt;/span&gt; + genre + &lt;span class=&quot;ch&quot;&gt;&amp;#39;\&amp;#39;&amp;#39;&lt;/span&gt; +
+                &lt;span class=&quot;st&quot;&gt;&amp;quot;, director=&amp;#39;&amp;quot;&lt;/span&gt; + director + &lt;span class=&quot;ch&quot;&gt;&amp;#39;\&amp;#39;&amp;#39;&lt;/span&gt; +
+                &lt;span class=&quot;st&quot;&gt;&amp;quot;, firstRelease=&amp;quot;&lt;/span&gt; + firstRelease +
+                &lt;span class=&quot;st&quot;&gt;&amp;quot;, actors=&amp;quot;&lt;/span&gt; + actors +
+                &amp;#39;}&amp;#39;;
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;That’s a hell lot of code (126 LOC, to be exact) for something as simple as a class holding only metadata about movies.&lt;/p&gt;
+&lt;p&gt;“That’s a lot of code, but my IDE can generate it for me,” I here you say. That’s absolutely correct, but I’d like to point out that writing boilerplate code is just one side of the coin. A lot of your time you’re reading some other developer’s code, hunting for that tricky bug, where the all that boilerplate will obfuscate the essence of the code.&lt;/p&gt;
+&lt;p&gt;By the way, have you noticed the error/unexpected behavior in the code snippet above?&lt;/p&gt;
+&lt;p&gt;It’s likely you just skimmed through it and thus have missed it. It’s in the &lt;code&gt;equals()&lt;/code&gt; method, where I forgot to check for equality of &lt;code&gt;subtitle&lt;/code&gt;. It’s included in &lt;code&gt;hashCode()&lt;/code&gt;, though, so that will likely lead to tricky problems when keeping a &lt;code&gt;Set&amp;lt;Movie&amp;gt;&lt;/code&gt;, for example. Errors like these can easily happen when you add a new field to a class, but forget to re-generate your methods.&lt;/p&gt;
+&lt;p&gt;In contrast, here’s the same class using Lombok, just without the mistake:&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode java&quot;&gt;&lt;code class=&quot;sourceCode java&quot;&gt;&lt;span class=&quot;fu&quot;&gt;@Data&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kw&quot;&gt;class&lt;/span&gt; Movie {
+
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; Long id;
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; String title;
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; String subtitle;
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; String genre;
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; String director;
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; LocalDate firstRelease;
+    &lt;span class=&quot;kw&quot;&gt;private&lt;/span&gt; List&amp;lt;Actor&amp;gt; actors;
+
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Just by annotating the class with &lt;code&gt;@Data&lt;/code&gt;, Lombok will generate all getters, setters, &lt;code&gt;equals()&lt;/code&gt;, &lt;code&gt;hashCode()&lt;/code&gt;, and even a decent &lt;code&gt;toString()&lt;/code&gt;. But that’s only the tip of the iceberg. There are many other annotations, e.g. for constructors, the builder pattern, or instantiating a logger. Just have a look at &lt;a href=&quot;https://projectlombok.org/features/all&quot;&gt;the feature list on their website&lt;/a&gt; for an overview.&lt;/p&gt;
+&lt;p&gt;Now that you’ve seen a code sample, you may worry about &lt;a href=&quot;https://stackoverflow.com/q/3852091/432354&quot;&gt;whether it’s safe to use it in your project&lt;/a&gt;. Will my IDE still be able to navigate my code? Will it show errors for missing methods? Will I still be able to refactor using the IDE?&lt;/p&gt;
+&lt;p&gt;I also wasn’t sure until a year ago. But then a colleague of mine just started to use it in one of our products and I used that as an opportunity to give it a try. I haven’t looked back ever since.&lt;/p&gt;
+&lt;p&gt;Getting started is quite simple. Just add the following dependency:&lt;/p&gt;
+&lt;div class=&quot;sourceCode&quot;&gt;&lt;pre class=&quot;sourceCode xml&quot;&gt;&lt;code class=&quot;sourceCode xml&quot;&gt;&lt;span class=&quot;kw&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.projectlombok&lt;span class=&quot;kw&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;lombok&lt;span class=&quot;kw&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.16.18&lt;span class=&quot;kw&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kw&quot;&gt;&amp;lt;scope&amp;gt;&lt;/span&gt;provided&lt;span class=&quot;kw&quot;&gt;&amp;lt;/scope&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;kw&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;javac&lt;/code&gt; will automatically detect Lombok on the classpath (Lombok makes use of &lt;a href=&quot;https://www.jcp.org/en/jsr/detail?id=269&quot;&gt;JSR-269: “Pluggable Annotation Processing API”&lt;/a&gt;). The dependency can be &lt;em&gt;provided&lt;/em&gt;, since there’s no need for Lombok to be around at run-time. All the magic happens at compile-time.&lt;/p&gt;
+&lt;p&gt;As for IDE support, there’s a brilliant Lombok plugin for IntelliJ IDEA. Just search the plugin repository for “lombok”. If you want to use it in Eclipse it’s even simpler. Download the lombok.jar from the project website and run it. A graphical installer will lead you through the required steps.&lt;/p&gt;
+&lt;p&gt;For instance, here’s what the Structure view will look like in IDEA:&lt;/p&gt;
+&lt;div class=&quot;figure&quot;&gt;
+&lt;img src=&quot;http://vorba.ch/2017/lombok-idea.png&quot;&gt;
+&lt;p class=&quot;caption&quot;&gt;
+Class &lt;code&gt;Movie&lt;/code&gt; in IDEA
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;As you can see, everything from the first code snippet is there.&lt;/p&gt;
+&lt;p&gt;Of course another way to avoid the tedious work of writing and maintaining Java’s boilerplate is using other JVM languages like Kotlin or Scala, which solve Java’s problems using special syntax. But that’s a different story.&lt;/p&gt;
+&lt;p&gt;What do you think about Lombok? Are you also thinking about using it in your software or did you already give it a try? Let me and others know in the comments.&lt;/p&gt;
+
+    </content>
+
+    <category term="english"/>
+
+    <category term="java"/>
 
   </entry>
 

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>An Introduction to Project Lombok | vorba.ch</title>
+    <link rel="stylesheet" href="/res/diego.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml"
+      title="Article feed">
+    <link rel="alternate" type="application/atom+xml" href="/comment-feed.xml"
+      title="Comment feed">
+    <meta name="author" content="Paul Vorbach">
+
+    <meta name="keywords" content="english, java">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@pvorb">
+    <meta name="twitter:title" content="An Introduction to Project Lombok">
+    <meta name="twitter:description" content="Read the article on vorba.ch">
+
+    <meta name="twitter:image" content="https://vorba.ch/2017/lombok.jpg">
+
+  </head>
+  <body id="top">
+    <nav id="nav">
+      <ol id="path">
+        <li><a href="/">vorba.ch</a>
+
+        <li><a href="/archive.html#2017">2017</a>
+
+      </ol>
+      <ol id="access">
+        <li><a href="#top" title="To the top" id="back" accesskey="t">↑</a>
+        <li><a href="#nav">Navigation</a>
+        <li><a href="#content">Content</a>
+        <li><a href="#comments" accesskey="c">Comments</a>
+      </ol>
+      <form id="search" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Search">
+      </form>
+    </nav>
+    <article id="content">
+      <header>
+        <h1>An Introduction to Project Lombok</h1>
+
+        <figure class="teaser">
+          <img src="lombok.jpg">
+        </figure>
+
+        <p class="meta">by <span class="author">Paul Vorbach</span>, <span class="created">2017-08-03</span>
+          &ndash; <a href="#comments">Comments</a></p>
+      </header>
+      <section>
+        <p>The following map shows the island Lombok’s location in south east Asia. You already know its major neighbor in the west, the one with Indonesia’s capital, Jakarta, on it. Right, that’s <em>Java</em>.</p>
+<div class="figure">
+<img src="/2017/lombok-map.png">
+<p class="caption">
+Lombok on a map of Indonesia and Malaysia
+</p>
+</div>
+<p>But this article is not about islands or geography. It’s is about <a href="https://projectlombok.org/">Project Lombok</a>, a plugin to the Java compiler, that allows to automatically generate bytecode for much of the boilerplate that is required when writing Java code.</p>
+<p>Here’s a typical Java POJO:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> Movie {
+
+    <span class="kw">private</span> Long id;
+    <span class="kw">private</span> String title;
+    <span class="kw">private</span> String subtitle;
+    <span class="kw">private</span> String genre;
+    <span class="kw">private</span> String director;
+    <span class="kw">private</span> LocalDate firstRelease;
+    <span class="kw">private</span> List&lt;Actor&gt; actors;
+
+    <span class="kw">public</span> Long <span class="fu">getId</span>() {
+        <span class="kw">return</span> id;
+    }
+
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setId</span>(Long id) {
+        <span class="kw">this</span>.<span class="fu">id</span> = id;
+    }
+
+    <span class="kw">public</span> String <span class="fu">getTitle</span>() {
+        <span class="kw">return</span> title;
+    }
+
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setTitle</span>(String title) {
+        <span class="kw">this</span>.<span class="fu">title</span> = title;
+    }
+
+    <span class="kw">public</span> String <span class="fu">getSubtitle</span>() {
+        <span class="kw">return</span> subtitle;
+    }
+
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setSubtitle</span>(String subtitle) {
+        <span class="kw">this</span>.<span class="fu">subtitle</span> = subtitle;
+    }
+
+    <span class="kw">public</span> String <span class="fu">getGenre</span>() {
+        <span class="kw">return</span> genre;
+    }
+
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setGenre</span>(String genre) {
+        <span class="kw">this</span>.<span class="fu">genre</span> = genre;
+    }
+
+    <span class="kw">public</span> String <span class="fu">getDirector</span>() {
+        <span class="kw">return</span> director;
+    }
+
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setDirector</span>(String director) {
+        <span class="kw">this</span>.<span class="fu">director</span> = director;
+    }
+
+    <span class="kw">public</span> LocalDate <span class="fu">getFirstRelease</span>() {
+        <span class="kw">return</span> firstRelease;
+    }
+
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setFirstRelease</span>(LocalDate firstRelease) {
+        <span class="kw">this</span>.<span class="fu">firstRelease</span> = firstRelease;
+    }
+
+    <span class="kw">public</span> List&lt;Actor&gt; <span class="fu">getActors</span>() {
+        <span class="kw">return</span> actors;
+    }
+
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">setActors</span>(List&lt;Actor&gt; actors) {
+        <span class="kw">this</span>.<span class="fu">actors</span> = actors;
+    }
+
+    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">equals</span>(Object object) {
+        <span class="kw">if</span> (<span class="kw">this</span> == object) {
+            <span class="kw">return</span> <span class="kw">true</span>;
+        }
+        <span class="kw">if</span> (object == <span class="kw">null</span> || <span class="fu">getClass</span>() != object.<span class="fu">getClass</span>()) {
+            <span class="kw">return</span> <span class="kw">false</span>;
+        }
+        <span class="kw">if</span> (!<span class="kw">super</span>.<span class="fu">equals</span>(object)) {
+            <span class="kw">return</span> <span class="kw">false</span>;
+        }
+
+        <span class="dt">final</span> Movie movie = (Movie) object;
+
+        <span class="kw">if</span> (id != <span class="kw">null</span> ? !id.<span class="fu">equals</span>(movie.<span class="fu">id</span>) : movie.<span class="fu">id</span> != <span class="kw">null</span>) {
+            <span class="kw">return</span> <span class="kw">false</span>;
+        }
+        <span class="kw">if</span> (title != <span class="kw">null</span> ? !title.<span class="fu">equals</span>(movie.<span class="fu">title</span>) : movie.<span class="fu">title</span> != <span class="kw">null</span>) {
+            <span class="kw">return</span> <span class="kw">false</span>;
+        }
+        <span class="kw">if</span> (genre != <span class="kw">null</span> ? !genre.<span class="fu">equals</span>(movie.<span class="fu">genre</span>) : movie.<span class="fu">genre</span> != <span class="kw">null</span>) {
+            <span class="kw">return</span> <span class="kw">false</span>;
+        }
+        <span class="kw">if</span> (director != <span class="kw">null</span> ? !director.<span class="fu">equals</span>(movie.<span class="fu">director</span>) : movie.<span class="fu">director</span> != <span class="kw">null</span>) {
+            <span class="kw">return</span> <span class="kw">false</span>;
+        }
+        <span class="kw">if</span> (firstRelease != <span class="kw">null</span> ? !firstRelease.<span class="fu">equals</span>(movie.<span class="fu">firstRelease</span>) : movie.<span class="fu">firstRelease</span> != <span class="kw">null</span>) {
+            <span class="kw">return</span> <span class="kw">false</span>;
+        }
+        <span class="kw">if</span> (actors != <span class="kw">null</span> ? !actors.<span class="fu">equals</span>(movie.<span class="fu">actors</span>) : movie.<span class="fu">actors</span> != <span class="kw">null</span>) {
+            <span class="kw">return</span> <span class="kw">false</span>;
+        }
+
+        <span class="kw">return</span> <span class="kw">true</span>;
+    }
+
+    <span class="kw">public</span> <span class="dt">int</span> <span class="fu">hashCode</span>() {
+        <span class="dt">int</span> result = <span class="kw">super</span>.<span class="fu">hashCode</span>();
+        result = <span class="dv">31</span> * result + (id != <span class="kw">null</span> ? id.<span class="fu">hashCode</span>() : <span class="dv">0</span>);
+        result = <span class="dv">31</span> * result + (title != <span class="kw">null</span> ? title.<span class="fu">hashCode</span>() : <span class="dv">0</span>);
+        result = <span class="dv">31</span> * result + (subtitle != <span class="kw">null</span> ? subtitle.<span class="fu">hashCode</span>() : <span class="dv">0</span>);
+        result = <span class="dv">31</span> * result + (genre != <span class="kw">null</span> ? genre.<span class="fu">hashCode</span>() : <span class="dv">0</span>);
+        result = <span class="dv">31</span> * result + (director != <span class="kw">null</span> ? director.<span class="fu">hashCode</span>() : <span class="dv">0</span>);
+        result = <span class="dv">31</span> * result + (firstRelease != <span class="kw">null</span> ? firstRelease.<span class="fu">hashCode</span>() : <span class="dv">0</span>);
+        result = <span class="dv">31</span> * result + (actors != <span class="kw">null</span> ? actors.<span class="fu">hashCode</span>() : <span class="dv">0</span>);
+        <span class="kw">return</span> result;
+    }
+
+    <span class="fu">@Override</span>
+    <span class="kw">public</span> String <span class="fu">toString</span>() {
+        <span class="kw">return</span> <span class="st">&quot;Movie{&quot;</span> +
+                <span class="st">&quot;id=&quot;</span> + id +
+                <span class="st">&quot;, title=&#39;&quot;</span> + title + <span class="ch">&#39;\&#39;&#39;</span> +
+                <span class="st">&quot;, subtitle=&#39;&quot;</span> + subtitle + <span class="ch">&#39;\&#39;&#39;</span> +
+                <span class="st">&quot;, genre=&#39;&quot;</span> + genre + <span class="ch">&#39;\&#39;&#39;</span> +
+                <span class="st">&quot;, director=&#39;&quot;</span> + director + <span class="ch">&#39;\&#39;&#39;</span> +
+                <span class="st">&quot;, firstRelease=&quot;</span> + firstRelease +
+                <span class="st">&quot;, actors=&quot;</span> + actors +
+                &#39;}&#39;;
+    }
+}</code></pre></div>
+<p>That’s a hell lot of code (126 LOC, to be exact) for something as simple as a class holding only metadata about movies.</p>
+<p>“That’s a lot of code, but my IDE can generate it for me,” I here you say. That’s absolutely correct, but I’d like to point out that writing boilerplate code is just one side of the coin. A lot of your time you’re reading some other developer’s code, hunting for that tricky bug, where the all that boilerplate will obfuscate the essence of the code.</p>
+<p>By the way, have you noticed the error/unexpected behavior in the code snippet above?</p>
+<p>It’s likely you just skimmed through it and thus have missed it. It’s in the <code>equals()</code> method, where I forgot to check for equality of <code>subtitle</code>. It’s included in <code>hashCode()</code>, though, so that will likely lead to tricky problems when keeping a <code>Set&lt;Movie&gt;</code>, for example. Errors like these can easily happen when you add a new field to a class, but forget to re-generate your methods.</p>
+<p>In contrast, here’s the same class using Lombok, just without the mistake:</p>
+<div class="sourceCode"><pre class="sourceCode java"><code class="sourceCode java"><span class="fu">@Data</span>
+<span class="kw">public</span> <span class="kw">class</span> Movie {
+
+    <span class="kw">private</span> Long id;
+    <span class="kw">private</span> String title;
+    <span class="kw">private</span> String subtitle;
+    <span class="kw">private</span> String genre;
+    <span class="kw">private</span> String director;
+    <span class="kw">private</span> LocalDate firstRelease;
+    <span class="kw">private</span> List&lt;Actor&gt; actors;
+
+}</code></pre></div>
+<p>Just by annotating the class with <code>@Data</code>, Lombok will generate all getters, setters, <code>equals()</code>, <code>hashCode()</code>, and even a decent <code>toString()</code>. But that’s only the tip of the iceberg. There are many other annotations, e.g. for constructors, the builder pattern, or instantiating a logger. Just have a look at <a href="https://projectlombok.org/features/all">the feature list on their website</a> for an overview.</p>
+<p>Now that you’ve seen a code sample, you may worry about <a href="https://stackoverflow.com/q/3852091/432354">whether it’s safe to use it in your project</a>. Will my IDE still be able to navigate my code? Will it show errors for missing methods? Will I still be able to refactor using the IDE?</p>
+<p>I also wasn’t sure until a year ago. But then a colleague of mine just started to use it in one of our products and I used that as an opportunity to give it a try. I haven’t looked back ever since.</p>
+<p>Getting started is quite simple. Just add the following dependency:</p>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;dependency&gt;</span>
+    <span class="kw">&lt;groupId&gt;</span>org.projectlombok<span class="kw">&lt;/groupId&gt;</span>
+    <span class="kw">&lt;artifactId&gt;</span>lombok<span class="kw">&lt;/artifactId&gt;</span>
+    <span class="kw">&lt;version&gt;</span>1.16.18<span class="kw">&lt;/version&gt;</span>
+    <span class="kw">&lt;scope&gt;</span>provided<span class="kw">&lt;/scope&gt;</span>
+<span class="kw">&lt;/dependency&gt;</span></code></pre></div>
+<p><code>javac</code> will automatically detect Lombok on the classpath (Lombok makes use of <a href="https://www.jcp.org/en/jsr/detail?id=269">JSR-269: “Pluggable Annotation Processing API”</a>). The dependency can be <em>provided</em>, since there’s no need for Lombok to be around at run-time. All the magic happens at compile-time.</p>
+<p>As for IDE support, there’s a brilliant Lombok plugin for IntelliJ IDEA. Just search the plugin repository for “lombok”. If you want to use it in Eclipse it’s even simpler. Download the lombok.jar from the project website and run it. A graphical installer will lead you through the required steps.</p>
+<p>For instance, here’s what the Structure view will look like in IDEA:</p>
+<div class="figure">
+<img src="/2017/lombok-idea.png">
+<p class="caption">
+Class <code>Movie</code> in IDEA
+</p>
+</div>
+<p>As you can see, everything from the first code snippet is there.</p>
+<p>Of course another way to avoid the tedious work of writing and maintaining Java’s boilerplate is using other JVM languages like Kotlin or Scala, which solve Java’s problems using special syntax. But that’s a different story.</p>
+<p>What do you think about Lombok? Are you also thinking about using it in your software or did you already give it a try? Let me and others know in the comments.</p>
+
+      </section>
+      <footer class="meta">
+        <p>Tags:
+
+          <a href="/tag/english.html">english</a> ·
+
+          <a href="/tag/java.html">java</a> 
+
+        </p>
+
+        <p>Teaser image by <a href="https://www.flickr.com/photos/nlann/5492110170/">Nicolas Lannuzel</a>. License: <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY SA 2.0</a>.</p>
+
+      </footer>
+    </article>
+    <section id="comments">
+      <section id="isso-thread" data-title="An Introduction to Project Lombok"></section>
+      <script data-isso-lang="en" src="//comments.vorba.ch/js/embed.min.js"></script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </section>
+    <footer id="about">
+      <p>© 2017 – Paul Vorbach.
+        <a href="http://paul.vorba.ch/">Contact</a>.</p>
+    </footer>
+  </body>
+</html>
