@@ -1,20 +1,16 @@
 <%
-function pad(n) { return n<10?'0'+n:n; }
-function getDate(d) {
-  return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
-}
+const pad = (n) => (n < 10) ? '0' + n : n;
+const getDate = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 %><!DOCTYPE html>
-<html lang="de" id="top">
+<html lang="en" id="top">
   <head>
     <meta charset="utf-8">
     <title>Tag: <%- title %> | <%= siteTitle %></title>
-    <link rel="stylesheet" href="/res/diego.css">
+    <link rel="stylesheet" href="/res/corristo.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="icon" href="/favicon.ico">
     <link rel="alternate" type="application/atom+xml" href="/feed.xml"
       title="Article feed">
-    <link rel="alternate" type="application/atom+xml"
-      href="/comment-feed.xml" title="Comment feed">
     <meta name="author" content="<%= author %>">
 <%
 if (locals.tags) {

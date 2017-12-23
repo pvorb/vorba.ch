@@ -25,8 +25,6 @@ __docs.forEach(function(doc) {
     <link rel="icon" href="/favicon.ico">
     <link rel="alternate" type="application/atom+xml" href="/feed.xml"
       title="Article feed">
-    <link rel="alternate" type="application/atom+xml" href="/comment-feed.xml"
-      title="Comment feed">
     <meta name="author" content="<%= author %>">
   </head>
   <body id="top">
@@ -43,7 +41,7 @@ __docs.forEach(function(doc) {
         <input type="search" name="s" accesskey="s" placeholder="Suche">
       </form>
     </nav>
-    <article id="content" class="digest">
+    <section id="content" class="digest">
       <header>
         <h1>Archive</h1>
       </header>
