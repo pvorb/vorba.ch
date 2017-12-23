@@ -2,7 +2,7 @@ title: How to Set Up Code Coverage for a Java Project using Gradle, Travis, JaCo
 created: 2015-07-23
 teaser: roof.jpg
 template: post.diego.en.tpl
-tags: [ english, howto, java, code-coverage ]
+tags: [ english, howto, testing, java, gradle, code-coverage ]
 
 
 The code coverage of a project's test suite can be a useful measure for finding

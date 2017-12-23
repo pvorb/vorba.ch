@@ -22,12 +22,9 @@
       "type": "blog index",
       "title": "Blog",
       "pattern": "^\\d{4}/.+$",
-      "path": {
-        "first": "index.html",
-        "pattern": "index-{{page}}.html"
-      },
+      "path": "index.html",
       "template": "index.tpl",
-      "limit": 8,
+      "limit": 99999999,
       "sort": [["created", "desc"]]
     },
     {
