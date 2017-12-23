@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+    <title>Living up to Your own Standards | vorba.ch</title>
+    <link rel="stylesheet" href="/res/corristo.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="alternate" type="application/atom+xml" href="/feed.xml"
+      title="Article feed">
+    <link rel="alternate" type="application/atom+xml" href="/comment-feed.xml"
+      title="Comment feed">
+    <meta name="author" content="Paul Vorbach">
+
+    <meta name="keywords" content="english, howto, testing, java, gradle, maven, code-coverage">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@pvorb">
+    <meta property="og:title" content="Living up to Your own Standards">
+    <meta property="og:description" content="Read the article on vorba.ch">
+    <meta property="og:image" content="https://vorba.ch/res/logo.png">
+  </head>
+  <body id="top">
+    <nav id="nav">
+      <ol id="path">
+        <li><a href="/">vorba.ch</a>
+
+        <li><a href="/archive.html#2017">2017</a>
+
+      </ol>
+      <ol id="access">
+        <li><a href="#top" title="To the top" id="back" accesskey="t">↑</a>
+        <li><a href="#nav">Navigation</a>
+        <li><a href="#content">Content</a>
+        <li><a href="#comments" accesskey="c">Comments</a>
+      </ol>
+      <form id="search" action="/search.html" method="GET">
+        <input type="search" name="s" accesskey="s" placeholder="Search">
+      </form>
+    </nav>
+    <article id="content">
+      <header>
+        <h1>Living up to Your own Standards</h1>
+        <p class="meta">
+          by <span class="author">Paul Vorbach</span>,
+          <span class="created">2017-12-23</span>
+          &ndash; <a href="#comments">Comments</a></p>
+      </header>
+      <section>
+        <p>My reader Rebeca asked me yesterday if I could post about how to let your test suite fail if it falls below a certain threshold. So here’s how you can do this using the JaCoCo plugins for Maven and Gradle.</p>
+<h2 id="maven">Maven</h2>
+<p>You can configure a rule in <code>jacoco-maven-plugin</code> as follows.</p>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;build&gt;</span>
+    <span class="kw">&lt;plugin&gt;</span>
+        <span class="kw">&lt;groupId&gt;</span>org.jacoco<span class="kw">&lt;/groupId&gt;</span>
+        <span class="kw">&lt;artifactId&gt;</span>jacoco-maven-plugin<span class="kw">&lt;/artifactId&gt;</span>
+        <span class="kw">&lt;version&gt;</span>0.7.9<span class="kw">&lt;/version&gt;</span>
+        <span class="kw">&lt;executions&gt;</span>
+            <span class="co">&lt;!-- ... --&gt;</span>
+            <span class="kw">&lt;execution&gt;</span>
+                <span class="kw">&lt;id&gt;</span>check<span class="kw">&lt;/id&gt;</span>
+                <span class="kw">&lt;phase&gt;</span>test<span class="kw">&lt;/phase&gt;</span>
+                <span class="kw">&lt;goals&gt;</span>
+                    <span class="kw">&lt;goal&gt;</span>check<span class="kw">&lt;/goal&gt;</span>
+                <span class="kw">&lt;/goals&gt;</span>
+                <span class="kw">&lt;configuration&gt;</span>
+                    <span class="kw">&lt;rules&gt;</span>
+                        <span class="kw">&lt;rule</span><span class="ot"> implementation=</span><span class="st">&quot;org.jacoco.maven.RuleConfiguration&quot;</span><span class="kw">&gt;</span>
+                            <span class="kw">&lt;element&gt;</span>BUNDLE<span class="kw">&lt;/element&gt;</span>
+                            <span class="kw">&lt;limits&gt;</span>
+                                <span class="kw">&lt;limit</span><span class="ot"> implementation=</span><span class="st">&quot;org.jacoco.report.check.Limit&quot;</span><span class="kw">&gt;</span>
+                                    <span class="kw">&lt;counter&gt;</span>INSTRUCTION<span class="kw">&lt;/counter&gt;</span>
+                                    <span class="kw">&lt;value&gt;</span>COVEREDRATIO<span class="kw">&lt;/value&gt;</span>
+                                    <span class="kw">&lt;minimum&gt;</span>0.80<span class="kw">&lt;/minimum&gt;</span>
+                                <span class="kw">&lt;/limit&gt;</span>
+                            <span class="kw">&lt;/limits&gt;</span>
+                        <span class="kw">&lt;/rule&gt;</span>
+                    <span class="kw">&lt;/rules&gt;</span>
+                <span class="kw">&lt;/configuration&gt;</span>
+            <span class="kw">&lt;/execution&gt;</span>
+        <span class="kw">&lt;/executions&gt;</span>
+    <span class="kw">&lt;/plugin&gt;</span>
+<span class="kw">&lt;/build&gt;</span></code></pre></div>
+<p>Now, if your test suite falls below 80% instruction coverage, the build will fail with the following message:</p>
+<pre><code>$ mvn verify
+...
+[ERROR] Failed to execute goal org.jacoco:jacoco-maven-plugin:0.7.9:check (check) on project platon: Coverage checks have not been met. See log for details. -&gt; [Help 1]</code></pre>
+<p>There are many other possible rules for the check mojo <a href="http://www.jacoco.org/jacoco/trunk/doc/check-mojo.html">documented in the official JaCoCo documentation</a>.</p>
+<h2 id="gradle">Gradle</h2>
+<p>Configuring these rules is even simpler for Gradle.</p>
+<pre class="groovy"><code>apply plugin: &#39;jacoco&#39;
+
+// ...
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
+
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.9
+            }
+        }
+    }
+}
+
+jacocoTestCoverageVerification.dependsOn(jacocoTestReport)
+check.dependsOn(jacocoTestCoverageVerification)</code></pre>
+<p>Here’s what you get when you run <code>gradle check</code> and test coverage is low.</p>
+<pre><code>$ gradle check
+...
+:jacocoTestReport
+[ant:jacocoReport] Rule violated for bundle property-providers: instructions covered ratio is 0.7, but expected minimum is 0.8
+:jacocoTestCoverageVerification FAILED
+FAILURE: Build failed with an exception.
+* What went wrong:
+Execution failed for task &#39;:jacocoTestCoverageVerification&#39;.
+&gt; Rule violated for bundle property-providers: instructions covered ratio is 0.7, but expected minimum is 0.8
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+* Get more help at https://help.gradle.org
+BUILD FAILED in 14s</code></pre>
+<p>You can find more configuration examples in <a href="https://docs.gradle.org/current/userguide/jacoco_plugin.html#sec:jacoco_report_violation_rules">Gradle’s JaCoCo plugin documentation</a>.</p>
+<p>I hope this guide will help one or the other trying to achieve something similar.</p>
+
+      </section>
+      <footer class="meta">
+        <p>Tags:
+
+          <a href="/tag/english.html">english</a> ·
+
+          <a href="/tag/howto.html">howto</a> ·
+
+          <a href="/tag/testing.html">testing</a> ·
+
+          <a href="/tag/java.html">java</a> ·
+
+          <a href="/tag/gradle.html">gradle</a> ·
+
+          <a href="/tag/maven.html">maven</a> ·
+
+          <a href="/tag/code-coverage.html">code-coverage</a> 
+
+        </p>
+
+      </footer>
+    </article>
+    <section id="comments">
+      <section id="isso-thread" data-title="Living up to Your own Standards"></section>
+      <script data-isso-lang="en" src="//comments.vorba.ch/js/embed.min.js"></script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </section>
+    <footer id="about">
+      <p>© 2017 – Paul Vorbach.
+        <a href="http://paul.vorba.ch/">Contact</a>.</p>
+    </footer>
+  </body>
+</html>
