@@ -1,26 +1,34 @@
 <%
-function pad(n) { return n<10?'0'+n:n; }
-function getDate(d) {
-  return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
-}
+const pad = (n) => (n < 10) ? '0' + n : n;
+const getDate = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+
+var byYear = {};
+var years = [];
+__docs.forEach(function(doc) {
+  var year = doc.created.getFullYear();
+  if (typeof byYear[year] == 'undefined') {
+    byYear[year] = [];
+    years.push(year);
+  }
+
+  byYear[year].push(doc);
+});
 %><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title><%= title %> | <%= siteTitle %></title>
-    <link rel="stylesheet" href="/res/diego.css">
+    <title>Archive | <%= siteTitle %></title>
+    <link rel="stylesheet" href="/res/corristo.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="icon" href="/favicon.ico">
     <link rel="alternate" type="application/atom+xml" href="/feed.xml"
       title="Article feed">
-    <link rel="alternate" type="application/atom+xml" href="/comment-feed.xml"
-      title="Comment feed">
     <meta name="author" content="<%= author %>">
   </head>
   <body id="top">
     <nav id="nav">
       <ol id="path">
-        <li>vorba.ch</li>
+        <li><a href="/">vorba.ch</a></li>
       </ol>
       <ol id="access">
         <li><a href="#top" title="To the top" id="back" accesskey="t">↑</a>
@@ -32,68 +40,27 @@ function getDate(d) {
       </form>
     </nav>
     <section id="content" class="digest">
-      <header class="meta">
-        <p>
-          <a href="/archive.html" class="button">Archive</a> ·
-          <a href="/tag/" class="button">Tags</a> ·
-          <a href="/feed.xml" class="feed button">Article feed</a> ·
-          <a href="/comment-feed.xml" class="feed button">Comment feed</a> ·
-          <a href="/blogroll.html" class="button"%>Blogroll</a></p>
-      </header>
-<% __docs.forEach(function(doc) { %>
-      <article<%= doc.lang ? ' lang="'+doc.lang+'"' : '' %>>
-        <header>
-<%
-var lines = doc.__content.split('</p>', 2);
-doc.__content = lines.join('</p>');
-%>
-          <h1><a href="/<%= doc._id %>"><%= doc.title %></a></h1>
-<% if (doc.teaser) {
-  var teaser = doc._id.split('/').slice(0, -1);
-  if (typeof doc.teaser == 'string')
-    teaser.push(doc.teaser);
-  else if (typeof doc.teaser == 'object')
-    teaser.push(doc.teaser.img);
-  teaser = teaser.join('/');
-%>
-          <figure class="teaser">
-            <a href="/<%= doc._id %>"><img src="/<%= teaser %>"></a>
-          </figure>
-<% } %>
-          <p class="meta"><%- getDate(doc.created) %> &ndash; <a href="/<%= doc._id %>#isso-thread">Comments</a></p>
-        </header>
-        <section>
-          <%- doc.__content %>
-          <p><a href="/<%= doc._id %>">Read on &hellip;</a></p>
-        </section>
-      </article>
+      <section>
+<% years.forEach(function(year) { %>
+        <h2 id="<%= year %>"><%= year %></h1>
+        <ul>
+<% byYear[year].forEach(function(doc) { %>
+          <li><%- getDate(doc.created) %> &ndash; <a href="/<%= doc._id %>"><%-
+            doc.title %></a></li>
 <% }); %>
-      <ul class="pagination">
-<% if (__pagination.first) { %>
-        <li><a href="/<%= __pagination.first.file %>"><%-
-          __pagination.first.page %></a>
-        <li>…
-<% }
-if (__pagination.prev) { %>
-        <li><a href="/<%= __pagination.prev.file %>" accesskey="p"><%-
-          __pagination.prev.page %></a>
-<% } %>
-        <li><span><%- __pagination.this %></span>
-<% if (__pagination.next) { %>
-        <li><a href="/<%= __pagination.next.file %>" accesskey="n"><%-
-          __pagination.next.page %></a>
-<% }
-if (__pagination.last) { %>
-        <li>…
-        <li><a href="/<%= __pagination.last.file %>"><%-
-          __pagination.last.page %></a>
-<% } %>
-      </ul>
+        </ul>
+<% }); %>
+      </section>
+      <footer class="meta">
+        <p>
+          <a href="/tag/" class="button">Tags</a> ·
+          <a href="/feed.xml" class="feed button">Article feed</a>
+        </p>
+      </footer>
     </section>
     <footer id="about">
       <p>© 2008-<%= __docs[0].created.getFullYear() %> – <%= siteAuthor %>.
         <a href="http://paul.vorba.ch/">Contact</a>.</p>
     </footer>
-    <script data-isso-lang="en" src="//comments.vorba.ch/js/count.min.js"></script>
   </body>
 </html>
