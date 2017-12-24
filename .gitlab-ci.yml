@@ -17,8 +17,6 @@ build:
     - feature/gitlab-ci
   tags:
     - docker
-    - node
-    - mongo
 
 deploy:
   script:
@@ -28,3 +26,5 @@ deploy:
     - feature/gitlab-ci
   tags:
     - docker
+  dependencies:
+    - build
