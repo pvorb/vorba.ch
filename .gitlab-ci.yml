@@ -21,7 +21,7 @@ build:
 deploy:
   script:
     - echo 'empy job'
-  stage: build
+  stage: deploy
   only:
     - feature/gitlab-ci
   tags:
