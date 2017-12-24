@@ -3,11 +3,22 @@ services:
   - "mongo:3.6-jessie"
 
 stages:
+  - prepare-build
   - build
   - deploy
 
 before_script:
   - "npm install -g bread"
+
+prepare_mongo:
+  script:
+    - "echo db.createCollection('docs') > ./create_db.js"
+    - "mongo mongo/vorb_de ./create_db.js"
+  stage: prepare-build
+  only:
+    - "feature/gitlab-ci"
+  tags:
+    - docker
 
 build:
   script:
@@ -26,5 +37,3 @@ deploy:
     - "feature/gitlab-ci"
   tags:
     - docker
-  dependencies:
-    - build
