@@ -16,5 +16,6 @@ build:
   only:
     - feature/gitlab-ci
   tags:
+    - docker
     - node
     - mongo
