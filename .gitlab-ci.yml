@@ -1,29 +1,29 @@
-image: node:8-alpine
+image: "node:8-alpine"
 services:
-  - mongo:3.6-jessie
+  - "mongo:3.6-jessie"
 
 stages:
   - build
   - deploy
 
 before_script:
-  - npm install -g bread
+  - "npm install -g bread"
 
 build:
   script:
     - bread
   stage: build
   only:
-    - feature/gitlab-ci
+    - "feature/gitlab-ci"
   tags:
     - docker
 
 deploy:
   script:
-    - echo 'empy job'
+    - "echo 'empy job'"
   stage: deploy
   only:
-    - feature/gitlab-ci
+    - "feature/gitlab-ci"
   tags:
     - docker
   dependencies:
