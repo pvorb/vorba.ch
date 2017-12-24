@@ -19,3 +19,12 @@ build:
     - docker
     - node
     - mongo
+
+deploy:
+  script:
+    - echo 'empy job'
+  stage: build
+  only:
+    - feature/gitlab-ci
+  tags:
+    - docker
