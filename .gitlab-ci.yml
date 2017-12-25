@@ -3,6 +3,10 @@ image: "alpine:latest"
 before_script:
   - "apk update"
   - "apk add openssh rsync"
+  - "eval $(ssh-agent -s)"
+  - "echo \"$SSH_PRIVATE_KEY\" | ssh-add - > /dev/null"
+  - "mkdir -p ~/.ssh"
+  - "[[ -f /.dockerenv ]] && echo \"$SSH_SERVER_HOSTKEYS\" > ~/.ssh/known_hosts"
 
 deploy:
   script:
