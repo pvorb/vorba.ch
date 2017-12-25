@@ -10,7 +10,7 @@ before_script:
 
 deploy:
   script:
-    - "rsync -r --chmod 644 public/ pvo@vorba.ch:~/vorba.ch/"
+    - "rsync -r --chmod 644 public/ pvo@vorba.ch:/var/www/vorba.ch/"
   only:
     - "feature/gitlab-ci"
   tags:
