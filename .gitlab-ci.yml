@@ -1,5 +1,8 @@
 image: "alpine:latest"
 
+before_script:
+  - "apk add rsync"
+
 deploy:
   script:
     - "rsync -r --chown www-data:www-data --chmod 755 public/ pvo@vorba.ch:~/vorba.ch/"
