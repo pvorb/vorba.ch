@@ -1,6 +1,6 @@
 {
   "db": {
-    "host": "mongo",
+    "host": "localhost",
     "port": 27017,
     "name": "vorb_de",
     "collection": "docs"
