@@ -12,6 +12,6 @@ deploy:
   script:
     - "rsync -r --chmod 644 public/ pvo@vorba.ch:/var/www/vorba.ch/"
   only:
-    - "feature/gitlab-ci"
+    - master
   tags:
     - docker
