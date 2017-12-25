@@ -1,38 +1,8 @@
-image: "node:8-alpine"
-services:
-  - "mongo:3.6-jessie"
-
-stages:
-  - prepare-build
-  - build
-  - deploy
-
-before_script:
-  - "npm install -g bread"
-
-prepare_mongo:
-  script:
-    - "echo 'db.createCollection(\"docs\")' > ./create_db.js"
-    - "mongo mongo/vorb_de ./create_db.js"
-  stage: prepare-build
-  only:
-    - "feature/gitlab-ci"
-  tags:
-    - docker
-
-build:
-  script:
-    - bread
-  stage: build
-  only:
-    - "feature/gitlab-ci"
-  tags:
-    - docker
+image: "alpine:latest"
 
 deploy:
   script:
-    - "echo 'empy job'"
-  stage: deploy
+    - "rsync -r --chown www-data:www-data --chmod 755 public/ pvo@vorba.ch:~/vorba.ch/"
   only:
     - "feature/gitlab-ci"
   tags:
