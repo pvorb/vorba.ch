@@ -61,7 +61,7 @@ if (locals.tags) {
         <p class="meta">
           von <span class="author"><%- author %></span>,
           <span class="created"><%- getDate(created) %></span>
-          &ndash; <a href="#comments">Kommentare</a></p>
+          – <a href="#comments">Kommentare</a></p>
       </header>
       <section>
         <%- __content %>

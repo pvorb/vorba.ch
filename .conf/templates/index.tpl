@@ -45,8 +45,7 @@ __docs.forEach(function(doc) {
         <h2 id="<%= year %>"><%= year %></h1>
         <ul>
 <% byYear[year].forEach(function(doc) { %>
-          <li><%- getDate(doc.created) %> &ndash; <a href="/<%= doc._id %>"><%-
-            doc.title %></a></li>
+          <li><%- getDate(doc.created) %> – <a href="/<%= doc._id %>"><%- doc.title %></a></li>
 <% }); %>
         </ul>
 <% }); %>
