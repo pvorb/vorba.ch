@@ -47,7 +47,7 @@ __docs.forEach(function(doc) {
       </header>
       <section>
 <% years.forEach(function(year) { %>
-        <h2 id="<%= year %>"><%= year %></h1>
+        <h2 id="<%= year %>"><%= year %></h2>
         <ul>
 <% byYear[year].forEach(function(doc) { %>
           <li><%- getDate(doc.created) %>, <a href="/<%= doc._id %>"><%-
