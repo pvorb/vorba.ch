@@ -46,7 +46,7 @@ if (locals.tags) {
     if (i == 0) {%>
         <li><a href="<%= pathref %>">vorba.ch</a>
 <%  } else if (i == 1) {%>
-        <li><a href="/archive.html#<%= path[i] %>"><%- path[i] %></a>
+        <li><a href="/#<%= path[i] %>"><%- path[i] %></a>
 <%  } else {%>
         <li><%- path[i] %>
 <%  }

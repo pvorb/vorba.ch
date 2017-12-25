@@ -40,17 +40,6 @@
   border-radius: @radius;
 }
 
-@font-face {
-  font-family: FontAwesome;
-  src: url('/res/fontawesome-4.0.eot');
-  src: url('/res/fontawesome-4.0.eot') format('embedded-opentype'),
-       url('/res/fontawesome-4.0.woff') format('woff'),
-       url('/res/fontawesome-4.0.ttf') format('truetype'),
-       url('/res/fontawesome-webfont.svg#fontawesomeregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
 body {
   padding: 5em 0;
   margin: 0;
@@ -321,37 +310,6 @@ a:active {
 
 .meta span {
   color: #555;
-}
-
-.meta .created:before, .meta .modified:before, .digest article p.meta:before,
-.meta a[href^='#comments']:before, article p a[href$='#disqus_thread']:before {
-  font-family: FontAwesome;
-  font-size: 14px;
-  margin-right: .3em;
-}
-
-.meta .created:before, .meta .modified:before {
-  content: '\f073'; // fa-calendar
-}
-
-.digest article p.meta:before {
-  content: '\f073'; // fa-tags
-}
-
-.meta a[href^='#comments'], article p a[href$='#disqus_thread'] {
-  text-decoration: none;
-  width: 0;
-
-  &:before {
-    content: '\f086'; // fa-comments
-  }
-}
-
-footer.meta p:first-child:before {
-  font-family: FontAwesome;
-  content: '\f02c'; // fa-tags
-  font-size: 14px;
-  padding-right: .3em;
 }
 
 /* source code */

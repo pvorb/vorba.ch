@@ -38,7 +38,7 @@ if (locals.tags) {
     if (i == 0) {%>
         <li><a href="<%= pathref %>">vorba.ch</a>
 <%  } else if (i == 1) {%>
-        <li><a href="/archive.html#<%= path[i] %>"><%- path[i] %></a>
+        <li><a href="/#<%= path[i] %>"><%- path[i] %></a>
 <%  } else {%>
         <li><%- path[i] %>
 <%  }
@@ -67,7 +67,7 @@ if (locals.tags) {
         <%- __content %>
       </section>
       <footer class="meta">
-        <p>Kategorien:
+        <p>
 <%
 if (locals.tags)
   for (var i = 0, len = tags.length; i < len; i++) { var tag = locals.tags[i];
