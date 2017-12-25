@@ -28,7 +28,7 @@ __docs.forEach(function(doc) {
   <body id="top">
     <nav id="nav">
       <ol id="path">
-        <li><a href="/">vorba.ch</a></li>
+        <li>vorba.ch</li>
       </ol>
       <ol id="access">
         <li><a href="#top" title="To the top" id="back" accesskey="t">↑</a>
