@@ -1,10 +1,13 @@
+---
 title: At the beginning
+alias: beginning
 created: 2012-02-28
 modified: 2012-02-28T11:31+0100
 tags: [misc]
 teaser: sunrise.jpg
 
 template: post.en.tpl
+...
 
 
 .
