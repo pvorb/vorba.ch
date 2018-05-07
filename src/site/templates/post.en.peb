@@ -1,0 +1,11 @@
+{% extends 'milten-base.peb' %}
+
+{% block title %}
+    {{ title | noHtml }} | {{ site.title | noHtml }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ title | raw }}</h1>
+
+    {{ content | raw }}
+{% endblock %}

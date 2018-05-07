@@ -30,34 +30,40 @@
         <project.build.targetEncoding>UTF-8</project.build.targetEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>de.vorb</groupId>
+            <artifactId>sokrates</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.6.0</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>de.vorb</groupId>
-                        <artifactId>sokrates</artifactId>
-                        <version>0.1.0-SNAPSHOT</version>
-                    </dependency>
-                </dependencies>
                 <configuration>
-                    <includePluginDependencies>true</includePluginDependencies>
+                    <includeProjectDependencies>true</includeProjectDependencies>
                 </configuration>
                 <executions>
                     <execution>
                         <id>generate-site</id>
-                        <phase>site</phase>
+                        <phase>prepare-package</phase>
                         <goals>
-                            <goal>java</goal>
+                            <goal>exec</goal>
                         </goals>
                         <configuration>
-                            <mainClass>de.vorb.sokrates.SokratesApp</mainClass>
+                            <executable>java</executable>
                             <arguments>
+                                <argument>-classpath</argument>
+                                <classpath/>
+                                <argument>de.vorb.sokrates.app.SokratesApp</argument>
                                 <argument>generate</argument>
+                                <argument>--force</argument>
                             </arguments>
+                            <workingDirectory>${project.basedir}</workingDirectory>
                         </configuration>
                     </execution>
                 </executions>

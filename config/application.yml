@@ -1,0 +1,52 @@
+logging.level:
+  root: WARN
+  de.vorb.sokrates: INFO
+  org.jooq.Constants: INFO
+
+spring.datasource:
+  url: jdbc:h2:./sokrates
+  driver-class-name: org.h2.Driver
+  username: sa
+  password:
+
+sokrates:
+  site:
+    title: My personal blog
+    subtitle: A blog about personal things
+    default-locale: en-US
+  directory:
+    output: out/
+    templates: src/site/templates/
+  generator:
+    pandoc-executable: E:\Program Files\Pandoc\pandoc.exe
+    extension-mapping:
+      md: html
+    generate-rules:
+      - pattern: src/site/posts/2012/2012-02-28_*.md
+        base-directory: src/site/posts
+        format: markdown
+    copy-rules:
+      - pattern: src/site/posts/**/*
+        base-directory: src/site/posts
+    tag-rule:
+      source-file-pattern: "src/site/tags/%s.md"
+      output-file-pattern: "tag/%s.html"
+      format: markdown
+      template: tag.peb
+      index-output-file: tags/index.html
+      index-template: tag-index.peb
+  indexes:
+    - name: Blog index
+      title: Blog index
+      template: index.peb
+      output-file: index.html
+      order-by:
+        - created_at DESC
+      grouping: BY_YEAR_CREATED
+    - name: Feed
+      title: Atom Feed
+      template: feed.peb
+      output-file: feed.xml
+      order-by:
+        - created_at DESC
+      limit: 10

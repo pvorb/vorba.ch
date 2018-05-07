@@ -1,4 +1,6 @@
 .conf/api.log
 .project
 .settings
+*.iml
+.idea/
 nginx/
