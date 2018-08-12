@@ -1,6 +1,7 @@
-.conf/api.log
-.project
-.settings
+/target/
+/node_modules/
+
 *.iml
 .idea/
-nginx/
+
+*.db

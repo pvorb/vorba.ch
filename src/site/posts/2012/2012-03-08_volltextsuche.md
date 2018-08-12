@@ -1,10 +1,18 @@
+---
 title: Volltextsuche mit Node.js
-created: 2012-03-08T11:00:00+0100
+alias: volltextsuche.md
 
-teaser: hdd-search.jpg
-tags: [ deutsch, dev, search, bread ]
-template: post.de.tpl
+author: Paul Vorbach
+created-at: 2012-03-08
 
+tags: [ deutsch, self, dev, search, bread ]
+locale: de-DE
+
+template: post-milten.ftl
+properties:
+  teaser:
+    imageUrl: hdd-search.jpg
+...
 
 Hier fehlt noch eine Volltextsuche. Das ist aufgrund der Architektur von Bread
 nicht ganz trivial. Also habe ich mir überlegt, ob es vielleicht für den Moment

@@ -1,9 +1,18 @@
+---
 title: For loop behavior in PHP
-created: 2012-07-09T13:00:00+0200
-teaser: rollercoaster.jpg
-tags: [ english, note, dev, php ]
-template: post.en.tpl
+alias: for-loop-behavior.md
 
+author: Paul Vorbach
+created-at: 2012-07-09
+
+tags: [ english, note, dev, php ]
+locale: en-US
+
+template: post-milten.ftl
+properties:
+  teaser:
+    imageUrl: rollercoaster.jpg
+...
 
 I always asked myself how often a function gets evaluated if you place it in the
 break condition of a for loop (or a for-each loop). Unfortunately I have always

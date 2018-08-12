@@ -1,9 +1,18 @@
+---
 title: Was lange währt
-created: 2012-03-04T15:36:00+0100
-tags: [deutsch, dev, nodejs, bread, cms, weblog]
-teaser: kosmonaut.jpg
-template: post.de.tpl
+alias: was-lange-waehrt.md
 
+author: Paul Vorbach
+created-at: 2012-03-04
+
+tags: [deutsch, self, dev, nodejs, bread, cms, weblog]
+locale: de-DE
+
+template: post-milten.ftl
+properties:
+  teaser:
+    imageUrl: kosmonaut.jpg
+...
 
 Ein halbes Jahr hat es gedauert. Nun ist es endlich vollbracht: Mein Blog geht
 ans Netz.
@@ -27,8 +36,8 @@ genauer beschreiben. Bis dahin werde ich noch ein paar Dinge verfeinern.
 
 
 [bread]: https://github.com/pvorb/node-bread
-[txt]: /log/2012/03/was-lange-waehrt.txt
-[heimweh]: http://anmutunddemut.de/2010/05/23/heimweh-20-die-ziele.html
+[txt]: /2012/was-lange-waehrt.txt
+[heimweh]: https://anmutunddemut.de/2010/05/23/heimweh-20-die-ziele.html
 [blogracer]: http://konnexus.net/lexicon/blogracer
 [txtracer]: http://konnexus.net/lexicon/txtracer
 [nihil]: http://blog.fymmie.de/thema/nihil

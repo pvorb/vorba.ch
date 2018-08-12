@@ -1,10 +1,18 @@
+---
 title: Größe zeigen
-created: 2012-12-08T01:00:00+0100
+alias: groesse-zeigen.md
+
+author: Paul Vorbach
+created-at: 2012-12-08
 
 tags: [ deutsch, ux, typography ]
-teaser: font-sizes.png
-template: post.de.tpl
+locale: de-DE
 
+template: post-milten.ftl
+properties:
+  teaser:
+    imageUrl: font-sizes.png
+...
 
 Vergangene Woche habe ich den Standard-Schriftgrad in meinem Browser auf 18
 Pixel erhöht. Und was soll ich sagen? Viele Websites lassen sich dadurch viel

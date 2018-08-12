@@ -1,9 +1,18 @@
+---
 title: Semantic Weblog
-created: 2012-04-17T15:00:00+0200
-teaser: green-roof-norway.jpg
-template: post.de.tpl
-tags: [ deutsch, bread, weblog, semantic-web ]
+alias: semantic-weblog.md
 
+author: Paul Vorbach
+created-at: 2012-04-17
+
+tags: [ deutsch, bread, weblog, semantic-web ]
+locale: de-DE
+
+template: post-milten.ftl
+properties:
+  teaser:
+    imageUrl: green-roof-norway.jpg
+...
 
 Mit den [Tag-Seiten] kann Bread etwas, das ein wenig in Richtung Semantic Weblog
 geht.
@@ -18,7 +27,7 @@ Einiges Interessantes im Bezug auf das _Semantic Web_ und _Semantig Weblogs_ im
 Speziellen [findet sich bei Anmut und Demut][Semantic Weblog].
 
 [Tag-Seiten]: /log/tag/
-[OWL]: http://de.wikipedia.org/wiki/Web_Ontology_Language
-[RDF]: http://de.wikipedia.org/wiki/Resource_Description_Framework
+[OWL]: https://de.wikipedia.org/wiki/Web_Ontology_Language
+[RDF]: https://de.wikipedia.org/wiki/Resource_Description_Framework
 [Konstantins Lexikon]: http://konnexus.net/lexicon/
-[Semantic Weblog]: http://anmutunddemut.de/thema/semantic-weblog
+[Semantic Weblog]: https://anmutunddemut.de/thema/semantic-weblog

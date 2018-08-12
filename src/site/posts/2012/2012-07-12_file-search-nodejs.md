@@ -1,16 +1,24 @@
+---
 title: File search in Node.js
-created: 2012-07-12T12:00:00+0200
-modified: 2013-02-13T10:30:00+0100
-teaser:
-  img: magnify.jpg
-  author: Lukas Mathis
-  url: http://www.flickr.com/photos/l_k_m/1464840438/
-  license:
-    name: CC BY-SA 2.0
-    url: http://creativecommons.org/licenses/by-sa/2.0/
-tags: [ english, dev, nodejs ]
-template: post.en.tpl
+alias: file-search-nodejs.md
 
+author: Paul Vorbach
+created-at: 2012-07-12
+last-modified-at: 2013-02-13
+
+tags: [ english, dev, nodejs ]
+locale: en-US
+
+template: post-milten.ftl
+properties:
+  teaser:
+    imageUrl: magnify.jpg
+    author: Lukas Mathis
+    url: http://www.flickr.com/photos/l_k_m/1464840438/
+    license:
+      name: CC BY-SA 2.0
+      url: http://creativecommons.org/licenses/by-sa/2.0/
+...
 
 Since the German blog post [Volltextsuche] is the most clicked on this blog,
 I’ll explain, how I realised the full-text search of this website with the help

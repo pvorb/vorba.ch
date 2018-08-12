@@ -1,10 +1,18 @@
+---
 title: Suchschlitz und Benutzbarkeit
-created: 2012-05-05T23:00:00+0200
-modified: 2012-05-05T23:10:00+0200
-teaser: typewriter.jpg
-tags: [ deutsch, html, search ]
-template: post.de.tpl
+alias: suchschlitz-und-benutzbarkeit.md
 
+author: Paul Vorbach
+created-at: 2012-05-05
+
+tags: [ deutsch, html, search ]
+locale: de-DE
+
+template: post-milten.ftl
+properties:
+  teaser:
+    imageUrl: typewriter.jpg
+...
 
 Die [Volltextsuche] hat sich jetzt schon zwei Monate bewährt. Also habe ich nun
 einen Suchschlitz ins Design eingebaut.

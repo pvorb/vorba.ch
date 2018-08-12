@@ -1,9 +1,18 @@
+---
 title: Stylesheet für Atom-Feeds
-created: 2012-04-29T22:00:00+0200
-teaser: milten-xsl.png
-template: post.de.tpl
-tags: [ deutsch, dev, xml, xsl ]
+alias: stylesheet-fuer-feeds.md
 
+author: Paul Vorbach
+created-at: 2012-04-29
+
+tags: [ deutsch, dev, xml, xsl ]
+locale: de-DE
+
+template: post-milten.ftl
+properties:
+  teaser:
+    imageUrl: milten-xsl.png
+...
 
 Seit gerade eben hat der [Artikel-Feed](/log/feed.xml) hier ein eigenes
 Stylesheet. Wie das funktioniert kann man bei

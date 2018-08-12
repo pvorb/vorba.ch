@@ -1,14 +1,18 @@
 ---
 title: Recent Node.js and npm versions on Debian 6
+alias: node-and-npm-on-debian.md
+
+author: Paul Vorbach
 created-at: 2012-02-29
 last-modified-at: 2012-03-03
+
 tags: [english, nodejs, linux]
+locale: en-US
 
-template: post.en.tpl
-
+template: post-milten.ftl
 properties:
   teaser:
-    image-url: nodejs-npm.png
+    imageUrl: nodejs-npm.png
 ...
 
 Several months ago, it was somehow a little tricky to install Node.js and npm on

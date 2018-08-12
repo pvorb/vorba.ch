@@ -1,9 +1,18 @@
+---
 title: "Minecraft: DOTA"
-created: 2012-04-19T17:00:00+0200
-tags: [ deutsch, note, games, minecraft ]
-template: post.de.tpl
-teaser: minecraft-dota.png
+alias: minecraft-dota.md
 
+author: Paul Vorbach
+created-at: 2012-04-19
+
+tags: [ deutsch, note, games, minecraft ]
+locale: de-DE
+
+template: post-milten.ftl
+properties:
+  teaser:
+    imageUrl: minecraft-dota.jpg
+...
 
 War ja nur eine Frage der Zeit:
 

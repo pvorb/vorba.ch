@@ -1,19 +1,17 @@
 ---
 title: At the beginning
+alias: beginning.md
 
-alias: beginning
-
+author: Paul Vorbach
 created-at: 2012-02-28
-last-modified-at: 2012-02-28
 
-template: post.en.peb
+tags: [ self ]
 locale: en-US
-tags: [misc]
 
-
+template: post-milten.ftl
 properties:
   teaser:
-    image-url: sunrise.jpg
+    imageUrl: sunrise.jpg
 ...
 
 
