@@ -11,7 +11,7 @@ locale: de-DE
 template: post-milten.ftl
 properties:
   teaser:
-    imageUrl: minecraft-dota.jpg
+    imageUrl: minecraft-dota.png
 ...
 
 War ja nur eine Frage der Zeit:
