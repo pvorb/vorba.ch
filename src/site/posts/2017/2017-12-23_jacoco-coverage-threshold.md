@@ -1,9 +1,17 @@
+---
 title: Living up to Your own Standards
-created: 2017-12-23
-template: post.corristo.en.tpl
-highlight: "#6daaff"
-tags: [ english, howto, testing, java, gradle, maven, code-coverage ]
+alias: jacoco-coverage-threshold.md
 
+author: Paul Vorbach
+created-at: 2017-12-23
+
+tags: [ english, howto, testing, java, gradle, maven, code-coverage ]
+locale: en-US
+
+template: post-corristo.ftl
+properties:
+  highlight: "#43679C"
+...
 
 My reader Rebeca asked me yesterday if I could post about how to let your test suite fail if it falls below a certain
 threshold. So here's how you can do this using the JaCoCo plugins for Maven and Gradle.

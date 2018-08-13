@@ -41,6 +41,7 @@
 }
 
 body {
+  border-top: 5px solid @darkred;
   padding: 5em 0;
   margin: 0;
 
@@ -163,11 +164,6 @@ html {
   li::after {
     content: ' / ';
   }
-
-  li:first-child {
-    background: url('/favicon.ico') center left no-repeat;
-    padding-left: @logo-space;
-  }
 }
 
 #access {
@@ -213,6 +209,17 @@ article#content > footer {
   clear: both;
 
   .hyphens;
+}
+
+#content header .teaser {
+  float: right;
+  margin: 1em 0 0 !important;
+  padding: 0 0 .5em @col-div;
+  line-height: 1;
+
+  img {
+    vertical-align: bottom;
+  }
 }
 
 #content aside {
@@ -294,19 +301,19 @@ h1 {
 
 /* Colors */
 a {
-  color: #a00;
+  color: @darkred;
 }
 
 a:visited {
-  color: #833;
+  filter: brightness(50%);
 }
 
 a:hover {
-  color: #d00;
+  filter: brightness(130%);
 }
 
 a:active {
-  color: #f00;
+  filter: brightness(200%);
 }
 
 .meta span {
