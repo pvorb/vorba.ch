@@ -1,11 +1,18 @@
+---
 title: Die Reichweite von Node.js
-created: 2013-03-19T01:45:00+0100
-modified: 2013-03-19T01:50:00+0100
+alias: reichweite-nodejs.md
+
+author: Paul Vorbach
+created-at: 2013-03-19
 
 tags: [ deutsch, nodejs ]
-template: post.diego.de.tpl
-teaser: chart.jpg
+locale: de-DE
 
+template: post-diego.ftl
+properties:
+  teaser:
+    imageUrl: chart.jpg
+...
 
 Seit letztem Sommer werden in [npm](http://npmjs.org/) Download-Statistiken
 angezeigt. Sieht man sich ein einzelnes Modul an, so werden die Downloads des

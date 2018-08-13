@@ -1,10 +1,18 @@
+---
 title: Binarisierung
-created: 2013-01-22
+alias: binarisierung.md
+
+author: Paul Vorbach
+created-at: 2013-01-22
 
 tags: [ deutsch, dev, scala, computer-vision, algorithm ]
-teaser: binarization.jpg
-template: post.diego.de.tpl
+locale: de-DE
 
+template: post-diego.ftl
+properties:
+  teaser:
+    imageUrl: binarization.jpg
+...
 
 In meiner Bachelorarbeit, die den Titel „Erstellung von TrueType-Fonts zu
 historischen Manuskripten“ trägt, stand ich vor dem Problem, wie Zeichen in

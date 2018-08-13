@@ -13,7 +13,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
     <@page_title/>
-    <link rel="stylesheet" href="/res/corristo.css">
+    <link rel="stylesheet" href="/res/diego.css">
     <link rel="alternate" type="application/atom+xml" href="/feed.html" title="Article feed"/>
 </head>
 <body id="top">

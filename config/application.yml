@@ -23,7 +23,7 @@ sokrates:
     extension-mapping:
       md: html
     generate-rules:
-      - pattern: src/site/posts/2012/*.md
+      - pattern: src/site/posts/{year:(2012|2013)}/*.md
         base-directory: src/site/posts
         format: markdown
     copy-rules:

@@ -1,10 +1,18 @@
+---
 title: Why are comments not allowed in JSON?
-created: 2013-03-13
+alias: json-comments.md
+
+author: Paul Vorbach
+created-at: 2013-03-13
 
 tags: [ english, dev, json, javascript ]
-template: post.diego.en.tpl
-teaser: json.png
+locale: en-US
 
+template: post-diego.ftl
+properties:
+  teaser:
+    imageUrl: json.png
+...
 
 Every markup or data exchange format that I am aware of, supports the definition
 of comments. There’s only one exception: [JSON].

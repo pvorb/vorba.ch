@@ -1,10 +1,18 @@
+---
 title: Einfaches PHP-CMS
-created: 2013-03-13T23:00:00+0100
+alias: einfaches-php-cms.md
+
+author: Paul Vorbach
+created-at: 2013-03-14
 
 tags: [ deutsch, dev, php, cms ]
-template: post.diego.de.tpl
-teaser: pen-and-notebook.jpg
+locale: de-DE
 
+template: post-diego.ftl
+properties:
+  teaser:
+    imageUrl: pen-and-notebook.jpg
+...
 
 Ich schreibe gerade ein CMS. In PHP.
 
