@@ -1,14 +1,23 @@
+---
 title: Automating Integration Testing of Spring Boot Applications on Travis CI and Sauce Labs
-created: 2016-12-01
-teaser:
-  img: flowers.jpg
-  author: j van cise photos
-  url: https://www.flickr.com/photos/jvancisephotos/13926392039/
-  license:
-    name: CC BY 2.0
-    url: https://creativecommons.org/licenses/by/2.0/
-template: post.diego.en.tpl
+alias: integration-testing-spring-boot-travis-saucelabs.md
+
+author: Paul Vorbach
+created-at: 2016-12-01
+
 tags: [ english, howto, java, spring-boot, maven, testing ]
+locale: en-US
+
+template: post-diego.ftl
+properties:
+  teaser:
+    imageUrl: flowers.jpg
+    author: j van cise photos
+    url: https://www.flickr.com/photos/jvancisephotos/13926392039/
+    license:
+      name: CC BY 2.0
+      url: https://creativecommons.org/licenses/by/2.0/
+...
 
 
 Writing Unit Tests often is not enough to make sure your software is working correctly. In order to make sure your

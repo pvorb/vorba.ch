@@ -1,9 +1,18 @@
+---
 title: How to Set Up Code Coverage for a Java Project using Gradle, Travis, JaCoCo and Codecov
-created: 2015-07-23
-teaser: roof.jpg
-template: post.diego.en.tpl
-tags: [ english, howto, testing, java, gradle, code-coverage ]
+alias: java-gradle-travis-jacoco-codecov.md
 
+author: Paul Vorbach
+created-at: 2015-07-23
+
+tags: [ english, howto, testing, java, gradle, code-coverage ]
+locale: en-US
+
+template: post-diego.ftl
+properties:
+  teaser:
+    imageUrl: roof.jpg
+...
 
 The code coverage of a project's test suite can be a useful measure for finding
 out about the quality of the project. There are several tools for Java that can
