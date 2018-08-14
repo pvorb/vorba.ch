@@ -1,5 +1,0 @@
-title: Steve Jobs
-teaser: jobs.jpg
-
-
-Founder of [Apple](apple.html).

@@ -16,19 +16,17 @@
             ${pages?size} ${l10n.translate("meta.posts", .locale)}
         </p>
     </header>
-    <#if content??>
-        <section>
+    <section>
+        <#if content??>
             ${content?no_esc}
-        </section>
-    </#if>
-    <#list pages>
-        <section>
+        </#if>
+        <#list pages>
             <ul>
                 <#items as page>
                     <li>${page.createdAt} – <a href="${page.url}">${page.title}</a></li>
                 </#items>
             </ul>
-        </section>
-    </#list>
+        </#list>
+    </section>
 </#macro>
 <@page/>

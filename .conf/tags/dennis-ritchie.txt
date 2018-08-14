@@ -1,5 +1,0 @@
-title: Dennis Ritchie
-teaser: ritchie.jpg
-
-
-Creator of [C](c.html) and [UNIX](unix.html).
