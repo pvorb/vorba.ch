@@ -34,11 +34,7 @@
                     <#list pathSegments as pathSegment>
                         <#assign path += "/" + pathSegment/>
                         <#if pathSegment?has_next>
-                            <#if pathSegment?counter == 1>
-                                <li><a href="/#${pathSegment}">${pathSegment}</a></li>
-                            <#else>
-                                <li><a href="${path}">${pathSegment}</a></li>
-                            </#if>
+                            <li><a href="${path}">${pathSegment}</a></li>
                         </#if>
                     </#list>
                 <#else>
