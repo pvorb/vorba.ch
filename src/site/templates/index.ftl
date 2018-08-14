@@ -4,6 +4,7 @@
     <title>${site.title}</title>
 </#macro>
 <#macro page_content>
+    <header><p>${site.subtitle?no_esc}</p></header>
     <section>
         <#list groupedPages as year, pages>
             <h2 id="${year}">${year}</h2>

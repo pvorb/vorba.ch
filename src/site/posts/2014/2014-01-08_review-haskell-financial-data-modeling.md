@@ -1,9 +1,18 @@
-title: 'Book review: “Haskell Financial Data Modeling and Predictive Analytics”'
-created: 2014-01-08
+---
+title: "Book review: “Haskell Financial Data Modeling and Predictive Analytics”"
+alias: review-haskell-financial-data-modeling.md
+
+author: Paul Vorbach
+created-at: 2014-01-08
 
 tags: [ english, haskell, dev, lang, fp ]
-template: post.diego.en.tpl
-teaser: haze.jpg
+locale: en-US
+
+template: post-diego.ftl
+properties:
+  teaser:
+    imageUrl: haze.jpg
+...
 
 
 A few weeks ago, I've been asked to review the book "Haskell Financial Data
@@ -82,11 +91,11 @@ these chapters.
 One interesting part can be found in chapter 5. Here, parallel computations are
 introduced and shown by example.
 
-Chapter 6 -- the last one -- gives an introduction to Cabal, the Haskell build
+Chapter 6 – the last one – gives an introduction to Cabal, the Haskell build
 system. It can be used to build a project, manage dependencies, run tests and
 more. So this is pretty much like Maven/Gradle/SBT for Java and Scala or NPM for
 Node.js. It's an interesting way to round up the book with a chapter about Cabal
--- I would have expected it at the beginning -- but it's important to know Cabal
+– I would have expected it at the beginning – but it's important to know Cabal
 if you want to get started with Haskell.
 
 

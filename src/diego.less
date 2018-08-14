@@ -204,14 +204,14 @@ html {
   }
 }
 
-article#content, #content article {
+main#content, #content article {
   overflow: hidden;
   margin-bottom: 1.5em;
 }
 
 #content section > *,
 #content > article > header > *,
-article#content > header > *,
+main#content > header > *,
 #content > header > *,
 #content.digest > .meta,
 #content > .pagination {
@@ -223,7 +223,7 @@ article#content > header > *,
 }
 
 #content > article > footer,
-article#content > footer {
+main#content > footer {
   margin-left: @aside-col-width + @col-div;
   margin-right: @aside-col-width + @col-div;
 
@@ -417,12 +417,12 @@ code {
 
   #content section > *,
   #content > article > header > *,
-  article#content > header > *,
+  main#content > header > *,
   #content > header > *,
   #content.digest > .meta,
   #content > .pagination,
   #content > article > footer,
-  article#content > footer {
+  main#content > footer {
     margin-left: 8px;
     margin-right: 8px;
   }

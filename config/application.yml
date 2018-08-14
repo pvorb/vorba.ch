@@ -12,6 +12,7 @@ spring.datasource:
 sokrates:
   site:
     title: vorba.ch
+    subtitle: Paul’s personal blog about technical topics
     default-locale: en-US
     translations: src/site/resources/translations
     properties:
@@ -23,7 +24,7 @@ sokrates:
     extension-mapping:
       md: html
     generate-rules:
-      - pattern: src/site/posts/{year:(2012|2013|2017)}/*.md
+      - pattern: src/site/posts/{year:(2012|2013|2014|2017)}/*.md
         base-directory: src/site/posts
         format: markdown
     copy-rules:

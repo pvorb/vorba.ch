@@ -1,9 +1,18 @@
+---
 title: How to build Tesseract on Cygwin
-created: 2014-02-20
-teaser: build.jpg
-template: post.diego.en.tpl
-tags: [ english, howto, tesseract, ocr, c++, cygwin ]
+alias: tesseract-cygwin.md
 
+author: Paul Vorbach
+created-at: 2014-02-20
+
+tags: [ english, howto, tesseract, ocr, c++, cygwin ]
+locale: en-US
+
+template: post-diego.ftl
+properties:
+  teaser:
+    imageUrl: build.jpg
+...
 
 [Tesseract](https://code.google.com/p/tesseract-ocr/) is the most accurate and
 most adaptable open source OCR engine I know of.

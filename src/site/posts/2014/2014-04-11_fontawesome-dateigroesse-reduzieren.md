@@ -1,10 +1,18 @@
-title: "FontAwesome-Dateigröße reduzieren"
-created: 2014-04-11
+---
+title: FontAwesome-Dateigröße reduzieren
+alias: fontawesome-dateigroesse-reduzieren.md
+
+author: Paul Vorbach
+created-at: 2014-04-11
 
 tags: [ deutsch, css, '@font-face', fontawesome, fontforge ]
-template: post.diego.de.tpl
-teaser: fontawesome.png
+locale: de-DE
 
+template: post-diego.ftl
+properties:
+  teaser:
+    imageUrl: fontawesome.png
+...
 
 Seit heute habe ich hier ein paar Pictogramme von [FontAwesome] im Einsatz. Mich
 hat aber die initiale Download-Größe von rund 29 kByte für das WOFF-File
