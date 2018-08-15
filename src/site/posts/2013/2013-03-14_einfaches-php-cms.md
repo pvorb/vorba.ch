@@ -9,9 +9,8 @@ tags: [ deutsch, dev, php, cms ]
 locale: de-DE
 
 template: post-diego.ftl
-properties:
-  teaser:
-    imageUrl: pen-and-notebook.jpg
+teaser:
+  image-url: /2013/pen-and-notebook.jpg
 ...
 
 Ich schreibe gerade ein CMS. In PHP.

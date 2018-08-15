@@ -1,8 +1,7 @@
 ---
 title: Linux
-properties:
-  teaser:
-    imageUrl: tux.png
+teaser:
+  image-url: tux.png
 ...
 
 Linux is a free, [UNIX]-like multi-user [operating system][OS] developed by

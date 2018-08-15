@@ -1,8 +1,7 @@
 ---
 title: Tim Berners-Lee
-properties:
-  teaser:
-    imageUrl: berners-lee.jpg
+teaser:
+  image-url: berners-lee.jpg
 ...
 
 Creator of the [WWW](www.html).

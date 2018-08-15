@@ -10,14 +10,13 @@ tags: [ english, dev, nodejs ]
 locale: en-US
 
 template: post-milten.ftl
-properties:
-  teaser:
-    imageUrl: magnify.jpg
-    author: Lukas Mathis
-    url: http://www.flickr.com/photos/l_k_m/1464840438/
-    license:
-      name: CC BY-SA 2.0
-      url: http://creativecommons.org/licenses/by-sa/2.0/
+teaser:
+  image-url: /2012/magnify.jpg
+  author: Lukas Mathis
+  url: http://www.flickr.com/photos/l_k_m/1464840438/
+  license:
+    name: CC BY-SA 2.0
+    url: http://creativecommons.org/licenses/by-sa/2.0/
 ...
 
 Since the German blog post [Volltextsuche] is the most clicked on this blog,
@@ -165,7 +164,7 @@ create some HTML files first, if you want to find something.
 
 Here’s how the result will look like:
 
-![Screenshot of the search results page](search-results.png)
+![Screenshot of the search results page](/2012/search-results.png)
 
 
 

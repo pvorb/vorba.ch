@@ -9,9 +9,8 @@ tags: [ deutsch, bread, weblog, semantic-web ]
 locale: de-DE
 
 template: post-milten.ftl
-properties:
-  teaser:
-    imageUrl: green-roof-norway.jpg
+teaser:
+  image-url: /2012/green-roof-norway.jpg
 ...
 
 Mit den [Tag-Seiten] kann Bread etwas, das ein wenig in Richtung Semantic Weblog

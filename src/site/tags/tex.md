@@ -1,8 +1,7 @@
 ---
 title: TeX
-properties:
-  teaser:
-    imageUrl: TeX.png
+teaser:
+  image-url: TeX.png
 ...
 
 [TeX] is a typesetting system and a markup language that was first released in

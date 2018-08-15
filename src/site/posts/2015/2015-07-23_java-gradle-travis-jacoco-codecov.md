@@ -9,9 +9,8 @@ tags: [ english, howto, testing, java, gradle, code-coverage ]
 locale: en-US
 
 template: post-diego.ftl
-properties:
-  teaser:
-    imageUrl: roof.jpg
+teaser:
+  image-url: /2015/roof.jpg
 ...
 
 The code coverage of a project's test suite can be a useful measure for finding

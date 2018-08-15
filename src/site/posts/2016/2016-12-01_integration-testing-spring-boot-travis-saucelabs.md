@@ -9,14 +9,13 @@ tags: [ english, howto, java, spring-boot, maven, testing ]
 locale: en-US
 
 template: post-diego.ftl
-properties:
-  teaser:
-    imageUrl: flowers.jpg
-    author: j van cise photos
-    url: https://www.flickr.com/photos/jvancisephotos/13926392039/
-    license:
-      name: CC BY 2.0
-      url: https://creativecommons.org/licenses/by/2.0/
+teaser:
+  image-url: /2016/flowers.jpg
+  author: j van cise photos
+  url: https://www.flickr.com/photos/jvancisephotos/13926392039/
+  license:
+    name: CC BY 2.0
+    url: https://creativecommons.org/licenses/by/2.0/
 ...
 
 
@@ -341,7 +340,7 @@ to run Selenium tests via Sauce Labs.
 
 First you need to enable the GitHub project in your Travis profile. This should only be one click:
 
-![Travis project activation](travis-config.png)
+![Travis project activation](/2016/travis-config.png)
 
 Then you need to set up your project on Sauce Labs. I won't cover this here, but once your project is set up, you will
 see your access key in your account settings. This access key is needed to verify the Travis CI server that runs your
@@ -420,7 +419,7 @@ public class ITConfig {
 Push these changes to GitHub and you're done! You can watch your tests run on Travis and even watch the browser in your
 Sauce Lab account.
 
-![It works!](it-works.png)
+![It works!](/2016/it-works.png)
 
 The complete sources of this sample project are [available on GitHub][git-repo].
 

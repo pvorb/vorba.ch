@@ -12,9 +12,9 @@
 <#macro page_content>
     <header>
         <h1>${title}</h1>
-        <#if properties.teaser??>
+        <#if teaser??>
             <figure class="teaser">
-                <img src="${properties.teaser.imageUrl}"/>
+                <img src="${teaser.imageUrl}"/>
             </figure>
         </#if>
         <p class="meta">${l10n.translate("meta.by", .locale)} <span class="author">${author}</span>,
@@ -31,13 +31,13 @@
                 <#sep> · </#sep>
             </#items>
             </p>
-            <#if properties.teaser?? && properties.teaser.author??>
+            <#if teaser?? && teaser.author??>
                 <p>
                     ${l10n.translate("meta.teaser.by", .locale)}
-                    <a href="${properties.teaser.url}">${properties.teaser.author}</a>.
-                    <#if properties.teaser.license??>
+                    <a href="${teaser.url}">${teaser.author}</a>.
+                    <#if teaser.license??>
                         ${l10n.translate("meta.teaser.license", .locale)}:
-                        <a href="${properties.teaser.license.url}">${properties.teaser.license.name}</a>.
+                        <a href="${teaser.license.url}">${teaser.license.name}</a>.
                     </#if>
                 </p>
             </#if>

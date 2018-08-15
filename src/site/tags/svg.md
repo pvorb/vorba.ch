@@ -1,8 +1,7 @@
 ---
 title: Scalable Vector Graphics
-properties:
-  teaser:
-    imageUrl: svg.png
+teaser:
+  image-url: svg.png
 ...
 
 [Scalable Vector Graphics][SVG] (SVG) is an image file format.

@@ -7,9 +7,9 @@
 <#macro page_content>
     <header>
         <h1>${title}</h1>
-        <#if properties.teaser??>
+        <#if teaser??>
             <figure class="teaser">
-                <img src="${properties.teaser.imageUrl}" />
+                <img src="${teaser.imageUrl}" />
             </figure>
         </#if>
         <p class="meta">

@@ -9,9 +9,8 @@ tags: [ english, howto, tesseract, ocr, c++, cygwin ]
 locale: en-US
 
 template: post-diego.ftl
-properties:
-  teaser:
-    imageUrl: build.jpg
+teaser:
+  image-url: /2014/build.jpg
 ...
 
 [Tesseract](https://code.google.com/p/tesseract-ocr/) is the most accurate and

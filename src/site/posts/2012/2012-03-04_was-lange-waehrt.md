@@ -9,9 +9,8 @@ tags: [deutsch, self, dev, nodejs, bread, cms, weblog]
 locale: de-DE
 
 template: post-milten.ftl
-properties:
-  teaser:
-    imageUrl: kosmonaut.jpg
+teaser:
+  image-url: /2012/kosmonaut.jpg
 ...
 
 Ein halbes Jahr hat es gedauert. Nun ist es endlich vollbracht: Mein Blog geht

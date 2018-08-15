@@ -1,6 +1,6 @@
 logging.level:
   root: WARN
-  de.vorb.sokrates: INFO
+  de.vorb.sokrates: DEBUG
   org.jooq.Constants: INFO
 
 spring.datasource:
@@ -14,9 +14,21 @@ sokrates:
     title: vorba.ch
     subtitle: Paul’s personal blog about technical topics
     default-locale: en-US
+    publicUrl: https://vorba.ch
+    author: Paul Vorbach
+    authorUrl: https://paul.vorba.ch
     translations: src/site/resources/translations
     properties:
       hostname: vorba.ch
+      feed:
+        id: http://vorb.de/log/feed.xml
+        categories:
+          - computer
+          - software
+          - development
+          - software engineering
+          - java
+          - kotlin
   directory:
     templates: src/site/templates/
   generator:

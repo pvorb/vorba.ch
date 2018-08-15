@@ -1,8 +1,7 @@
 ---
 title: Mono
-properties:
-  teaser:
-    imageUrl: mono.png
+teaser:
+  image-url: mono.png
 ...
 
 Mono is an alternative implementation of the tools that form the [.NET

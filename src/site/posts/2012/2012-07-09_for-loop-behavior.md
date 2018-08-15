@@ -9,9 +9,8 @@ tags: [ english, note, dev, php ]
 locale: en-US
 
 template: post-milten.ftl
-properties:
-  teaser:
-    imageUrl: rollercoaster.jpg
+teaser:
+  image-url: /2012/rollercoaster.jpg
 ...
 
 I always asked myself how often a function gets evaluated if you place it in the

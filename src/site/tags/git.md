@@ -1,8 +1,7 @@
 ---
 title: git
-properties:
-  teaser:
-    imageUrl: git2.png
+teaser:
+  image-url: git2.png
 ...
 
 [Git] is a free software for distributed revision control and source code

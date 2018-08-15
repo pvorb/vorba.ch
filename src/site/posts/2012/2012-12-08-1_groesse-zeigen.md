@@ -9,9 +9,8 @@ tags: [ deutsch, ux, typography ]
 locale: de-DE
 
 template: post-milten.ftl
-properties:
-  teaser:
-    imageUrl: font-sizes.png
+teaser:
+  image-url: /2012/font-sizes.png
 ...
 
 Vergangene Woche habe ich den Standard-Schriftgrad in meinem Browser auf 18

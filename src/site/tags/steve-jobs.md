@@ -1,8 +1,7 @@
 ---
 title: Steve Jobs
-properties:
-  teaser:
-    imageUrl: jobs.jpg
+teaser:
+  image-url: jobs.jpg
 ...
 
 Founder of [Apple](apple.html).

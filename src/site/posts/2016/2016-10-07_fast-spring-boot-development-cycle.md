@@ -9,14 +9,13 @@ tags: [ english, howto, java, spring-boot, maven ]
 locale: en-US
 
 template: post-diego.ftl
-properties:
-  teaser:
-    imageUrl: train.jpg
-    author: Donnie Nunley
-    url: https://www.flickr.com/photos/dbnunley/8431588976/
-    license:
-      name: CC BY 2.0
-      url: https://creativecommons.org/licenses/by/2.0/
+teaser:
+  image-url: /2016/train.jpg
+  author: Donnie Nunley
+  url: https://www.flickr.com/photos/dbnunley/8431588976/
+  license:
+    name: CC BY 2.0
+    url: https://creativecommons.org/licenses/by/2.0/
 ...
 
 [Spring Boot][spring-boot] makes developing microservices a breeze. It's easy to get to speed without the need for much

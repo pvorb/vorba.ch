@@ -1,8 +1,7 @@
 ---
 title: Node.js
-properties:
-  teaser:
-    imageUrl: nodejs.png
+teaser:
+  image-url: nodejs.png
 ...
 
 [Node.js][nodejs] is a platform built on the [V8 JavaScript runtime][v8] for

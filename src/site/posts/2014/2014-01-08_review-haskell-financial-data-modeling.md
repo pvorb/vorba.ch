@@ -9,9 +9,8 @@ tags: [ english, haskell, dev, lang, fp ]
 locale: en-US
 
 template: post-diego.ftl
-properties:
-  teaser:
-    imageUrl: haze.jpg
+teaser:
+  image-url: /2014/haze.jpg
 ...
 
 

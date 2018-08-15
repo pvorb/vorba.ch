@@ -1,8 +1,7 @@
 ---
 title: Scala
-properties:
-  teaser:
-    imageUrl: scala.png
+teaser:
+  image-url: scala.png
 ...
 
 Scala is a [programming language](lang.html#programming-languages).

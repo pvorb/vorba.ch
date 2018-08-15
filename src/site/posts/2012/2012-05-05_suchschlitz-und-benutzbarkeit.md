@@ -9,9 +9,8 @@ tags: [ deutsch, html, search ]
 locale: de-DE
 
 template: post-milten.ftl
-properties:
-  teaser:
-    imageUrl: typewriter.jpg
+teaser:
+  image-url: /2012/typewriter.jpg
 ...
 
 Die [Volltextsuche] hat sich jetzt schon zwei Monate bewährt. Also habe ich nun

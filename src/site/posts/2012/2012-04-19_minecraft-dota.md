@@ -9,9 +9,8 @@ tags: [ deutsch, note, games, minecraft ]
 locale: de-DE
 
 template: post-milten.ftl
-properties:
-  teaser:
-    imageUrl: minecraft-dota.png
+teaser:
+  image-url: /2012/minecraft-dota.png
 ...
 
 War ja nur eine Frage der Zeit:

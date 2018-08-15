@@ -9,9 +9,8 @@ tags: [ deutsch, dev, scala, computer-vision, algorithm ]
 locale: de-DE
 
 template: post-diego.ftl
-properties:
-  teaser:
-    imageUrl: binarization.jpg
+teaser:
+  image-url: /2013/binarization.jpg
 ...
 
 In meiner Bachelorarbeit, die den Titel „Erstellung von TrueType-Fonts zu

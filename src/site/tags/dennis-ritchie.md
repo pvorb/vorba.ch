@@ -1,8 +1,7 @@
 ---
 title: Dennis Ritchie
-properties:
-  teaser:
-    imageUrl: ritchie.jpg
+teaser:
+  image-url: ritchie.jpg
 ...
 
 Creator of [C](c.html) and [UNIX](unix.html).

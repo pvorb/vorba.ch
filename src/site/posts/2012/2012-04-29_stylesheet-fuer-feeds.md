@@ -9,9 +9,8 @@ tags: [ deutsch, dev, xml, xsl ]
 locale: de-DE
 
 template: post-milten.ftl
-properties:
-  teaser:
-    imageUrl: milten-xsl.png
+teaser:
+  image-url: /2012/milten-xsl.png
 ...
 
 Seit gerade eben hat der [Artikel-Feed](/log/feed.xml) hier ein eigenes

@@ -9,9 +9,8 @@ tags: [ deutsch, self, dev, search, bread ]
 locale: de-DE
 
 template: post-milten.ftl
-properties:
-  teaser:
-    imageUrl: hdd-search.jpg
+teaser:
+  image-url: /2012/hdd-search.jpg
 ...
 
 Hier fehlt noch eine Volltextsuche. Das ist aufgrund der Architektur von Bread

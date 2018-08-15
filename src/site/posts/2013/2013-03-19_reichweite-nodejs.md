@@ -9,9 +9,8 @@ tags: [ deutsch, nodejs ]
 locale: de-DE
 
 template: post-diego.ftl
-properties:
-  teaser:
-    imageUrl: chart.jpg
+teaser:
+  image-url: /2013/chart.jpg
 ...
 
 Seit letztem Sommer werden in [npm](http://npmjs.org/) Download-Statistiken

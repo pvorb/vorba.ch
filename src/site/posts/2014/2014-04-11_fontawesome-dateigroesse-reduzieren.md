@@ -9,9 +9,8 @@ tags: [ deutsch, css, '@font-face', fontawesome, fontforge ]
 locale: de-DE
 
 template: post-diego.ftl
-properties:
-  teaser:
-    imageUrl: fontawesome.png
+teaser:
+  image-url: /2014/fontawesome.png
 ...
 
 Seit heute habe ich hier ein paar Pictogramme von [FontAwesome] im Einsatz. Mich

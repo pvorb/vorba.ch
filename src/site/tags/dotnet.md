@@ -1,8 +1,7 @@
 ---
 title: .NET Framework
-properties:
-  teaser:
-    imageUrl: dotnet.png
+teaser:
+  image-url: dotnet.png
 ...
 
 The .NET Framework is a software framework developed by

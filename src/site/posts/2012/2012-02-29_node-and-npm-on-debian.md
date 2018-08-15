@@ -10,9 +10,8 @@ tags: [english, nodejs, linux]
 locale: en-US
 
 template: post-milten.ftl
-properties:
-  teaser:
-    imageUrl: nodejs-npm.png
+teaser:
+  image-url: /2012/nodejs-npm.png
 ...
 
 Several months ago, it was somehow a little tricky to install Node.js and npm on

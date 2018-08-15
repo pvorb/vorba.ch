@@ -9,9 +9,8 @@ tags: [ english, dev, json, javascript ]
 locale: en-US
 
 template: post-diego.ftl
-properties:
-  teaser:
-    imageUrl: json.png
+teaser:
+  image-url: /2013/json.png
 ...
 
 Every markup or data exchange format that I am aware of, supports the definition
