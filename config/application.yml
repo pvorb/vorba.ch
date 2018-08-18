@@ -12,7 +12,7 @@ spring.datasource:
 sokrates:
   site:
     title: vorba.ch
-    subtitle: Paul’s personal blog about technical topics
+    subtitle: Paul’s personal blog about software and technology
     default-locale: en-US
     publicUrl: https://vorba.ch
     author: Paul Vorbach
@@ -42,6 +42,8 @@ sokrates:
     copy-rules:
       - pattern: src/site/posts/**/*
         base-directory: src/site/posts
+      - pattern: src/site/tags/**/*
+        base-directory: src/site/tags
     tag-rule:
       source-file-pattern: "src/site/tags/%s.md"
       output-file-pattern: "tag/%s.html"
