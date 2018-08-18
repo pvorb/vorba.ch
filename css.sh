@@ -1,5 +1,5 @@
 #!/bin/sh
 
-lessc -x src/corristo.less src/site/posts/res/corristo.css
-lessc -x src/milten.less src/site/posts/res/milten.css
-lessc -x src/diego.less > src/site/posts/res/diego.css
+lessc -x src/site/resources/stylesheets/corristo.less > src/site/resources/static/res/corristo.css
+lessc -x src/site/resources/stylesheets/milten.less > src/site/resources/static/res/milten.css
+lessc -x src/site/resources/stylesheets/diego.less > src/site/resources/static/res/diego.css

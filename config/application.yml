@@ -30,23 +30,25 @@ sokrates:
           - java
           - kotlin
   directory:
-    templates: src/site/templates/
+    templates: src/site/resources/templates/
   generator:
     pandoc-executable: /usr/bin/pandoc
     extension-mapping:
       md: html
     generate-rules:
-      - pattern: src/site/posts/{year:\d{4}}/*.md
-        base-directory: src/site/posts
+      - pattern: src/site/resources/posts/**/*.md
+        base-directory: src/site/resources/posts
         format: markdown
     copy-rules:
-      - pattern: src/site/posts/**/*
-        base-directory: src/site/posts
-      - pattern: src/site/tags/**/*
-        base-directory: src/site/tags
+      - pattern: src/site/resources/posts/**/*
+        base-directory: src/site/resources/posts
+      - pattern: src/site/resources/tags/**/*
+        base-directory: src/site/resources/tags
+      - pattern: src/site/resources/static/**/*
+        base-directory: src/site/resources/static
     tag-rule:
-      source-file-pattern: "src/site/tags/%s.md"
-      output-file-pattern: "tag/%s.html"
+      source-file-pattern: src/site/resources/tags/%s.md
+      output-file-pattern: tag/%s.html
       format: markdown
       template: tag.ftl
       index-output-file: tags/index.html
@@ -60,7 +62,7 @@ sokrates:
         - created_at DESC
       grouping: BY_YEAR_CREATED
     - name: Feed
-      title: Atom Feed
+      title: Atom feed
       template: feed.ftl
       output-file: feed.xml
       order-by:
