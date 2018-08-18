@@ -42,12 +42,12 @@ sokrates:
     copy-rules:
       - pattern: src/site/resources/posts/**/*
         base-directory: src/site/resources/posts
-      - pattern: src/site/resources/tags/**/*
-        base-directory: src/site/resources/tags
+      - pattern: src/site/resources/tag/**/*
+        base-directory: src/site/resources
       - pattern: src/site/resources/static/**/*
         base-directory: src/site/resources/static
     tag-rule:
-      source-file-pattern: src/site/resources/tags/%s.md
+      source-file-pattern: src/site/resources/tag/%s.md
       output-file-pattern: tag/%s.html
       format: markdown
       template: tag.ftl
