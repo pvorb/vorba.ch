@@ -189,7 +189,7 @@ main#content, #content article {
 
 #content section > *,
 #content > article > header > *,
-main#content > header > *,
+#content > header > *,
 #content > header > *,
 #content.digest > .meta,
 #content > footer.meta,
@@ -199,7 +199,7 @@ main#content > header > *,
 }
 
 #content > article > footer,
-main#content > footer {
+#content > footer {
   margin-left: @aside-col-width + @col-div;
   margin-right: @aside-col-width + @col-div;
 
@@ -339,7 +339,7 @@ code {
   }
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 780px) {
   body {
     padding-top: 1em;
     font-size: 100%;
@@ -362,12 +362,12 @@ code {
 
   #content section > *,
   #content > article > header > *,
-  article#content > header > *,
   #content > header > *,
   #content.digest > .meta,
   #content > .pagination,
   #content > article > footer,
-  article#content > footer {
+  #content > footer,
+  #content > footer.meta {
     margin-left: 8px;
     margin-right: 8px;
   }
