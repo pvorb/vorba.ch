@@ -48,7 +48,7 @@ Sauvola][sauvola] implementiert. Weitere Verfahren sollen folgen.
 Zur Installation benötigt man lediglich das _Java Runtime Environment (JRE) 6_
 oder höher. Die [Installation erfolgt über
 Java WebStart](https://repo.vorb.de/downloads/image-binarization.jnlp).
-Der Quelltext steht unter einer [MIT-Lizenz](/static/license/mit.html)
+Der Quelltext steht unter einer [MIT-Lizenz](/license/mit.html)
 und ist bei [GitHub](https://github.com/pvorb/image-binarization) verfügbar.
 
 [sauvola]: http://www.mediateam.oulu.fi/publications/pdf/24.p

@@ -23,7 +23,7 @@ das Stylesheet aber nur in Webkit-Browsern standardmäßig angezeigt. Schade
 eigentlich.
 
 Also hab ich das mal ausprobiert. Hier das
-[vorläufige XSL-Stylesheet](/static/res/milten.feed.xsl):
+[vorläufige XSL-Stylesheet](/res/milten.feed.xsl):
 
 ~~~ xml
 <?xml version="1.0" encoding="utf-8"?>
