@@ -11,7 +11,7 @@ before_script:
 deploy:
   script:
     - "mvn -B package"
-    - "rsync -avr --delete-after --chmod 644 target/sokrates/ pvo@vorba.ch:/var/www/vorba.ch/"
+    - "rsync -avr --delete-after --chmod 777 target/sokrates/ pvo@vorba.ch:/var/www/vorba.ch/"
   only:
     - master
     - feature/sokrates
