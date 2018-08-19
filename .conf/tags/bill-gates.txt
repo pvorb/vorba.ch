@@ -1,5 +1,0 @@
-title: Bill Gates
-teaser: gates.jpg
-
-
-Founder of [Microsoft](microsoft.html).

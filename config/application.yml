@@ -1,0 +1,70 @@
+logging.level:
+  root: WARN
+  de.vorb.sokrates: DEBUG
+  org.jooq.Constants: INFO
+
+spring.datasource:
+  url: jdbc:h2:./sokrates
+  driver-class-name: org.h2.Driver
+  username: sa
+  password:
+
+sokrates:
+  site:
+    title: vorba.ch
+    subtitle: Paul’s personal blog about software and technology
+    default-locale: en-US
+    publicUrl: https://vorba.ch
+    author: Paul Vorbach
+    authorUrl: https://paul.vorba.ch
+    translations: src/site/resources/translations
+    properties:
+      hostname: vorba.ch
+      feed:
+        id: http://vorb.de/log/feed.xml
+        categories:
+          - computer
+          - software
+          - development
+          - software engineering
+          - java
+          - kotlin
+  directory:
+    templates: src/site/resources/templates/
+  generator:
+    pandoc-executable: /usr/bin/pandoc
+    extension-mapping:
+      md: html
+    generate-rules:
+      - pattern: src/site/resources/posts/**/*.md
+        base-directory: src/site/resources/posts
+        format: markdown
+    copy-rules:
+      - pattern: src/site/resources/posts/**/*
+        base-directory: src/site/resources/posts
+      - pattern: src/site/resources/tag/**/*
+        base-directory: src/site/resources
+      - pattern: src/site/resources/static/**/*
+        base-directory: src/site/resources/static
+    tag-rule:
+      source-file-pattern: src/site/resources/tag/%s.md
+      output-file-pattern: tag/%s.html
+      format: markdown
+      template: tag.ftl
+      index-output-file: tags/index.html
+      index-template: tag-index.ftl
+  indexes:
+    - name: Blog index
+      title: Blog index
+      template: index.ftl
+      output-file: index.html
+      order-by:
+        - created_at DESC
+      grouping: BY_YEAR_CREATED
+    - name: Feed
+      title: Atom feed
+      template: feed.ftl
+      output-file: feed.xml
+      order-by:
+        - created_at DESC
+      limit: 10

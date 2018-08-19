@@ -1,5 +1,0 @@
-title: Linus Torvalds
-teaser: torvalds.jpg
-
-
-Creator of [Linux](linux.html) and [git](git.html).

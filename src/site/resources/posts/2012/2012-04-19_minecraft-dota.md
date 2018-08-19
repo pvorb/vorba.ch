@@ -1,0 +1,22 @@
+---
+title: "Minecraft: DOTA"
+alias: minecraft-dota.md
+
+author: Paul Vorbach
+created-at: 2012-04-19
+
+tags: [ deutsch, note, games, minecraft ]
+locale: de-DE
+
+template: post-milten.ftl
+teaser:
+  image-url: /2012/minecraft-dota.png
+...
+
+War ja nur eine Frage der Zeit:
+
+<iframe width="520" height="320" src="https://www.youtube.com/embed/xY5XpjmpR78"
+  frameborder="0" allowfullscreen></iframe>
+
+[Das](http://www.minecraftforum.net/topic/1161133-minecraft-dota/) könnte spaßig
+werden.

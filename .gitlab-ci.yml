@@ -1,8 +1,8 @@
-image: "alpine:latest"
+image: maven:3.5-jdk-8
 
 before_script:
-  - "apk update"
-  - "apk add openssh rsync"
+  - "apt-get update"
+  - "apt-get -qq -y install pandoc rsync"
   - "eval $(ssh-agent -s)"
   - "echo \"$SSH_PRIVATE_KEY\" | ssh-add - > /dev/null"
   - "mkdir -p ~/.ssh"
@@ -10,7 +10,8 @@ before_script:
 
 deploy:
   script:
-    - "rsync -r --chmod 644 public/ pvo@vorba.ch:/var/www/vorba.ch/"
+    - "mvn -B package"
+    - "rsync -avr --delete-after --chmod 777 target/sokrates/ pvo@vorba.ch:/var/www/vorba.ch/"
   only:
     - master
   tags:
