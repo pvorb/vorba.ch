@@ -232,8 +232,8 @@ Wer sich den [Markt der Static-Site-Generatoren][static-site-generators] ansieht
 Zeitverschwendung halten und das ist es mit Sicherheit auch – schließlich gibt es eine Unzahl an Generatoren in allen
 erdenklichen Sprachen. Aber ich fand es amüsanter, das Tool zu schreiben, als mich in eine der Alternativen hinreichend
 einzuarbeiten, um dieses Blog ohne großen Anpassungen an der URL-Struktur migrieren zu können. Außerdem sind mir so
-keine Grenzen gesetzt, was zukünftige Features angeht. Zudem kann ich weiterhin sagen, die Software hinter meiner
-Website selbst geschrieben zu haben.
+keine Grenzen gesetzt, was zukünftige Features angeht und ich kann weiterhin sagen, die Software hinter meiner Website
+selbst geschrieben zu haben.
 
 [static-site-generators]: https://www.staticgen.com
 
