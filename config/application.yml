@@ -1,7 +1,6 @@
 logging.level:
   root: WARN
-  de.vorb.sokrates: DEBUG
-  org.jooq.Constants: INFO
+  de.vorb.sokrates: INFO
 
 spring.datasource:
   url: jdbc:h2:./sokrates
@@ -14,9 +13,9 @@ sokrates:
     title: vorba.ch
     subtitle: Paul’s personal blog about software and technology
     default-locale: en-US
-    publicUrl: https://vorba.ch
+    public-url: https://vorba.ch
     author: Paul Vorbach
-    authorUrl: https://paul.vorba.ch
+    author-url: https://paul.vorba.ch
     translations: src/site/resources/translations
     properties:
       hostname: vorba.ch
@@ -30,6 +29,7 @@ sokrates:
           - java
           - kotlin
   directory:
+    output: target/sokrates/
     templates: src/site/resources/templates/
   generator:
     pandoc-executable: /usr/bin/pandoc
