@@ -1,9 +1,10 @@
 # vorba.ch
 
-Personal website of German web developer [Paul Vorbach](mailto:paul@vorba.ch).
+Personal website of German software engineer [Paul Vorbach](mailto:paul@vorba.ch).
 This repository contains all static resource files of the website available at
-[vorba.ch](http://vorba.ch/).
+[vorba.ch](https://vorba.ch/).
 
-You can fork this repository and write your own articles, if you like. Simply
-add a new `*.txt` file, run [bread](https://github.com/pvorb/node-bread) on it
-and create a pull request.
+*Found a mistake?*
+
+Correct the error in the corresponding post under `src/site/resources/posts` and
+create a pull request. Thanks!
