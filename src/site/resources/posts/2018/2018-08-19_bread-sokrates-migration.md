@@ -13,7 +13,7 @@ teaser:
   image-url: /2018/sokrates.jpg
 
 properties:
-  highlight: "#43679C"
+  highlight: "#3D8536"
 ...
 
 Selbstbezogene Blog-Posts schreiben sich immer am leichtesten. ;-)
