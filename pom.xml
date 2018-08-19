@@ -34,7 +34,7 @@
         <dependency>
             <groupId>de.vorb.sokrates</groupId>
             <artifactId>sokrates</artifactId>
-            <version>0.1.0</version>
+            <version>0.1.1</version>
         </dependency>
     </dependencies>
 
@@ -70,5 +70,16 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>bintray-pvorb-sokrates</id>
+            <name>bintray</name>
+            <url>https://dl.bintray.com/pvorb/sokrates</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
 </project>
