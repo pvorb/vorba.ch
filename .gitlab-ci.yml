@@ -14,6 +14,5 @@ deploy:
     - "rsync -avr --delete-after --chmod 777 target/sokrates/ pvo@vorba.ch:/var/www/vorba.ch/"
   only:
     - master
-    - feature/sokrates
   tags:
     - docker
