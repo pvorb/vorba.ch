@@ -34,7 +34,7 @@ than 20 years][haskell-years]. And as functional programming languages are being
 wrong.
 
 [haskell-years]: /tag/lang.html#programming-languages
-[scala]: /posts/2013/scala.html
+[scala]: /2013/scala.html
 
 I already had a look at Haskell in August and September 2012 when I started
 reading the free introductory book ["Learn You a Haskell for Great Good!"][lyah]

@@ -31,7 +31,7 @@ Chrome-Plugin [Stylebot] sowie [Stylish] für Firefox. Hiermit kann man
 Eigenarten im CSS für einzelne Websites ändern, die man öfter besucht.
 
 
-[100e2r]: http://informationarchitects.net/blog/100e2r/
-[rtypo]: http://informationarchitects.net/blog/responsive-typography-the-basics/
+[100e2r]: https://ia.net/topics/100e2r
+[rtypo]: https://ia.net/topics/responsive-typography-the-basics
 [stylebot]: https://github.com/ankit/stylebot
 [stylish]: https://addons.mozilla.org/de/firefox/addon/stylish/

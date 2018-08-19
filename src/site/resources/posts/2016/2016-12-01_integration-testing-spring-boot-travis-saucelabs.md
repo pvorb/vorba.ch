@@ -340,7 +340,7 @@ to run Selenium tests via Sauce Labs.
 
 First you need to enable the GitHub project in your Travis profile. This should only be one click:
 
-![Travis project activation](/posts/2016s/2016/travis-config.png)
+![Travis project activation](/2016/travis-config.png)
 
 Then you need to set up your project on Sauce Labs. I won't cover this here, but once your project is set up, you will
 see your access key in your account settings. This access key is needed to verify the Travis CI server that runs your
@@ -419,7 +419,7 @@ public class ITConfig {
 Push these changes to GitHub and you're done! You can watch your tests run on Travis and even watch the browser in your
 Sauce Lab account.
 
-![It works!](/posts/2016s/2016/it-works.png)
+![It works!](/2016/it-works.png)
 
 The complete sources of this sample project are [available on GitHub][git-repo].
 

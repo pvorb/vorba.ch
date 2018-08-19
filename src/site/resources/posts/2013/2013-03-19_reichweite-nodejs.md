@@ -13,7 +13,7 @@ teaser:
   image-url: /2013/chart.jpg
 ...
 
-Seit letztem Sommer werden in [npm](http://npmjs.org/) Download-Statistiken
+Seit letztem Sommer werden in [npm](https://npmjs.com/) Download-Statistiken
 angezeigt. Sieht man sich ein einzelnes Modul an, so werden die Downloads des
 letzten Tages, der letzten Woche und des letzten Monats angezeigt.
 
@@ -22,7 +22,7 @@ Das ist ganz nett, aber nicht immer besonders vielsagend. Da npm seine Daten
 JSON API gleich mit von der Partie. Da die Daten wohldefiniert vorliegen, habe
 ich mir schon vor gut einem halben Jahr eine kleine Statistik-Seite gebastelt,
 die aus den Download-Daten drei Balkendiagramme für tägliche, wöchentliche und
-monatliche Downloads baut: [npm-stat](http://npm-stat.vorb.de/).
+monatliche Downloads baut: [npm-stat](https://npm-stat.com/).
 
 Ich möchte aber auf was anderes hinaus:
 
@@ -56,11 +56,11 @@ geschrieben. Ich wollte keinen 500-Pfund-Gorilla à la _underscore_ oder
 geht, alles in kleinen Modulen zu halten, die miteinander verknüpft und
 wiederverwendet werden können.
 
-[packages]: http://npmjs.org/~pvorb
-[clone]: http://npmjs.org/package/clone
-[clone-stats]: http://npm-stat.vorb.de/charts.html?package=clone
+[packages]: https://npmjs.com/~pvorb
+[clone]: https://npmjs.com/package/clone
+[clone-stats]: https://npm-stat.com/charts.html?package=clone
 [yahoo-arrow]: https://npmjs.org/package/yahoo-arrow
-[bread]: /log/tag/bread.html
+[bread]: /tag/bread.html
 
 Dieser Eintrag kommt zu einer Zeit, zu der ich eher Distanz von Node.js nehme.
 Es hat unglaublich viele Probleme und Schwachstellen, die die Entwicklung dafür

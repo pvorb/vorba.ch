@@ -29,10 +29,10 @@ of Node.js.
 You need to be on a Linux/Unix machine, since the search uses native command
 line commands like [`find`] and [`grep`] and you need to have [Node.js]
 (v0.4.0+) installed. Maybe there is a similar way to do it on Windows, too.
-I think you could install [Git for Windows](http://git-scm.com/download) and add
+I think you could install [Git for Windows](https://git-scm.com/downloads) and add
 the `/bin` directory to your system `PATH` to use the same commands on Windows.
 If somebody has a better solution (maybe one that works out of the box) he/she
-may [leave a comment](/log/2012/07/file-search-nodejs.html#comments).
+may [leave a comment](/2012/file-search-nodejs.html#comments).
 
 
 ## Finding files on the command line
@@ -85,7 +85,7 @@ the URL from a HTTP GET request. The search module only takes one parameter,
 a small REST framework of mine, [api], which enables me to register modules for
 different URLs, but I’ll only show how to do it without any framework. This way
 you can adapt the solution to your framework of choice ([express], [flatiron],
-[etc.]).
+etc.).
 
 You need to load several packages during start-up:
 
@@ -157,24 +157,21 @@ server.listen(8080, function () {
 });
 ~~~
 
-You may [download the source file](file-search.js). You can start it on the
+You may [download the source file](/2012/file-search.js). You can start it on the
 command line with `node file-search.js`. Then go to
 [localhost:8080](http://localhost:8080/?s=test) try it. Of course you need to
 create some HTML files first, if you want to find something.
 
 Here’s how the result will look like:
 
-![Screenshot of the search results page](/posts/2012s/2012/search-results.png)
+![Screenshot of the search results page](/2012/search-results.png)
 
 
-
-
-[Volltextsuche]: /log/2012/03/volltextsuche.html
-[`find`]: http://en.wikipedia.org/wiki/Find
-[`grep`]: http://en.wikipedia.org/wiki/Grep
-[Node.js]: http://nodejs.org/
-[npm]: http://npmjs.org/
+[Volltextsuche]: /2012/volltextsuche.html
+[`find`]: https://en.wikipedia.org/wiki/Find
+[`grep`]: https://en.wikipedia.org/wiki/Grep
+[Node.js]: https://nodejs.org/
+[npm]: https://npmjs.com/
 [api]: https://github.com/pvorb/node-api
-[express]: http://expressjs.com/
-[flatiron]: http://flatironjs.org/
-[etc.]: https://github.com/joyent/node/wiki/Modules#wiki-web-frameworks-full
+[express]: https://expressjs.com/
+[flatiron]: https://github.com/flatiron/flatiron
