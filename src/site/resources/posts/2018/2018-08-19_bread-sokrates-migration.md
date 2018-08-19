@@ -135,7 +135,7 @@ statischer Dateien definiert. Unter `sokrates.indexes` lassen sich Indexseiten d
 
 [`feed.xml`]: /feed.xml
 
-## Übersetzung der Inhalte
+### Übersetzung der Inhalte
 
 Beim Übersetzen der Inhalte hat sich eigentlich nicht viel im Vergleich zu Bread geändert. Es wird nach wie vor Pandoc
 zum Übersetzen von Markdown zu HTML eingesetzt. Ich hatte bei der Entwicklung kurzzeitig überlegt, direkt [CommonMark]
