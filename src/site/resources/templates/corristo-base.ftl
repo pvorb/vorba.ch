@@ -30,21 +30,18 @@
                 pathSegments=url?substring(1)?split("/")
                 />
                 <#if pathSegments??>
-                    <li><a href="/" title="${site.properties.hostname}"><img src="/favicon.ico" width="16"
-                                                                             height="16"/></a></li>
+                    <li><a href="/">${site.properties.hostname}</a></li>
                     <#list pathSegments as pathSegment>
                         <#assign path += "/" + pathSegment/>
                         <#if pathSegment?has_next>
-                            <li><a href="${path}/">${pathSegment}</a></li>
+                            <li><a href="${path}">${pathSegment}</a></li>
                         </#if>
                     </#list>
                 <#else>
-                    <li><img src="/favicon.ico" width="16"
-                             height="16" title="${site.properties.hostname}"/></li>
+                    <li>${site.properties.hostname}</li>
                 </#if>
             <#else>
-                <li><img src="/favicon.ico" width="16"
-                         height="16" title="${site.properties.hostname}"/></li>
+                <li>${site.properties.hostname}</li>
             </#if>
         </ol>
     </nav>

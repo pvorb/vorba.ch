@@ -41,7 +41,7 @@
                     <li>${site.properties.hostname}</li>
                 </#if>
             <#else>
-                <li>vorba.ch</li>
+                <li>${site.properties.hostname}</li>
             </#if>
         </ol>
     </nav>

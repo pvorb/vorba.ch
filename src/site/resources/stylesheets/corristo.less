@@ -164,6 +164,11 @@ html {
   li::after {
     content: ' / ';
   }
+
+  li:first-child {
+    background: url('/favicon.ico') center left no-repeat;
+    padding-left: @logo-space;
+  }
 }
 
 #access {
