@@ -1,5 +1,6 @@
 <#ftl output_format="HTML"/>
 <#include "corristo-base.ftl"/>
+<#include "twitter-card.ftl"/>
 <#macro page_title>
     <title>${title} | ${site.title}</title>
     <#if properties.highlight??>
@@ -8,6 +9,7 @@
             a { color: ${properties.highlight} }
         </style>
     </#if>
+    <@twitter_card/>
 </#macro>
 <#macro page_content>
     <header>

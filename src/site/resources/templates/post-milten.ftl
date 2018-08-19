@@ -1,7 +1,9 @@
 <#ftl output_format="HTML"/>
 <#include "milten-base.ftl"/>
+<#include "twitter-card.ftl"/>
 <#macro page_title>
     <title>${title} | ${site.title}</title>
+    <@twitter_card/>
 </#macro>
 <#macro page_content>
     <header>
