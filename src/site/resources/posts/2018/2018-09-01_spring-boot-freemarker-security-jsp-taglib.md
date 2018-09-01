@@ -3,7 +3,7 @@ title: Configuring the Spring Security JSP Taglib with FreeMarker for Spring Boo
 alias: spring-boot-freemarker-security-jsp-taglib.md
 
 author: Paul Vorbach
-created-at: 2018-09-19
+created-at: 2018-09-01
 
 tags: [ english, howto, java, maven, spring-boot, spring-security, freemarker ]
 locale: en-US
