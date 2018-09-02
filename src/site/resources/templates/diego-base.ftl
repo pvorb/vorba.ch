@@ -6,6 +6,8 @@
     <!-- Content goes here -->
 </#macro>
 
+<#macro page_comments></#macro>
+
 <#macro page>
 <!DOCTYPE html>
 <html lang="${.lang}">
@@ -48,6 +50,7 @@
     <main id="content">
         <@page_content/>
     </main>
+    <@page_comments/>
     <footer id="about">
         <p>© ${copyrightYears} – Paul Vorbach.
             <a href="http://paul.vorba.ch/">Contact</a>.</p>

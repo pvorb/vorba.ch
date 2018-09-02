@@ -25,10 +25,6 @@
     <section>
         ${content?no_esc}
     </section>
-    <section id="comments">
-        <section id="isso-thread" data-title="${title}"></section>
-        <script data-isso-lang="${.lang}" src="https://comments.vorba.ch/js/embed.min.js"></script>
-    </section>
     <footer class="meta">
         <#list tags>
             <p>${l10n.translate("meta.tags", .locale)}:
@@ -49,5 +45,11 @@
             </#if>
         </#list>
     </footer>
+</#macro>
+<#macro page_comments>
+    <section id="comments">
+        <section id="isso-thread" data-title="${title}"></section>
+        <script data-isso-lang="${.lang}" src="https://comments.vorba.ch/js/embed.min.js"></script>
+    </section>
 </#macro>
 <@page/>
