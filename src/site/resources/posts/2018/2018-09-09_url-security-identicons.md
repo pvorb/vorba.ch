@@ -130,4 +130,5 @@ types could be created.
 I probably should start to develop a browser extension that implements this idea and look how this idea works in
 practice. If you think this idea would be worth giving a try, feel free to go ahead and implement something yourself!
 
-What do you think about this idea? Let me know in the comments!
+What do you think about this idea? Let me know in the comments or on
+[Hacker News](https://news.ycombinator.com/item?id=17947467)!
