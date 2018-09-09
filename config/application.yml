@@ -3,7 +3,7 @@ logging.level:
   de.vorb.sokrates: INFO
 
 spring.datasource:
-  url: jdbc:h2:./sokrates
+  url: jdbc:h2:./target/sokrates
   driver-class-name: org.h2.Driver
   username: sa
   password:
