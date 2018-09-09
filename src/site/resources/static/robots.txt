@@ -5,6 +5,5 @@ Disallow: /2011/test.html
 Disallow: /search.html
 Disallow: /public.asc
 Disallow: /paul.png
-Disallow: /res/
 Disallow: /contact.html
 Disallow: /license/
