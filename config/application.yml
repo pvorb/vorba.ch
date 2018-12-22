@@ -1,6 +1,6 @@
 logging.level:
   root: WARN
-  org.springframework: INFO
+  org.springframework.core.env.StandardEnvironment: INFO
   de.vorb.sokrates: INFO
 
 spring.datasource:
