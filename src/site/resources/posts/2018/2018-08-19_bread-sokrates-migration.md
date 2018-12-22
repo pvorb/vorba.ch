@@ -4,6 +4,7 @@ alias: bread-sokrates-migration.md
 
 author: Paul Vorbach
 created-at: 2018-08-19
+last-modified-at: 2018-12-22
 
 tags: [ deutsch, self, bread, sokrates, cms, weblog ]
 locale: de-DE
@@ -15,8 +16,6 @@ teaser:
 properties:
   highlight: "#3D8536"
 ...
-
-Selbstbezogene Blog-Posts schreiben sich immer am leichtesten. ;-)
 
 Gestern habe ich meinen vorherigen, selbstgeschriebenen *Static-Site-Generator* Bread[^bread] durch [Sokrates] abgelöst.
 Die Software funktioniert weitestgehend gleich, ist jedoch in Java geschrieben, was seit einiger Zeit eher meiner
