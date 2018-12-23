@@ -92,7 +92,7 @@ Hello, world
 
 That was smooth, wasn’t it? No JVM involved.
 
-And if we compare startup time using `time`, we see that only takes around three milliseconds to run:
+And if we compare startup time using `time`, we see that it only takes around three milliseconds to run:
 
 ~~~
 $ time ./main
