@@ -14,8 +14,10 @@ properties:
   highlight: "#02677d"
 ...
 
-In April of this year, Oracle announced GraalVM, a new virtual machine that claims to run applications written in a
+In April of this year, Oracle announced [GraalVM], a new virtual machine that claims to run applications written in a
 diverse set of languages either in a runtime environment like OpenJDK or Node.js, but also as a standalone program.
+
+[GraalVM]: https://www.graalvm.org/
 
 The last part attracted my attention. This could be used to improve the startup time of Java applications. The startup
 time of the JVM is often taken as a reason not to use it for writing command-line applications. Consequently Jan Stępień
