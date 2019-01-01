@@ -39,9 +39,14 @@ sokrates:
       - pattern: src/site/resources/posts/**/*.md
         base-directory: src/site/resources/posts
         format: markdown
+      - pattern: src/site/resources/pages/**/*.md
+        base-directory: src/site/resources/pages
+        format: markdown
     copy-rules:
       - pattern: src/site/resources/posts/**/*
         base-directory: src/site/resources/posts
+      - pattern: src/site/resources/pages/**/*
+        base-directory: src/site/resources/pages
       - pattern: src/site/resources/tag/**/*
         base-directory: src/site/resources
       - pattern: src/site/resources/static/**/*
@@ -58,6 +63,7 @@ sokrates:
       title: Blog index
       template: index.ftl
       output-file: index.html
+      where: source_file_path LIKE 'src/site/resources/posts/%'
       order-by:
         - created_at DESC
       grouping: BY_YEAR_CREATED
@@ -65,6 +71,7 @@ sokrates:
       title: Atom feed
       template: feed.ftl
       output-file: feed.xml
+      where: source_file_path LIKE 'src/site/resources/posts/%'
       order-by:
         - created_at DESC
       limit: 10

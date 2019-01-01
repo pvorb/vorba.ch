@@ -53,7 +53,7 @@
     <@page_comments/>
     <footer id="about">
         <p>© ${copyrightYears} – Paul Vorbach.
-            <a href="http://paul.vorba.ch/">${l10n.translate("footer.contact", .locale)}</a>.</p>
+            <a href="/impressum.html">${l10n.translate("footer.imprint", .locale)}</a>.</p>
     </footer>
 </body>
 </html>
