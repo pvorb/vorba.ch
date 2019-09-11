@@ -102,7 +102,18 @@ So I only had to define a list of *.tld files on the classpath? That was worth g
 code to the constructor of my `@SpringBootApplication` class.
 
 ~~~ java
-freeMarkerConfigurer.getTaglibFactory().setClasspathTlds(singletonList("/META-INF/security.tld"));
+@SpringBootApplication
+public class FreemarkerJspTaglibSampleApplication {
+
+    public FreemarkerJspTaglibSampleApplication(FreeMarkerConfigurer freeMarkerConfigurer) {
+        freeMarkerConfigurer.getTaglibFactory().setClasspathTlds(singletonList("/META-INF/security.tld"));
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(FreemarkerJspTaglibSampleApplication.class, args);
+    }
+
+}
 ~~~
 
 My template still threw an exception. But wait, the exception had changed!
