@@ -11,6 +11,7 @@ before_script:
 deploy:
   script:
     - "mvn -B package | grep --color=never sokrates"
+    - "find target/sokrates/ -type f ! -name '*.gz' ! -name '*.jpg' ! -name '*.png' ! -name '*.gif' -exec gzip --force --best --keep \"{}\" \\;"
     - "rsync -avr --delete-after --chmod 777 target/sokrates/ pvo@vorba.ch:/var/www/vorba.ch/"
   only:
     - master
