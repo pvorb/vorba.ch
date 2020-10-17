@@ -4,7 +4,7 @@ before_script:
   - "apt-get update"
   - "apt-get -qq -y install pandoc rsync"
   - "eval $(ssh-agent -s)"
-  - "echo \"$SSH_PRIVATE_KEY\" | ssh-add - > /dev/null"
+  - "echo \"$SSH_PRIVATE_KEY\" | tr -d '\r' | ssh-add - > /dev/null"
   - "mkdir -p ~/.ssh"
   - "[[ -f /.dockerenv ]] && echo \"$SSH_SERVER_HOSTKEYS\" > ~/.ssh/known_hosts"
 
